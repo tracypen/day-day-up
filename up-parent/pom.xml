@@ -9,5 +9,9 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
+    <modules>
+        <module>../up-core</module>
+        <module>../up-business</module>
+    </modules>
 
 </project>
