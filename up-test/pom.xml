@@ -11,7 +11,7 @@
     <artifactId>up-test</artifactId>
     <packaging>jar</packaging>
 
-    <name>up-test</name>
+    <name>测试</name>
     <url>http://maven.apache.org</url>
 
     <properties>

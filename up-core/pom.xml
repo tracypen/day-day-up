@@ -10,7 +10,7 @@
   <artifactId>up-core</artifactId>
   <packaging>jar</packaging>
 
-  <name>up-core</name>
+  <name>核心层</name>
   <url>http://maven.apache.org</url>
 
   <properties>
