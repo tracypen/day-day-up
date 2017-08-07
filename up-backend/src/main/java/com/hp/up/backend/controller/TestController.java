@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * Created by Administrator on 2017/8/1.
+ * index 测试controller
  */
 @Controller
 @RequestMapping("/index")
@@ -17,7 +17,10 @@ public class TestController {
     @RequestMapping("")
     @ResponseBody
     public  String test(){
-        logger.debug("---------------------------------");
+        logger.debug("debug--------");
+        logger.info("info----------");
+        logger.warn("warn----------");
+        logger.error("error---------");
         return  "test";
     }
 
