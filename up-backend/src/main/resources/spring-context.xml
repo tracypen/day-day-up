@@ -8,38 +8,45 @@
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <!-- 设置扫描使用注解的类所在的包 -->
-    <!--<context:component-scan base-package="io.zhijian" scoped-proxy="interfaces">-->
-        <!--<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>-->
-    <!--</context:component-scan>-->
 
-    <!--&lt;!&ndash; 加载配置文件数据 &ndash;&gt;-->
-    <!--<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
-        <!--<property name="locations">-->
-            <!--<list>-->
-                <!--<value>classpath*:config/db.properties</value>-->
-                <!--<value>classpath*:config/application.properties</value>-->
-            <!--</list>-->
-        <!--</property>-->
-        <!--<property name="ignoreUnresolvablePlaceholders" value="true"/>-->
-    <!--</bean>-->
+    <context:property-placeholder ignore-resource-not-found="true" local-override="true"
+                                  location="classpath:/config/application.properties,classpath:/config/${profile.active}/db.properties" />
 
-    <!--&lt;!&ndash;@Value读取配置文件&ndash;&gt;-->
-    <!--<bean id="propertiesReader"-->
-          <!--class="org.springframework.beans.factory.config.PropertiesFactoryBean">-->
-        <!--<property name="locations">-->
-            <!--<list>-->
-                <!--<value>classpath*:config/application.properties</value>-->
-            <!--</list>-->
-        <!--</property>-->
-        <!--&lt;!&ndash; 设置编码格式 &ndash;&gt;-->
-        <!--<property name="fileEncoding" value="UTF-8"></property>-->
-    <!--</bean>-->
 
-    <!--&lt;!&ndash; 激活自动代理功能 &ndash;&gt;-->
-    <!--<aop:aspectj-autoproxy proxy-target-class="true" />-->
+    <!-- 加载配置文件数据 -->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath*:config/${profile.active}/db.properties</value>
+                <!--<value>classpath*:config/${profile.active}/application.properties</value>-->
+            </list>
+        </property>
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+    </bean>
 
-    <!--&lt;!&ndash; 扫描切面包路径 &ndash;&gt;-->
+    <!--@Value读取配置文件-->
+    <bean id="propertiesReader"
+          class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="locations">
+            <list>
+                <value>classpath*:config/${profile.active}/application.properties</value>
+            </list>
+        </property>
+        <!-- 设置编码格式 -->
+        <property name="fileEncoding" value="UTF-8"></property>
+    </bean>
+
+
+    <context:component-scan base-package="com.hp.up">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+    </context:component-scan>
+
+
+
+    <!-- 激活自动代理功能 -->
+    <aop:aspectj-autoproxy proxy-target-class="true" />
+
+    <!-- 扫描切面包路径 -->
     <!--<bean id="logAspect" class="io.zhijian.log.aop.LogAspect">-->
         <!--<property name="logPoint">-->
             <!--<bean class="io.zhijian.system.service.impl.SystemLogService" />-->
@@ -53,6 +60,6 @@
     <!--</aop:config>-->
 
     <!--<import resource="/spring-ehcache.xml" />-->
-    <!--<import resource="/spring-mybatis.xml"/>-->
+    <import resource="/spring-mybatis.xml"/>
     <!--<import resource="/spring-shiro.xml" />-->
 </beans>
