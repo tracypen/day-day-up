@@ -34,7 +34,7 @@
     </modules>
 
     <properties>
-        <fw.encoding>UTF-8</fw.encoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jdk.version>1.8</jdk.version>
         <spring.version>4.1.6.RELEASE</spring.version>
         <spring.aspects.version>3.2.4.RELEASE</spring.aspects.version>
@@ -276,116 +276,48 @@
 
     <build>
         <finalName>up</finalName>
-        <pluginManagement>
-        <plugins>
-        <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-clean-plugin</artifactId>
-        <version>2.5</version>
-        </plugin>
-        <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-source-plugin</artifactId>
-        <version>2.2.1</version>
-        </plugin>
-        <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.2</version>
-        <configuration>
-        <source>${jdk.version}</source>
-        <target>${jdk.version}</target>
-        <encoding>${fw.encoding}</encoding>
-        </configuration>
-        </plugin>
-        <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-resources-plugin</artifactId>
-        <version>2.6</version>
-        </plugin>
-        <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-install-plugin</artifactId>
-        <version>2.5</version>
-        </plugin>
-        <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>2.4</version>
-        <configuration>
-        <archive>
-        <manifest>
-        <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-        </manifest>
-        </archive>
-        </configuration>
-        </plugin>
-        <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-war-plugin</artifactId>
-        <version>2.4</version>
-        <configuration>
-        <warName>${project.build.finalName}</warName>
-        </configuration>
-        </plugin>
-        <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.16</version>
-        <configuration>
-        <argLine>-Xmx256M</argLine>
-        <includes>
-        <include>**/*UT.java</include>
-        <include>**/*FT.java</include>
-        </includes>
-        </configuration>
-        <dependencies>
-        <dependency>
-        <groupId>org.apache.maven.surefire</groupId>
-        <artifactId>surefire-junit47</artifactId>
-        <version>2.16</version>
-        </dependency>
-        </dependencies>
-        </plugin>
-        <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-enforcer-plugin</artifactId>
-        <version>1.2</version>
-        </plugin>
-        <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>build-helper-maven-plugin</artifactId>
-        <version>1.9</version>
-        </plugin>
 
-        <plugin>
-        <groupId>org.mortbay.jetty</groupId>
-        <artifactId>jetty-maven-plugin</artifactId>
-        <version>${jetty.version}</version>
-        </plugin>
-        <plugin>
-        <groupId>org.apache.tomcat.maven</groupId>
-        <artifactId>tomcat7-maven-plugin</artifactId>
-        <version>2.2</version>
-        </plugin>
-        <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <version>2.8</version>
-        </plugin>
-        <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>versions-maven-plugin</artifactId>
-        <version>2.1</version>
-        </plugin>
-        </plugins>
-        </pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.1</version>
+                    <configuration>
+                        <source>${jdk.version}</source>
+                        <target>${jdk.version}</target>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                        <fork>true</fork>
+                        <meminitial>512m</meminitial>
+                        <maxmem>2048m</maxmem>
+                    </configuration>
+                </plugin>
+
+                <!-- maven war -->
+                <plugin>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>3.0.0</version>
+                    <configuration>
+                        <warSourceDirectory>src/main/webapp</warSourceDirectory>
+                        <archive>
+                            <addMavenDescriptor>false</addMavenDescriptor>
+                        </archive>
+                        <!--<warName>app</warName>-->
+                        <webResources>
+                            <resource>
+                                <directory>src/main/resources/config/dev</directory>
+                                <targetPath>WEB-INF/classes/config</targetPath>
+                                <filtering>true</filtering>
+                            </resource>
+                        </webResources>
+                    </configuration>
+                </plugin>
+            </plugins>
+
         <resources>
             <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
+                <directory>src/main/java</directory>
                 <includes>
-                    <include>**/*.*</include>
+                    <include>**/*.xml</include>
                 </includes>
             </resource>
         </resources>
@@ -416,111 +348,6 @@
 
 
 
-    <!--<build>-->
-        <!--<pluginManagement>-->
-            <!--<plugins>-->
-                <!--<plugin>-->
-                    <!--<groupId>org.apache.maven.plugins</groupId>-->
-                    <!--<artifactId>maven-clean-plugin</artifactId>-->
-                    <!--<version>2.5</version>-->
-                <!--</plugin>-->
-                <!--<plugin>-->
-                    <!--<groupId>org.apache.maven.plugins</groupId>-->
-                    <!--<artifactId>maven-source-plugin</artifactId>-->
-                    <!--<version>2.2.1</version>-->
-                <!--</plugin>-->
-                <!--<plugin>-->
-                    <!--<groupId>org.apache.maven.plugins</groupId>-->
-                    <!--<artifactId>maven-compiler-plugin</artifactId>-->
-                    <!--<version>3.2</version>-->
-                    <!--<configuration>-->
-                        <!--<source>${jdk.version}</source>-->
-                        <!--<target>${jdk.version}</target>-->
-                        <!--<encoding>${fw.encoding}</encoding>-->
-                    <!--</configuration>-->
-                <!--</plugin>-->
-                <!--<plugin>-->
-                    <!--<groupId>org.apache.maven.plugins</groupId>-->
-                    <!--<artifactId>maven-resources-plugin</artifactId>-->
-                    <!--<version>2.6</version>-->
-                <!--</plugin>-->
-                <!--<plugin>-->
-                    <!--<groupId>org.apache.maven.plugins</groupId>-->
-                    <!--<artifactId>maven-install-plugin</artifactId>-->
-                    <!--<version>2.5</version>-->
-                <!--</plugin>-->
-                <!--<plugin>-->
-                    <!--<groupId>org.apache.maven.plugins</groupId>-->
-                    <!--<artifactId>maven-jar-plugin</artifactId>-->
-                    <!--<version>2.4</version>-->
-                    <!--<configuration>-->
-                        <!--<archive>-->
-                            <!--<manifest>-->
-                                <!--<addDefaultImplementationEntries>true</addDefaultImplementationEntries>-->
-                            <!--</manifest>-->
-                        <!--</archive>-->
-                    <!--</configuration>-->
-                <!--</plugin>-->
-                <!--<plugin>-->
-                    <!--<groupId>org.apache.maven.plugins</groupId>-->
-                    <!--<artifactId>maven-war-plugin</artifactId>-->
-                    <!--<version>2.4</version>-->
-                    <!--<configuration>-->
-                        <!--<warName>${project.build.finalName}</warName>-->
-                    <!--</configuration>-->
-                <!--</plugin>-->
-                <!--<plugin>-->
-                    <!--<groupId>org.apache.maven.plugins</groupId>-->
-                    <!--<artifactId>maven-surefire-plugin</artifactId>-->
-                    <!--<version>2.16</version>-->
-                    <!--<configuration>-->
-                        <!--<argLine>-Xmx256M</argLine>-->
-                        <!--<includes>-->
-                            <!--<include>**/*UT.java</include>-->
-                            <!--<include>**/*FT.java</include>-->
-                        <!--</includes>-->
-                    <!--</configuration>-->
-                    <!--<dependencies>-->
-                        <!--<dependency>-->
-                            <!--<groupId>org.apache.maven.surefire</groupId>-->
-                            <!--<artifactId>surefire-junit47</artifactId>-->
-                            <!--<version>2.16</version>-->
-                        <!--</dependency>-->
-                    <!--</dependencies>-->
-                <!--</plugin>-->
-                <!--<plugin>-->
-                    <!--<groupId>org.apache.maven.plugins</groupId>-->
-                    <!--<artifactId>maven-enforcer-plugin</artifactId>-->
-                    <!--<version>1.2</version>-->
-                <!--</plugin>-->
-                <!--<plugin>-->
-                    <!--<groupId>org.codehaus.mojo</groupId>-->
-                    <!--<artifactId>build-helper-maven-plugin</artifactId>-->
-                    <!--<version>1.9</version>-->
-                <!--</plugin>-->
 
-                <!--<plugin>-->
-                    <!--<groupId>org.mortbay.jetty</groupId>-->
-                    <!--<artifactId>jetty-maven-plugin</artifactId>-->
-                    <!--<version>${jetty.version}</version>-->
-                <!--</plugin>-->
-                <!--<plugin>-->
-                    <!--<groupId>org.apache.tomcat.maven</groupId>-->
-                    <!--<artifactId>tomcat7-maven-plugin</artifactId>-->
-                    <!--<version>2.2</version>-->
-                <!--</plugin>-->
-                <!--<plugin>-->
-                    <!--<groupId>org.apache.maven.plugins</groupId>-->
-                    <!--<artifactId>maven-dependency-plugin</artifactId>-->
-                    <!--<version>2.8</version>-->
-                <!--</plugin>-->
-                <!--<plugin>-->
-                    <!--<groupId>org.codehaus.mojo</groupId>-->
-                    <!--<artifactId>versions-maven-plugin</artifactId>-->
-                    <!--<version>2.1</version>-->
-                <!--</plugin>-->
-            <!--</plugins>-->
-        <!--</pluginManagement>-->
-    <!--</build>-->
 
 </project>

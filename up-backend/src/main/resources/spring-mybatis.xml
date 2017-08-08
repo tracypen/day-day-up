@@ -10,6 +10,7 @@
        http://www.springframework.org/schema/aop
        http://www.springframework.org/schema/aop/spring-aop.xsd">
 
+
     <!-- ali druid 数据库连接池 -->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
         <!-- 数据库基本信息配置 -->
@@ -30,7 +31,6 @@
         <property name="timeBetweenEvictionRunsMillis" value="${jdbc.timeBetweenEvictionRunsMillis}"/>
         <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
         <property name="minEvictableIdleTimeMillis" value="${jdbc.minEvictableIdleTimeMillis}"/>
-
         <property name="validationQuery" value="${jdbc.validationQuery}"/>
         <property name="testWhileIdle" value="${jdbc.testWhileIdle}"/>
         <property name="testOnBorrow" value="${jdbc.testOnBorrow}"/>
@@ -44,16 +44,12 @@
         <!-- 关闭 abanded 连接时输出错误日志 -->
         <property name="logAbandoned" value="${jdbc.logAbandoned}"/>
     </bean>
-
-
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="mapperLocations" value="classpath:mybatis/*.xml"/>
+        <property name="mapperLocations" value="classpath*:/mybatis/*.xml"/>
         <property name="typeAliasesPackage" value="com.hp.up.core.Entity" />
         <!-- 引入分页插件 -->
         <property name="configLocation" value="classpath:mybatis-config.xml" />
-
-
     </bean>
     <!-- 扫描dao包，转换成映射 -->
     <bean id="mapperScanner" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
@@ -70,15 +66,4 @@
     <!-- 	开启事务注解支持，可以使用注解管理事务
         必须注入 事务管理器对象 -->
     <tx:annotation-driven transaction-manager="txMgr"/>
-
-
-
-
-
-
-
-
-
-
-
 </beans>

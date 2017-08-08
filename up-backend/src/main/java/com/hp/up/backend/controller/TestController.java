@@ -44,7 +44,7 @@ public class TestController {
             map.addAttribute("user",userEntity);
             return  "/admin/admin";
         }
-     return  "/index";
+     return  "/admin/index";
     }
 
 

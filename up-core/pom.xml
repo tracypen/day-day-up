@@ -101,24 +101,12 @@
             <artifactId>spring-test</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet.jsp</groupId>
-            <artifactId>jsp-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
+
         <dependency>
             <groupId>taglibs</groupId>
             <artifactId>standard</artifactId>
         </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
-        </dependency>
+
 
         <dependency>
             <groupId>com.github.pagehelper</groupId>
@@ -135,10 +123,7 @@
             <artifactId>aspectjweaver</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
-        </dependency>
+
 
         <dependency>
             <groupId>com.github.axet</groupId>
@@ -159,6 +144,15 @@
 
         <groupId>org.springframework.data</groupId>
         <artifactId>spring-data-redis</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
         </dependency>
     </dependencies>
 </project>

@@ -9,16 +9,16 @@
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
 
-    <context:property-placeholder ignore-resource-not-found="true" local-override="true"
-                                  location="classpath:/config/application.properties,classpath:/config/${profile.active}/db.properties" />
+    <!--<context:property-placeholder ignore-resource-not-found="true" local-override="true"-->
+                                  <!--location="classpath:/config/application.properties,classpath:/config/${profile.active}/db.properties" />-->
 
 
     <!-- 加载配置文件数据 -->
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
-                <value>classpath*:config/${profile.active}/db.properties</value>
-                <!--<value>classpath*:config/${profile.active}/application.properties</value>-->
+                <value>classpath*:config/dev/db.properties</value>
+                <value>classpath*:config/dev/application.properties</value>
             </list>
         </property>
         <property name="ignoreUnresolvablePlaceholders" value="true"/>
