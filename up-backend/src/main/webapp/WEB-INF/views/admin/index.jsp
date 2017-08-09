@@ -13,8 +13,8 @@
 <p>登录</p>
 <form action="<%=basePath%>index/login" method="post" name="" id="">
 
-    <input type="text" name="name" value="" placeholder="请输入用户名"><br>
-    <input type="password" name="password" value="" placeholder="请输入密码"><br>
+    <input type="text" name="name"  placeholder="请输入用户名"><br>
+    <input type="password" name="password"  placeholder="请输入密码"><br>
     <input type="submit" value=" 登录" >
 
 

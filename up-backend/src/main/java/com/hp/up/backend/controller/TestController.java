@@ -39,7 +39,7 @@ public class TestController {
 
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public  String login(User user, ModelMap map){
-        User userEntity = userService.getUserByName(new User());
+        User userEntity = userService.getUserByName(user);
         if (userEntity != user){
             map.addAttribute("user",userEntity);
             return  "/admin/admin";

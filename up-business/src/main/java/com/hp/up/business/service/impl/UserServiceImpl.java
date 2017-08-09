@@ -1,7 +1,9 @@
 package com.hp.up.business.service.impl;
 
+import com.hp.up.business.repository.UserRepository;
 import com.hp.up.business.service.UserService;
 import com.hp.up.core.Entity.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -10,7 +12,10 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UserServiceImpl implements UserService {
+    @Autowired
+    private UserRepository userRepository;
     public User getUserByName(User user) {
-        return new User(new Long(1),"admin","111111");
+        System.out.println(user);
+        return userRepository.findUserByName(user.getName());
     }
 }

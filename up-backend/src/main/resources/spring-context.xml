@@ -9,9 +9,8 @@
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
 
-    <!--<context:property-placeholder ignore-resource-not-found="true" local-override="true"-->
-                                  <!--location="classpath:/config/application.properties,classpath:/config/${profile.active}/db.properties" />-->
 
+    <context:component-scan base-package="com.hp.up.business"/>
 
     <!-- 加载配置文件数据 -->
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -22,42 +21,15 @@
             </list>
         </property>
         <property name="ignoreUnresolvablePlaceholders" value="true"/>
-    </bean>
 
-    <!--@Value读取配置文件-->
-    <bean id="propertiesReader"
-          class="org.springframework.beans.factory.config.PropertiesFactoryBean">
-        <property name="locations">
-            <list>
-                <value>classpath*:config/${profile.active}/application.properties</value>
-            </list>
-        </property>
         <!-- 设置编码格式 -->
         <property name="fileEncoding" value="UTF-8"></property>
     </bean>
 
 
-    <context:component-scan base-package="com.hp.up">
-        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
-    </context:component-scan>
-
-
 
     <!-- 激活自动代理功能 -->
     <aop:aspectj-autoproxy proxy-target-class="true" />
-
-    <!-- 扫描切面包路径 -->
-    <!--<bean id="logAspect" class="io.zhijian.log.aop.LogAspect">-->
-        <!--<property name="logPoint">-->
-            <!--<bean class="io.zhijian.system.service.impl.SystemLogService" />-->
-        <!--</property>-->
-    <!--</bean>-->
-    <!--<aop:config>-->
-        <!--<aop:aspect ref="logAspect">-->
-            <!--<aop:pointcut id="logPointCut" expression="@annotation(io.zhijian.log.annotation.Log)" />-->
-            <!--<aop:around pointcut-ref="logPointCut" method="save" />-->
-        <!--</aop:aspect>-->
-    <!--</aop:config>-->
 
     <!--<import resource="/spring-ehcache.xml" />-->
     <import resource="/spring-mybatis.xml"/>

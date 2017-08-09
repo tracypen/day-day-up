@@ -44,5 +44,8 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <finalName>up-backend</finalName>
+    </build>
 
 </project>
