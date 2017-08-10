@@ -40,10 +40,15 @@ public class TestController {
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public  String login(User user, ModelMap map){
         User userEntity = userService.getUserByName(user);
-        if (userEntity != user){
-            map.addAttribute("user",userEntity);
-            return  "/admin/admin";
+        if (null != userEntity){
+            if(userEntity.getPassword().equals(user.getPassword())){
+                map.addAttribute("user",userEntity);
+                return  "/admin/admin";
+            }
+            map.addAttribute("msg","密码错误！");
+            return  "/admin/index";
         }
+        map.addAttribute("msg","账号不存在！");
      return  "/admin/index";
     }
 

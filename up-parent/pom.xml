@@ -276,56 +276,6 @@
         </dependencies>
 
     </dependencyManagement>
-
-
-    <build>
-        <finalName>up</finalName>
-
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.1</version>
-                    <configuration>
-                        <source>${jdk.version}</source>
-                        <target>${jdk.version}</target>
-                        <encoding>${project.build.sourceEncoding}</encoding>
-                        <fork>true</fork>
-                        <meminitial>512m</meminitial>
-                        <maxmem>2048m</maxmem>
-                    </configuration>
-                </plugin>
-
-                <!-- maven war -->
-                <plugin>
-                    <artifactId>maven-war-plugin</artifactId>
-                    <version>3.0.0</version>
-                    <configuration>
-                        <warSourceDirectory>src/main/webapp</warSourceDirectory>
-                        <archive>
-                            <addMavenDescriptor>false</addMavenDescriptor>
-                        </archive>
-                        <!--<warName>app</warName>-->
-                        <webResources>
-                            <resource>
-                                <directory>src/main/resources/config/dev</directory>
-                                <targetPath>WEB-INF/classes/config</targetPath>
-                                <filtering>true</filtering>
-                            </resource>
-                        </webResources>
-                    </configuration>
-                </plugin>
-            </plugins>
-
-        <resources>
-            <resource>
-                <directory>src/main/java</directory>
-                <includes>
-                    <include>**/*.xml</include>
-                </includes>
-            </resource>
-        </resources>
-    </build>
     <profiles>
         <profile>
             <id>dev</id>
@@ -350,8 +300,56 @@
         </profile>
     </profiles>
 
+    <!--<build>-->
+        <!--<finalName>up</finalName>-->
+        <!--<defaultGoal>compile</defaultGoal>-->
 
+        <!--<plugins>-->
+            <!--&lt;!&ndash; maven compiler &ndash;&gt;-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-compiler-plugin</artifactId>-->
+                <!--<version>3.1</version>-->
+                <!--<configuration>-->
+                    <!--<source>${jdk.version}</source>-->
+                    <!--<target>${jdk.version}</target>-->
+                    <!--<encoding>${project.build.sourceEncoding}</encoding>-->
+                    <!--<fork>true</fork>-->
+                    <!--<meminitial>512m</meminitial>-->
+                    <!--<maxmem>2048m</maxmem>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
 
+            <!--&lt;!&ndash; maven war &ndash;&gt;-->
+            <!--<plugin>-->
+                <!--<artifactId>maven-war-plugin</artifactId>-->
+                <!--<version>3.0.0</version>-->
+                <!--<configuration>-->
+                    <!--<warSourceDirectory>src/main/webapp</warSourceDirectory>-->
+                    <!--<archive>-->
+                        <!--<addMavenDescriptor>false</addMavenDescriptor>-->
+                    <!--</archive>-->
+                    <!--&lt;!&ndash;<warName>app</warName>&ndash;&gt;-->
+                    <!--<webResources>-->
+                        <!--<resource>-->
+                            <!--<directory>src/main/resources/config/${profile.active}</directory>-->
+                            <!--<targetPath>WEB-INF/classes/config</targetPath>-->
+                            <!--<filtering>true</filtering>-->
+                        <!--</resource>-->
+                    <!--</webResources>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+        <!--</plugins>-->
+
+        <!--<resources>-->
+            <!--<resource>-->
+                <!--<directory>src/main</directory>-->
+                <!--<includes>-->
+                    <!--<include>**/*.xml</include>-->
+                <!--</includes>-->
+            <!--</resource>-->
+        <!--</resources>-->
+    <!--</build>-->
 
 
 </project>

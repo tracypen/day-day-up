@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
- <h5>hello admin !</h5>
+ <h5>hello ${user.name} !</h5>
 </body>
 </html>
