@@ -23,7 +23,7 @@
         <!-- druid 连接池的 -->
         <property name="filters" value="stat" />
 
-        <!-- 下面druid 和 dbcp 连接池通用的 ↓↓↓↓↓↓↓↓↓↓↓↓ -->
+        <!-- 下面druid 和 dbcp 连接池通用的 -->
         <!--maxActive: 最大连接数量 -->
         <property name="maxActive" value="20" />
         <!--initialSize: 初始化连接 -->
@@ -43,8 +43,8 @@
 
     </bean>
 
-    <!-- spring-mybatis.xml -->
-    <!-- 创建事务管理器Bean -->
+     <!--spring-mybatis.xml -->
+     <!--创建事务管理器Bean -->
     <bean id="txMgr" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <!-- 事务管理器必须注入 dataSource 对象 -->
         <property name="dataSource" ref="dataSource" />

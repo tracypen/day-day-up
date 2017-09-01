@@ -29,7 +29,6 @@
         <module>../up-core</module>
         <module>../up-business</module>
         <module>../up-backend</module>
-
     </modules>
 
     <properties>
@@ -64,7 +63,7 @@
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
-                <version>5.1.41</version>
+                <version>5.1.27</version>
             </dependency>
             <dependency>
                 <groupId>com.hp.up</groupId>
