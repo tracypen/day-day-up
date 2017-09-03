@@ -14,9 +14,8 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
-    public User getUserByName(User user) {
-        System.out.println("----------------------------");
-        System.out.println(user);
-        return userRepository.findUserByName(user.getName());
+    public User getUserByName(String  userName) {
+        System.out.println(userName);
+        return userRepository.findUserByName(userName);
     }
 }

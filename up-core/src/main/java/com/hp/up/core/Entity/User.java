@@ -10,6 +10,7 @@ public class User implements Serializable{
     private Long id;
     private String name;
     private String password;
+    private String salt;
 
     public User() {
     }
@@ -42,6 +43,14 @@ public class User implements Serializable{
 
     public String getPassword() {
         return password;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
     }
 
     @Override
