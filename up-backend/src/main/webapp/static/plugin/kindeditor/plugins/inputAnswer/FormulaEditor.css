@@ -1,0 +1,1653 @@
+.itemT {
+	WORD-WRAP: normal
+}
+.clear {
+	HEIGHT: 0px; CLEAR: both; OVERFLOW: hidden
+}
+.FEBox {
+	BORDER-BOTTOM: #1d887b 1px solid; POSITION: relative; MIN-WIDTH: 30px; PADDING-BOTTOM: 4px; LINE-HEIGHT: normal; BACKGROUND-COLOR: #fff; PADDING-LEFT: 3px; PADDING-RIGHT: 3px; ZOOM: 1; DISPLAY: inline-block; FONT-FAMILY: "ËÎÌå"; WHITE-SPACE: nowrap; MARGIN-LEFT: 2px; FONT-SIZE: 0px; OVERFLOW: visible; MARGIN-RIGHT: 2px; PADDING-TOP: 2px; _display: inline; _padding: 2px 20px 4px 5px
+}
+.FEBoxTextArea.FEBox {
+	BORDER-BOTTOM: #bbb 1px solid; BORDER-LEFT: #bbb 1px solid; OVERFLOW-X: visible; OVERFLOW-Y: auto; MIN-HEIGHT: 60px; DISPLAY: block; WORD-WRAP: break-word; MARGIN-LEFT: 0px; WORD-BREAK: break-all; BORDER-TOP: #bbb 1px solid; MARGIN-RIGHT: 0px; BORDER-RIGHT: #bbb 1px solid; _height: 60px
+}
+.FEBoxBorderDashed.FEBox {
+	BORDER-BOTTOM-STYLE: dashed
+}
+.FEBox P {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; OUTLINE-STYLE: none; OUTLINE-COLOR: invert; PADDING-LEFT: 0px; OUTLINE-WIDTH: medium; PADDING-RIGHT: 0px; FONT-FAMILY: "·ÂËÎ"; WHITE-SPACE: nowrap; FONT-SIZE: 0px; PADDING-TOP: 0px
+}
+.FEBox DIV {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; OUTLINE-STYLE: none; OUTLINE-COLOR: invert; PADDING-LEFT: 0px; OUTLINE-WIDTH: medium; PADDING-RIGHT: 0px; FONT-FAMILY: "·ÂËÎ"; WHITE-SPACE: nowrap; FONT-SIZE: 0px; PADDING-TOP: 0px
+}
+.FEBox TABLE {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; OUTLINE-STYLE: none; OUTLINE-COLOR: invert; PADDING-LEFT: 0px; OUTLINE-WIDTH: medium; PADDING-RIGHT: 0px; FONT-FAMILY: "·ÂËÎ"; WHITE-SPACE: nowrap; FONT-SIZE: 0px; PADDING-TOP: 0px
+}
+.FEBox TR {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; OUTLINE-STYLE: none; OUTLINE-COLOR: invert; PADDING-LEFT: 0px; OUTLINE-WIDTH: medium; PADDING-RIGHT: 0px; FONT-FAMILY: "·ÂËÎ"; WHITE-SPACE: nowrap; FONT-SIZE: 0px; PADDING-TOP: 0px
+}
+.FEBox TD {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; OUTLINE-STYLE: none; OUTLINE-COLOR: invert; PADDING-LEFT: 0px; OUTLINE-WIDTH: medium; PADDING-RIGHT: 0px; FONT-FAMILY: "·ÂËÎ"; WHITE-SPACE: nowrap; FONT-SIZE: 0px; PADDING-TOP: 0px
+}
+.FEBox TBODY {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; OUTLINE-STYLE: none; OUTLINE-COLOR: invert; PADDING-LEFT: 0px; OUTLINE-WIDTH: medium; PADDING-RIGHT: 0px; FONT-FAMILY: "·ÂËÎ"; WHITE-SPACE: nowrap; FONT-SIZE: 0px; PADDING-TOP: 0px
+}
+.FEBox P {
+	HEIGHT: 3px
+}
+.FEBox DIV {
+	ZOOM: 1; DISPLAY: inline-block; _display: inline
+}
+.FEBox TABLE {
+	ZOOM: 1; DISPLAY: inline-block; _display: inline
+}
+.FEBox TD {
+	HEIGHT: 100%
+}
+.FEBox .Reserve {
+	BORDER-BOTTOM: #fff 1px dotted; BORDER-LEFT: #fff 1px dotted; LINE-HEIGHT: 16px; MIN-HEIGHT: 16px; FONT-SIZE: 16px; BORDER-TOP: #fff 1px dotted; BORDER-RIGHT: #fff 1px dotted; _height: 16px
+}
+.FEBox .ReserveHover {
+	BORDER-BOTTOM: red 1px dotted; BORDER-LEFT: red 1px dotted; BORDER-TOP: red 1px dotted; BORDER-RIGHT: red 1px dotted
+}
+.NoBorder.FEBox .Reserve {
+	BORDER-LEFT: medium none; BORDER-RIGHT: medium none
+}
+.NoBorder.FEBox .ReserveHover {
+	BORDER-BOTTOM: #fff 1px dotted; BORDER-LEFT: medium none; BORDER-TOP: #fff 1px dotted; BORDER-RIGHT: medium none
+}
+.FEBox .SqrtTable .SqrtLeft {
+	TEXT-ALIGN: right; VERTICAL-ALIGN: bottom
+}
+.FEBox .SqrtTable .SqrtLeft .SqrtLeftnone {
+	WIDTH: 6px; BACKGROUND: url(../images/FEimg.png) no-repeat right -53px; HEIGHT: 8px
+}
+.FEBox .SqrtTable .SqrtRoot {
+	VERTICAL-ALIGN: top
+}
+.FEBox .SqrtTable .SqrtRoot > DIV {
+	LINE-HEIGHT: 10px
+}
+.FEBox .SqrtTable .SqrtMiddle {
+	WIDTH: 6px
+}
+.FEBox .SqrtTable .SqrtMiddle .SqrtCanvas {
+	WIDTH: 6px
+}
+.FEBox .SqrtTable .SqrtMiddle .LtIE9 {
+	HEIGHT: 21px
+}
+.FEBox .SqrtTable .SqrtRight {
+	PADDING-LEFT: 1px; BORDER-TOP: #000 1px solid; PADDING-TOP: 2px
+}
+.FEBox .Fraction {
+	TEXT-ALIGN: center
+}
+.FEBox .FractLine {
+	PADDING-BOTTOM: 1px; OVERFLOW-Y: hidden; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; HEIGHT: 1px; PADDING-TOP: 1px
+}
+.FEBox .FractLine DIV {
+	OVERFLOW-Y: hidden; BACKGROUND-COLOR: #000; DISPLAY: block; HEIGHT: 1px
+}
+.FEBox .LoopBox .SignTop {
+	POSITION: relative; TEXT-ALIGN: center; HEIGHT: 5px; VERTICAL-ALIGN: middle
+}
+.FEBox .AvgBox .SignTop {
+	POSITION: relative; TEXT-ALIGN: center; HEIGHT: 5px; VERTICAL-ALIGN: middle
+}
+.FEBox .VectorBox .SignTop {
+	POSITION: relative; TEXT-ALIGN: center; HEIGHT: 5px; VERTICAL-ALIGN: middle
+}
+.FEBox .ArcBox .SignTop {
+	POSITION: relative; TEXT-ALIGN: center; HEIGHT: 5px; VERTICAL-ALIGN: middle
+}
+.FEBox .LimitBox .SignTop {
+	POSITION: relative; TEXT-ALIGN: center; HEIGHT: 5px; VERTICAL-ALIGN: middle
+}
+.FEBox .LoopBox .SignTop .LoopDiv {
+	BACKGROUND-COLOR: #000; WIDTH: 3px; HEIGHT: 3px; OVERFLOW: hidden
+}
+.FEBox .AvgBox .SignTop .AvgDiv {
+	OVERFLOW-Y: hidden; BACKGROUND-COLOR: #000; DISPLAY: block; HEIGHT: 1px
+}
+.FEBox .VectorBox > TBODY > TR > .SignTop {
+	BACKGROUND: url(FEimg.png) no-repeat right 0px
+}
+.FEBox .VectorBox .SignTop {
+	_background: url(FEimg.png) right 0 no-repeat
+}
+.FEBox .VectorBox .LoopBox .SignTop {
+	_background: none
+}
+.FEBox .VectorBox .AvgBox .SignTop {
+	_background: none
+}
+.FEBox .VectorBox .ArcBox .SignTop {
+	_background: none
+}
+.FEBox .VectorBox .LimitBox .SignTop {
+	_background: none
+}
+.FEBox .VectorBox .SignTop .VectorDiv {
+	OVERFLOW-Y: hidden; BACKGROUND-COLOR: #000; DISPLAY: block; HEIGHT: 1px
+}
+.FEBox .ArcBox .SignTop .ArcCanvas {
+	HEIGHT: 5px
+}
+.FEBox .ArcBox .SignTop .LtIE9 {
+	WIDTH: 8px
+}
+.FEBox .LimitBox TD {
+	TEXT-ALIGN: center
+}
+.FEBox .LimitBox .SignTop {
+	LINE-HEIGHT: 20px; OVERFLOW-Y: hidden; FONT-FAMILY: "Times New Roman"; HEIGHT: 20px; FONT-SIZE: 18px
+}
+.FEBox .LimitBox .Reserve {
+	POSITION: relative
+}
+.FEBox .LimitBox .SingBottom > * {
+	MARGIN-TOP: -3px
+}
+.FEBox .Equa .EquaLeft {
+	WIDTH: 9px
+}
+.FEBox .Equa .EquaLeft .EquaLCanvas {
+	WIDTH: 9px
+}
+.FEBox .Equa .EquaLeft .LtIE9 {
+	HEIGHT: 40px
+}
+.FEBox .Equa .EquaBody .EquaBodyTD {
+	PADDING-BOTTOM: 1px; PADDING-LEFT: 1px; PADDING-RIGHT: 0px; PADDING-TOP: 1px
+}
+.FEBox .Matrix .MatrixLeft {
+	BORDER-BOTTOM: #000 1px solid; BORDER-LEFT: #000 1px solid; OVERFLOW-X: hidden; WIDTH: 3px; BORDER-TOP: #000 1px solid; BORDER-RIGHT: medium none
+}
+.FEBox .Matrix .MatrixRight {
+	BORDER-BOTTOM: #000 1px solid; BORDER-LEFT: medium none; OVERFLOW-X: hidden; WIDTH: 3px; BORDER-TOP: #000 1px solid; BORDER-RIGHT: #000 1px solid
+}
+.FEBox .Matrix .MatrixBody .MatrixBodyTD {
+	PADDING-BOTTOM: 1px; PADDING-LEFT: 2px; PADDING-RIGHT: 2px; PADDING-TOP: 1px
+}
+.FEBox .Bracket .BracketLeft {
+	WIDTH: 9px
+}
+.FEBox .Bracket .BracketRight {
+	WIDTH: 9px
+}
+.FEBox .Bracket .BracketLeft .BracketLCanvas {
+	WIDTH: 9px
+}
+.FEBox .Bracket .BracketRight .BracketRCanvas {
+	WIDTH: 9px
+}
+.FEBox .Bracket .BracketLeft .LtIE9 {
+	HEIGHT: 18px
+}
+.FEBox .Bracket .BracketRight .LtIE9 {
+	HEIGHT: 18px
+}
+.FEBox .Bracket .BracketBody {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 2px; PADDING-RIGHT: 2px; PADDING-TOP: 0px
+}
+.FEBox .Chemistry {
+	TEXT-ALIGN: center
+}
+.FEBox .Chemistry .ChemistryTD {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 4px; PADDING-RIGHT: 4px; PADDING-TOP: 0px
+}
+.FEBox .Chemistry .Reserve {
+	LINE-HEIGHT: 16px; MIN-HEIGHT: 16px; _height: 16px
+}
+.FEBox .Chemistry01.Fraction .FractTD {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 4px; PADDING-RIGHT: 4px; PADDING-TOP: 0px
+}
+.FEBox .ChemistryMiddle02 {
+	HEIGHT: 7px
+}
+.FEBox .ChemistryMiddle03 {
+	HEIGHT: 7px
+}
+.FEBox .ChemistryMiddle04 {
+	HEIGHT: 7px
+}
+.FEBox .ChemistryMiddle02 {
+	BACKGROUND: url(FEimg.png) no-repeat right 1px
+}
+.FEBox .ChemistryMiddle02 DIV {
+	OVERFLOW-Y: hidden; BACKGROUND-COLOR: #000; DISPLAY: block; HEIGHT: 1px
+}
+.FEBox .ChemistryMiddle03 DIV {
+	BORDER-BOTTOM: #000 1px solid; OVERFLOW-Y: hidden; BACKGROUND-COLOR: #fff; DISPLAY: block; HEIGHT: 1px; BORDER-TOP: #000 1px solid
+}
+.FEBox .ChemistryMiddle04 .divTop {
+	Z-INDEX: 99; BORDER-BOTTOM: #000 1px solid; POSITION: relative; OVERFLOW-Y: hidden; MARGIN-TOP: -2px; DISPLAY: block; BACKGROUND: url(FEimg.png) no-repeat right -9px; HEIGHT: 3px; MARGIN-RIGHT: 0px
+}
+.FEBox .ChemistryMiddle04 .divBottom {
+	Z-INDEX: 99; POSITION: relative; OVERFLOW-Y: hidden; MARGIN-TOP: 1px; DISPLAY: block; MARGIN-BOTTOM: -2px; BACKGROUND: url(FEimg.png) no-repeat left -12px; HEIGHT: 3px; BORDER-TOP: #000 1px solid; MARGIN-RIGHT: 0px
+}
+.FEBox .SignBox .SignBody {
+	VERTICAL-ALIGN: bottom
+}
+.FEBox .SignBox .SignBody > * {
+	MARGIN-BOTTOM: 3px
+}
+.FEBox .SignBox .SignLT {
+	VERTICAL-ALIGN: top
+}
+.FEBox .SignBox .SignRT {
+	VERTICAL-ALIGN: top
+}
+.FEBox .SignBox .SignLB {
+	VERTICAL-ALIGN: bottom
+}
+.FEBox .SignBox .SignRB {
+	VERTICAL-ALIGN: bottom
+}
+.FEBox .SignBox .SignLT {
+	TEXT-ALIGN: right
+}
+.FEBox .SignBox .SignLB {
+	TEXT-ALIGN: right
+}
+.FEBox .SignBox .SignMT {
+	TEXT-ALIGN: center
+}
+.FEBox .SignBox .SignLT .SignLTDiv {
+	TEXT-ALIGN: left
+}
+.FEBox .SignBox .SignLB .SignLBDiv {
+	TEXT-ALIGN: left
+}
+.FEBox .SignBox .SignMT .Reserve {
+	TEXT-ALIGN: left
+}
+.FEBox .Sing02.SignBox .SignRB {
+	VISIBILITY: hidden
+}
+.FEBox .Sing03.SignBox .SignRT {
+	VISIBILITY: hidden
+}
+.FEBox .Sing05.SignBox .SignLB {
+	VISIBILITY: hidden
+}
+.FEBox .Sing06.SignBox .SignLT {
+	VISIBILITY: hidden
+}
+.FEBox .Sing02.SignBox .SignRT {
+	VISIBILITY: visible
+}
+.FEBox .Sing03.SignBox .SignRB {
+	VISIBILITY: visible
+}
+.FEBox .Sing05.SignBox .SignLT {
+	VISIBILITY: visible
+}
+.FEBox .Sing06.SignBox .SignLB {
+	VISIBILITY: visible
+}
+.FEBox .Sing01.SignBox .SignRT {
+	VISIBILITY: visible
+}
+.FEBox .Sing01.SignBox .SignRB {
+	VISIBILITY: visible
+}
+.FEBox .Sing01.SignBox .SignLT {
+	VISIBILITY: visible
+}
+.FEBox .Sing01.SignBox .SignLB {
+	VISIBILITY: visible
+}
+.FEBox .Sing09.SignBox .SignBody > * {
+	MARGIN-BOTTOM: 0px
+}
+.FEBox .L2 .Reserve {
+	LINE-HEIGHT: 12px; MIN-HEIGHT: 12px; FONT-SIZE: 11px; _height: 12px
+}
+.FEBox .L2 .SqrtTable .SqrtLeft .SqrtLeftnone {
+	WIDTH: 5px; BACKGROUND: url(FEimg.png) no-repeat right -64px; HEIGHT: 5px
+}
+.FEBox .L2 .SqrtTable .SqrtRoot > .Reserve {
+	LINE-HEIGHT: 10px; MIN-HEIGHT: 10px; FONT-SIZE: 8px
+}
+.FEBox .L2 .SqrtTable .SqrtMiddle {
+	WIDTH: 5px
+}
+.FEBox .L2 .SqrtTable .SqrtMiddle .SqrtCanvas {
+	WIDTH: 5px
+}
+.FEBox .L2 .SqrtTable .SqrtMiddle .LtIE9 {
+	HEIGHT: 15px
+}
+.FEBox .L2 .LimitBox .SignTop {
+	LINE-HEIGHT: 16px; OVERFLOW-Y: hidden; HEIGHT: 16px; FONT-SIZE: 16px
+}
+.FEBox .L2 .LimitBox .Reserve {
+	POSITION: relative; LINE-HEIGHT: 10px; OVERFLOW-Y: hidden; MARGIN-TOP: -3px; MIN-HEIGHT: 10px; FONT-SIZE: 8px; OVERFLOW: visible; MARGIN-RIGHT: 0px; _height: 10px
+}
+.FEBox .L2 .Equa .EquaLeft {
+	WIDTH: 5px
+}
+.FEBox .L2 .Equa .EquaLeft .EquaLCanvas {
+	WIDTH: 5px
+}
+.FEBox .L2 .Equa .EquaLeft .LtIE9 {
+	HEIGHT: 28px
+}
+.FEBox .L2 .Equa .EquaBody .EquaBodyTD {
+	PADDING-BOTTOM: 1px; PADDING-LEFT: 1px; PADDING-RIGHT: 0px; PADDING-TOP: 1px
+}
+.FEBox .L2 .Matrix .MatrixLeft {
+	WIDTH: 2px
+}
+.FEBox .L2 .Matrix .MatrixRight {
+	WIDTH: 2px
+}
+.FEBox .L2 .Matrix .MatrixBody .MatrixBodyTD {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 1px; PADDING-RIGHT: 1px; PADDING-TOP: 0px
+}
+.FEBox .L2 .Bracket .BracketLeft {
+	WIDTH: 5px
+}
+.FEBox .L2 .Bracket .BracketRight {
+	WIDTH: 5px
+}
+.FEBox .L2 .Bracket .BracketLeft .BracketLCanvas {
+	WIDTH: 5px
+}
+.FEBox .L2 .Bracket .BracketRight .BracketRCanvas {
+	WIDTH: 5px
+}
+.FEBox .L2 .Bracket .BracketLeft .LtIE9 {
+	HEIGHT: 12px
+}
+.FEBox .L2 .Bracket .BracketRight .LtIE9 {
+	HEIGHT: 12px
+}
+.FEBox .L2 .Bracket .BracketBody {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 1px; PADDING-RIGHT: 1px; PADDING-TOP: 0px
+}
+.FEBox .L2 .SignBox .SignLT .Reserve {
+	LINE-HEIGHT: 10px; MIN-HEIGHT: 10px; FONT-SIZE: 8px
+}
+.FEBox .L2 .SignBox .SignRT .Reserve {
+	LINE-HEIGHT: 10px; MIN-HEIGHT: 10px; FONT-SIZE: 8px
+}
+.FEBox .L2 .SignBox .SignLB .Reserve {
+	LINE-HEIGHT: 10px; MIN-HEIGHT: 10px; FONT-SIZE: 8px
+}
+.FEBox .L2 .SignBox .SignRB .Reserve {
+	LINE-HEIGHT: 10px; MIN-HEIGHT: 10px; FONT-SIZE: 8px
+}
+.FEBox .L2 .SignBox .SignMT .Reserve {
+	LINE-HEIGHT: 10px; MIN-HEIGHT: 10px; FONT-SIZE: 8px
+}
+.FE_ico {
+	Z-INDEX: 9999; POSITION: absolute; BACKGROUND-COLOR: #fff; WIDTH: 25px; DISPLAY: none; HEIGHT: 20px
+}
+.FE_ico A {
+	WIDTH: 25px; DISPLAY: block; BACKGROUND: url(FEimg.png) no-repeat 0px -1075px; HEIGHT: 20px
+}
+.FE_ico A:hover {
+	BACKGROUND-POSITION: -25px -1075px
+}
+.FE_editor {
+	Z-INDEX: 9999; BORDER-BOTTOM: #7aadd3 1px solid; POSITION: absolute; BORDER-LEFT: #7aadd3 1px solid; BACKGROUND-COLOR: #fff; WIDTH: 573px; DISPLAY: none; BORDER-TOP: #7aadd3 1px solid; BORDER-RIGHT: #7aadd3 1px solid
+}
+.FE_editor IFRAME {
+	POSITION: absolute; BACKGROUND-COLOR: #fff; WIDTH: 100%; HEIGHT: 100%; _height: 262px; _width: 569px; _border: red solid 1px
+}
+.FEeditorbg {
+	BORDER-BOTTOM: #fff 1px solid; POSITION: relative; BORDER-LEFT: #fff 1px solid; PADDING-BOTTOM: 5px; MIN-HEIGHT: 141px; PADDING-LEFT: 5px; WIDTH: 561px; PADDING-RIGHT: 5px;  BORDER-TOP: #fff 1px solid; BORDER-RIGHT: #fff 1px solid; PADDING-TOP: 7px; _height: 141px
+}
+.FEeditorbg DL {
+	PADDING-BOTTOM: 0px; MARGIN: 0px 0px -1px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; HEIGHT: 29px; CURSOR: move; PADDING-TOP: 0px
+}
+.FEeditorbg DL DD {
+	BORDER-BOTTOM: #84b2d7 1px solid; BORDER-LEFT: #84b2d7 1px solid; PADDING-BOTTOM: 0px; MARGIN: 0px -1px 0px 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FLOAT: left; BORDER-TOP: #84b2d7 1px solid; BORDER-RIGHT: #84b2d7 1px solid; PADDING-TOP: 0px
+}
+.FEeditorbg DL DT {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FLOAT: right; COLOR: #5e7f90; FONT-SIZE: 12px; PADDING-TOP: 3px
+}
+.FEeditorbg DL DT SPAN {
+	FLOAT: right
+}
+.FEeditorbg DL DD.teacherTool {
+	DISPLAY: none
+}
+.FE_editor .FEeditorbg .FEBox {
+	BORDER-BOTTOM: #b8b8b8 1px solid; BORDER-LEFT: #b8b8b8 1px solid; PADDING-BOTTOM: 0px; OVERFLOW-X: auto; OVERFLOW-Y: visible; MARGIN: 0px 0px 0px 8px; MIN-HEIGHT: 68px; PADDING-LEFT: 0px; WIDTH: 540px; PADDING-RIGHT: 0px; DISPLAY: block; BORDER-TOP: #b8b8b8 1px solid; CURSOR: default; BORDER-RIGHT: #b8b8b8 1px solid; PADDING-TOP: 0px; _height: 68px
+}
+.FE_editor .FEeditorputin {
+	TEXT-ALIGN: right; PADDING-BOTTOM: 8px; PADDING-LEFT: 0px; WIDTH: 542px; PADDING-RIGHT: 0px; DISPLAY: block; MARGIN-LEFT: 8px; PADDING-TOP: 6px
+}
+.FE_editor .FEeditorputin INPUT {
+	MARGIN: 0px; WIDTH: 120px; HEIGHT: 26px; FONT-SIZE: 14px; FONT-WEIGHT: bold
+}
+.FE_maths {
+	TEXT-ALIGN: center; LINE-HEIGHT: 28px; BACKGROUND-COLOR: #f0f6fb; WIDTH: 98px; DISPLAY: block; FONT-FAMILY: "ËÎÌå"; HEIGHT: 27px; COLOR: #386b97; FONT-SIZE: 12px; OVERFLOW: hidden; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+.FE_physics {
+	TEXT-ALIGN: center; LINE-HEIGHT: 28px; BACKGROUND-COLOR: #f0f6fb; WIDTH: 98px; DISPLAY: block; FONT-FAMILY: "ËÎÌå"; HEIGHT: 27px; COLOR: #386b97; FONT-SIZE: 12px; OVERFLOW: hidden; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+.FE_signs {
+	TEXT-ALIGN: center; LINE-HEIGHT: 28px; BACKGROUND-COLOR: #f0f6fb; WIDTH: 98px; DISPLAY: block; FONT-FAMILY: "ËÎÌå"; HEIGHT: 27px; COLOR: #386b97; FONT-SIZE: 12px; OVERFLOW: hidden; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+.hot.FE_maths {
+	BACKGROUND-COLOR: #fff; MARGIN-BOTTOM: -1px; HEIGHT: 28px; COLOR: #000; FONT-SIZE: 14px
+}
+.hot.FE_physics {
+	BACKGROUND-COLOR: #fff; MARGIN-BOTTOM: -1px; HEIGHT: 28px; COLOR: #000; FONT-SIZE: 14px
+}
+.hot.FE_signs {
+	BACKGROUND-COLOR: #fff; MARGIN-BOTTOM: -1px; HEIGHT: 28px; COLOR: #000; FONT-SIZE: 14px
+}
+.FE_close {
+	MARGIN-TOP: 0px; WIDTH: 12px; BACKGROUND: url(FEimg.png) no-repeat -24px -82px; FLOAT: right; HEIGHT: 12px; MARGIN-LEFT: 5px; _overflow: hidden
+}
+.FE_close:hover {
+	BACKGROUND-POSITION: -36px -82px
+}
+.FE_reduce {
+	MARGIN-TOP: 0px; WIDTH: 12px; BACKGROUND: url(FEimg.png) no-repeat 0px -82px; FLOAT: right; HEIGHT: 12px; MARGIN-LEFT: 5px; _overflow: hidden
+}
+.FE_reduce:hover {
+	BACKGROUND-POSITION: -12px -82px
+}
+.FEeditorBody {
+	BORDER-BOTTOM: #84b2d7 1px solid; BORDER-LEFT: #84b2d7 1px solid; BACKGROUND-COLOR: #fff; MIN-HEIGHT: 111px; CLEAR: both; BORDER-TOP: #84b2d7 1px solid; BORDER-RIGHT: #84b2d7 1px solid
+}
+.FEeditorBody .FElist {
+	PADDING-BOTTOM: 0px; BACKGROUND-COLOR: #fff; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 8px; WIDTH: 551px; PADDING-RIGHT: 0px; DISPLAY: none; FLOAT: left; CURSOR: default; PADDING-TOP: 8px; _height: 103px
+}
+.FEeditorBody .FElist LI {
+	PADDING-BOTTOM: 5px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 4px; FLOAT: left; PADDING-TOP: 0px
+}
+.FEeditorBody .FElist LI A {
+	WIDTH: 22px; DISPLAY: block; BACKGROUND: url(FEimg.png) no-repeat 0px 0px; HEIGHT: 27px
+}
+.small.FE_editor {
+	WIDTH: 260px
+}
+.small.FE_editor IFRAME {
+	_height: 25px; _width: 256px
+}
+.small.FE_editor .FEeditorbg {
+	POSITION: relative; MIN-HEIGHT: 15px; WIDTH: 248px; HEIGHT: 15px; _height: 15px; _overflow: hidden
+}
+.small.FE_editor .FEeditorbg DD {
+	DISPLAY: none
+}
+.small.FE_editor .FEeditorbg DT {
+	MARGIN-TOP: -3px; WIDTH: 100%
+}
+.small.FE_editor .FEeditorbg DT SPAN {
+	PADDING-LEFT: 5px; FLOAT: left
+}
+.small.FE_editor .FEeditorbg .FEeditorBody {
+	DISPLAY: none
+}
+.small.FE_editor .FEeditorbg .FEBox {
+	DISPLAY: none
+}
+.narrow.FE_editor {
+	WIDTH: 260px
+}
+.narrow.FE_editor IFRAME {
+	_height: 460px; _width: 256px
+}
+.narrow.FE_editor .FEeditorbg {
+	POSITION: relative; WIDTH: 248px
+}
+.narrow.FE_editor .FEeditorbg .FEBox {
+	MIN-HEIGHT: 78px; WIDTH: 228px; _height: 78px
+}
+.narrow.FE_editor .FEeditorputin {
+	WIDTH: 230px
+}
+.narrow.FE_editor .FE_maths {
+	WIDTH: 68px; FONT-SIZE: 12px
+}
+.narrow.FE_editor .FE_physics {
+	WIDTH: 68px; FONT-SIZE: 12px
+}
+.narrow.FE_editor .FE_signs {
+	WIDTH: 68px; FONT-SIZE: 12px
+}
+.narrow.FE_editor .hot.FE_maths {
+	FONT-SIZE: 12px
+}
+.narrow.FE_editor .hot.FE_physics {
+	FONT-SIZE: 12px
+}
+.narrow.FE_editor .hot.FE_signs {
+	FONT-SIZE: 12px
+}
+.narrow.FE_editor .FEeditorbg DL {
+	BORDER-LEFT: medium none; HEIGHT: 50px; OVERFLOW: hidden; _width: 248px
+}
+.narrow.FE_editor .FEeditorbg DL DT {
+	WIDTH: 248px; DISPLAY: block; HEIGHT: 18px; CLEAR: both
+}
+.narrow.FE_editor .FEeditorbg DL DT SPAN {
+	FLOAT: left
+}
+.narrow.FE_editor .FEeditorBody .FElist {
+	WIDTH: 238px
+}
+.FE_editor .FEeditorbg .zhanweifuLi {
+	DISPLAY: none
+}
+.narrow.FE_editor .FEeditorbg .zhanweifuLi {
+	DISPLAY: block
+}
+.narrow.FE_editor .FElist LI A.zhanweifu {
+	BACKGROUND: none transparent scroll repeat 0% 0%; VISIBILITY: hidden
+}
+.narrow.FE_editor .FElist LI A.huaxue001 {
+	DISPLAY: none
+}
+.narrow.FE_editor .FElist LI A.lihua004 {
+	DISPLAY: none
+}
+.narrow.FE_editor .FElist LI A.lihua005 {
+	DISPLAY: none
+}
+.narrow.FE_editor .FElist LI A.lihua006 {
+	DISPLAY: none
+}
+.narrow.FE_editor .FElist LI A.lihua007 {
+	DISPLAY: none
+}
+.narrow.FE_editor .FElist LI A.lihua008 {
+	DISPLAY: none
+}
+.narrow.FE_editor .FElist LI A.lihua009 {
+	DISPLAY: none
+}
+.narrow.FE_editor DL DD.teacherTool {
+	BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; PADDING-BOTTOM: 4px; WIDTH: 100%; DISPLAY: block; BORDER-TOP: medium none; CURSOR: default; BORDER-RIGHT: medium none
+}
+.narrow.FE_editor DL DD.teacherTool .TTools {
+	BORDER-BOTTOM: #84b2d7 1px solid; POSITION: relative; BORDER-LEFT: #84b2d7 1px solid; PADDING-BOTTOM: 0px; BACKGROUND-COLOR: #fff; PADDING-LEFT: 6px; PADDING-RIGHT: 0px; DISPLAY: block; HEIGHT: 24px; BORDER-TOP: #84b2d7 1px solid; BORDER-RIGHT: #84b2d7 1px solid; PADDING-TOP: 5px
+}
+DD.teacherTool .TTools A {
+	WIDTH: 19px; BACKGROUND: url(FEimg.png) no-repeat 0px -1096px; FLOAT: left; HEIGHT: 19px; OVERFLOW: hidden; MARGIN-RIGHT: 5px
+}
+DD.teacherTool .TTools A.kongge {
+	BACKGROUND-POSITION: 0px -1096px
+}
+DD.teacherTool .TTools A.xuanxiang {
+	BACKGROUND-POSITION: -20px -1096px
+}
+DD.teacherTool .TTools A.wenbenkuang {
+	BACKGROUND-POSITION: -40px -1096px
+}
+DD.teacherTool .TTools A.tupian {
+	BACKGROUND-POSITION: -60px -1096px
+}
+DD.teacherTool .TTools A.juzuo {
+	BACKGROUND-POSITION: -80px -1096px
+}
+DD.teacherTool .TTools A.juzhong {
+	BACKGROUND-POSITION: -100px -1096px
+}
+DD.teacherTool .TTools A.juyou {
+	BACKGROUND-POSITION: -120px -1096px
+}
+DD.teacherTool .TTools A.jiazu {
+	BACKGROUND-POSITION: -140px -1096px
+}
+DD.teacherTool .TTools A.xieti {
+	BACKGROUND-POSITION: -160px -1096px
+}
+DD.teacherTool .TTools A.xiahuaxian {
+	BACKGROUND-POSITION: -180px -1096px
+}
+DD.teacherTool .TTools A.kongge:hover {
+	BACKGROUND-POSITION: 0px -1116px
+}
+DD.teacherTool .TTools A.xuanxiang:hover {
+	BACKGROUND-POSITION: -20px -1116px
+}
+DD.teacherTool .TTools A.wenbenkuang:hover {
+	BACKGROUND-POSITION: -40px -1116px
+}
+DD.teacherTool .TTools A.tupian:hover {
+	BACKGROUND-POSITION: -60px -1116px
+}
+DD.teacherTool .TTools A.juzuo:hover {
+	BACKGROUND-POSITION: -80px -1116px
+}
+DD.teacherTool .TTools A.juzhong:hover {
+	BACKGROUND-POSITION: -100px -1116px
+}
+DD.teacherTool .TTools A.juyou:hover {
+	BACKGROUND-POSITION: -120px -1116px
+}
+DD.teacherTool .TTools A.jiazu:hover {
+	BACKGROUND-POSITION: -140px -1116px
+}
+DD.teacherTool .TTools A.xieti:hover {
+	BACKGROUND-POSITION: -160px -1116px
+}
+DD.teacherTool .TTools A.xiahuaxian:hover {
+	BACKGROUND-POSITION: -180px -1116px
+}
+.FE_editor .TToolbox {
+	Z-INDEX: 99999; BORDER-BOTTOM: #4d8fc0 1px solid; POSITION: absolute; BORDER-LEFT: #4d8fc0 1px solid; DISPLAY: none; BORDER-TOP: #4d8fc0 1px solid; RIGHT: 268px; BORDER-RIGHT: #4d8fc0 1px solid; TOP: -2px
+}
+.FE_editor .TToolbox IFRAME {
+	_height: 460px; _width: 432px
+}
+.FE_editor .TToolbox .TToolsBG {
+	BORDER-BOTTOM: #fff 1px solid; POSITION: relative; BORDER-LEFT: #fff 1px solid; PADDING-BOTTOM: 6px; PADDING-LEFT: 6px; PADDING-RIGHT: 6px;  BORDER-TOP: #fff 1px solid; BORDER-RIGHT: #fff 1px solid; PADDING-TOP: 6px
+}
+.FE_editor .TToolbox .rightsign {
+	POSITION: absolute; WIDTH: 20px; BACKGROUND: url(FEimg.png) no-repeat -200px -1097px; HEIGHT: 37px; RIGHT: -20px; TOP: 24px; _right: -19px
+}
+.FE_editor .TToolbox .TToolsBG H2 {
+	MARGIN: 0px; PADDING-LEFT: 4px; HEIGHT: 18px; COLOR: #386b97; FONT-SIZE: 12px; PADDING-TOP: 2px; _height: 19px
+}
+.FE_editor .TToolbox .TToolsBG .TToolbody {
+	BORDER-BOTTOM: #639ac3 1px solid; BORDER-LEFT: #639ac3 1px solid; PADDING-BOTTOM: 10px; OVERFLOW-Y: auto; BACKGROUND-COLOR: #fff; PADDING-LEFT: 10px; WIDTH: 400px; PADDING-RIGHT: 10px; HEIGHT: 407px; BORDER-TOP: #639ac3 1px solid; BORDER-RIGHT: #639ac3 1px solid; PADDING-TOP: 10px
+}
+.FE_editor .TToolbox .TToolsBG .TToolbody TABLE {
+	WIDTH: 100%; TABLE-LAYOUT: fixed
+}
+.FE_editor .TToolbox .TToolsBG .TToolbody TABLE .TTmiddliLine {
+	BORDER-BOTTOM: #fff 5px solid; BORDER-LEFT: #fff 5px solid; BACKGROUND-COLOR: #ccc; WIDTH: 1px; BORDER-TOP: #fff 5px solid; BORDER-RIGHT: #fff 5px solid
+}
+.FE_editor .TToolbox .TToolsBG .TToolbody TABLE .TTleft {
+	BORDER-BOTTOM: #ccc 1px solid; TEXT-ALIGN: center; PADDING-LEFT: 10px; WIDTH: 40px; COLOR: #555; FONT-SIZE: 12px; FONT-WEIGHT: bold
+}
+.FE_editor .TToolbox .TToolsBG .TToolbody TABLE .TTright {
+	BORDER-BOTTOM: #ccc 1px solid; PADDING-BOTTOM: 4px
+}
+.FE_editor .TToolbox .TToolsBG .TTbutton {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 20px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 20px
+}
+.FE_editor .TToolbox .TToolsBG .TTbutton INPUT {
+	MARGIN: 0px 10px; WIDTH: 70px; COLOR: #333; FONT-WEIGHT: bold
+}
+.FE_editor .TToolbox .TToolsBG .TTinputbox {
+	HEIGHT: 35px; PADDING-TOP: 3px
+}
+.FE_editor .TToolbox .TToolsBG .TTinputbox INPUT {
+	MARGIN-TOP: 4px; FLOAT: left; MARGIN-LEFT: 6px
+}
+.FE_editor .TToolbox .TToolsBG .TTinputbox SPAN {
+	WIDTH: 140px; FLOAT: right; COLOR: #555; FONT-SIZE: 12px; PADDING-TOP: 6px
+}
+.FE_editor .TToolbox .TToolsBG .TTinput {
+	BORDER-BOTTOM: #999 1px solid; MARGIN: 0px 148px 0px 30px; MIN-HEIGHT: 20px; WIDTH: auto; FONT-SIZE: 12px; _height: 20px
+}
+.FE_editor .TToolbox .TToolsBG .TTfenzhi {
+	PADDING-BOTTOM: 6px; PADDING-LEFT: 10px; PADDING-RIGHT: 0px; COLOR: #555; FONT-SIZE: 12px; PADDING-TOP: 10px
+}
+.FElist LI A.Jiahao {
+	BACKGROUND-POSITION: 0px -94px
+}
+.FElist LI A.Jianhao {
+	BACKGROUND-POSITION: -22px -94px
+}
+.FElist LI A.Chenghao {
+	BACKGROUND-POSITION: -44px -94px
+}
+.FElist LI A.Chuhao {
+	BACKGROUND-POSITION: -66px -94px
+}
+.FElist LI A.Diancheng {
+	BACKGROUND-POSITION: -88px -94px
+}
+.FElist LI A.Xiaoyu {
+	BACKGROUND-POSITION: -110px -94px
+}
+.FElist LI A.Dayu {
+	BACKGROUND-POSITION: -132px -94px
+}
+.FElist LI A.Xiaoyudengyu {
+	BACKGROUND-POSITION: -154px -94px
+}
+.FElist LI A.Dayudengyu {
+	BACKGROUND-POSITION: -176px -94px
+}
+.FElist LI A.Yuedengyu {
+	BACKGROUND-POSITION: -198px -94px
+}
+.FElist LI A.Budengyu {
+	BACKGROUND-POSITION: -220px -94px
+}
+.FElist LI A.Jiahao:hover {
+	BACKGROUND-POSITION: 0px -121px
+}
+.FElist LI A.Jianhao:hover {
+	BACKGROUND-POSITION: -22px -121px
+}
+.FElist LI A.Chenghao:hover {
+	BACKGROUND-POSITION: -44px -121px
+}
+.FElist LI A.Chuhao:hover {
+	BACKGROUND-POSITION: -66px -121px
+}
+.FElist LI A.Diancheng:hover {
+	BACKGROUND-POSITION: -88px -121px
+}
+.FElist LI A.Xiaoyu:hover {
+	BACKGROUND-POSITION: -110px -121px
+}
+.FElist LI A.Dayu:hover {
+	BACKGROUND-POSITION: -132px -121px
+}
+.FElist LI A.Xiaoyudengyu:hover {
+	BACKGROUND-POSITION: -154px -121px
+}
+.FElist LI A.Dayudengyu:hover {
+	BACKGROUND-POSITION: -176px -121px
+}
+.FElist LI A.Yuedengyu:hover {
+	BACKGROUND-POSITION: -198px -121px
+}
+.FElist LI A.Budengyu:hover {
+	BACKGROUND-POSITION: -220px -121px
+}
+.FElist LI A.Yuanzhoulv {
+	BACKGROUND-POSITION: 0px -148px
+}
+.FElist LI A.Wuqiongda {
+	BACKGROUND-POSITION: -22px -148px
+}
+.FElist LI A.Yinwei {
+	BACKGROUND-POSITION: -44px -148px
+}
+.FElist LI A.Suoyi {
+	BACKGROUND-POSITION: -66px -148px
+}
+.FElist LI A.Tuichu {
+	BACKGROUND-POSITION: -88px -148px
+}
+.FElist LI A.Dengjiayu {
+	BACKGROUND-POSITION: -110px -148px
+}
+.FElist LI A.Quandengyu {
+	BACKGROUND-POSITION: -132px -148px
+}
+.FElist LI A.Xiangsiyu {
+	BACKGROUND-POSITION: -154px -148px
+}
+.FElist LI A.Pingxing {
+	BACKGROUND-POSITION: -176px -148px
+}
+.FElist LI A.Chuizhi {
+	BACKGROUND-POSITION: -198px -148px
+}
+.FElist LI A.Jiaodu {
+	BACKGROUND-POSITION: -220px -148px
+}
+.FElist LI A.Yuanzhoulv:hover {
+	BACKGROUND-POSITION: 0px -310px
+}
+.FElist LI A.Wuqiongda:hover {
+	BACKGROUND-POSITION: -22px -310px
+}
+.FElist LI A.Yinwei:hover {
+	BACKGROUND-POSITION: -44px -310px
+}
+.FElist LI A.Suoyi:hover {
+	BACKGROUND-POSITION: -66px -310px
+}
+.FElist LI A.Tuichu:hover {
+	BACKGROUND-POSITION: -88px -310px
+}
+.FElist LI A.Dengjiayu:hover {
+	BACKGROUND-POSITION: -110px -310px
+}
+.FElist LI A.Quandengyu:hover {
+	BACKGROUND-POSITION: -132px -310px
+}
+.FElist LI A.Xiangsiyu:hover {
+	BACKGROUND-POSITION: -154px -310px
+}
+.FElist LI A.Pingxing:hover {
+	BACKGROUND-POSITION: -176px -310px
+}
+.FElist LI A.Chuizhi:hover {
+	BACKGROUND-POSITION: -198px -310px
+}
+.FElist LI A.Jiaodu:hover {
+	BACKGROUND-POSITION: -220px -310px
+}
+.FElist LI A.Sanjiaoxing {
+	BACKGROUND-POSITION: 0px -175px
+}
+.FElist LI A.Sibianxing {
+	BACKGROUND-POSITION: -22px -175px
+}
+.FElist LI A.Yuan {
+	BACKGROUND-POSITION: -44px -175px
+}
+.FElist LI A.Shuyu {
+	BACKGROUND-POSITION: -66px -175px
+}
+.FElist LI A.Bushuyu {
+	BACKGROUND-POSITION: -88px -175px
+}
+.FElist LI A.Kongji {
+	BACKGROUND-POSITION: -110px -175px
+}
+.FElist LI A.Baohuanyu {
+	BACKGROUND-POSITION: -132px -175px
+}
+.FElist LI A.Baohan {
+	BACKGROUND-POSITION: -154px -175px
+}
+.FElist LI A.Bingji {
+	BACKGROUND-POSITION: -176px -175px
+}
+.FElist LI A.Jiaoji {
+	BACKGROUND-POSITION: -198px -175px
+}
+.FElist LI A.Baohuanyu2 {
+	BACKGROUND-POSITION: -220px -175px
+}
+.FElist LI A.Sanjiaoxing:hover {
+	BACKGROUND-POSITION: 0px -337px
+}
+.FElist LI A.Sibianxing:hover {
+	BACKGROUND-POSITION: -22px -337px
+}
+.FElist LI A.Yuan:hover {
+	BACKGROUND-POSITION: -44px -337px
+}
+.FElist LI A.Shuyu:hover {
+	BACKGROUND-POSITION: -66px -337px
+}
+.FElist LI A.Bushuyu:hover {
+	BACKGROUND-POSITION: -88px -337px
+}
+.FElist LI A.Kongji:hover {
+	BACKGROUND-POSITION: -110px -337px
+}
+.FElist LI A.Baohuanyu:hover {
+	BACKGROUND-POSITION: -132px -337px
+}
+.FElist LI A.Baohan:hover {
+	BACKGROUND-POSITION: -154px -337px
+}
+.FElist LI A.Bingji:hover {
+	BACKGROUND-POSITION: -176px -337px
+}
+.FElist LI A.Jiaoji:hover {
+	BACKGROUND-POSITION: -198px -337px
+}
+.FElist LI A.Baohuanyu2:hover {
+	BACKGROUND-POSITION: -220px -337px
+}
+.FElist LI A.Baohan2 {
+	BACKGROUND-POSITION: 0px -202px
+}
+.FElist LI A.Bubaohanyu {
+	BACKGROUND-POSITION: -22px -202px
+}
+.FElist LI A.Bubaohan {
+	BACKGROUND-POSITION: -44px -202px
+}
+.FElist LI A.Bubaohanyu2 {
+	BACKGROUND-POSITION: -66px -202px
+}
+.FElist LI A.Bubaohan2 {
+	BACKGROUND-POSITION: -88px -202px
+}
+.FElist LI A.Zhenbaohanyu {
+	BACKGROUND-POSITION: -110px -202px
+}
+.FElist LI A.Zhenbaohan {
+	BACKGROUND-POSITION: -132px -202px
+}
+.FElist LI A.Buji {
+	BACKGROUND-POSITION: -154px -202px
+}
+.FElist LI A.quandy_sx {
+	BACKGROUND-POSITION: -176px -202px
+}
+.FElist LI A.Baohan2:hover {
+	BACKGROUND-POSITION: 0px -364px
+}
+.FElist LI A.Bubaohanyu:hover {
+	BACKGROUND-POSITION: -22px -364px
+}
+.FElist LI A.Bubaohan:hover {
+	BACKGROUND-POSITION: -44px -364px
+}
+.FElist LI A.Bubaohanyu2:hover {
+	BACKGROUND-POSITION: -66px -364px
+}
+.FElist LI A.Bubaohan2:hover {
+	BACKGROUND-POSITION: -88px -364px
+}
+.FElist LI A.Zhenbaohanyu:hover {
+	BACKGROUND-POSITION: -110px -364px
+}
+.FElist LI A.Zhenbaohan:hover {
+	BACKGROUND-POSITION: -132px -364px
+}
+.FElist LI A.Buji:hover {
+	BACKGROUND-POSITION: -154px -364px
+}
+.FElist LI A.quandy_sx:hover {
+	BACKGROUND-POSITION: -176px -364px
+}
+.FElist LI A.Shishidu {
+	BACKGROUND-POSITION: 0px -229px
+}
+.FElist LI A.Huashidu {
+	BACKGROUND-POSITION: -22px -229px
+}
+.FElist LI A.Tantanshuang {
+	BACKGROUND-POSITION: -44px -229px
+}
+.FElist LI A.Tantansan {
+	BACKGROUND-POSITION: -66px -229px
+}
+.FElist LI A.Qiti {
+	BACKGROUND-POSITION: -88px -229px
+}
+.FElist LI A.Chendian {
+	BACKGROUND-POSITION: -110px -229px
+}
+.FElist LI A.Rou {
+	BACKGROUND-POSITION: -132px -229px
+}
+.FElist LI A.Miu {
+	BACKGROUND-POSITION: -154px -229px
+}
+.FElist LI A.Aita {
+	BACKGROUND-POSITION: -176px -229px
+}
+.FElist LI A.Oumiga {
+	BACKGROUND-POSITION: -198px -229px
+}
+.FElist LI A.Yipuxilong {
+	BACKGROUND-POSITION: -220px -229px
+}
+.FElist LI A.Shishidu:hover {
+	BACKGROUND-POSITION: 0px -391px
+}
+.FElist LI A.Huashidu:hover {
+	BACKGROUND-POSITION: -22px -391px
+}
+.FElist LI A.Tantanshuang:hover {
+	BACKGROUND-POSITION: -44px -391px
+}
+.FElist LI A.Tantansan:hover {
+	BACKGROUND-POSITION: -66px -391px
+}
+.FElist LI A.Qiti:hover {
+	BACKGROUND-POSITION: -88px -391px
+}
+.FElist LI A.Chendian:hover {
+	BACKGROUND-POSITION: -110px -391px
+}
+.FElist LI A.Rou:hover {
+	BACKGROUND-POSITION: -132px -391px
+}
+.FElist LI A.Miu:hover {
+	BACKGROUND-POSITION: -154px -391px
+}
+.FElist LI A.Aita:hover {
+	BACKGROUND-POSITION: -176px -391px
+}
+.FElist LI A.Oumiga:hover {
+	BACKGROUND-POSITION: -198px -391px
+}
+.FElist LI A.Yipuxilong:hover {
+	BACKGROUND-POSITION: -220px -391px
+}
+.FElist LI A.Deerta {
+	BACKGROUND-POSITION: 0px -256px
+}
+.FElist LI A.Aerfa {
+	BACKGROUND-POSITION: -22px -256px
+}
+.FElist LI A.Beita {
+	BACKGROUND-POSITION: -44px -256px
+}
+.FElist LI A.Gama {
+	BACKGROUND-POSITION: -66px -256px
+}
+.FElist LI A.Foai {
+	BACKGROUND-POSITION: -88px -256px
+}
+.FElist LI A.Oumo {
+	BACKGROUND-POSITION: -110px -256px
+}
+.FElist LI A.Citongliang {
+	BACKGROUND-POSITION: -132px -256px
+}
+.FElist LI A.Bochang {
+	BACKGROUND-POSITION: -154px -256px
+}
+.FElist LI A.Ai {
+	BACKGROUND-POSITION: -176px -256px
+}
+.FElist LI A.banshuaiqi {
+	BACKGROUND-POSITION: -198px -256px
+}
+.FElist LI A.Pinglv {
+	BACKGROUND-POSITION: -220px -256px
+}
+.FElist LI A.Deerta:hover {
+	BACKGROUND-POSITION: 0px -418px
+}
+.FElist LI A.Aerfa:hover {
+	BACKGROUND-POSITION: -22px -418px
+}
+.FElist LI A.Beita:hover {
+	BACKGROUND-POSITION: -44px -418px
+}
+.FElist LI A.Gama:hover {
+	BACKGROUND-POSITION: -66px -418px
+}
+.FElist LI A.Foai:hover {
+	BACKGROUND-POSITION: -88px -418px
+}
+.FElist LI A.Oumo:hover {
+	BACKGROUND-POSITION: -110px -418px
+}
+.FElist LI A.Citongliang:hover {
+	BACKGROUND-POSITION: -132px -418px
+}
+.FElist LI A.Bochang:hover {
+	BACKGROUND-POSITION: -154px -418px
+}
+.FElist LI A.Ai:hover {
+	BACKGROUND-POSITION: -176px -418px
+}
+.FElist LI A.banshuaiqi:hover {
+	BACKGROUND-POSITION: -198px -418px
+}
+.FElist LI A.Pinglv:hover {
+	BACKGROUND-POSITION: -220px -418px
+}
+.FElist LI A.sigma-xiaoxie {
+	BACKGROUND-POSITION: 0px -283px
+}
+.FElist LI A.sigma-xiaoxie:hover {
+	BACKGROUND-POSITION: 0px -445px
+}
+.FElist LI A.lihua001 {
+	BACKGROUND-POSITION: 0px -283px; CURSOR: default
+}
+.FElist LI A.lihua002 {
+	BACKGROUND-POSITION: -22px -283px; CURSOR: default
+}
+.FElist LI A.lihua003 {
+	BACKGROUND-POSITION: -44px -283px; CURSOR: default
+}
+.FElist LI A.lihua004 {
+	BACKGROUND-POSITION: -66px -283px; CURSOR: default
+}
+.FElist LI A.lihua005 {
+	BACKGROUND-POSITION: -88px -283px; CURSOR: default
+}
+.FElist LI A.lihua006 {
+	BACKGROUND-POSITION: -110px -283px; CURSOR: default
+}
+.FElist LI A.lihua007 {
+	BACKGROUND-POSITION: -132px -283px; CURSOR: default
+}
+.FElist LI A.lihua008 {
+	BACKGROUND-POSITION: -154px -283px; CURSOR: default
+}
+.FElist LI A.lihua009 {
+	BACKGROUND-POSITION: -176px -283px; CURSOR: default
+}
+.FElist LI A.Log {
+	BACKGROUND-POSITION: 0px -472px
+}
+.FElist LI A.Ln {
+	BACKGROUND-POSITION: -22px -472px
+}
+.FElist LI A.Jifen {
+	BACKGROUND-POSITION: -44px -472px
+}
+.FElist LI A.Dushu {
+	BACKGROUND-POSITION: -66px -472px
+}
+.FElist LI A.Fenzhong {
+	BACKGROUND-POSITION: -88px -472px
+}
+.FElist LI A.Miaozhong {
+	BACKGROUND-POSITION: -110px -472px
+}
+.FElist LI A.Qianfenbi {
+	BACKGROUND-POSITION: -132px -472px
+}
+.FElist LI A.Shishidu_te {
+	BACKGROUND-POSITION: -154px -472px
+}
+.FElist LI A.Huashidu_te {
+	BACKGROUND-POSITION: -176px -472px
+}
+.FElist LI A.Jiajian {
+	BACKGROUND-POSITION: -198px -472px
+}
+.FElist LI A.Jianjia {
+	BACKGROUND-POSITION: -220px -472px
+}
+.FElist LI A.Qie {
+	BACKGROUND-POSITION: 0px -499px
+}
+.FElist LI A.Huo {
+	BACKGROUND-POSITION: -22px -499px
+}
+.FElist LI A.Shangsheng {
+	BACKGROUND-POSITION: -44px -499px
+}
+.FElist LI A.Xiajiang {
+	BACKGROUND-POSITION: -66px -499px
+}
+.FElist LI A.Budayu {
+	BACKGROUND-POSITION: -88px -499px
+}
+.FElist LI A.Buxiaoyu {
+	BACKGROUND-POSITION: -110px -499px
+}
+.FElist LI A.Hengdengyu {
+	BACKGROUND-POSITION: -132px -499px
+}
+.FElist LI A.Chengzhengbi {
+	BACKGROUND-POSITION: -154px -499px
+}
+.FElist LI A.Qiuji {
+	BACKGROUND-POSITION: -176px -499px
+}
+.FElist LI A.Wuqiongxiao {
+	BACKGROUND-POSITION: -198px -499px
+}
+.FElist LI A.Kexi {
+	BACKGROUND-POSITION: -220px -499px
+}
+.FElist LI A.Miu_te {
+	BACKGROUND-POSITION: 0px -526px
+}
+.FElist LI A.Deerta_te {
+	BACKGROUND-POSITION: -22px -526px
+}
+.FElist LI A.Aerfa_tr {
+	BACKGROUND-POSITION: -44px -526px
+}
+.FElist LI A.Beita_te {
+	BACKGROUND-POSITION: -66px -526px
+}
+.FElist LI A.Gama_te {
+	BACKGROUND-POSITION: -88px -526px
+}
+.FElist LI A.Rou_te {
+	BACKGROUND-POSITION: -110px -526px
+}
+.FElist LI A.lanbuda_te {
+	BACKGROUND-POSITION: -132px -526px
+}
+.FElist LI A.Deerta_teX {
+	BACKGROUND-POSITION: -154px -526px
+}
+.FElist LI A.Oumiga_te {
+	BACKGROUND-POSITION: -176px -526px
+}
+.FElist LI A.Foai_te {
+	BACKGROUND-POSITION: -198px -526px
+}
+.FElist LI A.Foai_teX {
+	BACKGROUND-POSITION: -220px -526px
+}
+.FElist LI A.Aita_te {
+	BACKGROUND-POSITION: 0px -553px
+}
+.FElist LI A.Xita_te {
+	BACKGROUND-POSITION: -22px -553px
+}
+.FElist LI A.Quan1 {
+	BACKGROUND-POSITION: -44px -553px
+}
+.FElist LI A.Quan2 {
+	BACKGROUND-POSITION: -66px -553px
+}
+.FElist LI A.Quan3 {
+	BACKGROUND-POSITION: -88px -553px
+}
+.FElist LI A.Quan4 {
+	BACKGROUND-POSITION: -110px -553px
+}
+.FElist LI A.Quan5 {
+	BACKGROUND-POSITION: -132px -553px
+}
+.FElist LI A.Quan6 {
+	BACKGROUND-POSITION: -154px -553px
+}
+.FElist LI A.Quan7 {
+	BACKGROUND-POSITION: -176px -553px
+}
+.FElist LI A.Quan8 {
+	BACKGROUND-POSITION: -198px -553px
+}
+.FElist LI A.Quan9 {
+	BACKGROUND-POSITION: -220px -553px
+}
+.FElist LI A.Quan10 {
+	BACKGROUND-POSITION: 0px -580px
+}
+.FElist LI A.Luoma1 {
+	BACKGROUND-POSITION: -22px -580px
+}
+.FElist LI A.Luoma2 {
+	BACKGROUND-POSITION: -44px -580px
+}
+.FElist LI A.Luoma3 {
+	BACKGROUND-POSITION: -66px -580px
+}
+.FElist LI A.Luoma4 {
+	BACKGROUND-POSITION: -88px -580px
+}
+.FElist LI A.Luoma5 {
+	BACKGROUND-POSITION: -110px -580px
+}
+.FElist LI A.Luoma6 {
+	BACKGROUND-POSITION: -132px -580px
+}
+.FElist LI A.Luoma7 {
+	BACKGROUND-POSITION: -154px -580px
+}
+.FElist LI A.Luoma8 {
+	BACKGROUND-POSITION: -198px -580px
+}
+.FElist LI A.Luoma9 {
+	BACKGROUND-POSITION: -220px -580px
+}
+.FElist LI A.Luoma10 {
+	BACKGROUND-POSITION: 0px -607px
+}
+.FElist LI A.Luoma11 {
+	BACKGROUND-POSITION: 0px -607px; VISIBILITY: hidden
+}
+.FElist LI A.Te001 {
+	BACKGROUND-POSITION: -22px -607px; CURSOR: default
+}
+.FElist LI A.Te002 {
+	BACKGROUND-POSITION: -44px -607px; CURSOR: default
+}
+.FElist LI A.Te003 {
+	BACKGROUND-POSITION: -66px -607px; CURSOR: default
+}
+.FElist LI A.Te004 {
+	BACKGROUND-POSITION: -88px -607px; CURSOR: default
+}
+.FElist LI A.Te005 {
+	BACKGROUND-POSITION: -110px -607px; CURSOR: default
+}
+.FElist LI A.Te006 {
+	BACKGROUND-POSITION: -110px -607px; CURSOR: default
+}
+.FElist LI A.Qingkong_te {
+	WIDTH: 48px; BACKGROUND-POSITION: -132px -607px
+}
+.FElist LI A.Log:hover {
+	BACKGROUND-POSITION: 0px -634px
+}
+.FElist LI A.Ln:hover {
+	BACKGROUND-POSITION: -22px -634px
+}
+.FElist LI A.Jifen:hover {
+	BACKGROUND-POSITION: -44px -634px
+}
+.FElist LI A.Dushu:hover {
+	BACKGROUND-POSITION: -66px -634px
+}
+.FElist LI A.Fenzhong:hover {
+	BACKGROUND-POSITION: -88px -634px
+}
+.FElist LI A.Miaozhong:hover {
+	BACKGROUND-POSITION: -110px -634px
+}
+.FElist LI A.Qianfenbi:hover {
+	BACKGROUND-POSITION: -132px -634px
+}
+.FElist LI A.Shishidu_te:hover {
+	BACKGROUND-POSITION: -154px -634px
+}
+.FElist LI A.Huashidu_te:hover {
+	BACKGROUND-POSITION: -176px -634px
+}
+.FElist LI A.Jiajian:hover {
+	BACKGROUND-POSITION: -198px -634px
+}
+.FElist LI A.Jianjia:hover {
+	BACKGROUND-POSITION: -220px -634px
+}
+.FElist LI A.Qie:hover {
+	BACKGROUND-POSITION: 0px -661px
+}
+.FElist LI A.Huo:hover {
+	BACKGROUND-POSITION: -22px -661px
+}
+.FElist LI A.Shangsheng:hover {
+	BACKGROUND-POSITION: -44px -661px
+}
+.FElist LI A.Xiajiang:hover {
+	BACKGROUND-POSITION: -66px -661px
+}
+.FElist LI A.Budayu:hover {
+	BACKGROUND-POSITION: -88px -661px
+}
+.FElist LI A.Buxiaoyu:hover {
+	BACKGROUND-POSITION: -110px -661px
+}
+.FElist LI A.Hengdengyu:hover {
+	BACKGROUND-POSITION: -132px -661px
+}
+.FElist LI A.Chengzhengbi:hover {
+	BACKGROUND-POSITION: -154px -661px
+}
+.FElist LI A.Qiuji:hover {
+	BACKGROUND-POSITION: -176px -661px
+}
+.FElist LI A.Wuqiongxiao:hover {
+	BACKGROUND-POSITION: -198px -661px
+}
+.FElist LI A.Kexi:hover {
+	BACKGROUND-POSITION: -220px -661px
+}
+.FElist LI A.Miu_te:hover {
+	BACKGROUND-POSITION: 0px -688px
+}
+.FElist LI A.Deerta_te:hover {
+	BACKGROUND-POSITION: -22px -688px
+}
+.FElist LI A.Aerfa_tr:hover {
+	BACKGROUND-POSITION: -44px -688px
+}
+.FElist LI A.Beita_te:hover {
+	BACKGROUND-POSITION: -66px -688px
+}
+.FElist LI A.Gama_te:hover {
+	BACKGROUND-POSITION: -88px -688px
+}
+.FElist LI A.Rou_te:hover {
+	BACKGROUND-POSITION: -110px -688px
+}
+.FElist LI A.lanbuda_te:hover {
+	BACKGROUND-POSITION: -132px -688px
+}
+.FElist LI A.Deerta_teX:hover {
+	BACKGROUND-POSITION: -154px -688px
+}
+.FElist LI A.Oumiga_te:hover {
+	BACKGROUND-POSITION: -176px -688px
+}
+.FElist LI A.Foai_te:hover {
+	BACKGROUND-POSITION: -198px -688px
+}
+.FElist LI A.Foai_teX:hover {
+	BACKGROUND-POSITION: -220px -688px
+}
+.FElist LI A.Aita_te:hover {
+	BACKGROUND-POSITION: 0px -715px
+}
+.FElist LI A.Xita_te:hover {
+	BACKGROUND-POSITION: -22px -715px
+}
+.FElist LI A.Quan1:hover {
+	BACKGROUND-POSITION: -44px -715px
+}
+.FElist LI A.Quan2:hover {
+	BACKGROUND-POSITION: -66px -715px
+}
+.FElist LI A.Quan3:hover {
+	BACKGROUND-POSITION: -88px -715px
+}
+.FElist LI A.Quan4:hover {
+	BACKGROUND-POSITION: -110px -715px
+}
+.FElist LI A.Quan5:hover {
+	BACKGROUND-POSITION: -132px -715px
+}
+.FElist LI A.Quan6:hover {
+	BACKGROUND-POSITION: -154px -715px
+}
+.FElist LI A.Quan7:hover {
+	BACKGROUND-POSITION: -176px -715px
+}
+.FElist LI A.Quan8:hover {
+	BACKGROUND-POSITION: -198px -715px
+}
+.FElist LI A.Quan9:hover {
+	BACKGROUND-POSITION: -220px -715px
+}
+.FElist LI A.Quan10:hover {
+	BACKGROUND-POSITION: 0px -742px
+}
+.FElist LI A.Luoma1:hover {
+	BACKGROUND-POSITION: -22px -742px
+}
+.FElist LI A.Luoma2:hover {
+	BACKGROUND-POSITION: -44px -742px
+}
+.FElist LI A.Luoma3:hover {
+	BACKGROUND-POSITION: -66px -742px
+}
+.FElist LI A.Luoma4:hover {
+	BACKGROUND-POSITION: -88px -742px
+}
+.FElist LI A.Luoma5:hover {
+	BACKGROUND-POSITION: -110px -742px
+}
+.FElist LI A.Luoma6:hover {
+	BACKGROUND-POSITION: -132px -742px
+}
+.FElist LI A.Luoma7:hover {
+	BACKGROUND-POSITION: -154px -742px
+}
+.FElist LI A.Luoma8:hover {
+	BACKGROUND-POSITION: -198px -742px
+}
+.FElist LI A.Luoma9:hover {
+	BACKGROUND-POSITION: -220px -742px
+}
+.FElist LI A.Luoma10:hover {
+	BACKGROUND-POSITION: 0px -769px
+}
+.FElist LI A.Qingkong_te:hover {
+	BACKGROUND-POSITION: -132px -769px
+}
+.FElist LI A.Fenshu {
+	WIDTH: 24px; BACKGROUND-POSITION: 0px -796px; HEIGHT: 31px
+}
+.FElist LI A.Genhao {
+	WIDTH: 26px; BACKGROUND-POSITION: -24px -796px; HEIGHT: 31px
+}
+.FElist LI A.Genhaon {
+	WIDTH: 26px; BACKGROUND-POSITION: -50px -796px; HEIGHT: 31px
+}
+.FElist LI A.Youshangbiao {
+	WIDTH: 26px; BACKGROUND-POSITION: -76px -796px; HEIGHT: 31px
+}
+.FElist LI A.Youxiabiao {
+	WIDTH: 26px; BACKGROUND-POSITION: -102px -796px; HEIGHT: 31px
+}
+.FElist LI A.Youliangbiao {
+	WIDTH: 26px; BACKGROUND-POSITION: -128px -796px; HEIGHT: 31px
+}
+.FElist LI A.Xunhuan {
+	WIDTH: 24px; BACKGROUND-POSITION: -154px -796px; HEIGHT: 31px
+}
+.FElist LI A.Pingjunshu {
+	WIDTH: 24px; BACKGROUND-POSITION: -178px -796px; HEIGHT: 31px
+}
+.FElist LI A.Qingkong1 {
+	WIDTH: 37px; BACKGROUND-POSITION: -202px -796px; HEIGHT: 31px
+}
+.FElist LI A.Xiangliang {
+	WIDTH: 28px; BACKGROUND-POSITION: 0px -827px; HEIGHT: 31px
+}
+.FElist LI A.Hudu {
+	WIDTH: 28px; BACKGROUND-POSITION: -28px -827px; HEIGHT: 31px
+}
+.FElist LI A.Limit {
+	WIDTH: 30px; BACKGROUND-POSITION: -56px -827px; HEIGHT: 31px
+}
+.FElist LI A.Sigema {
+	WIDTH: 24px; BACKGROUND-POSITION: -86px -827px; HEIGHT: 31px
+}
+.FElist LI A.Kuohao {
+	WIDTH: 28px; BACKGROUND-POSITION: -110px -827px; HEIGHT: 31px
+}
+.FElist LI A.Juzhen1 {
+	WIDTH: 28px; BACKGROUND-POSITION: -138px -827px; HEIGHT: 31px
+}
+.FElist LI A.Juzhen2 {
+	WIDTH: 37px; BACKGROUND-POSITION: -166px -827px; HEIGHT: 31px
+}
+.FElist LI A.Fangchegn {
+	WIDTH: 36px; BACKGROUND-POSITION: -203px -827px; HEIGHT: 31px
+}
+.FElist LI A.Fenshu:hover {
+	BACKGROUND-POSITION: 0px -858px
+}
+.FElist LI A.Genhao:hover {
+	BACKGROUND-POSITION: -24px -858px
+}
+.FElist LI A.Genhaon:hover {
+	BACKGROUND-POSITION: -50px -858px
+}
+.FElist LI A.Youshangbiao:hover {
+	BACKGROUND-POSITION: -76px -858px
+}
+.FElist LI A.Youxiabiao:hover {
+	BACKGROUND-POSITION: -102px -858px
+}
+.FElist LI A.Youliangbiao:hover {
+	BACKGROUND-POSITION: -128px -858px
+}
+.FElist LI A.Xunhuan:hover {
+	BACKGROUND-POSITION: -154px -858px
+}
+.FElist LI A.Pingjunshu:hover {
+	BACKGROUND-POSITION: -178px -858px
+}
+.FElist LI A.Qingkong1:hover {
+	BACKGROUND-POSITION: -202px -858px
+}
+.FElist LI A.Xiangliang:hover {
+	BACKGROUND-POSITION: 0px -889px
+}
+.FElist LI A.Hudu:hover {
+	BACKGROUND-POSITION: -28px -889px
+}
+.FElist LI A.Limit:hover {
+	BACKGROUND-POSITION: -56px -889px
+}
+.FElist LI A.Sigema:hover {
+	BACKGROUND-POSITION: -86px -889px
+}
+.FElist LI A.Kuohao:hover {
+	BACKGROUND-POSITION: -110px -889px
+}
+.FElist LI A.Juzhen1:hover {
+	BACKGROUND-POSITION: -138px -889px
+}
+.FElist LI A.Juzhen2:hover {
+	BACKGROUND-POSITION: -166px -889px
+}
+.FElist LI A.Fangchegn:hover {
+	BACKGROUND-POSITION: -203px -889px
+}
+.FElist LI A.YoushangH {
+	WIDTH: 27px; BACKGROUND-POSITION: 0px -920px; HEIGHT: 31px
+}
+.FElist LI A.YouxiaH {
+	WIDTH: 27px; BACKGROUND-POSITION: -27px -920px; HEIGHT: 31px
+}
+.FElist LI A.YouliangH {
+	WIDTH: 27px; BACKGROUND-POSITION: -54px -920px; HEIGHT: 31px
+}
+.FElist LI A.ZuoshangH {
+	WIDTH: 27px; BACKGROUND-POSITION: -81px -920px; HEIGHT: 31px
+}
+.FElist LI A.ZuoxiaH {
+	WIDTH: 27px; BACKGROUND-POSITION: -108px -920px; HEIGHT: 31px
+}
+.FElist LI A.SigeH {
+	WIDTH: 27px; BACKGROUND-POSITION: -135px -920px; HEIGHT: 31px
+}
+.FElist LI A.DingbuH {
+	WIDTH: 27px; BACKGROUND-POSITION: -162px -920px; HEIGHT: 31px
+}
+.FElist LI A.DingyouxiaH {
+	WIDTH: 27px; BACKGROUND-POSITION: -189px -920px; HEIGHT: 31px
+}
+.FElist LI A.Huaxue1 {
+	WIDTH: 37px; BACKGROUND-POSITION: 0px -951px; HEIGHT: 31px
+}
+.FElist LI A.Huaxue2 {
+	WIDTH: 37px; BACKGROUND-POSITION: -37px -951px; HEIGHT: 31px
+}
+.FElist LI A.Huaxue3 {
+	WIDTH: 37px; BACKGROUND-POSITION: -74px -951px; HEIGHT: 31px
+}
+.FElist LI A.Huaxue4 {
+	WIDTH: 37px; BACKGROUND-POSITION: -111px -951px; HEIGHT: 31px
+}
+.FElist LI A.huaxue001 {
+	WIDTH: 42px; BACKGROUND-POSITION: -148px -951px; HEIGHT: 31px; CURSOR: default
+}
+.FElist LI A.Peiping {
+	WIDTH: 42px; BACKGROUND-POSITION: 0px -1044px; HEIGHT: 31px
+}
+.FElist LI A.Qingkong2 {
+	WIDTH: 37px; BACKGROUND-POSITION: -42px -1044px; HEIGHT: 31px
+}
+.FElist LI A.YoushangH:hover {
+	BACKGROUND-POSITION: 0px -982px
+}
+.FElist LI A.YouxiaH:hover {
+	BACKGROUND-POSITION: -27px -982px
+}
+.FElist LI A.YouliangH:hover {
+	BACKGROUND-POSITION: -54px -982px
+}
+.FElist LI A.ZuoshangH:hover {
+	BACKGROUND-POSITION: -81px -982px
+}
+.FElist LI A.ZuoxiaH:hover {
+	BACKGROUND-POSITION: -108px -982px
+}
+.FElist LI A.SigeH:hover {
+	BACKGROUND-POSITION: -135px -982px
+}
+.FElist LI A.DingbuH:hover {
+	BACKGROUND-POSITION: -162px -982px
+}
+.FElist LI A.DingyouxiaH:hover {
+	BACKGROUND-POSITION: -189px -982px
+}
+.FElist LI A.Huaxue1:hover {
+	BACKGROUND-POSITION: 0px -1013px
+}
+.FElist LI A.Huaxue2:hover {
+	BACKGROUND-POSITION: -37px -1013px
+}
+.FElist LI A.Huaxue3:hover {
+	BACKGROUND-POSITION: -74px -1013px
+}
+.FElist LI A.Huaxue4:hover {
+	BACKGROUND-POSITION: -111px -1013px
+}
+.FElist LI A.huaxue001:hover {
+	BACKGROUND-POSITION: -148px -1013px
+}
+.FElist LI A.Peiping:hover {
+	BACKGROUND-POSITION: -79px -1044px
+}
+.FElist LI A.Qingkong2:hover {
+	BACKGROUND-POSITION: -121px -1044px
+}
