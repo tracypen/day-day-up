@@ -9,8 +9,6 @@
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-
-
     <context:component-scan base-package="com.hp.up.business"/>
 
     <!-- 加载配置文件数据 -->
@@ -32,46 +30,25 @@
 
 
     <!-- 作业调度器Quartz的配置。定义触发器来管理任务Bean,cronExpression指定Cron表达式：周一到周五7点、12点执行调度-->
-    <bean id="cronTriggerPunch" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean" p:cronExpression="0/5 * * ? * *">
-        <property name="jobDetail">
-            <!-- 使用嵌套Bean的方式来定义任务Bean
-                jobClass指定任务Bean的实现类 -->
-            <bean class="org.springframework.scheduling.quartz.JobDetailFactoryBean" p:jobClass="com.hp.up.core.schedule.MySchedule" p:durability="true">
-                <!-- 为任务Bean注入属性 -->
-                <!--<property name="jobDataAsMap">-->
-                    <!--<map>-->
-                        <!--<entry key="actorservice" value-ref="actorservice"/>-->
-                    <!--</map>-->
-                <!--</property>-->
-            </bean>
-        </property>
-    </bean>
+    <!--<bean id="cronTriggerPunch" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean" p:cronExpression="0/5 * * ? * *">-->
+        <!--<property name="jobDetail">-->
+            <!--&lt;!&ndash; 使用嵌套Bean的方式来定义任务Bean-->
+                <!--jobClass指定任务Bean的实现类 &ndash;&gt;-->
+            <!--<bean class="org.springframework.scheduling.quartz.JobDetailFactoryBean" p:jobClass="com.hp.up.core.schedule.MySchedule" p:durability="true">-->
+            <!--</bean>-->
+        <!--</property>-->
+    <!--</bean>-->
     <!-- 执行实际的调度调度 -->
-    <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
-        <property name="triggers">
-            <list>
-                <ref bean="cronTriggerPunch"/>
-            </list>
-        </property>
-    </bean>
+    <!--<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">-->
+        <!--<property name="triggers">-->
+            <!--<list>-->
+                <!--<ref bean="cronTriggerPunch"/>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!--<import resource="/spring-ehcache.xml" />-->
+    <import resource="/spring-ehcache.xml" />
     <import resource="/spring-mybatis.xml"/>
-    <!--<import resource="/spring-shiro.xml" />-->
+    <import resource="/spring-shiro.xml" />
 </beans>
