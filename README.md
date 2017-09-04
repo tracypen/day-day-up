@@ -1,9 +1,9 @@
 # day-day-up
 ## 项目简介
 - 1.基于SSM、maven搭建的web项目(包括前台后台)
-- 2.集成shiro权限管理框架 
-- 3.redis 数据缓存
-- 4.quartz 任务调度
+- 2.集成Apache shiro权限管理框架 
+- 3.使用 redis 作为缓存数据库
+- 4.quartz    任务调度
 - 5.activemq 消息队列
 - 6.bootstrap
 - 7.sitemesh

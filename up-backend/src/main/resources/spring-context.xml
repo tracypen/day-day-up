@@ -38,7 +38,7 @@
             </bean>
         </property>
     </bean>
-     执行实际的调度调度
+     <!--执行实际的调度调度-->
     <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
         <property name="triggers">
             <list>

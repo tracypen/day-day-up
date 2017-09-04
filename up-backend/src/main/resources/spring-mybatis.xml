@@ -38,17 +38,14 @@
         <property name="configLocation" value="classpath:mybatis-config.xml" />
     </bean>
     <!-- 扫描dao包，转换成映射 -->
-    <bean id="mapperScanner" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.hp.up.business.repository"/>
+    <!--<bean id="mapperScanner" class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+        <!--<property name="basePackage" value="com.hp.up.business.repository"/>-->
 
-    </bean>
-    <!--４:配置扫描Dao接口包,动态实现DAO接口,注入到spring容器-->
-    <!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
-        <!--&lt;!&ndash;注入SqlSessionFactory&ndash;&gt;-->
-        <!--<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>-->
-        <!--&lt;!&ndash; 给出需要扫描的Dao接口&ndash;&gt;-->
-        <!--<property name="basePackage" value="cn.codingxiaxw.dao"/>-->
     <!--</bean>-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.hp.up.business.repository"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    </bean>
 
      <!--spring-mybatis.xml -->
      <!--创建事务管理器Bean -->
