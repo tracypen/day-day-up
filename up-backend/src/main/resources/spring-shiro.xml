@@ -27,6 +27,7 @@
                 /login.jsp = anon
                 /account/login = anon
                 /account/logout = anon
+                /logout.action=logout
                 /** = authc
             </value>
         </property>

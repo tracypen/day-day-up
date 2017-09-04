@@ -12,6 +12,9 @@
     <title>Title</title>
 </head>
 <body>
-<shiro:authenticated>已认证<shiro:principal></shiro:principal></shiro:authenticated>
+<a href="${ctx}/logout.action">退出</a>
+<shiro:authenticated>已认证
+    hello： <shiro:principal></shiro:principal>
+</shiro:authenticated>
 </body>
 </html>
