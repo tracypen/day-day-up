@@ -8,6 +8,6 @@ import com.hp.up.core.Entity.User;
  */
 public interface UserService {
 
-    public User getUserByName(User user);
+    public User getUserByName(String userName);
 
 }

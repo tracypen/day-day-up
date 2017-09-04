@@ -2,6 +2,8 @@ package com.hp.up.core.schedule;
 
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.quartz.QuartzJobBean;
 
 /**
@@ -9,12 +11,12 @@ import org.springframework.scheduling.quartz.QuartzJobBean;
  * Created by haopeng on 2017/8/12  23:00.
  */
 public class MySchedule extends QuartzJobBean {
+    private static Logger logger = LoggerFactory.getLogger(MySchedule.class);
     private  static  int count = 0;
 
     protected void executeInternal(JobExecutionContext jobExecutionContext) throws JobExecutionException {
 
-        System.out.println("开始任务调度****");
-        System.out.println("*******------"+count++);
+       logger.info("Quartz 任务调度***"+count++);
 
     }
 }
