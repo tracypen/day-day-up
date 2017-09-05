@@ -22,12 +22,17 @@
         </property>
         <property name="filterChainDefinitions">
             <value>
+
                 / = anon
+
                 /static/** = anon
+
                 /login.jsp = anon
-                /account/login = anon
-                /account/logout = anon
+
+                /index/login = authc
+
                 /logout.action=logout
+
                 /** = authc
             </value>
         </property>

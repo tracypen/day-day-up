@@ -3,11 +3,12 @@ package com.hp.up.core.Entity;
 import java.io.Serializable;
 
 /**
- * com.hp.up.core.Entity
- * Created by haopeng on 2017/8/7  21:48.
+ * 系统用户实体 tb_user
+ * @Author haopeng
+ * @Date 2017/9/5 16:41
  */
-public class User implements Serializable{
-    private Long id;
+public class User extends IdEntity{
+    private static final long serialVersionUID = 7308957349197738881L;
     private String name;
     private String password;
     private String salt;
@@ -16,14 +17,10 @@ public class User implements Serializable{
     }
 
     public User(Long id, String name, String password) {
-        this.id = id;
         this.name = name;
         this.password = password;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public void setName(String name) {
         this.name = name;
@@ -33,9 +30,7 @@ public class User implements Serializable{
         this.password = password;
     }
 
-    public Long getId() {
-        return id;
-    }
+
 
     public String getName() {
         return name;
@@ -56,7 +51,7 @@ public class User implements Serializable{
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
+                "id=" + super.getId() +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
                 '}';

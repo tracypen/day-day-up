@@ -22,7 +22,6 @@ public class UserAuthRealm extends AuthorizingRealm{
 
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         UsernamePasswordToken usernamePasswordToken = (UsernamePasswordToken)token;
-        System.out.println(usernamePasswordToken.getPassword());
         User user = userService.getUserByName(usernamePasswordToken.getUsername());
         if (user != null) {
            // this.initSession(user);

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * index 测试controller
+ * 用户登录controller
  */
 @Controller
 @RequestMapping("/index")
@@ -21,6 +21,7 @@ public class LoginController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(HttpServletRequest request) throws Exception {
+
         //如果登录失败从request中获取认证异常信息,shiroLoginFailure就是shiro异常类的全限定名
         String exceptionClassName = (String) request.getAttribute("shiroLoginFailure");
         logger.info("执行登录");
@@ -41,6 +42,12 @@ public class LoginController {
         //此方法不处理登录成功，shiro认证成功会自动跳转到上一个路径
 
         //登录失败返回到login页面
+        return "admin/login";
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String loginPage() {
+
         return "admin/login";
     }
 

@@ -6,17 +6,32 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.quartz.QuartzJobBean;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
- * com.hp.up.core.schedule
- * Created by haopeng on 2017/8/12  23:00.
+ * Quartz 任务调度
+ * @Author haopeng
+ * @Date 2017/8/15 16:41
  */
 public class MySchedule extends QuartzJobBean {
     private static Logger logger = LoggerFactory.getLogger(MySchedule.class);
-    private  static  int count = 0;
+
+    private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+    private static int count = 0;
 
     protected void executeInternal(JobExecutionContext jobExecutionContext) throws JobExecutionException {
 
-       logger.info("Quartz 任务调度***"+count++);
+        logger.info(sdf.format(new Date()) + "执行Quartz 任务调度***" + count++);
+
+        //1.执行一步消息任务
+
+        //2.p2p topic 接收消息
+
+        //3.邮件发送
+
+        //4.dwr 推送
 
     }
 }

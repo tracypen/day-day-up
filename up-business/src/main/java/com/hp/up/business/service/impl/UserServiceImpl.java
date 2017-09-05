@@ -15,7 +15,6 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
     public User getUserByName(String  userName) {
-        System.out.println(userName);
         return userRepository.findUserByName(userName);
     }
 }

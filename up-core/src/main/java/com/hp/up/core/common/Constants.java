@@ -2,7 +2,8 @@ package com.hp.up.core.common;
 
 /**
  * 系统常量
- * Created by Administrator on 2017/9/4.
+ * @Author haopeng
+ * @Date 2017/9/5 16:41
  */
 public interface Constants {
 
