@@ -118,12 +118,12 @@
         </init-param>
         <init-param>
             <param-name>kaptcha.border.color</param-name>
-            <param-value>118,152,200</param-value>
+            <param-value>255,255,255</param-value>
         </init-param>
         <!-- 字体颜色 -->
         <init-param>
             <param-name>kaptcha.textproducer.font.color</param-name>
-            <param-value>255,255,255</param-value>
+            <param-value>0,0,255</param-value>
         </init-param>
         <!-- 图片宽度 -->
         <init-param>
@@ -133,12 +133,12 @@
         <!-- 图片高度 -->
         <init-param>
             <param-name>kaptcha.image.height</param-name>
-            <param-value>46</param-value>
+            <param-value>40</param-value>
         </init-param>
         <!-- 使用哪些字符生成验证码 -->
         <init-param>
             <param-name>kaptcha.textproducer.char.string</param-name>
-            <param-value>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890</param-value>
+            <param-value>ABCDEFGHJKMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789</param-value>
         </init-param>
         <!-- 字体大小 -->
         <init-param>
@@ -149,7 +149,7 @@
         <init-param>
             <param-name>kaptcha.noise.color</param-name>
             <!--<param-value>239,69,50</param-value>-->
-            <param-value>60,149,200</param-value>
+            <param-value>0,0,255</param-value>
         </init-param>
         <!-- 字符个数 -->
         <init-param>
@@ -164,12 +164,12 @@
         <!-- 验证码背景颜色渐进 -->
         <init-param>
             <param-name>kaptcha.background.clear.from</param-name>
-            <param-value>104,183,26</param-value>
+            <param-value>255,200,200</param-value>
         </init-param>
         <!-- 验证码背景颜色渐进 -->
         <init-param>
             <param-name>kaptcha.background.clear.to</param-name>
-            <param-value>104,183,26</param-value>
+            <param-value>255,255,255</param-value>
         </init-param>
         <!-- 不加噪声 -->
         <init-param>
@@ -186,5 +186,28 @@
 <welcome-file-list>
     <welcome-file>login.jsp</welcome-file>
 </welcome-file-list>
+
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/views/error/404.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>400</error-code>
+        <location>/WEB-INF/views/error/404.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/WEB-INF/views/error/500.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>503</error-code>
+        <location>/WEB-INF/views/error/404.jsp</location>
+    </error-page>
+    <error-page>
+        <exception-type>java.lang.Exception</exception-type>
+        <location>/WEB-INF/views/error/500.jsp</location>
+    </error-page>
+
 
 </web-app>

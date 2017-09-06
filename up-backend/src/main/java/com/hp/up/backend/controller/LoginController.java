@@ -54,7 +54,7 @@ public class LoginController {
      *
      * @return
      */
-    @RequestMapping(value = "/loginPage", method = RequestMethod.GET)
+    @RequestMapping(value = {"/loginPage","/login"}, method = RequestMethod.GET)
     public String loginPage() {
 
         Subject subject = SecurityUtils.getSubject();

@@ -36,7 +36,7 @@ public class ShiroExceptionHandler implements HandlerExceptionResolver {
 
         try {
             //转向到错误页面
-            request.getRequestDispatcher("/WEB-INF/views/error.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/views/error/shiroError.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {

@@ -1,6 +1,9 @@
 package com.hp.up.backend.shiro.filter;
 
+import com.hp.up.core.common.Constants;
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -12,6 +15,9 @@ import javax.servlet.http.HttpSession;
  * Created by haopeng on 2017/9/3  20:24.
  */
 public class UserFromAuthenticationFilter extends FormAuthenticationFilter {
+
+    private static Logger logger = LoggerFactory.getLogger(UserFromAuthenticationFilter.class);
+
     @Override
     protected boolean onAccessDenied(ServletRequest request,ServletResponse response) throws Exception {
 

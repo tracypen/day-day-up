@@ -11,9 +11,9 @@
 
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager"/>
-        <property name="loginUrl" value="${shiro.login.url}"/>
-        <property name="successUrl" value="${shiro.success.url}"/>
-        <property name="unauthorizedUrl" value="${shiro.unauthorizedUrl}"/>
+        <property name="loginUrl" value="/index/login"/>
+        <property name="successUrl" value="/index/success"/>
+        <property name="unauthorizedUrl" value="/unAuth.jsp"/>
         <!--自定义filter-->
         <property name="filters">
             <map>
@@ -23,17 +23,19 @@
         <property name="filterChainDefinitions">
             <value>
 
-                / = anno
+                / = anon
 
                 /static/** = anon
 
-                /login.jsp = anon
+                /login.jsp =anon
 
-                /index/login = authc
+                /favicon.ico = anon
 
                 /index/loginPage = anon
 
-                /logout.action=logout
+                /index/login = authc
+
+                /logout.action = logout
 
                 /** = authc
             </value>
@@ -52,6 +54,8 @@
 
         <!-- 记住我 -->
         <property name="rememberMeManager" ref="rememberMeManager"/>
+
+
     </bean>
 
 
@@ -65,7 +69,7 @@
     <!-- 凭证匹配器 -->
     <bean id="credentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
         <property name="hashAlgorithmName" value="md5"/>
-        <property name="hashIterations" value="0"/>
+        <property name="hashIterations" value="1"/>
     </bean>
 
 
