@@ -11,9 +11,9 @@
 
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager"/>
-        <property name="loginUrl" value="/index/login"/>
-        <property name="successUrl" value="/success.jsp"/>
-        <property name="unauthorizedUrl" value="/unAuth.jsp"/>
+        <property name="loginUrl" value="${shiro.login.url}"/>
+        <property name="successUrl" value="${shiro.success.url}"/>
+        <property name="unauthorizedUrl" value="${shiro.unauthorizedUrl}"/>
         <!--自定义filter-->
         <property name="filters">
             <map>
@@ -23,13 +23,15 @@
         <property name="filterChainDefinitions">
             <value>
 
-                / = anon
+                / = anno
 
                 /static/** = anon
 
                 /login.jsp = anon
 
                 /index/login = authc
+
+                /index/loginPage = anon
 
                 /logout.action=logout
 
@@ -50,8 +52,6 @@
 
         <!-- 记住我 -->
         <property name="rememberMeManager" ref="rememberMeManager"/>
-
-
     </bean>
 
 

@@ -1,11 +1,15 @@
 package com.hp.up.backend.controller;
 
 import com.hp.up.backend.shiro.Exception.ShiroException;
+import com.hp.up.core.common.Constants;
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
+import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -24,7 +28,7 @@ public class LoginController {
 
         //如果登录失败从request中获取认证异常信息,shiroLoginFailure就是shiro异常类的全限定名
         String exceptionClassName = (String) request.getAttribute("shiroLoginFailure");
-        logger.info("执行登录");
+        logger.info(Constants.LOGPREFIX + " 执行登录");
         //根据shiro返回的异常类路径判断，抛出指定异常信息
         if (exceptionClassName != null) {
             if (UnknownAccountException.class.getName().equals(exceptionClassName)) {
@@ -45,10 +49,42 @@ public class LoginController {
         return "admin/login";
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    /**
+     * 登录页面
+     *
+     * @return
+     */
+    @RequestMapping(value = "/loginPage", method = RequestMethod.GET)
     public String loginPage() {
 
+        Subject subject = SecurityUtils.getSubject();
+
+        // 防止用户重复登录
+        if (subject != null && subject.isAuthenticated()) {
+            String userName = (String) subject.getPrincipal();
+            //authService.clear(userId);
+            subject.logout();
+            logger.info(Constants.LOGPREFIX + userName + " 用户已退出！");
+        }
         return "admin/login";
+    }
+
+
+    @RequestMapping(value = "/success", method = RequestMethod.GET)
+    public String successPage(Model model) {
+
+        Subject subject = SecurityUtils.getSubject();
+
+        if (subject != null && subject.isAuthenticated()) {
+
+            String userName = (String) subject.getPrincipal();
+
+            model.addAttribute("userName", userName);
+
+            logger.info(Constants.LOGPREFIX + userName + " 访问index.jsp");
+        }
+
+        return "admin/index";
     }
 
 }

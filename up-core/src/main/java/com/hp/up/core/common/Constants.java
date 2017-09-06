@@ -9,4 +9,6 @@ public interface Constants {
 
     String CONTEXT_PATH = "ctx";
 
+    String LOGPREFIX = "************* ";
+
 }
