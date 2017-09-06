@@ -23,12 +23,19 @@ public class UserAuthRealm extends AuthorizingRealm{
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         UsernamePasswordToken usernamePasswordToken = (UsernamePasswordToken)token;
         User user = userService.getUserByName(usernamePasswordToken.getUsername());
-        if (user != null) {
-           // this.initSession(user);
-            SimpleAuthenticationInfo authInfo = new SimpleAuthenticationInfo(user.getName(), user.getPassword(), ByteSource.Util.bytes(user.getSalt()), this.getName());
-            return authInfo;
+
+
+        if(user == null) {
+            throw new UnknownAccountException();//没找到帐号
         }
-            return null;
+
+      /*  if(Boolean.TRUE.equals(user.getLocked())) {
+            throw new LockedAccountException(); //帐号锁定
+        }*/
+
+        SimpleAuthenticationInfo authInfo = new SimpleAuthenticationInfo(user.getName(), user.getPassword(), ByteSource.Util.bytes(user.getSalt()), this.getName());
+        return authInfo;
+
     }
 
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
