@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 /**
- * com.hp.up.backend.shiro.filter
+ * 表单过滤器--认证用户信息
  * Created by haopeng on 2017/9/3  20:24.
  */
 public class UserFromAuthenticationFilter extends FormAuthenticationFilter {

@@ -54,8 +54,6 @@
 
         <!-- 记住我 -->
         <property name="rememberMeManager" ref="rememberMeManager"/>
-
-
     </bean>
 
 

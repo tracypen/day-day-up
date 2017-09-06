@@ -11,19 +11,14 @@
        http://www.springframework.org/schema/aop/spring-aop.xsd">
 
 
-    <!-- ali druid 数据库连接池 -->
+    <!--  druid 数据库连接池 -->
     <!-- 数据源 org.apache.commons.dbcp.BasicDataSource com.alibaba.druid.pool.DruidDataSource -->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://localhost:3306/mcgrady" />
         <property name="username" value="root" />
         <property name="password" value="root" />
-
-
-        <!-- druid 连接池的 -->
         <property name="filters" value="stat" />
-
-        <!-- 下面druid 和 dbcp 连接池通用的 -->
         <!--maxActive: 最大连接数量 -->
         <property name="maxActive" value="20" />
         <!--initialSize: 初始化连接 -->
@@ -37,23 +32,17 @@
         <!-- 引入分页插件 -->
         <property name="configLocation" value="classpath:mybatis-config.xml" />
     </bean>
-    <!-- 扫描dao包，转换成映射 -->
-    <!--<bean id="mapperScanner" class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
-        <!--<property name="basePackage" value="com.hp.up.business.repository"/>-->
 
-    <!--</bean>-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.hp.up.business.repository"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
 
-     <!--spring-mybatis.xml -->
      <!--创建事务管理器Bean -->
     <bean id="txMgr" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <!-- 事务管理器必须注入 dataSource 对象 -->
         <property name="dataSource" ref="dataSource" />
     </bean>
-    <!-- 	开启事务注解支持，可以使用注解管理事务
-        必须注入 事务管理器对象 -->
+    <!-- 	开启事务注解支持，可以使用注解管理事务必须注入 事务管理器对象 -->
     <tx:annotation-driven transaction-manager="txMgr"/>
 </beans>

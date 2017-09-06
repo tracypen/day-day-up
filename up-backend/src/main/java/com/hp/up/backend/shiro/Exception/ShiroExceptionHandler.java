@@ -18,7 +18,6 @@ public class ShiroExceptionHandler implements HandlerExceptionResolver {
         ex.printStackTrace();
         //统一异常处理代码
         //针对系统自定义的ShiroException异常，就可以直接从异常中获取一场信息，将异常处理在错误页面展示
-        //异常信息
         String message = null;
         ShiroException shiroException = null;
         //如果ex是系统自定义的异常，我们就直接取出异常信息
@@ -27,8 +26,6 @@ public class ShiroExceptionHandler implements HandlerExceptionResolver {
         } else {
             shiroException = new ShiroException("未知错误");
         }
-
-        //错误信息
         message = shiroException.getMessage();
 
         request.setAttribute("message", message);

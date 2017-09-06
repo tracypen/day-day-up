@@ -11,6 +11,8 @@
     <title>错误页面</title>
 </head>
 <body>
- 服务器内部错误 <a href="${ctx}/index/success">返回主页</a>
+ 服务器内部错误 <br>
+ <br>
+ <a href="${ctx}/index/success">返回主页</a>
 </body>
 </html>

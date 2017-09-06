@@ -19,7 +19,7 @@
 
     <mvc:default-servlet-handler/>
 
-    <mvc:view-controller path="/" view-name="redirect:/index/loginPage" />
+    <mvc:view-controller path="/" view-name="redirect:/index/loginPage"/>
 
     <!-- 开启aop，对类代理 -->
     <aop:config proxy-target-class="true"></aop:config>

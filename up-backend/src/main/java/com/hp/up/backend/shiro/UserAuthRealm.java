@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * 自定义realm 注入认证、授权数据源
- * Created by haopeng on 2017/9/3  18:53.
+ * Created by haopeng on 2017/9/3  18:53
  */
 public class UserAuthRealm extends AuthorizingRealm{
     private static final Logger logger = LoggerFactory.getLogger(UserAuthRealm.class);

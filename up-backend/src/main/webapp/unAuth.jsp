@@ -11,6 +11,6 @@
     <title>拒绝访问</title>
 </head>
 <body>
-无权访问！
+ 无权访问！
 </body>
 </html>
