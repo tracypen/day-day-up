@@ -21,12 +21,15 @@ public class UserAuthRealm extends AuthorizingRealm{
     private UserService userService;
 
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
+
         UsernamePasswordToken usernamePasswordToken = (UsernamePasswordToken)token;
+
         User user = userService.getUserByName(usernamePasswordToken.getUsername());
 
-
         if(user == null) {
+
             throw new UnknownAccountException();//没找到帐号
+
         }
 
       /*  if(Boolean.TRUE.equals(user.getLocked())) {
@@ -34,11 +37,12 @@ public class UserAuthRealm extends AuthorizingRealm{
         }*/
 
         SimpleAuthenticationInfo authInfo = new SimpleAuthenticationInfo(user.getName(), user.getPassword(), ByteSource.Util.bytes(user.getSalt()), this.getName());
-        return authInfo;
 
+        return authInfo;
     }
 
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
+
         return null;
     }
 

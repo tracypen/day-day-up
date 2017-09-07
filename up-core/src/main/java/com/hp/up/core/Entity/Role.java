@@ -1,5 +1,7 @@
 package com.hp.up.core.Entity;
 
+import com.google.common.collect.Lists;
+
 import java.util.List;
 
 /**
@@ -36,6 +38,89 @@ public class Role extends IdEntity{
     private boolean enableEdit;
 
     //（对资源操作的）权限集合
-   // private List<RoleResourcePermission> resourcePermissions;
+    private List<RoleResourcePermission> resourcePermissions;
 
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Boolean getShow() {
+        return show;
+    }
+
+    public void setShow(Boolean show) {
+        this.show = show;
+    }
+
+    public String getTypeName() {
+        return typeName;
+    }
+
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
+    }
+
+    public String getParent_id() {
+        return parent_id;
+    }
+
+    public void setParent_id(String parent_id) {
+        this.parent_id = parent_id;
+    }
+
+    public String getParent_ids() {
+        return parent_ids;
+    }
+
+    public void setParent_ids(String parent_ids) {
+        this.parent_ids = parent_ids;
+    }
+
+    public Boolean getCurrentRole() {
+        return currentRole;
+    }
+
+    public void setCurrentRole(Boolean currentRole) {
+        this.currentRole = currentRole;
+    }
+
+    public boolean isEnableEdit() {
+        return enableEdit;
+    }
+
+    public void setEnableEdit(boolean enableEdit) {
+        this.enableEdit = enableEdit;
+    }
+
+    public List<RoleResourcePermission> getResourcePermissions() {
+        if (null == resourcePermissions){
+            resourcePermissions = Lists.newArrayList();
+        }
+        return resourcePermissions;
+    }
+
+    public void setResourcePermissions(List<RoleResourcePermission> resourcePermissions) {
+        this.resourcePermissions = resourcePermissions;
+    }
 }

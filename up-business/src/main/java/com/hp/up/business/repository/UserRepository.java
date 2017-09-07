@@ -9,7 +9,9 @@ import org.springframework.stereotype.Component;
  * Created by haopeng on 2017/8/7  22:24.
  */
 @Component
-public interface UserRepository {
+public interface UserRepository extends BaseRepository{
 
     public User findUserByName(@Param("name") String name);
+
+    public int remove(Long id);
 }

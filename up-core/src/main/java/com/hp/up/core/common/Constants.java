@@ -11,4 +11,9 @@ public interface Constants {
 
     String LOGPREFIX = "************* ";
 
+    String ENCODING_UTF8 = "UTF-8";
+
+    String CURRENT_USER = "user";
+
+
 }

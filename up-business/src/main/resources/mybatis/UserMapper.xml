@@ -8,9 +8,17 @@
       <result property="salt" column="salt" />
   </resultMap>
 
-    <!-- 此处select标签的id值对应Mapper类中方法名 -->
     <select id="findUserByName" parameterType="String" resultMap="userMap">
-            <!-- 此处写sql语句,#{Mapper类传入的参数} -->
             select id,name,password,salt from user where name = #{name}
     </select>
+
+    <delete id="remove" parameterType="long">
+        delete from tb_user
+        <where>
+            <if test="value != null">
+                uId = <![CDATA[#{value}]]>
+            </if>
+        </where>
+    </delete>
+
 </mapper>
