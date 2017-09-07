@@ -22,8 +22,21 @@
         <property name="ignoreUnresolvablePlaceholders" value="true"/>
 
         <!-- 设置编码格式 -->
-        <property name="fileEncoding" value="UTF-8"></property>
+        <property name="fileEncoding" value="UTF-8"/>
     </bean>
+
+    <!--@Value读取配置文件   @Value("#{propertiesReader[admin.path]}") -->
+   <bean id="propertiesReader"
+          class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="locations">
+            <list>
+                <value>classpath*:config/dev/application.properties</value>
+            </list>
+        </property>
+        <!-- 设置编码格式 -->
+       <property name="fileEncoding" value="UTF-8"/>
+    </bean>
+
     <!-- 激活自动代理功能 -->
     <aop:aspectj-autoproxy proxy-target-class="true" />
 
