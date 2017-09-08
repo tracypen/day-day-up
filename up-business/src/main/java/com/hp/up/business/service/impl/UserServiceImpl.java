@@ -2,6 +2,7 @@ package com.hp.up.business.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.google.common.io.ByteSource;
 import com.hp.up.business.repository.UserRepository;
 import com.hp.up.business.service.UserService;
 import com.hp.up.core.Entity.User;
@@ -10,11 +11,14 @@ import com.hp.up.core.web.page.PagingList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * com.hp.up.business.service.impl
@@ -24,6 +28,10 @@ import java.util.List;
 public class UserServiceImpl extends BaseServiceImpl<User> implements UserService {
 
     private final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+
+    //配置密码散列次数
+    @Value("#{propertiesReader['shiro.hashIterations']}")
+    private int hashIterations;
 
     @Autowired
     private UserRepository userRepository;
@@ -57,6 +65,18 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
     }
 
 
+    public int save(User user){
+        //通过UUID作为用户密码盐值
+        /*String salt = PwdUtil.getUUID();
+        user.setSalt(salt);
+        user.setPassword(PwdUtil.encrypt(user.getPassword(),salt,hashIterations));*/
+        int count = baseRepository.save(user);
+        return count;
+
+    }
+
+
+
     public int updateLastLoginTime(Long id) {
         return userRepository.updateLastLoginTime(id);
     }
@@ -64,4 +84,10 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
     public void afterPropertiesSet() throws Exception {
         super.baseRepository = userRepository;
     }
+
+
+
+
+
+
 }

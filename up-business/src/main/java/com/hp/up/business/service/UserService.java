@@ -28,6 +28,4 @@ public interface UserService extends BaseService<User>{
      */
     int updateLastLoginTime(Long id);
 
-
-
 }
