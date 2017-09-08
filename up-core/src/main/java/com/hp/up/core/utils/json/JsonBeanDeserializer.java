@@ -11,8 +11,6 @@ import com.fasterxml.jackson.databind.deser.SettableBeanProperty;
 import com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap;
 import com.fasterxml.jackson.databind.deser.impl.ObjectIdReader;
 import com.fasterxml.jackson.databind.util.NameTransformer;
-import com.sun.istack.internal.NotNull;
-
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.HashSet;

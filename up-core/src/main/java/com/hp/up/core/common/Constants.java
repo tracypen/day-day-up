@@ -9,7 +9,7 @@ public interface Constants {
 
     String CONTEXT_PATH = "ctx";
 
-    String LOGPREFIX = "************* ";
+    String LOGPREFIX = "****************************************************** ";
 
     String ENCODING_UTF8 = "UTF-8";
 

@@ -1,11 +1,14 @@
 package com.hp.up.backend.controller;
 
 import com.hp.up.backend.shiro.Exception.ShiroException;
+import com.hp.up.backend.shiro.UserShiro;
 import com.hp.up.core.common.Constants;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.subject.Subject;
+import org.apache.shiro.web.util.SavedRequest;
+import org.apache.shiro.web.util.WebUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -19,7 +22,7 @@ import javax.servlet.http.HttpServletRequest;
  * 用户登录controller
  */
 @Controller
-@RequestMapping("/index")
+@RequestMapping("/admin")
 public class LoginController {
 
     private static Logger logger = LoggerFactory.getLogger(LoginController.class);
@@ -78,21 +81,47 @@ public class LoginController {
     }
 
 
+    /**
+     * 登录成功-记录最后登录时间
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/success", method = RequestMethod.GET)
-    public String successPage(Model model) {
+    public String successPage(HttpServletRequest request,Model model) {
 
         Subject subject = SecurityUtils.getSubject();
 
         if (subject != null && subject.isAuthenticated()) {
 
-            String userName = (String) subject.getPrincipal();
+            UserShiro userShiro = (UserShiro) subject.getPrincipal();
 
-            model.addAttribute("userName", userName);
+            model.addAttribute("userName", userShiro.getName());
 
-            logger.info(Constants.LOGPREFIX + userName + " 访问index.jsp");
+            logger.info(Constants.LOGPREFIX + userShiro.getName() + " 访问index.jsp");
         }
 
+       // SavedRequest savedRequest = WebUtils.getAndClearSavedRequest(request);
+
+      //  System.out.println(savedRequest.getRequestUrl());
+
         return "admin/index";
+    }
+
+    @RequestMapping(value = "/unAuthor", method = RequestMethod.GET)
+    public String unAuthorPage(Model model) {
+
+        Subject subject = SecurityUtils.getSubject();
+
+        if (subject != null && subject.isAuthenticated()) {
+
+            UserShiro userShiro = (UserShiro) subject.getPrincipal();
+
+          //  model.addAttribute("userName", userName);
+
+            logger.info(Constants.LOGPREFIX + userShiro.getName() + " 未授权访问被拦截");
+        }
+
+        return "unAuthor";
     }
 
 }

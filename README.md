@@ -49,6 +49,30 @@
       <property name="sessionManager" ref="sessionManager" />
   </bean>
 
-  
+  <property name="hashAlgorithmName" value="md5"/>指定hash算法为MD5；  
+  <property name="hashIterations" value="2"/>指定散列次数为2次；
+  <pre name="code" class="html"><property name="storedCredentialsHexEncoded"
+   value="true"/>指定Hash散列值使用Hex加密存储。
+  value="false"表明hash散列值用用Base64-encoded存储。
   
  
+ 
+ //获取第1页，10条内容，默认查询总数count
+ PageHelper.startPage(1, 10);
+ List<Country> list = countryMapper.selectAll();
+ //用PageInfo对结果进行包装
+ PageInfo page = new PageInfo(list);
+ //测试PageInfo全部属性
+ //PageInfo包含了非常全面的分页属性
+ assertEquals(1, page.getPageNum());
+ assertEquals(10, page.getPageSize());
+ assertEquals(1, page.getStartRow());
+ assertEquals(10, page.getEndRow());
+ assertEquals(183, page.getTotal());
+ assertEquals(19, page.getPages());
+ assertEquals(1, page.getFirstPage());
+ assertEquals(8, page.getLastPage());
+ assertEquals(true, page.isFirstPage());
+ assertEquals(false, page.isLastPage());
+ assertEquals(false, page.isHasPreviousPage());
+ assertEquals(true, page.isHasNextPage());

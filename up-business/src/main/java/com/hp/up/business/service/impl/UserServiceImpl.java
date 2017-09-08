@@ -39,6 +39,11 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
         return userRepository.remove(id);
     }
 
+
+    public int updateLastLoginTime(Long id) {
+        return userRepository.updateLastLoginTime(id);
+    }
+
     public void afterPropertiesSet() throws Exception {
         super.baseRepository = userRepository;
     }

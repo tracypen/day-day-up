@@ -41,7 +41,7 @@
 <body>
 <div class="container vertical-center">
     <div class="col-md-6 col-md-offset-3">
-        <form  action="<%=basePath%>index/login" method="post">
+        <form  action="<%=basePath%>admin/login" method="post">
             <h2 >登录</h2><em style="color: crimson">${msg}</em>
             <label for="name" class="sr-only">userid</label>
             <input type="text" name="username" id="name" class="form-control" placeholder="请输入用户名" required autofocus>

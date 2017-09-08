@@ -6,15 +6,22 @@
 <configuration>
 	<!-- 全局配置参数 -->
 	<settings>
-		<!-- 打印查询语句 -->
-		<!--  <setting name="logImpl" value="STDOUT_LOGGING" /> -->
-		<!-- 延迟加载总开关 -->
-		<setting name="lazyLoadingEnabled" value="true" />
-		<!-- 设置按需加载 -->
-		<setting name="aggressiveLazyLoading" value="false" />
-		<!-- 配置二级缓存 -->
 		<setting name="cacheEnabled" value="true" />
+		<setting name="multipleResultSetsEnabled" value="true" />
+		<setting name="defaultExecutorType" value="REUSE" />
+		<setting name="lazyLoadingEnabled" value="false" />
+		<setting name="aggressiveLazyLoading" value="true" />
+		<setting name="defaultStatementTimeout" value="25000" />
 	</settings>
+	<typeAliases>
+		<!-- 配置别名 -->
+	</typeAliases>
+
+	<!--Mybatis 类型处理器-->
+	<typeHandlers>
+		<typeHandler handler="org.apache.ibatis.type.BigIntegerTypeHandler" javaType="java.lang.Long"  jdbcType="BIGINT"/>
+		<typeHandler handler="com.hp.up.core.mybatis.handler.EnumIntegerTypeHandler" javaType="com.hp.up.core.enums.BooleanType"/>
+	</typeHandlers>
 
 	<!--
    plugins在配置文件中的位置必须符合要求，否则会报错，顺序如下:

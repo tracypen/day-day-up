@@ -12,4 +12,9 @@ public interface UserService extends BaseService<User>{
 
     int deleteUser(Long id);
 
+    //更新用户最后登录时间
+    int updateLastLoginTime(Long id);
+
+
+
 }

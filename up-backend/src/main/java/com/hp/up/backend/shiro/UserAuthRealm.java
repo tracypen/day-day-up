@@ -36,7 +36,9 @@ public class UserAuthRealm extends AuthorizingRealm{
             throw new LockedAccountException(); //帐号锁定
         }*/
 
-        SimpleAuthenticationInfo authInfo = new SimpleAuthenticationInfo(user.getName(), user.getPassword(), ByteSource.Util.bytes(user.getSalt()), this.getName());
+       UserShiro userShiro =  buildUserShiro(user);
+
+        SimpleAuthenticationInfo authInfo = new SimpleAuthenticationInfo(userShiro, user.getPassword(), ByteSource.Util.bytes(user.getSalt()), this.getName());
 
         return authInfo;
     }
@@ -44,6 +46,12 @@ public class UserAuthRealm extends AuthorizingRealm{
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
 
         return null;
+    }
+
+
+    private  UserShiro buildUserShiro(User user){
+
+        return new UserShiro(user.getId(),user.getName(),user.getPassword(),user.getRealName());
     }
 
 }
