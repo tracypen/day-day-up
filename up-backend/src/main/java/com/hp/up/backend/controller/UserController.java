@@ -35,7 +35,7 @@ public class UserController extends BaseController{
     @RequestMapping(value = { "{id}/delete" })
     public @ResponseBody
     String delete(ModelMap model, @PathVariable("id") Long id, User user) {
-        int i = userService.deleteUser(id);
+        int i = userService.remove(id);
         if (i == 1) {
             return ResponseStatus.OK.toJson();
         } else {

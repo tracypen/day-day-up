@@ -1,6 +1,10 @@
 package com.hp.up.business.service;
 
 import com.hp.up.core.Entity.User;
+import com.hp.up.core.web.page.PageDto;
+import com.hp.up.core.web.page.PagingList;
+
+import java.util.List;
 
 /**
  * com.hp.up.business.service
@@ -8,11 +12,20 @@ import com.hp.up.core.Entity.User;
  */
 public interface UserService extends BaseService<User>{
 
+    /**
+     * 通过用户名查询用户 -- 用于登录
+     */
     User getUserByName(String userName);
 
-    int deleteUser(Long id);
+    /**
+     * 分页查询用户信息
+     */
+    PagingList<User> getUserPage(PageDto pageDto);
 
-    //更新用户最后登录时间
+
+    /**
+     * 更新用户最后登录时间
+     */
     int updateLastLoginTime(Long id);
 
 

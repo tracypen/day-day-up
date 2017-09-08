@@ -48,7 +48,7 @@
         <property name="jobDetail">
             <!-- 使用嵌套Bean的方式来定义任务Bean
                 jobClass指定任务Bean的实现类 -->
-            <bean class="org.springframework.scheduling.quartz.JobDetailFactoryBean" p:jobClass="com.hp.up.core.schedule.MySchedule" p:durability="true">
+            <bean class="org.springframework.scheduling.quartz.JobDetailFactoryBean" p:jobClass="com.hp.up.business.schedule.MySchedule" p:durability="true">
             </bean>
         </property>
     </bean>

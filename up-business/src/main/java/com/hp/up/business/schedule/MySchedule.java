@@ -1,4 +1,4 @@
-package com.hp.up.core.schedule;
+package com.hp.up.business.schedule;
 
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;

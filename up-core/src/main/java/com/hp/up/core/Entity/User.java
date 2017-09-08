@@ -26,7 +26,7 @@ public class User extends IdEntity{
     private int status;
     private String nickName;
     private String qq;
-    private String svatar;
+    private String avatar;
 
     public void setName(String name) {
         this.name = name;
@@ -126,12 +126,12 @@ public class User extends IdEntity{
         this.qq = qq;
     }
 
-    public String getSvatar() {
-        return svatar;
+    public String getAvatar() {
+        return avatar;
     }
 
-    public void setSvatar(String svatar) {
-        this.svatar = svatar;
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 
     @Override
