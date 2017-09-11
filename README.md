@@ -83,3 +83,54 @@
  1.https://git.oschina.net/hawawa/easyui-rbac.git  crm基于springboot搭建的权限管理系统
  
  2.https://git.oschina.net/hawawa/WhereURP.git easyui+shiro搭建的权限管理系统
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 	<select id="findRoleByIds" resultMap="RolePermissionResult" parameterType="list">
+ 		select 
+ 		r.id rid,
+ 		r.name,
+ 		r.role,
+ 		r.description,
+ 		r.is_show,
+ 		
+ 		p.id pid,
+ 		p.role_id,
+ 		p.resource_id,
+ 		p.permission_ids
+ 
+ 		from t_role r left outer join
+ 		t_role_resource_permission p on r.id = p.role_id where r.id in
+ 		<foreach collection="list" index="index" close=")" item="item" open="(" separator=",">#{item}</foreach>
+ 
+ 	</select>
+ 	
+ 		<resultMap type="Role" id="RolePermissionResult" extends="RoleResult">
+    		<collection property="resourcePermissions" ofType="RoleResourcePermission">
+    			<id property="id" column="pid"/>
+    			<result property="resourceId" column="resource_id" />
+    			<result property="permissionIds" column="permission_ids"/>
+    			<association property="role" javaType="Role" />
+    		</collection>
+    	</resultMap>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
