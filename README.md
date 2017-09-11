@@ -115,7 +115,7 @@
     			<result property="resourceId" column="resource_id" />
     			<result property="permissionIds" column="permission_ids"/>
     			<association property="role" javaType="Role" />
-    		</collection>
+    		</collection> 
     	</resultMap>
  
  
