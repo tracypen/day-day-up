@@ -20,7 +20,7 @@ public interface UserService extends BaseService<User>{
     /**
      * 分页查询用户信息
      */
-    PagingList<User> getUserPage(PageDto pageDto);
+    PagingList<User> getUserPage(PageDto pageDto,User user);
 
 
     /**

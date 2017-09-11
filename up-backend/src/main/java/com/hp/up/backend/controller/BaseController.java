@@ -1,16 +1,20 @@
 package com.hp.up.backend.controller;
 
 import com.hp.up.business.service.UserService;
+import com.hp.up.core.Entity.IdEntity;
 import com.hp.up.core.Entity.User;
 import com.hp.up.core.common.Constants;
+import com.hp.up.core.utils.web.RenderUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -27,8 +31,16 @@ public class BaseController {
 
     private final String RESPONSE_ENTITY_TEXT_TYPE = MediaType.TEXT_HTML_VALUE + "; charset=" + Constants.ENCODING_UTF8;
 
+    private String viewPrefix;
+
+
     @Autowired
     UserService userService;
+
+
+    public BaseController() {
+
+    }
 
     /**
      * 获取当前用户
@@ -44,36 +56,24 @@ public class BaseController {
 
         return currentUser;
     }
-/*
-    protected void populatedUser(User user, Model model) {
-        // cache
-        model.addAttribute(com.lirenkj.smartedu.lx.common.utils.Constants.USER_ID, user.getId().longValue());
-        model.addAttribute(com.lirenkj.smartedu.lx.common.utils.Constants.CURRENT_USER, user);
 
-        List<Menu> menus = findMenus(user);
-        model.addAttribute(com.lirenkj.smartedu.lx.common.utils.Constants.MENU_LIST, menus);
-
-        if (user.getUserGroup() == null) {
-            UserIdentity identity = getUserIdentity();
-            user.setUserGroup(identity);
-            user = userV3Service.update(user);
+    protected String viewName(String suffixName) {
+        if (!suffixName.startsWith("/")) {
+            suffixName = "/" + suffixName;
         }
+        return getViewPrefix() + suffixName;
+    }
+
+    public String getViewPrefix() {
+        return viewPrefix;
+    }
 
 
-
-       // model.addAttribute(com.lirenkj.smartedu.lx.common.utils.Constants.DOMAIN, PropertiesLoader.getInstance().getProperty("media.server.domain"));
-
-        model.addAttribute(com.lirenkj.smartedu.lx.common.utils.Constants.FRONTURL, PropertiesLoader.getInstance().getProperty("front.url"));
-    }*/
-
-/*
-    private List<Menu> findMenus(UserV3 user) {
-        List<Menu> menus = redisTemplate.get(MENU_BY_ID + String.valueOf(user.getId()), List.class);
-        if (menus == null) {
-            menus = resourceService.findMenus(user);
-            redisTemplate.setex(MENU_BY_ID + String.valueOf(user.getId()), menus, MENU_BY_ID.getExpiredTime());
+    protected <T> ResponseEntity<T> getJsonResponseEntity(Object obj) {
+        if (obj != null) {
+            return RenderUtils.getJsonResponseEntity(obj);
         }
-        return menus;
-    }*/
+        return null;
+    }
 
 }

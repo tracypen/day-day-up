@@ -8,7 +8,7 @@
 - 6.bootstrap
 - 7.sitemesh
 - 8.elasticsearch
-
+-9.datatable 插件
 
 
 ## 模块说明
@@ -76,3 +76,10 @@
  assertEquals(false, page.isLastPage());
  assertEquals(false, page.isHasPreviousPage());
  assertEquals(true, page.isHasNextPage());
+ 
+ 
+ 
+ 学习目标
+ 1.https://git.oschina.net/hawawa/easyui-rbac.git  crm基于springboot搭建的权限管理系统
+ 
+ 2.https://git.oschina.net/hawawa/WhereURP.git easyui+shiro搭建的权限管理系统

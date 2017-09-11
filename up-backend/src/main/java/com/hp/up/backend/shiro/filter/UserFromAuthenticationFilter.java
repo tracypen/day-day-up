@@ -8,6 +8,8 @@ import com.hp.up.core.utils.date.DateUtils;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
+import org.apache.shiro.web.util.SavedRequest;
+import org.apache.shiro.web.util.WebUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,7 +63,9 @@ public class UserFromAuthenticationFilter extends FormAuthenticationFilter {
 
         userService.updateLastLoginTime(userShiro.getId());
 
-        logger.info(Constants.LOGPREFIX + DateUtils.convert2String(new Date(), DateUtils.LONG_FORMAT) + userShiro.getName() + "login success !");
+        logger.info(Constants.LOGPREFIX + DateUtils.convert2String(new Date(), DateUtils.LONG_FORMAT) + userShiro.getName() + "  login success !");
+
+        // SavedRequest savedRequest = WebUtils.getAndClearSavedRequest(request);
 
         return super.onLoginSuccess(token, subject, request, response);
     }

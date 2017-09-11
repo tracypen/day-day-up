@@ -31,15 +31,8 @@ public class Role extends IdEntity{
     // 角色父节点字符串 0/1
     private String parent_ids;
 
-    // 当前用户角色
-    private Boolean currentRole;
-
-    // 是否可修改
-    private boolean enableEdit;
-
     //（对资源操作的）权限集合
     private List<RoleResourcePermission> resourcePermissions;
-
 
     public String getName() {
         return name;
@@ -96,23 +89,6 @@ public class Role extends IdEntity{
     public void setParent_ids(String parent_ids) {
         this.parent_ids = parent_ids;
     }
-
-    public Boolean getCurrentRole() {
-        return currentRole;
-    }
-
-    public void setCurrentRole(Boolean currentRole) {
-        this.currentRole = currentRole;
-    }
-
-    public boolean isEnableEdit() {
-        return enableEdit;
-    }
-
-    public void setEnableEdit(boolean enableEdit) {
-        this.enableEdit = enableEdit;
-    }
-
     public List<RoleResourcePermission> getResourcePermissions() {
         if (null == resourcePermissions){
             resourcePermissions = Lists.newArrayList();

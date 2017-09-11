@@ -21,6 +21,13 @@
 
     <mvc:view-controller path="/" view-name="redirect:/admin/loginPage"/>
 
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**" />
+            <bean class="com.hp.up.core.web.interceptor.CommonDataInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
     <!-- 开启aop，对类代理 -->
     <aop:config proxy-target-class="true"/>
 

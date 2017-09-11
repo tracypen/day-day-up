@@ -15,9 +15,37 @@ import java.util.Map;
  */
 public enum ResponseStatus implements Status{
 
+    /**
+     * 删除失败
+     */
     FAILURE_DELETE(10022, "Delete Failure", "删除失败"),
+    /**
+     * 添加失败
+     */
+    FAILURE_ADD(10023, "Add Failure", "添加失败"),
+    /**
+     * 修改失败
+     */
+    FAILURE_UPDATE(10024, "Update Failure", "修改失败"),
 
-    OK(0, "successful", "成功")
+    OK(0, "successful", "成功"),
+    /**
+     * 系统错误
+     */
+    SYSTEM_ERROR(10001, "System error"),
+
+    /**
+     * 缺失必选参数，请参考API文档
+     */
+    MISS_REQUIRED_PARAMETE(10002, "缺失必选参数，请参考API文档"),
+    /**
+     * 参数值非法
+     */
+    PARAMETER_VALUE_ILLEGAL(10003, "参数值非法"),
+    /**
+     * unknown error
+     */
+    UNKNOWN_ERROR(10004, "unknown error"),
     ;
 
     public Integer getCode() {

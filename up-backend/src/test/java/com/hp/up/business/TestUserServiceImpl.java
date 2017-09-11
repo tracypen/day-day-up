@@ -55,8 +55,7 @@ public class TestUserServiceImpl {
     public void save() {
         User user = new User();
         user.setName("admin1");
-        user.setPassword("81255cb0dca1a5f304328a70ac85dcbd");
-        user.setSalt("123456");
+        user.setPassword("123456789");
         user.setRealName("hao");
         user.setBirthday(new Date());
         user.setEmail("admin@163.com");
@@ -72,7 +71,9 @@ public class TestUserServiceImpl {
     @Test
     public void userPage() {
         PageDto pageDto = new PageDto(1, 5);
-        PagingList<User> userPage = userService.getUserPage(pageDto);
+        User user = new User();
+        user.setName("cxgr");
+        PagingList<User> userPage = userService.getUserPage(pageDto,user);
         Assert.assertNotNull(userPage);
     }
 

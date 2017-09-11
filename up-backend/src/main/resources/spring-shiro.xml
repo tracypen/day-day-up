@@ -27,6 +27,8 @@
 
                 /static/** = anon
 
+                /images/kaptcha.jpg = anon
+
                 /login.jsp =anon
 
                 /favicon.ico = anon
@@ -50,7 +52,7 @@
         <property name="cacheManager" ref="shiroCacheManager"/>
 
         <!--注入会话管理器-->
-        <property name="sessionManager" ref="sessionManager"/>
+      <!--  <property name="sessionManager" ref="sessionManager"/>-->
 
         <!-- 记住我 -->
         <property name="rememberMeManager" ref="rememberMeManager"/>

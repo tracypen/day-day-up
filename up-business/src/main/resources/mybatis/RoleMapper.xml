@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hp.up.business.repository.UserRepository">
+    <!-- <sql id="filed">
+         id,name,password,salt,email,gender,active,lastLoginTime,birthday,status,nickname,userRealName,qq,avatar
+     </sql>-->
+
+    <resultMap id="roleMap" type="com.hp.up.core.Entity.Role">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="role" column="role"/>
+        <result property="description" column="description"/>
+        <result property="show" column="is_show"/>
+        <result property="typeName" column="role_type"/>
+        <result property="parent_id" column="parent_id"/>
+        <result property="parent_ids" column="parent_ids"/>
+    </resultMap>
+
+
+    <select id="findRoleIds" parameterType="long" resultType="roleMap">
+        select * from tb_role role where role.id = #{value}
+    </select>
+
+
+
+
+    <select id="getRolesByids" parameterType="string" resultType="String">
+        select role_ids from tb_user_role where find_in_set(role.id,#{value})
+    </select>
+
+</mapper>

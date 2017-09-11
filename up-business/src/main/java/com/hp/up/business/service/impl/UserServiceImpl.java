@@ -29,9 +29,7 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
 
     private final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
-    //配置密码散列次数
-    @Value("#{propertiesReader['shiro.hashIterations']}")
-    private int hashIterations;
+
 
     @Autowired
     private UserRepository userRepository;
@@ -53,23 +51,19 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
         return userRepository.remove(id);
     }
 
-    public PagingList<User> getUserPage(PageDto pageDto) {
+    public PagingList<User> getUserPage(PageDto pageDto,User user) {
 
         PageHelper.startPage(pageDto.getPageNum(), pageDto.getPageSize());
 
-        List<User> userLiset = this.getAll();
+        List<User> userList = userRepository.getUsers(user);
 
-        PageInfo<User> pageInfo = new PageInfo<User>(userLiset);
+        PageInfo<User> pageInfo = new PageInfo<User>(userList);
 
-        return new PagingList<User>(userLiset,pageInfo);
+        return new PagingList<User>(userList,pageInfo);
     }
 
-
     public int save(User user){
-        //通过UUID作为用户密码盐值
-        /*String salt = PwdUtil.getUUID();
-        user.setSalt(salt);
-        user.setPassword(PwdUtil.encrypt(user.getPassword(),salt,hashIterations));*/
+
         int count = baseRepository.save(user);
         return count;
 

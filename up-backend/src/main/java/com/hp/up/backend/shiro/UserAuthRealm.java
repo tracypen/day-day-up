@@ -1,9 +1,11 @@
 package com.hp.up.backend.shiro;
 
+import com.hp.up.business.service.RoleService;
 import com.hp.up.business.service.UserService;
 import com.hp.up.core.Entity.User;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
+import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
@@ -15,18 +17,21 @@ import org.springframework.beans.factory.annotation.Autowired;
  * 自定义realm 注入认证、授权数据源
  * Created by haopeng on 2017/9/3  18:53
  */
-public class UserAuthRealm extends AuthorizingRealm{
+public class UserAuthRealm extends AuthorizingRealm {
     private static final Logger logger = LoggerFactory.getLogger(UserAuthRealm.class);
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private RoleService roleService;
+
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 
-        UsernamePasswordToken usernamePasswordToken = (UsernamePasswordToken)token;
+        UsernamePasswordToken usernamePasswordToken = (UsernamePasswordToken) token;
 
         User user = userService.getUserByName(usernamePasswordToken.getUsername());
 
-        if(user == null) {
+        if (user == null) {
 
             throw new UnknownAccountException();//没找到帐号
 
@@ -36,7 +41,7 @@ public class UserAuthRealm extends AuthorizingRealm{
             throw new LockedAccountException(); //帐号锁定
         }*/
 
-       UserShiro userShiro =  buildUserShiro(user);
+        UserShiro userShiro = buildUserShiro(user);
 
         SimpleAuthenticationInfo authInfo = new SimpleAuthenticationInfo(userShiro, user.getPassword(), ByteSource.Util.bytes(user.getSalt()), this.getName());
 
@@ -45,13 +50,18 @@ public class UserAuthRealm extends AuthorizingRealm{
 
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
 
-        return null;
+        UserShiro userShiro = (UserShiro) principals;
+        User user = userService.getUserByName(userShiro.getName());
+        SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
+        authorizationInfo.setRoles(roleService.getUserRoles(user));
+        //authorizationInfo.setStringPermissions(userAuthService.getStringPermissions(user));
+        return authorizationInfo;
     }
 
 
-    private  UserShiro buildUserShiro(User user){
+    private UserShiro buildUserShiro(User user) {
 
-        return new UserShiro(user.getId(),user.getName(),user.getPassword(),user.getRealName());
+        return new UserShiro(user.getId(), user.getName(), user.getPassword(), user.getRealName());
     }
 
 }

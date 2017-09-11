@@ -7,8 +7,6 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.subject.Subject;
-import org.apache.shiro.web.util.SavedRequest;
-import org.apache.shiro.web.util.WebUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -82,7 +80,7 @@ public class LoginController {
 
 
     /**
-     * 登录成功-记录最后登录时间
+     * 登录成功
      * @param model
      * @return
      */
@@ -102,8 +100,6 @@ public class LoginController {
 
        // SavedRequest savedRequest = WebUtils.getAndClearSavedRequest(request);
 
-      //  System.out.println(savedRequest.getRequestUrl());
-
         return "admin/index";
     }
 
@@ -122,6 +118,14 @@ public class LoginController {
         }
 
         return "unAuthor";
+    }
+
+
+
+    @RequestMapping(value = "/welcomePage", method = RequestMethod.GET)
+    public String welcomePage(Model model) {
+
+        return "admin/welcomePage";
     }
 
 }
