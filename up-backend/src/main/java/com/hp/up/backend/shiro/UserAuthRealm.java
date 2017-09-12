@@ -1,5 +1,6 @@
 package com.hp.up.backend.shiro;
 
+import com.hp.up.business.service.PermissionService;
 import com.hp.up.business.service.RoleService;
 import com.hp.up.business.service.UserService;
 import com.hp.up.core.Entity.User;
@@ -24,6 +25,9 @@ public class UserAuthRealm extends AuthorizingRealm {
 
     @Autowired
     private RoleService roleService;
+
+    @Autowired
+    private PermissionService permissionService;
 
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 
@@ -53,8 +57,10 @@ public class UserAuthRealm extends AuthorizingRealm {
         UserShiro userShiro = (UserShiro) principals;
         User user = userService.getUserByName(userShiro.getName());
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
+        //角色
         authorizationInfo.setRoles(roleService.getUserRoles(user));
-        //authorizationInfo.setStringPermissions(userAuthService.getStringPermissions(user));
+        //权限
+        authorizationInfo.setStringPermissions(permissionService.getStringPermissions(user));
         return authorizationInfo;
     }
 

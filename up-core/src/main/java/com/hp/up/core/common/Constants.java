@@ -15,5 +15,13 @@ public interface Constants {
 
     String CURRENT_USER = "user";
 
+    String USER_ID = "user_id";
+
+    String MENU_LIST = "menus";
+
+    String CURRENT_USERNAME = "username";
+
+    String PAGE_DTAA = "pagination";
+
 
 }

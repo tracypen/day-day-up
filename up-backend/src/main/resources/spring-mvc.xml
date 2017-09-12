@@ -17,13 +17,14 @@
 
     <mvc:annotation-driven/>
 
-    <mvc:default-servlet-handler/>
+ <!--   <mvc:default-servlet-handler/>-->
 
     <mvc:view-controller path="/" view-name="redirect:/admin/loginPage"/>
 
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**" />
+            <mvc:exclude-mapping path="/**/static/*"/>
             <bean class="com.hp.up.core.web.interceptor.CommonDataInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>

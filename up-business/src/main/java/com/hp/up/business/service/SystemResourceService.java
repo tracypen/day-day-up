@@ -1,6 +1,10 @@
 package com.hp.up.business.service;
 
+import com.hp.up.core.Entity.Menu;
 import com.hp.up.core.Entity.SystemResource;
+import com.hp.up.core.Entity.User;
+
+import java.util.List;
 
 /**
  * @Author haopeng
@@ -9,5 +13,7 @@ import com.hp.up.core.Entity.SystemResource;
 public interface SystemResourceService extends BaseService<SystemResource>{
 
     String getIdentity(SystemResource resource);
+
+    public List<Menu> findMenus(User user);
 
 }

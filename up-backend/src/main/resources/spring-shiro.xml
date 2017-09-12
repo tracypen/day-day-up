@@ -18,6 +18,7 @@
         <property name="filters">
             <map>
                 <entry key="authc" value-ref="formAuthenticationFilter"/>
+                <entry key="sysUser" value-ref="sysUserFilter"/>
             </map>
         </property>
         <property name="filterChainDefinitions">
@@ -27,7 +28,7 @@
 
                 /static/** = anon
 
-                /images/kaptcha.jpg = anon
+                /kaptcha.jpg = anon
 
                 /login.jsp =anon
 
@@ -39,7 +40,7 @@
 
                 /logout.action = logout
 
-                /** = authc
+                /** = sysUser
             </value>
         </property>
     </bean>
@@ -87,6 +88,10 @@
         <property name="usernameParam" value="username"/>
         <property name="passwordParam" value="password"/>
         <property name="rememberMeParam" value="rememberMe"/>
+    </bean>
+
+
+    <bean id="sysUserFilter" class="com.hp.up.backend.shiro.filter.SysUserFilter">
     </bean>
 
     <!-- rememberMeManager管理器 -->

@@ -18,4 +18,6 @@ public interface RoleRepository extends BaseRepository{
 
     List<Role> getRolesByids(String ids);
 
+    List<Role> getRolesWithPermissionByids(String ids);
+
 }

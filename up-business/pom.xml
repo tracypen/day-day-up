@@ -30,7 +30,27 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
+
+		<!-- shiro begin-->
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-ehcache</artifactId>
+		</dependency>
+		<!-- shiro end-->
     </dependencies>
+
 	<build>
 		<finalName>up-business</finalName>
 	</build>

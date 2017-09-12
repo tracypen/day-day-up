@@ -16,16 +16,44 @@
         <result property="parent_ids" column="parent_ids"/>
     </resultMap>
 
+    <resultMap type="com.hp.up.core.Entity.Role" id="RolePermissionResult" extends="roleMap">
+        <collection property="resourcePermissions" ofType="RoleResourcePermission">
+            <id property="id" column="pid"/>
+            <result property="resourceId" column="resource_id" />
+            <result property="permissionIds" column="permission_ids"/>
+            <association property="role" javaType="Role" />
+        </collection>
+    </resultMap>
 
-    <select id="findRoleIds" parameterType="long" resultType="roleMap">
-        select * from tb_role role where role.id = #{value}
+    <select id="findRoleIds" parameterType="long" resultType="String">
+        SELECT ru.role_ids
+        FROM tb_user_role ur
+        WHERE ur.user_id = #{value}
     </select>
 
-
-
-
-    <select id="getRolesByids" parameterType="string" resultType="String">
-        select role_ids from tb_user_role where find_in_set(role.id,#{value})
+    <select id="getRolesByids" parameterType="string" resultMap="roleMap">
+        SELECT *
+        FROM tb_role role
+        WHERE find_in_set(role.id, #{value})
     </select>
 
+    <select id="getRolesWithPermissionByids" resultMap="RolePermissionResult" parameterType="list">
+        SELECT
+        r.id id,
+        r.name,
+        r.role,
+        r.description,
+        r.is_show,
+        p.id pid,
+        p.role_id,
+        p.resource_id,
+        p.permission_ids
+
+        FROM tb_role r LEFT JOIN
+
+        tb_role_resource_permission p ON r.id = p.role_id WHERE r.id in
+
+        <foreach collection="list" index="index" close=")" item="item" open="(" separator=",">#{item}</foreach>
+
+    </select>
 </mapper>

@@ -1,7 +1,8 @@
 package com.hp.up.backend.controller;
 
-import com.hp.up.backend.shiro.filter.utils.PwdUtil;
+import com.hp.up.backend.shiro.utils.PwdUtil;
 import com.hp.up.core.Entity.User;
+import com.hp.up.core.common.Constants;
 import com.hp.up.core.enums.ResponseStatus;
 import com.hp.up.core.web.page.PageDto;
 import com.hp.up.core.web.page.PagingList;
@@ -15,8 +16,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import java.util.List;
 
 /**
  * @Author haopeng
@@ -37,7 +36,7 @@ public class UserController extends BaseController {
 
         PagingList<User> userList = userService.getUserPage(pageDto, user);
 
-        model.put("page", userList);
+        model.put(com.hp.up.core.common.Constants.PAGE_DTAA, userList);
 
         return "user/list";
     }
@@ -47,6 +46,7 @@ public class UserController extends BaseController {
      * delete user
      */
     @RequestMapping(value = {"{id}/delete"})
+    @ResponseBody
     public String delete(ModelMap model, @PathVariable("id") Long id, User user) {
         int i = userService.remove(id);
         if (i == 1) {

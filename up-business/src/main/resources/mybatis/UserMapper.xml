@@ -13,7 +13,7 @@
         <result property="email" column="email"/>
         <result property="gender" column="gender"/>
         <result property="active" column="active"/>
-        <result property="realName" column="userRealName"/>
+        <result property="userRealName" column="userRealName"/>
         <result property="lastLoginTime" column="lastLoginTime"/>
         <result property="birthday" column="birthday"/>
         <result property="status" column="status"/>

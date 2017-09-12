@@ -9,9 +9,15 @@ import java.util.Set;
  * @Author haopeng
  * @Date 2017/9/11 17:36
  */
+
 public interface PermissionService extends BaseService<Permission>{
 
-    public Set<String> getStringPermissions(User user);
+    /**
+     * 获取用户所有权限
+     * @param user 用户
+     * @return 权限集合
+     */
+     Set<String> getStringPermissions(User user);
 
 }
 

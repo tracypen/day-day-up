@@ -68,13 +68,14 @@ public class LoginController {
 
         Subject subject = SecurityUtils.getSubject();
 
+        //modify 2017/09/12 17:21 不合理 改为在登录页面进行判断，登陆之后直接跳转到主页面
         // 防止用户重复登录
-        if (subject != null && subject.isAuthenticated()) {
+     /*   if (subject != null && subject.isAuthenticated()) {
             String userName = (String) subject.getPrincipal();
             //authService.clear(userId);
             subject.logout();
             logger.info(Constants.LOGPREFIX + userName + " 用户已退出！");
-        }
+        }*/
         return "admin/login";
     }
 
@@ -84,7 +85,7 @@ public class LoginController {
      * @param model
      * @return
      */
-    @RequestMapping(value = "/success", method = RequestMethod.GET)
+    @RequestMapping(value = {"/success","/index"}, method = RequestMethod.GET)
     public String successPage(HttpServletRequest request,Model model) {
 
         Subject subject = SecurityUtils.getSubject();
