@@ -1,6 +1,7 @@
 $(function () {
 
 
+
 });
 
 function delUser(id) {
@@ -23,18 +24,25 @@ function delUser(id) {
                 dataType: 'json',
                 async: true,
                 success: function (msg) {
-                    alert(123);
+                   // swal({title: "操作成功", text: "数据已经删除", type: "success"});
                     window.location.href = ctx+'/user/list';
-                    swal({title: "操作成功", text: "数据已经删除", type: "success"});
                 }
             });
-            swal("删除成功！", "您已经永久删除了这条信息。", "success")
+            //swal("删除成功！", "您已经永久删除了这条信息。", "success")
            // window.location.href = ctx + '/user/list'
         } else {
             swal("已取消", "您取消了删除操作！", "error")
         }
     })
 
-
-
 }
+
+
+
+
+
+
+
+
+
+

@@ -69,17 +69,15 @@
 
 
         <title>登录</title>
-        <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
-        <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
+        <meta name="keywords" content="H+后台主题">
+        <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题">
 
-        <link rel="shortcut icon" href="${ctx}static/img/favicon.ico"> <link href="${ctx}/static/css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+        <link rel="shortcut icon" href="${ctx}static/img/favicon.ico">
+        <link href="${ctx}/static/css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
         <link href="${ctx}/static/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
 
         <link href="${ctx}/static/css/animate.min.css" rel="stylesheet">
         <link href="${ctx}/static/css/style.min.css?v=4.0.0" rel="stylesheet"><base target="_blank">
-        <!--[if lt IE 8]>
-    <meta http-equiv="refresh" content="0;ie.html" />
-        <![endif]-->
         <script>if(window.top !== window.self){ window.top.location = window.location;}</script>
 </head>
 
@@ -92,14 +90,14 @@
             <h1 class="logo-name">H+</h1>
 
         </div>
-        <h3>欢迎使用 H+</h3>
+        <h3>登录</h3>
 
         <form class="m-t" role="form" method="post" action="${ctx}/admin/login">
             <div class="form-group">
-                <input type="text" name="username" class="form-control" placeholder="用户名" required = "required">
+                <input type="text" name="username" value="mcgrady" class="form-control" placeholder="用户名" required = "required">
             </div>
             <div class="form-group">
-                <input type="password" name="password" class="form-control" placeholder="密码" required="required">
+                <input type="password" name="password" value="111111" class="form-control" placeholder="密码" required="required">
             </div>
 
             <div class="form-group">

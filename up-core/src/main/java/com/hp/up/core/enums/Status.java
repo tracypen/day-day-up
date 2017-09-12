@@ -8,7 +8,7 @@ import com.hp.up.core.mapper.MessageMapper;
  */
 public interface Status {
 
-    MessageMapper messageMapper = MessageMapper.getInstance();
+    //MessageMapper messageMapper = MessageMapper.getInstance();
 
     Integer getCode();
 

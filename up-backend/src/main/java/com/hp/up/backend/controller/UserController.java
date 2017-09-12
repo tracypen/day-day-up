@@ -1,5 +1,7 @@
 package com.hp.up.backend.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.google.common.collect.Maps;
 import com.hp.up.backend.shiro.utils.PwdUtil;
 import com.hp.up.core.Entity.User;
 import com.hp.up.core.enums.ResponseStatus;
@@ -16,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Map;
+
 /**
  * @Author haopeng
  * @Date 2017/9/7 15:21
@@ -30,6 +34,22 @@ public class UserController extends BaseController {
     @Value("#{propertiesReader['shiro.hashIterations']}")
     private int hashIterations;
 
+
+    @RequestMapping
+    public String userPage(PageDto pageDto, User user, ModelMap model) {
+        return "user/list";
+    }
+
+  /*  @RequestMapping(value = "/list", method = RequestMethod.GET)
+    public @ResponseBody String userList(PageDto pageDto, User user) {
+
+        PagingList<User> userList = userService.getUserPage(pageDto, user);
+
+        Map<String, Object> ss = Maps.newHashMap();
+       ss.put(com.hp.up.core.common.Constants.PAGE_DTAA, userList);
+        return JSON.toJSONString(ss);
+    }*/
+
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String userList(PageDto pageDto, User user, ModelMap model) {
 
@@ -39,7 +59,6 @@ public class UserController extends BaseController {
 
         return "user/list";
     }
-
 
     /**
      * delete user

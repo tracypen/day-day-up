@@ -48,20 +48,24 @@ public enum ResponseStatus implements Status{
     UNKNOWN_ERROR(10004, "unknown error"),
     ;
 
+   // private volatile MessageMapper messageMapper = MessageMapper.getInstance();
+
     public Integer getCode() {
         return null;
     }
-
     public String getReason() {
         return null;
     }
-
 
     Integer code;
     String reason;
     String description;
 
-    private volatile MessageMapper messageMapper = MessageMapper.getInstance();
+
+
+    ResponseStatus(){
+
+    }
 
     ResponseStatus(Integer code) {
         this.code = code;

@@ -56,6 +56,17 @@
             <artifactId>sitemesh</artifactId>
         </dependency>
 
+       <!-- <dependency>
+            <groupId>org.javasimon</groupId>
+            <artifactId>javasimon-spring</artifactId>
+            <version>3.5.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.javasimon</groupId>
+            <artifactId>javasimon-console-embed</artifactId>
+            <version>3.5.1</version>
+        </dependency>-->
+
     </dependencies>
 
     <build>
