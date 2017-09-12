@@ -2,7 +2,6 @@ package com.hp.up.backend.controller;
 
 import com.hp.up.backend.shiro.utils.PwdUtil;
 import com.hp.up.core.Entity.User;
-import com.hp.up.core.common.Constants;
 import com.hp.up.core.enums.ResponseStatus;
 import com.hp.up.core.web.page.PageDto;
 import com.hp.up.core.web.page.PagingList;
@@ -45,12 +44,14 @@ public class UserController extends BaseController {
     /**
      * delete user
      */
-    @RequestMapping(value = {"{id}/delete"})
+    @RequestMapping(value = "/{id}/delete", method = RequestMethod.POST)
     @ResponseBody
-    public String delete(ModelMap model, @PathVariable("id") Long id, User user) {
+    public String delete(@PathVariable("id") Long id) {
         int i = userService.remove(id);
         if (i == 1) {
+            logger.info("delete success! userId : "+id);
             return ResponseStatus.OK.toJson();
+
         } else {
             return ResponseStatus.FAILURE_DELETE.toJson();
         }

@@ -18,6 +18,7 @@ function delUser(id) {
         if (isConfirm) {
             $.ajax({
                 url: ctx + "/user/" + id + "/delete",
+                type:'post',
                 data: id,
                 dataType: 'json',
                 async: true,
