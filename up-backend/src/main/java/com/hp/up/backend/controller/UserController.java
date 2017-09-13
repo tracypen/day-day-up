@@ -1,8 +1,5 @@
 package com.hp.up.backend.controller;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
-import com.google.common.collect.Maps;
 import com.hp.up.backend.shiro.utils.PwdUtil;
 import com.hp.up.core.Entity.User;
 import com.hp.up.core.enums.ResponseStatus;
@@ -20,9 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.Map;
-
 /**
+ * userController
  * @Author haopeng
  * @Date 2017/9/7 15:21
  */
@@ -30,40 +26,31 @@ import java.util.Map;
 @RequestMapping("/user")
 public class UserController extends BaseController {
 
-    private static Logger logger = LoggerFactory.getLogger(LoginController.class);
+        private static Logger logger = LoggerFactory.getLogger(LoginController.class);
 
     //配置密码散列次数
     @Value("#{propertiesReader['shiro.hashIterations']}")
     private int hashIterations;
 
 
+    /**
+     * jump to user list page
+     */
     @RequestMapping
     public String userPage(PageDto pageDto, User user, ModelMap model) {
         return "user/list";
     }
 
+    /**
+     * get userList with condition
+     */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public @ResponseBody String userList(PageDto pageDto, User user) {
-        PageResult result = new PageResult();
 
         PagingList<User> userList = userService.getUserPage(pageDto, user);
 
-        Map<String, Object> ss = Maps.newHashMap();
-        ss.put("iTotalRecords", userList.getPaging().getTotal());
-        ss.put("iTotalDisplayRecords", userList.getPaging().getTotal());
-        ss.put("aaData", userList.getData());
-        return JSON.toJSONString(ss);
+        return convert2DatatavlesJson(userList);
     }
-
- /*   @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String userList(PageDto pageDto, User user, ModelMap model) {
-
-        PagingList<User> userList = userService.getUserPage(pageDto, user);
-
-        model.put(com.hp.up.core.common.Constants.PAGE_DTAA, userList);
-
-        return "user/list";
-    }*/
 
     /**
      * delete user
@@ -82,20 +69,23 @@ public class UserController extends BaseController {
 
     }
 
+    /**
+     * update or add user
+     */
     @RequestMapping(value = {"/add","/update"}, method = RequestMethod.POST)
     @ResponseBody
-    public ResponseEntity<Boolean> insertUser(User user) {
+    public ResponseEntity insertUser(User user) {
         //设置密码和盐
         int result = userService.save(getPwd(user));
         if (result > 0) {
-            return getJsonResponseEntity(Boolean.TRUE);
+            return super.getJsonResponseEntity(Boolean.TRUE);
         }
-        return getJsonResponseEntity(Boolean.FALSE);
+        return super.getJsonResponseEntity(Boolean.FALSE);
     }
 
 
     /**
-     *
+     * 密码加密
      */
     public User getPwd(User user) {
         //通过UUID作为用户密码盐值

@@ -1,10 +1,14 @@
 package com.hp.up.backend.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.google.common.collect.Maps;
 import com.hp.up.business.service.UserService;
+import com.hp.up.core.Entity.BaseEntity;
 import com.hp.up.core.Entity.IdEntity;
 import com.hp.up.core.Entity.User;
 import com.hp.up.core.common.Constants;
 import com.hp.up.core.utils.web.RenderUtils;
+import com.hp.up.core.web.page.PagingList;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
@@ -16,6 +20,7 @@ import org.springframework.ui.Model;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Controller 基类
@@ -23,7 +28,7 @@ import java.util.List;
  * @Author haopeng
  * @Date 2017/9/7 15:22
  */
-public class BaseController {
+public class BaseController <E extends Serializable> {
 
     protected final Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -75,5 +80,15 @@ public class BaseController {
         }
         return null;
     }
+
+        protected String convert2DatatavlesJson(PagingList<E> pageList){
+        Map<String, Object> map = Maps.newHashMap();
+        map.put("iTotalRecords", pageList.getPaging().getTotal());
+        map.put("iTotalDisplayRecords", pageList.getPaging().getTotal());
+        map.put("aaData", pageList.getData());
+        return JSON.toJSONString(map);
+    }
+
+
 
 }

@@ -45,10 +45,10 @@
                                 <input name="name" type="text"  id="exampleInputEmail2" class="form-control">
                             </div>
                             <div class="form-group" style="margin-left:50px">
-                                    <span>性别：</span><select class="form-control" name="sex">
+                                    <span>性别：</span><select class="form-control" name="gender">
                                         <option value="">-请选择-</option>
                                         <option value="1">男</option>
-                                        <option value="0">女</option>
+                                        <option value="2">女</option>
                                     </select>
                             </div>
                             <a onclick="" href="javascript:void(0);" class="btn btn-info " id="search-btn" style="float: right">查询</a>
@@ -64,6 +64,7 @@
                             <th>排序号</th>
                             <th>登录名</th>
                             <th>姓名</th>
+                            <th>性别</th>
                             <th>邮箱</th>
                             <th>生日</th>
                             <th>状态</th>

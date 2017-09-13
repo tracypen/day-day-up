@@ -55,7 +55,9 @@
             <if test="null != userRealName">
                 AND u.userRealName LIKE CONCAT('%',#{userRealName},'%')
             </if>
-
+            <if test="null != gender">
+                AND u.gender = #{gender}
+            </if>
 
         </where>
     </select>

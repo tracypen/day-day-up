@@ -84,6 +84,11 @@ var Table = function() {
                 "sDefaultContent" : "",
                 "sClass" : "center"
             }, {
+                "mDataProp" : "gender",
+                "sTitle" : "性别",
+                "sDefaultContent" : "",
+                "sClass" : "center"
+            },{
                 "mDataProp" : "email",
                 "sTitle" : "邮箱",
                 "sDefaultContent" : "",
@@ -125,20 +130,27 @@ var Table = function() {
             "fnRowCallback" : function(nRow, aData, iDisplayIndex) {
 
                 $('td:eq(0)', nRow).html(iDisplayIndex + 1);
+
+                if (aData.gender == 1) {
+                    $('td:eq(3)', nRow).html('男');
+                }else {
+                    $('td:eq(3)', nRow).html('女');
+                }
+
                 var da =new Date(aData.birthday);
-                $('td:eq(4)', nRow).html(da.getFullYear() +'-'+ da.getMonth() +'-'+ da.getDate());
+                $('td:eq(5)', nRow).html(da.getFullYear() +'-'+ da.getMonth() +'-'+ da.getDate());
 
                 if (aData.active == 'TRUE') {
-                    $('td:eq(5)', nRow).html('激活');
+                    $('td:eq(6)', nRow).html('激活');
                 }
                 if (aData.active == 'FALSE') {
-                    $('td:eq(5)', nRow).html('锁定');
+                    $('td:eq(6)', nRow).html('锁定');
                 }
                 // if(perUpdate){
-                    $('td:eq(6)', nRow).html('<a title="编辑"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>');
+                    $('td:eq(7)', nRow).html('<a title="编辑"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>');
 
                // }else {
-                    $('td:eq(6)', nRow).append('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a title="删除" href="javascript:void(0);" onclick="delUser('+aData.id+')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>');
+                    $('td:eq(7)', nRow).append('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a title="删除" href="javascript:void(0);" onclick="delUser('+aData.id+')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>');
              //   }
 
                 return nRow;
@@ -148,7 +160,6 @@ var Table = function() {
             //服务器端，数据回调处理
             "fnServerData" : function(sSource, aDataSet, fnCallback) {
                 sSource=sSource+"&"+$("#searchForm").serialize();
-                    alert(sSource);
                 $.ajax({
                     "dataType" : 'json',
                     "type" : "get",

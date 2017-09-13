@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hp.up.business.repository.DictionaryTypeRepository">
+    <!-- <sql id="filed">
+         id,name,password,salt,email,gender,active,lastLoginTime,birthday,status,nickname,userRealName,qq,avatar
+     </sql>-->
+
+    <resultMap id="dictionaryTypeMap" type="com.hp.up.core.Entity.DictionaryType">
+        <id property="id" column="id"/>
+        <result property="code" column="code"/>
+        <result property="description" column="description"/>
+        <result property="name" column="name"/>
+        <result property="del_flag" column="del_flag"/>
+    </resultMap>
+
+
+
+    <select id="getDictionaryType" parameterType="dictionaryType" resultMap="dictionaryTypeMap">
+        SELECT *
+        FROM tb_dictionary_type dic_type
+       <where>
+           <if test="null != name">
+               AND dic_type.name LIKE CONCAT('%',#{name},'%')
+           </if>
+
+           <if test="null != code">
+               AND dic_type.code LIKE CONCAT('%',#{code},'%')
+           </if>
+
+       </where>
+
+
+    </select>
+
+    <update id="deleteById" parameterType="long">
+       UPDATE tb_dictionary_type SET del_flag = 1
+        WHERE id = #{value}
+    </update>
+
+    <insert id="save" parameterType="dictionaryType" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO tb_dictionary_type (
+            CODE,
+            description,
+            name,
+            del_flag
+        )
+        VALUES
+            (
+                #{code},
+                #{description},
+                #{name},
+                0
+            )
+
+    </insert>
+
+    <update id="update" parameterType="dictionaryType">
+        UPDATE tb_dictionary_type
+                <set>
+                   <if test="null != code">
+                       code = <![CDATA[#{code}]]]>,
+                   </if>
+
+                    <if test="null != description">
+                        description = #{description},
+                    </if>
+
+                    <if test="null != name">
+                        name = #{name}
+                    </if>
+
+                </set>
+        WHERE
+            id = #{id}
+
+    </update>
+
+
+
+</mapper>

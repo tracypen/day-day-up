@@ -19,5 +19,9 @@ public interface PermissionService extends BaseService<Permission>{
      */
      Set<String> getStringPermissions(User user);
 
+
+
+
+
 }
 
