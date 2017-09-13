@@ -18,12 +18,12 @@ public class User extends IdEntity{
     private String password;
     private String salt;
     private String email;
-    private int gender;
+    private Integer gender;
     private BooleanType active;
     private String realName;
     private Date lastLoginTime;
     private Date birthday;
-    private int status;
+    private Integer status;
     private String nickName;
     private String qq;
     private String avatar;
@@ -71,11 +71,11 @@ public class User extends IdEntity{
         this.email = email;
     }
 
-    public int getGender() {
+    public Integer getGender() {
         return gender;
     }
 
-    public void setGender(int gender) {
+    public void setGender(Integer gender) {
         this.gender = gender;
     }
 
@@ -103,11 +103,11 @@ public class User extends IdEntity{
         this.birthday = birthday;
     }
 
-    public int getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

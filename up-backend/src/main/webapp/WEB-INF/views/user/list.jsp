@@ -7,7 +7,6 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -19,15 +18,11 @@
     <link rel="shortcut icon" href="${ctx}/static/img/favicon.ico">
     <link href="${ctx}/static/css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
     <link href="${ctx}/static/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
-
-    <!-- Data Tables -->
     <link href="${ctx}/static/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
-
     <link href="${ctx}/static/css/animate.min.css" rel="stylesheet">
     <link href="${ctx}/static/css/style.min.css?v=4.0.0" rel="stylesheet">
     <link href="${ctx}/static/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
     <script>var ctx = '${ctx}',uid = '${user.id}';</script>
-
     <base target="_blank">
 
 </head>
@@ -41,11 +36,31 @@
                 <div class="ibox-content">
 
                     <div class="">
-                        <a onclick="fnClickAddRow();" href="javascript:void(0);" class="btn btn-primary ">添加用户</a>
+                        <a onclick="" href="javascript:void(0);" class="btn btn-primary" style="">添加用户</a><br><br>
+
+                        <%----%>
+                        <form role="form" class="form-inline" id="searchForm">
+                            <div class="form-group" style="margin-left:50px">
+                                <span>用户名：</span><label for="exampleInputEmail2" class="sr-only">用户名</label>
+                                <input name="name" type="text"  id="exampleInputEmail2" class="form-control">
+                            </div>
+                            <div class="form-group" style="margin-left:50px">
+                                    <span>性别：</span><select class="form-control" name="sex">
+                                        <option value="">-请选择-</option>
+                                        <option value="1">男</option>
+                                        <option value="0">女</option>
+                                    </select>
+                            </div>
+                            <a onclick="" href="javascript:void(0);" class="btn btn-info " id="search-btn" style="float: right">查询</a>
+                        </form>
                     </div>
-                    <table class="table table-striped table-bordered table-hover dataTables-example">
+
+
+
+                    <table class="table table-striped table-bordered table-hover dataTables-example" id="list">
                         <thead>
                         <tr>
+                            <th>id</th>
                             <th>排序号</th>
                             <th>登录名</th>
                             <th>姓名</th>
@@ -56,7 +71,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <c:if test="${not empty pagination.data}">
+                       <%-- <c:if test="${not empty pagination.data}">
                             <c:forEach items="${pagination.data }" var="user" varStatus="st">
                                 <tr>
                                     <td>${(pagination.paging.pageNum-1) * pagination.paging.pageSize + st.count}</td>
@@ -75,7 +90,7 @@
                                 </tr>
                             </c:forEach>
 
-                        </c:if>
+                        </c:if>--%>
                         </tbody>
                         <%--    <tfoot>
                             <tr>
@@ -107,20 +122,12 @@
 <script src="${ctx}/static/js/user/user.js"></script>
 <script>
     $(document).ready(function () {
-        $(".dataTables-example").dataTable();
-        var oTable = $("#editable").dataTable();
-        oTable.$("td").editable("../example_ajax.php", {
-            "callback": function (sValue, y) {
-                var aPos = oTable.fnGetPosition(this);
-                oTable.fnUpdate(sValue, aPos[0], aPos[1])
-            }, "submitdata": function (value, settings) {
-                return {"row_id": this.parentNode.getAttribute("id"), "column": oTable.fnGetPosition(this)[2]}
-            }, "width": "90%", "height": "100%"
-        })
+        Table.initTa();
+//        $("#list").dataTable();
+//        var oTable = $("#editable").dataTable();
+
     });
-    function fnClickAddRow() {
-        $("#editable").dataTable().fnAddData(["Custom row", "New row", "New row", "New row", "New row"])
-    };
+
 </script>
 <script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
 

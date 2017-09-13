@@ -10,53 +10,51 @@ import java.util.Map;
  */
 public class PageDto implements Serializable{
 
+    private int sEcho;//页数
+    private int iColumns;//
+    private String sColumns;
+    private int iDisplayStart;
+    private int iDisplayLength;
     private int pageNum;
-    private int pageSize;
-    private PageOrder pageOrder;
-
-    public PageDto() {
-    }
-
-    public PageDto(int pageNum, int pageSize) {
-        this.pageNum = pageNum;
-        this.pageSize = pageSize;
-    }
-
-    public PageDto(int pageNum, int pageSize, PageOrder pageOrder) {
-        this.pageNum = pageNum;
-        this.pageSize = pageSize;
-        this.pageOrder = pageOrder;
-    }
 
     public int getPageNum() {
+        pageNum = 1;
+        if(iColumns > 0){
+            pageNum =  iDisplayStart / iDisplayLength + 1;
+        }
         return pageNum;
     }
 
-    public void setPageNum(int pageNum) {
-        this.pageNum = pageNum;
-    }
 
-    public int getPageSize() {
-        return pageSize;
-    }
 
-    public void setPageSize(int pageSize) {
-        this.pageSize = pageSize;
+    public int getsEcho() {
+        return sEcho ;
     }
-
-    public PageOrder getPageOrder() {
-        return pageOrder;
+    public void setsEcho(int sEcho) {
+        this.sEcho = sEcho;
     }
-
-    public void setPageOrder(PageOrder pageOrder) {
-        this.pageOrder = pageOrder;
+    public int getiColumns() {
+        return iColumns == 0 ? 15 :iColumns;
     }
-
-    @Override
-    public String toString() {
-        return "PageDto{" +
-                "pageNum=" + pageNum +
-                ", pageSize=" + pageSize +
-                '}';
+    public void setiColumns(int iColumns) {
+        this.iColumns = iColumns == 0 ? 15 :iColumns;
+    }
+    public String getsColumns() {
+        return sColumns;
+    }
+    public void setsColumns(String sColumns) {
+        this.sColumns = sColumns;
+    }
+    public int getiDisplayStart() {
+        return iDisplayStart;
+    }
+    public void setiDisplayStart(int iDisplayStart) {
+        this.iDisplayStart = iDisplayStart;
+    }
+    public int getiDisplayLength() {
+        return iDisplayLength;
+    }
+    public void setiDisplayLength(int iDisplayLength) {
+        this.iDisplayLength = iDisplayLength;
     }
 }

@@ -51,10 +51,10 @@ public enum ResponseStatus implements Status{
    // private volatile MessageMapper messageMapper = MessageMapper.getInstance();
 
     public Integer getCode() {
-        return null;
+        return this.code;
     }
     public String getReason() {
-        return null;
+        return this.reason;
     }
 
     Integer code;

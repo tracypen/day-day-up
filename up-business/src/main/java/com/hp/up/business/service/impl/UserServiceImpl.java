@@ -53,7 +53,7 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
 
     public PagingList<User> getUserPage(PageDto pageDto,User user) {
 
-        PageHelper.startPage(pageDto.getPageNum(), pageDto.getPageSize());
+        PageHelper.startPage(pageDto.getPageNum(), pageDto.getiDisplayLength());
 
         List<User> userList = userRepository.getUsers(user);
 

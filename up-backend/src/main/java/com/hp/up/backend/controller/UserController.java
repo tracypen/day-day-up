@@ -1,11 +1,13 @@
 package com.hp.up.backend.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.google.common.collect.Maps;
 import com.hp.up.backend.shiro.utils.PwdUtil;
 import com.hp.up.core.Entity.User;
 import com.hp.up.core.enums.ResponseStatus;
 import com.hp.up.core.web.page.PageDto;
+import com.hp.up.core.web.page.PageResult;
 import com.hp.up.core.web.page.PagingList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,17 +42,20 @@ public class UserController extends BaseController {
         return "user/list";
     }
 
-  /*  @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
     public @ResponseBody String userList(PageDto pageDto, User user) {
+        PageResult result = new PageResult();
 
         PagingList<User> userList = userService.getUserPage(pageDto, user);
 
         Map<String, Object> ss = Maps.newHashMap();
-       ss.put(com.hp.up.core.common.Constants.PAGE_DTAA, userList);
+        ss.put("iTotalRecords", userList.getPaging().getTotal());
+        ss.put("iTotalDisplayRecords", userList.getPaging().getTotal());
+        ss.put("aaData", userList.getData());
         return JSON.toJSONString(ss);
-    }*/
+    }
 
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
+ /*   @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String userList(PageDto pageDto, User user, ModelMap model) {
 
         PagingList<User> userList = userService.getUserPage(pageDto, user);
@@ -58,7 +63,7 @@ public class UserController extends BaseController {
         model.put(com.hp.up.core.common.Constants.PAGE_DTAA, userList);
 
         return "user/list";
-    }
+    }*/
 
     /**
      * delete user

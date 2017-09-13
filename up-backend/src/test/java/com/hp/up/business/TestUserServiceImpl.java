@@ -76,9 +76,8 @@ public class TestUserServiceImpl {
      */
     @Test
     public void userPage() {
-        PageDto pageDto = new PageDto(1, 5);
+        PageDto pageDto = new PageDto();
         User user = new User();
-        user.setName("cxgr");
         PagingList<User> userPage = userService.getUserPage(pageDto,user);
         Assert.assertNotNull(userPage);
     }
