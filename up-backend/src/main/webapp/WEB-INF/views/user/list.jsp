@@ -22,8 +22,8 @@
     <link href="${ctx}/static/css/animate.min.css" rel="stylesheet">
     <link href="${ctx}/static/css/style.min.css?v=4.0.0" rel="stylesheet">
     <link href="${ctx}/static/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
-    <script>var ctx = '${ctx}',uid = '${user.id}';</script>
-    <base target="_blank">
+    <script>var ctx = '${ctx}', uid = '${user.id}';</script>
+
 
 </head>
 
@@ -42,19 +42,19 @@
                         <form role="form" class="form-inline" id="searchForm">
                             <div class="form-group" style="margin-left:50px">
                                 <span>用户名：</span><label for="exampleInputEmail2" class="sr-only">用户名</label>
-                                <input name="name" type="text"  id="exampleInputEmail2" class="form-control">
+                                <input name="name" type="text" id="exampleInputEmail2" class="form-control">
                             </div>
                             <div class="form-group" style="margin-left:50px">
-                                    <span>性别：</span><select class="form-control" name="gender">
-                                        <option value="">-请选择-</option>
-                                        <option value="1">男</option>
-                                        <option value="2">女</option>
-                                    </select>
+                                <span>性别：</span><select class="form-control" name="gender">
+                                <option value="">-请选择-</option>
+                                <option value="1">男</option>
+                                <option value="2">女</option>
+                            </select>
                             </div>
-                            <a onclick="" href="javascript:void(0);" class="btn btn-info " id="search-btn" style="float: right">查询</a>
+                            <a onclick="" href="javascript:void(0);" class="btn btn-info " id="search-btn"
+                               style="float: right">查询</a>
                         </form>
                     </div>
-
 
 
                     <table class="table table-striped table-bordered table-hover dataTables-example" id="list">
@@ -72,26 +72,26 @@
                         </tr>
                         </thead>
                         <tbody>
-                       <%-- <c:if test="${not empty pagination.data}">
-                            <c:forEach items="${pagination.data }" var="user" varStatus="st">
-                                <tr>
-                                    <td>${(pagination.paging.pageNum-1) * pagination.paging.pageSize + st.count}</td>
-                                    <td>${user.name}</td>
-                                    <td>${user.userRealName}</td>
-                                    <td>${user.email}</td>
-                                    <td><fmt:formatDate value="${user.birthday}"
-                                                        pattern="yyyy-MM-dd"></fmt:formatDate></td>
-                                    <td>${user.active.info}</td>
+                        <%-- <c:if test="${not empty pagination.data}">
+                             <c:forEach items="${pagination.data }" var="user" varStatus="st">
+                                 <tr>
+                                     <td>${(pagination.paging.pageNum-1) * pagination.paging.pageSize + st.count}</td>
+                                     <td>${user.name}</td>
+                                     <td>${user.userRealName}</td>
+                                     <td>${user.email}</td>
+                                     <td><fmt:formatDate value="${user.birthday}"
+                                                         pattern="yyyy-MM-dd"></fmt:formatDate></td>
+                                     <td>${user.active.info}</td>
 
-                                    <td>
-                                        <a title="编辑"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-                                        &nbsp;&nbsp;&nbsp;
-                                        <a title="删除" href="javascript:void(0);" onclick="delUser('${user.id}')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-                                    </td>
-                                </tr>
-                            </c:forEach>
+                                     <td>
+                                         <a title="编辑"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                                         &nbsp;&nbsp;&nbsp;
+                                         <a title="删除" href="javascript:void(0);" onclick="delUser('${user.id}')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                                     </td>
+                                 </tr>
+                             </c:forEach>
 
-                        </c:if>--%>
+                         </c:if>--%>
                         </tbody>
                         <%--    <tfoot>
                             <tr>
@@ -110,6 +110,11 @@
     </div>
 
 </div>
+
+
+
+
+
 <script src="${ctx}/static/js/jquery.min.js?v=2.1.4"></script>
 <script src="${ctx}/static/js/bootstrap.min.js?v=3.3.5"></script>
 <script src="${ctx}/static/js/plugins/jeditable/jquery.jeditable.js"></script>
@@ -117,7 +122,6 @@
 <script src="${ctx}/static/js/plugins/dataTables/dataTables.bootstrap.js"></script>
 <script src="${ctx}/static/js/content.min.js?v=1.0.0"></script>
 <script src="${ctx}/static/js/plugins/sweetalert/sweetalert.min.js"></script>
-
 
 
 <script src="${ctx}/static/js/user/user.js"></script>

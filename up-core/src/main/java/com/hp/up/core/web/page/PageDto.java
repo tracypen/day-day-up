@@ -1,8 +1,8 @@
 package com.hp.up.core.web.page;
 
+import com.hp.up.core.common.Constants;
+
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @Author haopeng
@@ -34,10 +34,10 @@ public class PageDto implements Serializable{
         this.sEcho = sEcho;
     }
     public int getiColumns() {
-        return iColumns == 0 ? 15 :iColumns;
+        return iColumns == 0 ? Constants.DEFAULT_PAGE_SIZE :iColumns;
     }
     public void setiColumns(int iColumns) {
-        this.iColumns = iColumns == 0 ? 15 :iColumns;
+        this.iColumns = iColumns == 0 ? Constants.DEFAULT_PAGE_SIZE :iColumns;
     }
     public String getsColumns() {
         return sColumns;

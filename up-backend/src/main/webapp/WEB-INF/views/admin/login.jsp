@@ -20,7 +20,7 @@
     }</script>
 </head>
 <shiro:user>
-    <jsp:forward page="${ctx}/admin/index" />
+    <jsp:forward page="${ctx}/admin/index?status=1" />
 </shiro:user>
 <body class="gray-bg">
 

@@ -96,6 +96,8 @@ public class LoginController {
 
             model.addAttribute("userName", userShiro.getName());
 
+            model.addAttribute("status", request.getParameter("status"));
+
             logger.info(Constants.LOGPREFIX + userShiro.getName() + " 访问index.jsp");
         }
 

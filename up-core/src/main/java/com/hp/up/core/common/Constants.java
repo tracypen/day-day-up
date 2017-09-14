@@ -9,6 +9,8 @@ public interface Constants {
 
     String CONTEXT_PATH = "ctx";
 
+    int DEFAULT_PAGE_SIZE = 15;
+
     String LOGPREFIX = "****************************************************** ";
 
     String ENCODING_UTF8 = "UTF-8";
