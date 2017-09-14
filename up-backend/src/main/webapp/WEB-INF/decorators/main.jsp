@@ -24,14 +24,15 @@
     <%@include file="/WEB-INF/decorators/menu.jsp" %>
         <div id="page-wrapper" class="gray-bg dashbard-1">
             <%@include file="/WEB-INF/decorators/search.jsp" %>
+
             <div class="row J_mainContent" id="content-main">
                 <decorator:body/>
             </div>
             <%@include file="/WEB-INF/decorators/footer.jsp" %>
         </div>
 </div>
-<decorator:getProperty property="page.script"/>
-<decorator:getProperty property="page.css"/>
+<%--<decorator:getProperty property="page.script"/>--%>
+<%--<decorator:getProperty property="page.css"/>--%>
 
 </body>
 </html>

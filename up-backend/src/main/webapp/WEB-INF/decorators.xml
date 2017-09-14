@@ -11,7 +11,6 @@
     <decorator name="backend" page="main.jsp">
 
         <pattern>/admin/index</pattern>
-        <pattern>/admin/success</pattern>
         <pattern>/user</pattern>
         <pattern>/**</pattern>
     </decorator>

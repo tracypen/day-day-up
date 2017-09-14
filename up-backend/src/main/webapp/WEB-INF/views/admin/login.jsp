@@ -15,13 +15,18 @@
     <link href="${ctx}/static/css/animate.min.css" rel="stylesheet">
     <link href="${ctx}/static/css/style.min.css?v=4.0.0" rel="stylesheet">
     <%--<base target="_blank">--%>
-    <script>if (window.top !== window.self) {
+    <script>
+        if (window.top !== window.self) {
         window.top.location = window.location;
     }</script>
 </head>
+<%--<jsp:forward page="${ctx}/admin/index?status=1" />--%>
+
+<script>
 <shiro:user>
-    <jsp:forward page="${ctx}/admin/index?status=1" />
+   window.location.href="${ctx}/admin/index?status=1";
 </shiro:user>
+</script>
 <body class="gray-bg">
 
 <div class="middle-box text-center loginscreen  animated fadeInDown">
@@ -69,9 +74,11 @@
 
     $(function () {
         $('#verifyCodeImg').click(function () {
+
             var $this = $(this);
-            var src = '${ctx}static/images/kaptcha.jpg?t=' + Math.random();
-            $this.attr('src', src);
+            var src = '${ctx}/static/images/kaptcha.jpg?t=' + Math.random();
+            //alert(src)
+            $(this).siblings('img').attr('src', src);
         });
 
     });

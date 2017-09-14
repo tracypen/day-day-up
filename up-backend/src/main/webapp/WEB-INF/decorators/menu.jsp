@@ -42,10 +42,10 @@
                 </a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a class="J_menuItem" href="${ctx}/user" >用户管理</a>
+                        <a class="J_menuItem" href="${ctx}/user"  >用户管理</a>
                     </li>
                     <li>
-                        <a class="J_menuItem" href="index_v1.html">角色管理</a>
+                        <a class="J_menuItem" href="index_v3.html">角色管理</a>
                     </li>
 
                     <li>
@@ -61,7 +61,7 @@
 
             </li>
 
-            <li>
+           <%-- <li>
                 <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">表单</span><span
                         class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
@@ -102,7 +102,7 @@
                     <li><a class="J_menuItem" href="layerdate.html">日期选择器layerDate</a>
                     </li>
                 </ul>
-            </li>
+            </li>--%>
 
 
 

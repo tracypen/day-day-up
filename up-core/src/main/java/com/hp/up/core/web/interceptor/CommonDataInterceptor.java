@@ -15,7 +15,8 @@ public class CommonDataInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        request.setAttribute(Constants.CONTEXT_PATH, request.getContextPath());
+        String path = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();
+        request.setAttribute(Constants.CONTEXT_PATH, path);
         return super.preHandle(request, response, handler);
     }
 }
