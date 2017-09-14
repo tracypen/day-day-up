@@ -60,7 +60,7 @@
         <common-collections4.version>4.0</common-collections4.version>
         <jackjson.version>2.6.3</jackjson.version>
         <fastjson.version>1.1.36</fastjson.version>
-        <sitemesh.version>3.0.0</sitemesh.version>
+        <sitemesh.version>2.4.2</sitemesh.version>
 
     </properties>
 
@@ -360,8 +360,8 @@
             </dependency>
 
             <dependency>
-                <groupId>org.sitemesh</groupId>
-                <artifactId>sitemesh</artifactId>
+                    <groupId>opensymphony</groupId>
+                    <artifactId>sitemesh</artifactId>
                 <version>${sitemesh.version}</version>
 
             </dependency>

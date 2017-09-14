@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/WEB-INF/decorators">
+    <!--一下路径不被拦截装饰-->
+    <excludes>
+            <pattern>/static/*</pattern>
+            <pattern>*.jpg</pattern>
+            <pattern>/admin/login*</pattern>
+    </excludes>
+
+    <!--需要被装饰的页面-->
+    <decorator name="backend" page="main.jsp">
+
+        <pattern>/admin/index</pattern>
+        <pattern>/admin/success</pattern>
+        <pattern>/user</pattern>
+        <pattern>/**</pattern>
+    </decorator>
+
+
+    <!--<decorator name="name" page="***.jsp">
+
+    <pattern>/**/user*</pattern>
+
+    <pattern>/**/***</pattern>
+
+    <pattern>/**/*</pattern>
+
+    </decorator>-->
+
+</decorators>

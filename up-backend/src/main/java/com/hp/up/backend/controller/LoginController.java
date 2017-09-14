@@ -85,7 +85,7 @@ public class LoginController {
      * @param model
      * @return
      */
-    @RequestMapping(value = {"/success","/index"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/index"}, method = RequestMethod.GET)
     public String successPage(HttpServletRequest request,Model model) {
 
         Subject subject = SecurityUtils.getSubject();
@@ -120,7 +120,7 @@ public class LoginController {
             logger.info(Constants.LOGPREFIX + userShiro.getName() + " 未授权访问被拦截");
         }
 
-        return "unAuthor";
+        return "error/500";
     }
 
 
@@ -128,7 +128,7 @@ public class LoginController {
     @RequestMapping(value = "/welcomePage", method = RequestMethod.GET)
     public String welcomePage(Model model) {
 
-        return "admin/welcomePage";
+        return "admin/index";
     }
 
 }

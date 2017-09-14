@@ -2,6 +2,7 @@ package com.hp.up.backend.controller;
 
 import com.hp.up.business.service.DictionaryTypeService;
 import com.hp.up.core.Entity.DictionaryType;
+import com.hp.up.core.common.Constants;
 import com.hp.up.core.enums.ResponseStatus;
 import com.hp.up.core.web.page.PageDto;
 import com.hp.up.core.web.page.PagingList;
@@ -57,7 +58,7 @@ public class DictionaryTypeController extends BaseController {
     public String delete(@PathVariable("id") Long id) {
         int i = dictionaryTypeService.deleteById(id);
         if (i == 1) {
-            logger.info("delete dictionaryType! dictionaryTypeId : " + id);
+            logger.info(Constants.LOGPREFIX + "delete dictionaryType! dictionaryTypeId : " + id);
             return ResponseStatus.OK.toJson();
         } else {
             return ResponseStatus.FAILURE_DELETE.toJson();

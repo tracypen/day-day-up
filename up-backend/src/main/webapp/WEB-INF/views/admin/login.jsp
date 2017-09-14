@@ -46,8 +46,7 @@
             <div class="form-group">
                 <input type="text" name="vaildateCode" class="form-control" placeholder="验证码" required="required">
 
-                <img src="${ctx}/static/images/kaptcha.jpg"/><a id="verifyCodeImg"
-                                                                href="javascript:void(0)">换一张</a>
+                <img src="${ctx}/static/images/kaptcha.jpg"/><a id="verifyCodeImg" href="javascript:void(0)">换一张</a>
 
             </div>
 

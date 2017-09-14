@@ -2,6 +2,7 @@ package com.hp.up.backend.controller;
 
 import com.hp.up.backend.shiro.utils.PwdUtil;
 import com.hp.up.core.Entity.User;
+import com.hp.up.core.common.Constants;
 import com.hp.up.core.enums.ResponseStatus;
 import com.hp.up.core.web.page.PageDto;
 import com.hp.up.core.web.page.PageResult;
@@ -60,7 +61,7 @@ public class UserController extends BaseController {
     public String delete(@PathVariable("id") Long id) {
         int i = userService.remove(id);
         if (i == 1) {
-            logger.info("delete success! userId : "+id);
+            logger.info(Constants.LOGPREFIX + "delete success! userId : "+id);
             return ResponseStatus.OK.toJson();
 
         } else {

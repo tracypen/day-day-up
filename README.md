@@ -127,12 +127,46 @@
  
  
  
+ <div class="row J_mainContent" id="content-main">
  
  
  
  
  
  
+ 模态窗
  
+  <script>var ctx = '${ctx}', uid = '${user.id}', is_logined = '${status}';</script>
+ 
+ <script type="text/javascript">
+ 
+     if (is_logined) {
+         $("#loginModal").modal('show');
+         setTimeout(function(){
+             $("#loginModal").modal('hide');
+         },1000)
+     }
+ 
+ </script>
+ 
+ <!-- Modal -->
+ <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+     <div class="modal-dialog" role="document">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                 </button>
+                 <h4 class="modal-title" id="myModalLabel">提示</h4>
+             </div>
+             <div class="modal-body">
+                您已登录！
+             </div>
+           <%--  <div class="modal-footer">
+                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                 <button type="button" class="btn btn-primary">Save changes</button>
+             </div>--%>
+         </div>
+     </div>
+ </div>
  
  

@@ -19,7 +19,7 @@
 
  <!--   <mvc:default-servlet-handler/>-->
 
-    <mvc:view-controller path="/" view-name="redirect:/admin/loginPage"/>
+    <mvc:view-controller path="/" view-name="redirect:/admin/login"/>
 
     <mvc:interceptors>
         <mvc:interceptor>
