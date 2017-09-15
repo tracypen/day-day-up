@@ -14,6 +14,14 @@
         <result property="is_fixed" column="is_fixed"/>
     </resultMap>
 
+    <select id="get" parameterType="String" resultMap="dictionaryTypeMap">
+        SELECT *
+        FROM tb_dictionary_type dic_type
+        <where>
+           id = #{value}
+        </where>
+    </select>
+
     <select id="getDictionaryType" parameterType="dictionaryType" resultMap="dictionaryTypeMap">
         SELECT *
         FROM tb_dictionary_type dic_type
@@ -28,8 +36,6 @@
 
            AND del_flag = 0
        </where>
-
-
     </select>
 
     <update id="deleteById" parameterType="long">
@@ -41,15 +47,13 @@
         INSERT INTO tb_dictionary_type (
             CODE,
             description,
-            name,
-            del_flag
+            name
         )
         VALUES
             (
                 #{code},
                 #{description},
-                #{name},
-                0
+                #{name}
             )
 
     </insert>

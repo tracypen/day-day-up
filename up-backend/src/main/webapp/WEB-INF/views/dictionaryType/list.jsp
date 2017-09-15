@@ -19,6 +19,7 @@
     <link href="${ctx}/static/css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
 </head>
 <body class="gray-bg">
+<input id="typeCode" type="hidden" >
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
         <div class="col-sm-6">
@@ -39,7 +40,7 @@
                             <span>类型编号：</span><label for="exampleInputEmail3" class="sr-only">类型编号</label>
                             <input name="code" type="text" id="exampleInputEmail3" class="form-control">
                         </div>
-                        <a onclick="" href="javascript:void(0);" class="btn btn-info " id="search-btn"
+                        <a onclick="" href="javascript:void(0);" class="btn btn-info " id="search-type-btn"
                            style="float: right">查询</a>
                     </form>
                 </div>
@@ -66,13 +67,13 @@
         </div>
 
 
-        <div class="col-sm-6" style="display: none;">
+        <div class="col-sm-6" style="display: none;" id="dictionaryDiv">
             <div class="ibox-content">
 
                 <div class="">
                     <a onclick="" href="javascript:void(0);" class="btn btn-primary" style="">添加</a><br><br>
                 </div>
-
+               <span style="display:none " id="search-btn"></span>
 
                 <table class="table table-striped table-bordered table-hover dataTables-example" id="dic_list">
                     <thead>
@@ -81,6 +82,7 @@
                         <th>所属类型</th>
                         <th>字典名称</th>
                         <th>字典编号</th>
+                        <th>可修改</th>
                         <th>操作</th>
                     </tr>
                     </thead>
@@ -102,6 +104,7 @@
 <script>
     $(document).ready(function () {
         Type_Table.initTa();
+       // Table.initTa();
     });
 
 </script>

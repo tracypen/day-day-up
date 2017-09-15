@@ -26,11 +26,11 @@ public class DictionaryServiceImpl extends BaseServiceImpl<Dictionary> implement
         return dictionaryRepository.deleteById(id);
     }
 
-    public PagingList<Dictionary> getDictionaryPage(PageDto pageDto, Dictionary dictionary) {
+    public PagingList<Dictionary> getDictionaryByTypeCode(PageDto pageDto, Dictionary dictionary) {
 
         PageHelper.startPage(pageDto.getPageNum(), pageDto.getiDisplayLength());
 
-        List<Dictionary> dictionaryList = dictionaryRepository.getDictionary(dictionary);
+        List<Dictionary> dictionaryList = dictionaryRepository.getDictionaryByTypeCode(dictionary);
 
         PageInfo<Dictionary> pageInfo = new PageInfo<Dictionary>(dictionaryList);
 

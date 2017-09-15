@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 @RequestMapping("/dictionaryType")
-public class DictionaryTypeController extends BaseController {
+public class DictionaryTypeController extends BaseController<DictionaryType> {
 
     @Autowired
     DictionaryTypeService dictionaryTypeService;
@@ -59,7 +59,7 @@ public class DictionaryTypeController extends BaseController {
      */
     @RequestMapping(value = "/{id}/delete", method = RequestMethod.POST)
     @ResponseBody
-    public String delete(@PathVariable("id") Long id) {
+    public String deleteDictionaryType(@PathVariable("id") Long id) {
         int i = dictionaryTypeService.deleteById(id);
         if (i == 1) {
             logger.info(Constants.LOGPREFIX + "delete dictionaryType! dictionaryTypeId : " + id);
@@ -88,18 +88,6 @@ public class DictionaryTypeController extends BaseController {
     }
 
 
-    /**
-     * get dictionaryList by dictionaryTypeId
-     */
-    @RequestMapping(value = "/dictionary/{type_code}/list",method = RequestMethod.GET)
-    public @ResponseBody String dictionaryList(PageDto pageDto, @PathVariable String type_code) {
-
-        Dictionary dictionary = new Dictionary();
-        dictionary.setType_code(type_code);
-        PagingList<Dictionary> dictionaryPagingList = dictionaryService.getDictionaryPage(pageDto,dictionary);
-
-        return convert2DatatablesJson(dictionaryPagingList);
-    }
 
 
 }

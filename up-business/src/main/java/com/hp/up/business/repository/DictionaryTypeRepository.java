@@ -17,5 +17,4 @@ public interface DictionaryTypeRepository extends BaseRepository<DictionaryType>
     public int deleteById(Long id);
 
 
-
 }

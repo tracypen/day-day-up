@@ -40,7 +40,7 @@
 
                 /logout.action = logout
 
-                /** = sysUser
+                /** = user
             </value>
         </property>
     </bean>

@@ -10,7 +10,7 @@ import com.hp.up.core.web.page.PagingList;
  */
 public interface DictionaryService extends BaseService<Dictionary>{
     //get dictionary pageList
-    PagingList<Dictionary> getDictionaryPage(PageDto pageDto, Dictionary dictionary);
+    PagingList<Dictionary> getDictionaryByTypeCode(PageDto pageDto, Dictionary dictionary);
 
     //delete
     int deleteById(Long id);

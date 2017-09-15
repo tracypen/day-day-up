@@ -12,8 +12,10 @@ import java.util.List;
 @Component
 public interface DictionaryRepository extends BaseRepository<Dictionary> {
 
-    public List<Dictionary> getDictionary(Dictionary dictionary);
+    public List<Dictionary> getDictionaryByTypeCode(Dictionary dictionary);
 
     public int deleteById(Long id);
+
+    public int deleDictionaryteByTypeCode(String  typeCode);
 
 }

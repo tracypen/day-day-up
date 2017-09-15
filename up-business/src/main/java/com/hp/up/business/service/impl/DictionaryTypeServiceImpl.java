@@ -3,6 +3,7 @@ package com.hp.up.business.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.hp.up.business.repository.DictionaryRepository;
 import com.hp.up.business.repository.DictionaryTypeRepository;
 import com.hp.up.business.service.DictionaryTypeService;
 import com.hp.up.core.Entity.DictionaryType;
@@ -23,6 +24,9 @@ public class DictionaryTypeServiceImpl extends BaseServiceImpl<DictionaryType> i
     @Autowired
     DictionaryTypeRepository dictionaryTypeRepository;
 
+    @Autowired
+    DictionaryRepository dictionaryRepository;
+
     /**
      * 获取字典类型pageList
      * @param pageDto page
@@ -41,6 +45,11 @@ public class DictionaryTypeServiceImpl extends BaseServiceImpl<DictionaryType> i
     }
 
     public int deleteById(Long id) {
+        //先删除该类型所有字典记录
+        DictionaryType dictionaryType = dictionaryTypeRepository.get(id);
+
+        dictionaryRepository.deleDictionaryteByTypeCode(dictionaryType.getCode());
+
         return dictionaryTypeRepository.deleteById(id);
     }
 
