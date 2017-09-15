@@ -11,9 +11,8 @@
         <result property="description" column="description"/>
         <result property="name" column="name"/>
         <result property="del_flag" column="del_flag"/>
+        <result property="is_fixed" column="is_fixed"/>
     </resultMap>
-
-
 
     <select id="getDictionaryType" parameterType="dictionaryType" resultMap="dictionaryTypeMap">
         SELECT *
