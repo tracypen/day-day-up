@@ -17,6 +17,8 @@ public class DictionaryType extends IdEntity{
 
     private Integer del_flag ;
 
+    private Integer is_fixed;
+
     public Integer getDel_flag() {
         return del_flag;
     }
@@ -53,5 +55,24 @@ public class DictionaryType extends IdEntity{
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Integer getIs_fixed() {
+        return is_fixed;
+    }
+
+    public void setIs_fixed(Integer is_fixed) {
+        this.is_fixed = is_fixed;
+    }
+
+    @Override
+    public String toString() {
+        return "DictionaryType{" +
+                "code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", del_flag=" + del_flag +
+                ", is_fixed=" + is_fixed +
+                '}';
     }
 }

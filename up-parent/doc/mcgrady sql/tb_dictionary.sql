@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 127.0.0.1
+Source Server         : MySql-localhost
 Source Server Version : 50718
 Source Host           : localhost:3306
 Source Database       : mcgrady
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50718
 File Encoding         : 65001
 
-Date: 2017-09-13 22:57:33
+Date: 2017-09-15 17:46:25
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -28,6 +28,7 @@ CREATE TABLE `tb_dictionary` (
   `dict_type` varchar(100) NOT NULL DEFAULT '0',
   `del_flag` tinyint(1) DEFAULT '0',
   `parent_id` bigint(30) DEFAULT NULL,
+  `is_fixed` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK_ah1isfy5alow4rtkty9vri85r` (`code`),
   KEY `FKnd95at2xgu5eb9http5x3jdk` (`parent_id`),
@@ -37,7 +38,7 @@ CREATE TABLE `tb_dictionary` (
 -- ----------------------------
 -- Records of tb_dictionary
 -- ----------------------------
-INSERT INTO `tb_dictionary` VALUES ('1', '101', '', '男', '0', '1001', '0', null);
-INSERT INTO `tb_dictionary` VALUES ('2', '102', '', '女', '0', '1001', '0', null);
-INSERT INTO `tb_dictionary` VALUES ('3', '0', '', '未删除', '0', '1002', '0', null);
-INSERT INTO `tb_dictionary` VALUES ('4', '1', '', '已删除', '0', '1002', '0', null);
+INSERT INTO `tb_dictionary` VALUES ('1', '101', '', '男', '0', '1001', '0', null, '0');
+INSERT INTO `tb_dictionary` VALUES ('2', '102', '', '女', '0', '1001', '0', null, '0');
+INSERT INTO `tb_dictionary` VALUES ('3', '0', '', '未删除', '0', '1002', '0', null, '0');
+INSERT INTO `tb_dictionary` VALUES ('4', '1', '', '已删除', '0', '1002', '0', null, '0');

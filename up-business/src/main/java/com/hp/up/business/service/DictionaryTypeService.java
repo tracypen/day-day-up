@@ -11,7 +11,7 @@ import com.hp.up.core.web.page.PagingList;
 public interface DictionaryTypeService extends BaseService<DictionaryType>{
 
     //获取字典类型pageList
-    PagingList<DictionaryType> getDictionaryTypePage(PageDto pageDto, DictionaryType user);
+    PagingList<DictionaryType> getDictionaryTypePage(PageDto pageDto, DictionaryType dictionaryType);
 
     //删除字典类型（逻辑删除）
     int deleteById(Long id);

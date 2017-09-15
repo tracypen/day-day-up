@@ -5,7 +5,6 @@ import com.hp.up.core.Entity.User;
 import com.hp.up.core.common.Constants;
 import com.hp.up.core.enums.ResponseStatus;
 import com.hp.up.core.web.page.PageDto;
-import com.hp.up.core.web.page.PageResult;
 import com.hp.up.core.web.page.PagingList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,7 +49,7 @@ public class UserController extends BaseController {
 
         PagingList<User> userList = userService.getUserPage(pageDto, user);
 
-        return convert2DatatavlesJson(userList);
+        return convert2DatatablesJson(userList);
     }
 
     /**

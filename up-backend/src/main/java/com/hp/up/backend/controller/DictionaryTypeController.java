@@ -1,6 +1,8 @@
 package com.hp.up.backend.controller;
 
+import com.hp.up.business.service.DictionaryService;
 import com.hp.up.business.service.DictionaryTypeService;
+import com.hp.up.core.Entity.Dictionary;
 import com.hp.up.core.Entity.DictionaryType;
 import com.hp.up.core.common.Constants;
 import com.hp.up.core.enums.ResponseStatus;
@@ -28,6 +30,9 @@ public class DictionaryTypeController extends BaseController {
     @Autowired
     DictionaryTypeService dictionaryTypeService;
 
+    @Autowired
+    DictionaryService dictionaryService;
+
     private static Logger logger = LoggerFactory.getLogger(LoginController.class);
 
     /**
@@ -42,12 +47,11 @@ public class DictionaryTypeController extends BaseController {
      * get dictionaryTypeList with condition
      */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public @ResponseBody
-    String dictionaryTypeList(PageDto pageDto, DictionaryType dictionaryType) {
+    public @ResponseBody String dictionaryTypeList(PageDto pageDto, DictionaryType dictionaryType) {
 
         PagingList<DictionaryType> dictionaryTypeList = dictionaryTypeService.getDictionaryTypePage(pageDto, dictionaryType);
 
-        return convert2DatatavlesJson(dictionaryTypeList);
+        return convert2DatatablesJson(dictionaryTypeList);
     }
 
     /**
@@ -81,6 +85,20 @@ public class DictionaryTypeController extends BaseController {
             return super.getJsonResponseEntity(Boolean.TRUE);
         }
         return super.getJsonResponseEntity(Boolean.FALSE);
+    }
+
+
+    /**
+     * get dictionaryList by dictionaryTypeId
+     */
+    @RequestMapping(value = "/dictionary/{type_code}/list",method = RequestMethod.GET)
+    public @ResponseBody String dictionaryList(PageDto pageDto, @PathVariable String type_code) {
+
+        Dictionary dictionary = new Dictionary();
+        dictionary.setType_code(type_code);
+        PagingList<Dictionary> dictionaryPagingList = dictionaryService.getDictionaryPage(pageDto,dictionary);
+
+        return convert2DatatablesJson(dictionaryPagingList);
     }
 
 

@@ -22,6 +22,8 @@
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
         <div class="col-sm-6">
+
+            <%--字典类型--%>
             <div class="ibox-content">
 
                 <div class="">
@@ -35,7 +37,7 @@
                         </div>
                         <div class="form-group" style="margin-left:50px">
                             <span>类型编号：</span><label for="exampleInputEmail3" class="sr-only">类型编号</label>
-                            <input name="name" type="text" id="exampleInputEmail3" class="form-control">
+                            <input name="code" type="text" id="exampleInputEmail3" class="form-control">
                         </div>
                         <a onclick="" href="javascript:void(0);" class="btn btn-info " id="search-btn"
                            style="float: right">查询</a>
@@ -43,7 +45,7 @@
                 </div>
 
 
-                <table class="table table-striped table-bordered table-hover dataTables-example" id="dic_list">
+                <table class="table table-striped table-bordered table-hover dataTables-example" id="dic_type_list">
                     <thead>
                     <tr>
                         <th>id</th>
@@ -64,7 +66,7 @@
         </div>
 
 
-        <div class="col-sm-6">
+        <div class="col-sm-6" style="display: none;">
             <div class="ibox-content">
 
                 <div class="">
@@ -72,7 +74,7 @@
                 </div>
 
 
-                <table class="table table-striped table-bordered table-hover dataTables-example" id="dic_type_list">
+                <table class="table table-striped table-bordered table-hover dataTables-example" id="dic_list">
                     <thead>
                     <tr>
                         <th>id</th>
@@ -83,36 +85,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <%-- <c:if test="${not empty pagination.data}">
-                         <c:forEach items="${pagination.data }" var="user" varStatus="st">
-                             <tr>
-                                 <td>${(pagination.paging.pageNum-1) * pagination.paging.pageSize + st.count}</td>
-                                 <td>${user.name}</td>
-                                 <td>${user.userRealName}</td>
-                                 <td>${user.email}</td>
-                                 <td><fmt:formatDate value="${user.birthday}"
-                                                     pattern="yyyy-MM-dd"></fmt:formatDate></td>
-                                 <td>${user.active.info}</td>
-
-                                 <td>
-                                     <a title="编辑"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-                                     &nbsp;&nbsp;&nbsp;
-                                     <a title="删除" href="javascript:void(0);" onclick="delUser('${user.id}')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-                                 </td>
-                             </tr>
-                         </c:forEach>
-
-                     </c:if>--%>
                     </tbody>
-                    <%--    <tfoot>
-                        <tr>
-                            <th>渲染引擎</th>
-                            <th>浏览器</th>
-                            <th>平台</th>
-                            <th>引擎版本</th>
-                            <th>CSS等级</th>
-                        </tr>
-                        </tfoot>--%>
                 </table>
 
             </div>
@@ -124,6 +97,14 @@
 <script src="${ctx}/static/js/plugins/dataTables/dataTables.bootstrap.js"></script>
 <script src="${ctx}/static/js/plugins/sweetalert/sweetalert.min.js"></script>
 <script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+
+<script src="${ctx}/static/js/dictionaryType/dictionaryType.js"></script>
+<script>
+    $(document).ready(function () {
+        Type_Table.initTa();
+    });
+
+</script>
 </body>
 
 </html>

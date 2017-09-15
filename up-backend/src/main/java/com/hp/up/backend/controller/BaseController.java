@@ -81,7 +81,7 @@ public class BaseController <E extends Serializable> {
         return null;
     }
 
-        protected String convert2DatatavlesJson(PagingList<E> pageList){
+        protected String convert2DatatablesJson(PagingList<E> pageList){
         Map<String, Object> map = Maps.newHashMap();
         map.put("iTotalRecords", pageList.getPaging().getTotal());
         map.put("iTotalDisplayRecords", pageList.getPaging().getTotal());
