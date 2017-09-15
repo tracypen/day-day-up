@@ -17,11 +17,8 @@
     <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
 
     <link rel="shortcut icon" href="${ctx}/static/img/favicon.ico">
-    <link href="${ctx}/static/css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
-    <link href="${ctx}/static/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+
     <link href="${ctx}/static/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
-    <link href="${ctx}/static/css/animate.min.css" rel="stylesheet">
-    <link href="${ctx}/static/css/style.min.css?v=4.0.0" rel="stylesheet">
     <link href="${ctx}/static/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
     <script>var ctx = '${ctx}', uid = '${user.id}';</script>
 
@@ -111,17 +108,9 @@
     </div>
 
 </div>
-
-
-
-
-
-<script src="${ctx}/static/js/jquery.min.js?v=2.1.4"></script>
-<script src="${ctx}/static/js/bootstrap.min.js?v=3.3.5"></script>
 <script src="${ctx}/static/js/plugins/jeditable/jquery.jeditable.js"></script>
 <script src="${ctx}/static/js/plugins/dataTables/jquery.dataTables.js"></script>
 <script src="${ctx}/static/js/plugins/dataTables/dataTables.bootstrap.js"></script>
-<script src="${ctx}/static/js/content.min.js?v=1.0.0"></script>
 <script src="${ctx}/static/js/plugins/sweetalert/sweetalert.min.js"></script>
 
 
@@ -135,7 +124,7 @@
     });
 
 </script>
-<script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+<%--<script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>--%>
 
 </body>
 

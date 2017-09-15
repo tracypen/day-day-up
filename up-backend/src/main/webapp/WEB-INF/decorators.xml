@@ -8,11 +8,11 @@
     </excludes>
 
     <!--需要被装饰的页面-->
-    <decorator name="backend" page="main.jsp">
+    <decorator name="backend" page="main_decorators.jsp">
 
         <pattern>/admin/index</pattern>
-        <pattern>/user</pattern>
-        <pattern>/**</pattern>
+        <pattern>/user*</pattern>
+
     </decorator>
 
 
