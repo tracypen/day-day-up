@@ -21,21 +21,22 @@ public class ShiroExceptionHandler implements HandlerExceptionResolver {
         String message = null;
         ShiroException shiroException = null;
         //如果ex是系统自定义的异常，我们就直接取出异常信息
-        String redirectUrl = "/WEB-INF/views/admin/login.jsp";
+        String forwardtUrl = "/WEB-INF/views/admin/login.jsp";
         if (ex instanceof ShiroException) {
             shiroException = (ShiroException) ex;
         } else {
             shiroException = new ShiroException("未知错误");
-            redirectUrl = "/WEB-INF/views/error/500.jsp";
+            forwardtUrl = "/WEB-INF/views/error/500.jsp";
         }
         message = shiroException.getMessage();
 
+        request.setAttribute("code", shiroException.getCode());
         request.setAttribute("message", message);
 
 
         try {
             //转向到错误页面
-            request.getRequestDispatcher(redirectUrl).forward(request, response);
+            request.getRequestDispatcher(forwardtUrl).forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {

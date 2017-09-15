@@ -3,6 +3,7 @@ package com.hp.up.backend.controller;
 import com.hp.up.backend.shiro.Exception.ShiroException;
 import com.hp.up.backend.shiro.UserShiro;
 import com.hp.up.core.common.Constants;
+import com.hp.up.core.enums.ResponseStatus;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
@@ -38,15 +39,18 @@ public class LoginController {
 
             if (UnknownAccountException.class.getName().equals(exceptionClassName)) {
 
-                throw new ShiroException("账号不存在");
+                //账号不存在
+                throw new ShiroException(ResponseStatus.ACCOUNT_NOT_EXIST);
 
             } else if (IncorrectCredentialsException.class.getName().equals(exceptionClassName)) {
 
-                throw new ShiroException("用户名/密码错误");
+                //密码错误
+                throw new ShiroException(ResponseStatus.WRONG_PWD);
 
             } else if ("randomCodeError".equals(exceptionClassName)) {
 
-                throw new ShiroException("验证码错误");
+                //验证码错误
+                throw new ShiroException(ResponseStatus.ERROR_VALIDATE_CODE);
             } else {
                 throw new Exception();//最终在异常处理器生成未知错误
             }

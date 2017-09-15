@@ -5,7 +5,7 @@
   Time: 16:41
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isErrorPage="true" %>
 <html>
 
 <head>
@@ -18,7 +18,8 @@
     <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
     <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
 
-    <link rel="shortcut icon" href="${ctx}/static/img/favicon.ico"> <link href="${ctx}/static/css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+    <link rel="shortcut icon" href="${ctx}/static/img/favicon.ico">
+    <link href="${ctx}/static/css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
     <link href="${ctx}/static/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
 
     <link href="${ctx}/static/css/animate.min.css" rel="stylesheet">
@@ -40,6 +41,10 @@
 <script src="${ctx}/static/js/jquery.min.js?v=2.1.4"></script>
 <script src="${ctx}/static/js/bootstrap.min.js?v=3.3.5"></script>
 <script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+
+        <%--错误码： <%=request.getAttribute("javax.servlet.error.status_code")%> <br>--%>
+        <%--信息： <%=request.getAttribute("javax.servlet.error.message")%> <br>--%>
+        <%--异常： <%=request.getAttribute("javax.servlet.error.exception_type")%> <br>--%>
 </body>
 
 </html>

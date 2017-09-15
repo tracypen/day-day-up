@@ -14,18 +14,19 @@
 
     <link href="${ctx}/static/css/animate.min.css" rel="stylesheet">
     <link href="${ctx}/static/css/style.min.css?v=4.0.0" rel="stylesheet">
+
     <%--<base target="_blank">--%>
     <script>
         if (window.top !== window.self) {
-        window.top.location = window.location;
-    }</script>
+            window.top.location = window.location;
+        }</script>
 </head>
 <%--<jsp:forward page="${ctx}/admin/index?status=1" />--%>
 
 <script>
-<shiro:user>
-   window.location.href="${ctx}/admin/index?status=1";
-</shiro:user>
+    <shiro:user>
+    window.location.href = "${ctx}/admin/index?status=1";
+    </shiro:user>
 </script>
 <body class="gray-bg">
 
@@ -39,17 +40,19 @@
         <h3>登录</h3>
 
         <form class="m-t" role="form" method="post" action="${ctx}/admin/login">
-            <div class="form-group">
-                <input type="text" name="username" value="mcgrady" class="form-control" placeholder="用户名"
+            <div class="form-group" id="usernaem">
+                <input type="text" name="username"  value="mcgrady" class="form-control" placeholder="用户名"
                        required="required">
             </div>
-            <div class="form-group">
-                <input type="password" name="password" value="111111" class="form-control" placeholder="密码"
+            <div class="form-group" id="password">
+                <input type="password" name="password"  value="111111" class="form-control"
+                       placeholder="密码"
                        required="required">
             </div>
 
-            <div class="form-group">
-                <input type="text" name="vaildateCode" class="form-control" placeholder="验证码" required="required">
+            <div class="form-group" id="validateCode">
+                <input type="text" name="validateCode"  class="form-control" placeholder="验证码"
+                       required="required">
 
                 <img src="${ctx}/static/images/kaptcha.jpg"/><a id="verifyCodeImg" href="javascript:void(0)">换一张</a>
 
@@ -57,22 +60,34 @@
 
             <button type="submit" class="btn btn-primary block full-width m-b">登 录</button>
 
-
             <p class="text-muted text-center"><a href="login.html#">
                 <small>忘记密码了？</small>
-            </a> | <a href="register.html">注册一个新账号</a>
+            </a> | <a href="register.html">注册一个新账号</a>${message}<a>
+            </a>
             </p>
-
         </form>
     </div>
 </div>
 <script src="${ctx}/static/js/jquery.min.js?v=2.1.4"></script>
 <script src="${ctx}/static/js/bootstrap.min.js?v=3.3.5"></script>
+<script src="${ctx}/static/js/plugins/layer/layer.js"></script>
 <script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
-
+<script>var code = '${code}', message ='${message}';</script>
 <script>
 
     $(function () {
+        if (null != code && code !== undefined) {
+            if (code == 30001) {
+                layer.tips(message, '#usernaem');
+            } else if (code == 30002) {
+                layer.tips(message, '#password');
+            } else if (code == 30003) {
+                layer.tips(message, '#validateCode');
+            } else if (code == 30004) {
+                layer.tips(message, '#usernaem');
+            }
+        }
+
         $('#verifyCodeImg').click(function () {
 
             var $this = $(this);

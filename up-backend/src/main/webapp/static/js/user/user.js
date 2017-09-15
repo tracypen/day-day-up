@@ -21,7 +21,7 @@ function delUser(id) {
                 success: function (msg) {
                    // swal({title: "操作成功", text: "数据已经删除", type: "success"});
                     //window.location.href = ctx+'/user/list';
-                    if (msg.code == 0){
+                    if (msg.code == 10001){
                         swal("删除成功！", "您已经永久删除了这条信息。", "success");
                         $("#search-btn").click();
                     }else{

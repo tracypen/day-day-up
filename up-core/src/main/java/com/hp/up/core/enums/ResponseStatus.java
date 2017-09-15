@@ -13,46 +13,79 @@ import java.util.Map;
  * @Author haopeng
  * @Date 2017/9/7 15:55
  */
-public enum ResponseStatus implements Status{
+public enum ResponseStatus implements Status {
+
+    //================================================controller相关====================================================================
+
+    /**
+     * 操作成功
+     */
+    OK(10001, "successful", "成功"),
 
     /**
      * 删除失败
      */
-    FAILURE_DELETE(10022, "Delete Failure", "删除失败"),
+    FAILURE_DELETE(10002, "Delete Failure", "删除失败"),
     /**
      * 添加失败
      */
-    FAILURE_ADD(10023, "Add Failure", "添加失败"),
+    FAILURE_ADD(10003, "Add Failure", "添加失败"),
     /**
      * 修改失败
      */
-    FAILURE_UPDATE(10024, "Update Failure", "修改失败"),
+    FAILURE_UPDATE(10004, "Update Failure", "修改失败"),
 
-    OK(0, "successful", "成功"),
+    //================================================API相关====================================================================
+
     /**
      * 系统错误
      */
-    SYSTEM_ERROR(10001, "System error"),
+    SYSTEM_ERROR(20001, "System error"),
 
     /**
      * 缺失必选参数，请参考API文档
      */
-    MISS_REQUIRED_PARAMETE(10002, "缺失必选参数，请参考API文档"),
+    MISS_REQUIRED_PARAMETE(20002, "缺失必选参数，请参考API文档"),
     /**
      * 参数值非法
      */
-    PARAMETER_VALUE_ILLEGAL(10003, "参数值非法"),
+    PARAMETER_VALUE_ILLEGAL(20003, "参数值非法"),
     /**
      * unknown error
      */
-    UNKNOWN_ERROR(10004, "unknown error"),
+    UNKNOWN_ERROR(20004, "unknown error"),
+
+
+    //================================================shiro相关====================================================================
+
+    /**
+     * 账号不存在
+     */
+    ACCOUNT_NOT_EXIST(30001,"账号不存在"),
+    /**
+     * 用户名/密码错误
+     */
+    WRONG_PWD(30002,"密码错误"),
+    /**
+     * 验证码错误
+     */
+    ERROR_VALIDATE_CODE(30003,"验证码错误"),
+
+    /**
+     * 账号已锁定
+     */
+    ACCOUNT_LOCKED(30004,"账号已锁定")
+
     ;
 
-   // private volatile MessageMapper messageMapper = MessageMapper.getInstance();
+
+
+    // private volatile MessageMapper messageMapper = MessageMapper.getInstance();
 
     public Integer getCode() {
         return this.code;
     }
+
     public String getReason() {
         return this.reason;
     }
@@ -62,8 +95,7 @@ public enum ResponseStatus implements Status{
     String description;
 
 
-
-    ResponseStatus(){
+    ResponseStatus() {
 
     }
 

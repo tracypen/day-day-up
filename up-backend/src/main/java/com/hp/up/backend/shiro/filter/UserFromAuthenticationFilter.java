@@ -41,7 +41,7 @@ public class UserFromAuthenticationFilter extends FormAuthenticationFilter {
         String validateCode = (String) session.getAttribute(com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY);
 
         //取出页面的验证码
-        String randomcode = httpServletRequest.getParameter("vaildateCode");
+        String randomcode = httpServletRequest.getParameter("validateCode");
         if (randomcode != null && validateCode != null && !randomcode.equalsIgnoreCase(validateCode)) {
             //如果校验失败，将验证码错误的失败信息，通过shiroLoginFailure设置到request中
             httpServletRequest.setAttribute("shiroLoginFailure", "randomCodeError");

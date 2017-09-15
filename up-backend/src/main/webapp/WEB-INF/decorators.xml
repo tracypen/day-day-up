@@ -12,7 +12,8 @@
 
         <pattern>/admin/index</pattern>
         <pattern>/user*</pattern>
-
+        <pattern>/dictionaryType*</pattern>
+        <pattern>/**/*</pattern>
     </decorator>
 
 

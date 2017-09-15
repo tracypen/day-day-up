@@ -53,7 +53,7 @@
                     </li>
 
                     <li>
-                        <a class="J_menuItem" href="index_v3.html">数据字典</a>
+                        <a class="J_menuItem" href="${ctx}/dictionaryType">数据字典</a>
                     </li>
 
 
