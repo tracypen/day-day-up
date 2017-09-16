@@ -100,7 +100,7 @@
 <script src="${ctx}/static/js/plugins/sweetalert/sweetalert.min.js"></script>
 <script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
 
-<script src="${ctx}/static/js/dictionaryType/dictionaryType.js"></script>
+<script src="${ctx}/static/js/customer/dictionaryType/dictionaryType.js"></script>
 <script>
     $(document).ready(function () {
         Type_Table.initTa();

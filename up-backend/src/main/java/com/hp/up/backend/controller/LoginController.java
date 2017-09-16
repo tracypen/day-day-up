@@ -8,6 +8,7 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.subject.Subject;
+import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -30,7 +31,7 @@ public class LoginController {
     public String login(HttpServletRequest request) throws Exception {
 
         //如果登录失败从request中获取认证异常信息,shiroLoginFailure就是shiro异常类的全限定名
-        String exceptionClassName = (String) request.getAttribute("shiroLoginFailure");
+        String exceptionClassName = (String) request.getAttribute(FormAuthenticationFilter.DEFAULT_ERROR_KEY_ATTRIBUTE_NAME);
 
         logger.info(Constants.LOGPREFIX + " 执行登录");
 
@@ -72,11 +73,9 @@ public class LoginController {
 
         Subject subject = SecurityUtils.getSubject();
 
-        //modify 2017/09/12 17:21 不合理 改为在登录页面进行判断，登陆之后直接跳转到主页面
-        // 防止用户重复登录
-     /*   if (subject != null && subject.isAuthenticated()) {
+      /*  // 防止用户重复登录
+        if (subject != null && subject.isAuthenticated()) {
             String userName = (String) subject.getPrincipal();
-            //authService.clear(userId);
             subject.logout();
             logger.info(Constants.LOGPREFIX + userName + " 用户已退出！");
         }*/

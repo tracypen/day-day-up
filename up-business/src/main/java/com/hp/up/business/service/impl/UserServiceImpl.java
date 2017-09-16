@@ -75,6 +75,14 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
         return userRepository.updateLastLoginTime(id);
     }
 
+    public int saveOrUpdateUser(User user) {
+        if ((null != user.getId() && user.getId() >0)){
+           User resultUser =  this.update(user);
+            return null != resultUser ? 1 :0 ;
+        }
+      return this.save(user);
+    }
+
     public void afterPropertiesSet() throws Exception {
         super.baseRepository = userRepository;
     }

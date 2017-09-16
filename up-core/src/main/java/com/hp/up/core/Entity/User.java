@@ -28,6 +28,7 @@ public class User extends IdEntity{
     private String qq;
     private String avatar;
     private String userRealName;
+    private String phone;
 
     public void setName(String name) {
         this.name = name;
@@ -141,6 +142,14 @@ public class User extends IdEntity{
 
     public void setUserRealName(String userRealName) {
         this.userRealName = userRealName;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     @Override

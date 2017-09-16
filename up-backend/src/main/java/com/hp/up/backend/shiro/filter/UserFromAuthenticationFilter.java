@@ -26,6 +26,8 @@ import java.util.Date;
  */
 public class UserFromAuthenticationFilter extends FormAuthenticationFilter {
 
+    public static final String DEFAULT_CAPTCHA_PARAM = "validateCode";
+
     private static Logger logger = LoggerFactory.getLogger(UserFromAuthenticationFilter.class);
 
     @Autowired
@@ -41,10 +43,10 @@ public class UserFromAuthenticationFilter extends FormAuthenticationFilter {
         String validateCode = (String) session.getAttribute(com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY);
 
         //取出页面的验证码
-        String randomcode = httpServletRequest.getParameter("validateCode");
+        String randomcode = httpServletRequest.getParameter(DEFAULT_CAPTCHA_PARAM);
         if (randomcode != null && validateCode != null && !randomcode.equalsIgnoreCase(validateCode)) {
             //如果校验失败，将验证码错误的失败信息，通过shiroLoginFailure设置到request中
-            httpServletRequest.setAttribute("shiroLoginFailure", "randomCodeError");
+            httpServletRequest.setAttribute(FormAuthenticationFilter.DEFAULT_ERROR_KEY_ATTRIBUTE_NAME, "randomCodeError");
             logger.info(Constants.LOGPREFIX + "验证码错误！");
             //拒绝访问，不再校验账号和密码
             return true;

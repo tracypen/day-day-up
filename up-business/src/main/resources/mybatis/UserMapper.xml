@@ -19,6 +19,7 @@
         <result property="status" column="status"/>
         <result property="nickName" column="nickname"/>
         <result property="qq" column="qq"/>
+        <result property="phone" column="phone"/>
         <result property="svatar" column="avatar"/>
 
     </resultMap>
@@ -38,14 +39,15 @@
             nickname,
             userRealName,
             qq,
-            avatar
+            avatar,
+            phone
         FROM tb_user
     </select>
 
 
     <select id="getUsers" resultMap="userMap" parameterType="user">
         SELECT
-        id,name,password,salt,email,gender,active,lastLoginTime,birthday,status,nickname,userRealName,qq,avatar
+        id,name,password,salt,email,gender,active,lastLoginTime,birthday,status,nickname,userRealName,qq,avatar,phone
         FROM tb_user u
         <where>
 
@@ -78,12 +80,13 @@
             nickname,
             userRealName,
             qq,
-            avatar
+            avatar,
+            phone
         FROM tb_user
         WHERE name = #{name}
     </select>
 
-    <select id="getById" parameterType="Long" resultMap="userMap">
+    <select id="get" parameterType="Long" resultMap="userMap">
 
         SELECT
             id,
@@ -99,7 +102,8 @@
             nickname,
             userRealName,
             qq,
-            avatar
+            avatar,
+            phone
         FROM tb_user
         WHERE id = #{value}
 
@@ -115,7 +119,7 @@
     </delete>
 
     <insert id="save" parameterType="user" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO tb_user (name, password, salt, email, gender, userRealName, birthday, nickname, qq, avatar)
+        INSERT INTO tb_user (name, password, salt, email, gender, userRealName, birthday, nickname, qq, avatar,phone)
         VALUES (
         <![CDATA[#{name}]]>,
         <![CDATA[#{password}]]>,
@@ -126,7 +130,8 @@
         <![CDATA[#{birthday}]]>,
         <![CDATA[#{nickName}]]>,
         <![CDATA[#{qq}]]>,
-        <![CDATA[#{avatar}]]>
+        <![CDATA[#{avatar}]]>,
+        <![CDATA[#{phone}]]>
         )
     </insert>
 
@@ -137,5 +142,23 @@
             id = <![CDATA[#{value}
         ]]>
     </update>
+
+
+    <update id="update" parameterType="user">
+        UPDATE tb_user
+        <set>
+            name = #{name},
+            email = #{email},
+            gender = #{gender},
+            userRealName = #{userRealName},
+            birthday = #{birthday},
+            qq = #{qq},
+            phone = #{phone}
+        </set>
+        WHERE
+        id = <![CDATA[#{id}
+        ]]>
+    </update>
+
 
 </mapper>

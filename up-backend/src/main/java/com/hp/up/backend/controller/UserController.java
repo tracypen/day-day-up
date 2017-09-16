@@ -6,16 +6,14 @@ import com.hp.up.core.common.Constants;
 import com.hp.up.core.enums.ResponseStatus;
 import com.hp.up.core.web.page.PageDto;
 import com.hp.up.core.web.page.PagingList;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * userController
@@ -70,13 +68,26 @@ public class UserController extends BaseController {
     }
 
     /**
+     * jump to edit page
+     */
+    @RequestMapping(value = {"/edit/{id}"}, method = RequestMethod.POST)
+    public String editPage(@PathVariable Long id,ModelMap map) {
+        if (null != id && id >0){
+            User user = userService.getById(id);
+            map.put("user",user);
+        }
+        return "/user/edit";
+    }
+
+
+    /**
      * update or add user
      */
     @RequestMapping(value = {"/add","/update"}, method = RequestMethod.POST)
     @ResponseBody
-    public ResponseEntity insertUser(User user) {
+    public ResponseEntity addOrUpdate(@RequestBody User user) {
         //设置密码和盐
-        int result = userService.save(getPwd(user));
+        int result = userService.saveOrUpdateUser(getPwd(user));
         if (result > 0) {
             return super.getJsonResponseEntity(Boolean.TRUE);
         }
@@ -88,10 +99,12 @@ public class UserController extends BaseController {
      * 密码加密
      */
     public User getPwd(User user) {
-        //通过UUID作为用户密码盐值
-        String salt = PwdUtil.getUUID();
-        user.setSalt(salt);
-        user.setPassword(PwdUtil.encrypt(user.getPassword(), salt, hashIterations));
+        if (StringUtils.isNotBlank(user.getPassword())){
+            //通过UUID作为用户密码盐值
+            String salt = PwdUtil.getUUID();
+            user.setSalt(salt);
+            user.setPassword(PwdUtil.encrypt(user.getPassword(), salt, hashIterations));
+        }
         return user;
     }
 

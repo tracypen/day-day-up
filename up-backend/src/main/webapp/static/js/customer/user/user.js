@@ -89,6 +89,11 @@ var Table = function() {
                 "sDefaultContent" : "",
                 "sClass" : "center"
             },{
+                "mDataProp" : "phone",
+                "sTitle" : "手机号",
+                "sDefaultContent" : "",
+                "sClass" : "center"
+            },{
                 "mDataProp" : "email",
                 "sTitle" : "邮箱",
                 "sDefaultContent" : "",
@@ -138,19 +143,19 @@ var Table = function() {
                 }
 
                 var da =new Date(aData.birthday);
-                $('td:eq(5)', nRow).html(da.getFullYear() +'-'+ da.getMonth() +'-'+ da.getDate());
+                $('td:eq(6)', nRow).html(da.getFullYear() +'-'+ da.getMonth() +'-'+ da.getDate());
 
                 if (aData.active == 'TRUE') {
-                    $('td:eq(6)', nRow).html('激活');
+                    $('td:eq(7)', nRow).html('激活');
                 }
                 if (aData.active == 'FALSE') {
-                    $('td:eq(6)', nRow).html('锁定');
+                    $('td:eq(7)', nRow).html('锁定');
                 }
                 // if(perUpdate){
-                    $('td:eq(7)', nRow).html('<a title="编辑"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>');
+                    $('td:eq(8)', nRow).html('<a title="编辑" href="javascript:void(0);" onclick="editPage('+aData.id+')"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>');
 
                // }else {
-                    $('td:eq(7)', nRow).append('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a title="删除" href="javascript:void(0);" onclick="delUser('+aData.id+')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>');
+                    $('td:eq(8)', nRow).append('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a title="删除" href="javascript:void(0);" onclick="delUser('+aData.id+')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>');
              //   }
 
                 return nRow;
@@ -186,6 +191,17 @@ var Table = function() {
           //  $("#errordiv").hide();
             oTable.fnDraw();
         });
+        $('#listLi').click(function() {
+            $("#editLi").removeClass('active');
+            $("#optionDiv").show();
+            $("#addLi").show();
+            $("#editLi").hide();
+            $("#tab-3").hide();
+
+
+
+            oTable.fnDraw();
+        });
 
     }
 
@@ -204,4 +220,102 @@ var Table = function() {
         }
     };
 }();
+
+
+function addUser(){
+    var jsonData = {
+        "name":$("#name").val(),
+        "userRealName":$("#userRealName").val(),
+        "gender":$('#gender:input:radio:checked').val(),  //$('input:radio:checked').val()；
+        "birthday":$("#birthday").val(),
+        "password":$("#password").val(),
+        "email":$("#email").val(),
+        "qq":$("#qq").val(),
+        "phone":$("#phone").val()
+    }
+    console.log(JSON.stringify(jsonData));
+    $.ajax({
+        async:true,
+        "type" : "post",
+        "url" : ctx + '/user/add',
+        "data" :  JSON.stringify(jsonData),
+        dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+        contentType:"application/json",
+        "success" :function(msg){
+            if (msg == true){
+                swal("添加用户成功！", "success", "success");
+                $("#search-btn").click();
+            }else{
+                swal("添加用户失败！", "请稍后尝试！", "error");
+            }
+        },
+        error:function(){
+            swal("添加用户失败！", "请稍后尝试！", "error");
+
+        }
+    });
+
+}
+
+function updatePage() {
+    alert($("#up_phone").val());
+    var jsonData = {
+        "id":$("#up_id").val(),
+        "name":$("#up_name").val(),
+        "userRealName":$("#up_userRealName").val(),
+        "gender":$('#up_gender:input:radio:checked').val(),  //$('input:radio:checked').val()；
+        "birthday":$("#up_birthday").val(),
+        "email":$("#up_email").val(),
+        "phone":$("#up_phone").val(),
+        "qq":$("#up_qq").val()
+    }
+    console.log(JSON.stringify(jsonData));
+    $.ajax({
+        async:true,
+        "type" : "post",
+        "url" : ctx + '/user/update',
+        "data" :  JSON.stringify(jsonData),
+        dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+        contentType:"application/json",
+        "success" :function(msg){
+            if (msg == true){
+                swal("修改用户成功！", "success", "success");
+                $("#search-btn").click();
+            }else{
+                swal("修改用户失败！", "请稍后尝试！", "error");
+            }
+        },
+        error:function(){
+            swal("修改用户失败！", "请稍后尝试！", "error");
+
+        }
+    });
+
+}
+
+function editPage(id) {
+    $.ajax({
+        async:true,
+        "type" : "post",
+        "url" : ctx + '/user/edit/'+id,
+        dataType:'html',    //返回的数据格式：json/xml/html/script/jsonp/text
+        "success" :function(msg){
+            $("#tab-3").html(msg);
+            $("#editLi").show();
+            // $("#editLi").click();
+            $("#editLi").addClass('active').siblings().removeClass('active');
+            $("#optionDiv").hide();
+            $("#addLi").hide();
+            $("#tab-3").show();
+        },
+        error:function(){
+
+        }
+    });
+
+    //初始化编辑页面时间框
+    laydate.render({
+        elem: '#up_birthday' //指定元素
+    });
+}
 
