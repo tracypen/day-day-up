@@ -61,7 +61,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label">生日：</label>
                         <div class="col-sm-8">
-                            <input id="up_birthday" id="birthday" name="birthday" type="text"  value="<fmt:formatDate value='${user.birthday}' pattern='yyyy-MM-dd'/>"  class="form-control" style="width: 50%">
+                            <input id="up_birthday"  name="birthday" type="text"  value="<fmt:formatDate value='${user.birthday}' pattern='yyyy-MM-dd'/>"  class="form-control" style="width: 50%">
 
                         </div>
                     </div>
@@ -85,7 +85,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label">E-mail：</label>
                         <div class="col-sm-8">
-                            <input id="email" name="email" class="form-control" value="${user.email}" type="email" style="width: 50%">
+                            <input id="up_email" name="email" class="form-control" value="${user.email}" type="email" style="width: 50%">
                         </div>
                     </div>
                 </form>

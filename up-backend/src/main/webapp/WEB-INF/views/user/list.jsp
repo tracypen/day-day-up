@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
-<%@include file="/WEB-INF/views/common/taglibs.jspf"%>
+<%@include file="/WEB-INF/views/common/taglibs.jspf" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -32,7 +32,8 @@
                 </li>
                 <li id="addLi"><a data-toggle="tab" href="#tab-2" aria-expanded="false">新增用户</a></li>
 
-                <li id="editLi" style="display: none"><a data-toggle="tab" href="#tab-3" aria-expanded="false">修改用户</a></li>
+                <li id="editLi" style="display: none"><a data-toggle="tab" href="#tab-3" aria-expanded="false">修改用户</a>
+                </li>
             </ul>
             <div class="tab-content" id="optionDiv">
                 <div id="tab-1" class="tab-pane active">
@@ -106,15 +107,7 @@
 
                                          </c:if>--%>
                                         </tbody>
-                                        <%--    <tfoot>
-                                            <tr>
-                                                <th>渲染引擎</th>
-                                                <th>浏览器</th>
-                                                <th>平台</th>
-                                                <th>引擎版本</th>
-                                                <th>CSS等级</th>
-                                            </tr>
-                                            </tfoot>--%>
+
                                     </table>
 
                                 </div>
@@ -139,19 +132,17 @@
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">真实姓名：</label>
                                         <div class="col-sm-8">
-                                            <input id="userRealName" name="userRealName" class="form-control" type="text"
+                                            <input id="userRealName" name="userRealName" class="form-control"
+                                                   type="text"
                                                    aria-required="true" aria-invalid="false" class="valid"
                                                    style="width: 50%">
                                         </div>
                                     </div>
-
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">性别：</label>
-
-
                                         <div class="col-sm-8" id="gender">
                                             <div class="radio radio-info radio-inline">
-                                                <input type="radio" id="inlineRadio1" value="1" name="gender"  checked>
+                                                <input type="radio" id="inlineRadio1" value="1" name="gender" checked>
                                                 <label for="inlineRadio1"> 男 </label>
                                             </div>
                                             <div class="radio radio-inline">
@@ -161,12 +152,12 @@
                                         </div>
                                     </div>
 
-
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label">生日：</label>
+                                        <label class="col-sm-3 control-label">手机号：</label>
                                         <div class="col-sm-8">
-                                            <input id="birthday" id="birthday" name="birthday" type="text" class="form-control" style="width: 50%">
-
+                                            <input id="phone" name="phone" class="form-control" type="text"
+                                                   style="width: 50%">
+                                            <%--<span class="help-block m-b-none"><i class="fa fa-info-circle"></i> 这里写点提示的内容</span>--%>
                                         </div>
                                     </div>
 
@@ -187,9 +178,29 @@
                                     </div>
 
                                     <div class="form-group">
+                                        <label class="col-sm-3 control-label">QQ：</label>
+                                        <div class="col-sm-8">
+                                            <input id="qq" name="qq" class="form-control" type="text"
+                                                   style="width: 50%">
+                                            <%--<span class="help-block m-b-none"><i class="fa fa-info-circle"></i> 这里写点提示的内容</span>--%>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">生日：</label>
+                                        <div class="col-sm-8">
+                                            <input id="birthday" id="birthday" name="birthday" type="text"
+                                                   class="form-control" style="width: 50%">
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
                                         <label class="col-sm-3 control-label">E-mail：</label>
                                         <div class="col-sm-8">
-                                            <input id="email" name="email" class="form-control" type="email" style="width: 50%">
+                                            <input id="email" name="email" class="form-control" type="email"
+                                                   style="width: 50%">
                                         </div>
                                     </div>
                                 </form>
@@ -205,14 +216,9 @@
 
             </div>
             <div id="tab-3" class="tab-pane" style="display: none">
-
             </div>
-
-
         </div>
     </div>
-
-
 </div>
 <script src="${ctx}/static/js/plugins/jeditable/jquery.jeditable.js"></script>
 <script src="${ctx}/static/js/plugins/dataTables/jquery.dataTables.js"></script>
@@ -241,9 +247,7 @@
         laydate.render({
             elem: '#birthday' //指定元素
         });
-
-
-
+        //初始化datatables
         Table.initTa();
 //        $("#list").dataTable();
 //        var oTable = $("#editable").dataTable();
@@ -251,8 +255,5 @@
     });
 
 </script>
-<%--<script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>--%>
-
 </body>
-
 </html>

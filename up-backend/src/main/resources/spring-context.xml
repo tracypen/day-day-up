@@ -88,4 +88,5 @@
     <import resource="/spring-ehcache.xml" />
     <import resource="/spring-mybatis.xml"/>
     <import resource="/spring-shiro.xml" />
+    <import resource="classpath*:spring-redis.xml" />
 </beans>

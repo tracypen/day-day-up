@@ -225,15 +225,16 @@ var Table = function() {
 function addUser(){
     var jsonData = {
         "name":$("#name").val(),
-        "userRealName":$("#userRealName").val(),
-        "gender":$('#gender:input:radio:checked').val(),  //$('input:radio:checked').val()；
+        "realName":$("#userRealName").val(),
         "birthday":$("#birthday").val(),
         "password":$("#password").val(),
         "email":$("#email").val(),
         "qq":$("#qq").val(),
+        "gender":$('#gender input:radio:checked').val(),  //$('input:radio:checked').val()；
         "phone":$("#phone").val()
     }
     console.log(JSON.stringify(jsonData));
+   // alert($('#gender input:radio:checked').val());
     $.ajax({
         async:true,
         "type" : "post",
@@ -258,7 +259,6 @@ function addUser(){
 }
 
 function updatePage() {
-    alert($("#up_phone").val());
     var jsonData = {
         "id":$("#up_id").val(),
         "name":$("#up_name").val(),

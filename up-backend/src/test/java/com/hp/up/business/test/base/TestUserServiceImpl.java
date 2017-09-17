@@ -1,4 +1,4 @@
-package com.hp.up.business;
+package com.hp.up.business.test.base;
 
 import com.hp.up.backend.shiro.utils.PwdUtil;
 import com.hp.up.business.service.UserService;

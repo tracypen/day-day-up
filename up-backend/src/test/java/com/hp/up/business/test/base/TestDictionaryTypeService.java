@@ -1,4 +1,4 @@
-package com.hp.up.business;
+package com.hp.up.business.test.base;
 
 import com.hp.up.business.service.DictionaryTypeService;
 import com.hp.up.core.Entity.DictionaryType;
