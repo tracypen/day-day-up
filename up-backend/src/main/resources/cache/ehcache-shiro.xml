@@ -3,8 +3,7 @@
     <!--<diskStore path="d:\\ehcache\\us-service\\tmpdir" />-->
     <diskStore path="java.io.tmpdir"/>
 
-    <cacheManagerEventListenerFactory
-            class="" properties=""/>
+    <cacheManagerEventListenerFactory class="" properties=""/>
 
     <!--
         name: cache的名字，用来识别不同的cache，必须惟一。

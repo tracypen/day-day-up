@@ -26,8 +26,9 @@ public abstract class BaseServiceImpl <E extends BaseEntity> implements BaseServ
     protected BaseRepository<E> baseRepository;
 
 
-    @Cacheable(value = "e.entity", key = "#id", condition = "#id gt 0")
+    @Cacheable(value = "resourceCache", key = "#id", condition = "#id gt 0")
     public E getById(Long id) {
+        System.out.println("query database !!!");
         return baseRepository.get(id);
     }
 
@@ -42,7 +43,7 @@ public abstract class BaseServiceImpl <E extends BaseEntity> implements BaseServ
         return entities;
     }
 
-    @Cacheable(value = "e.entity", key = "#id", condition = "#id gt 0")
+    @Cacheable(value = "resourceCache", key = "#id", condition = "#id gt 0")
     public Boolean exists(Long id) {
         return getById(id) != null;
     }
@@ -73,7 +74,7 @@ public abstract class BaseServiceImpl <E extends BaseEntity> implements BaseServ
         return null;
     }
 
-    @CacheEvict(value = { "resourceCache", "e:exists"}, key = "#id", condition = "#id gt 0")
+    @CacheEvict(value = { "resourceCache"}, key = "#id", condition = "#id gt 0")
     public int remove(Long id) {
         E entity = getById(id);
         if (entity != null) {
