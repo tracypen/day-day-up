@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:cache="http://www.springframework.org/schema/cache"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-                        http://www.springframework.org/schema/beans/spring-beans.xsd  
+                        http://www.springframework.org/schema/beans/spring-beans.xsd
                         http://www.springframework.org/schema/cache
                         http://www.springframework.org/schema/cache/spring-cache.xsd">
     <!-- 缓存配置 -->
@@ -12,13 +12,25 @@
 
     <bean id="cacheManagerFactory"
           class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
-        <property name="configLocation" value="classpath:cache/ehcache.xml"/>
-        <property name="shared" value="true"></property> <!-- 这里是关键！！！没有必错  -->
+        <property name="configLocation" value="classpath:cache/ehcache-shiro.xml"/>
+        <property name="shared" value="true"/> <!-- 这里是关键！！！没有必错  -->
     </bean>
 
     <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
         <property name="cacheManager" ref="cacheManagerFactory"/>
     </bean>
+
+
+    <!--<bean id="cacheManager" class="org.springframework.cache.support.CompositeCacheManager">-->
+        <!--<property name="cacheManagers">-->
+            <!--<list>-->
+                <!--<ref bean="ehcacheManager"/>-->
+                <!--<ref bean="jcacheManager"/>-->
+            <!--</list>-->
+        <!--</property>-->
+        <!--<property name="fallbackToNoOpCache" value="true"/>-->
+    <!--</bean>-->
+
 
     <!-- 缓存管理器 使用Ehcache实现 -->
     <bean id="shiroCacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
