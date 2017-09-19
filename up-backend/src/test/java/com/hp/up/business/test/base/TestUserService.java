@@ -23,7 +23,7 @@ import java.util.Date;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:spring-context.xml"})
-public class TestUserServiceImpl {
+public class TestUserService {
 
     @Value("#{propertiesReader['shiro.hashIterations']}")
     private int hashIterations;

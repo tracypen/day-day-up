@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @Controller
 @RequestMapping("/user")
-public class UserController extends BaseController {
+public class UserController extends BaseController<User> {
 
         private static Logger logger = LoggerFactory.getLogger(LoginController.class);
 
@@ -35,7 +35,7 @@ public class UserController extends BaseController {
      * jump to user list page
      */
     @RequestMapping
-    public String userPage(PageDto pageDto, User user, ModelMap model) {
+    public String userPage() {
         return "user/list";
     }
 

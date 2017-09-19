@@ -1,6 +1,8 @@
 package com.hp.up.core.Entity;
 
+import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Lists;
+import com.hp.up.core.utils.ZTree.ZTree;
 
 import java.util.List;
 
@@ -99,4 +101,22 @@ public class Role extends IdEntity{
     public void setResourcePermissions(List<RoleResourcePermission> resourcePermissions) {
         this.resourcePermissions = resourcePermissions;
     }
+
+    //public static List<ZTree> getZTreeList(List<Role> roleList) {
+    //
+    //    List<ZTree> zTrees = Lists.newArrayList();
+    //    if (null != roleList) {
+    //        for (Role role : roleList) {
+    //            if (null != role) {
+    //                ZTree zTree = new ZTree();
+    //                zTree.setId(role.getId());
+    //                zTree.setpId(role.getParent_id());
+    //                zTree.setName(role.getName());
+    //                zTrees.add(zTree);
+    //            }
+    //        }
+    //    }
+    //    return zTrees;
+    //}
+
 }

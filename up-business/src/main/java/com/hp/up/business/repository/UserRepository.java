@@ -11,7 +11,7 @@ import java.util.List;
  * Created by haopeng on 2017/8/7  22:24.
  */
 @Component
-public interface UserRepository extends BaseRepository{
+public interface UserRepository extends BaseRepository<User>{
 
     public User findUserByName(@Param("name") String name);
 

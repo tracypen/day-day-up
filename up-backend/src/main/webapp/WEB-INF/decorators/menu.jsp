@@ -45,11 +45,11 @@
                         <a class="J_menuItem" href="${ctx}/user"  >用户管理</a>
                     </li>
                     <li>
-                        <a class="J_menuItem" href="index_v3.html">角色管理</a>
+                        <a class="J_menuItem" href="${ctx}/role">角色管理</a>
                     </li>
 
                     <li>
-                        <a class="J_menuItem" href="index_v3.html">菜单管理</a>
+                        <a class="J_menuItem" href="${ctx}/system/resource">资源管理</a>
                     </li>
 
                     <li>
@@ -112,8 +112,8 @@
                 <a href="#"><i class="fa fa-cutlery"></i> <span class="nav-label">系统监控 </span><span
                         class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                    <li><a class="J_menuItem" href="${ctx}/druid/">数据监控</a>
-                    </li>
+                    <li><a class="J_menuItem" href="${ctx}/druid/">数据监控</a></li>
+                    <li><a class="J_menuItem" href="#">系统日志</a></li>
                 </ul>
             </li>
 

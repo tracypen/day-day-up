@@ -12,7 +12,7 @@ import java.util.Set;
  */
 
 @Component
-public interface RoleRepository extends BaseRepository{
+public interface RoleRepository extends BaseRepository<Role>{
 
     String findRoleIds(Long userId);
 

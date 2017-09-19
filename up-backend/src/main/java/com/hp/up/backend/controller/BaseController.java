@@ -83,8 +83,10 @@ public class BaseController <E extends Serializable> {
 
         protected String convert2DatatablesJson(PagingList<E> pageList){
         Map<String, Object> map = Maps.newHashMap();
-        map.put("iTotalRecords", pageList.getPaging().getTotal());
-        map.put("iTotalDisplayRecords", pageList.getPaging().getTotal());
+        if (null != pageList && null != pageList.getPaging()){
+            map.put("iTotalRecords", pageList.getPaging().getTotal());
+            map.put("iTotalDisplayRecords", pageList.getPaging().getTotal());
+        }
         map.put("aaData", pageList.getData());
         return JSON.toJSONString(map);
     }

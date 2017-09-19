@@ -22,5 +22,4 @@ public interface RoleService extends BaseService<Role>{
 
     Set<Role> findRoles(User user);
 
-
 }

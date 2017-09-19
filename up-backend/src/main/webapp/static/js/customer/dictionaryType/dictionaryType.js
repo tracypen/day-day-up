@@ -1,4 +1,4 @@
-//*********************************************dictionary**********************************************
+//*********************************************dictionaryType**********************************************
 function del_dic_type(id) {
     swal({
         title: "您确定要删除该类型吗",
@@ -54,12 +54,12 @@ var Type_Table = function () {
             "iDisplayLength": 15, //默认显示的记录数
             "bDeferRender": true,
             "bAutoWidth": false, //是否自适应宽度
-            "bScrollInfinite": false, //是否启动初始化滚动条
+            "bScrollInfinite": true, //是否启动初始化滚动条
             "bScrollCollapse": true, //是否开启DataTables的高度自适应，当数据条数不够分页数据条数的时候，插件高度是否随数据条数而改变
             "bPaginate": true, //是否显示（应用）分页器
             "bInfo": true, //是否显示页脚信息，DataTables插件左下角显示记录数
             "sPaginationType": "full_numbers", //详细分页组，可以支持直接跳转到某页
-            "bSort": true, //是否启动各个字段的排序功能
+            "bSort": false, //是否启动各个字段的排序功能
             "aaSorting": [[4, "asc"]], //默认的排序方式，第2列，升序排列
             "bFilter": false, //是否启动过滤、搜索功能
             "aoColumns": [{

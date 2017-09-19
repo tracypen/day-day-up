@@ -61,7 +61,7 @@ var Table = function() {
             "bPaginate" : true, //是否显示（应用）分页器
             "bInfo" : true, //是否显示页脚信息，DataTables插件左下角显示记录数
             "sPaginationType" : "full_numbers", //详细分页组，可以支持直接跳转到某页
-            "bSort" : true, //是否启动各个字段的排序功能
+            "bSort" : false, //是否启动各个字段的排序功能
             "aaSorting" : [[4, "asc"]], //默认的排序方式，第2列，升序排列
             "bFilter" : false, //是否启动过滤、搜索功能
             "aoColumns" : [{
@@ -317,5 +317,55 @@ function editPage(id) {
     laydate.render({
         elem: '#up_birthday' //指定元素
     });
+}
+
+/**
+ * 初始化ztree菜单
+ */
+function initZtree() {
+    var zTreeObj;
+    // zTree 的参数配置，深入使用请参考 API 文档（setting 配置详解）
+    var setting = {
+        view: {
+            dblClickExpand: false,
+            selectedMulti: false, //设置是否能够同时选中多个节点
+            showIcon: true,  //设置是否显示节点图标
+            showLine: true,  //设置是否显示节点与节点之间的连线
+            showTitle: true,  //设置是否显示节点的title提示信息
+        },
+        data: {
+            simpleData: {
+                enable: true,
+                idKey: "id",
+                pIdKey: "pId",
+            }
+        },
+        callback: {
+            onClick: zTreeOnClick, //单击事件
+        }
+    };
+     var nodes ;
+     $.ajax({
+         async:true,
+         "type" : "get",
+         "url" : ctx + '/role/ajax',
+         "data" :  "",
+         dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+         contentType:"application/json",
+         "success" :function(msg){
+             nodes =  msg;
+             zTreeObj = $.fn.zTree.init($("#treeDemo"), setting, nodes);
+         },
+         "error":function(msg){
+            // alert(msg);
+         }
+     });
+
+    //单击事件
+    function zTreeOnClick(event, treeId, treeNode) {
+        //alert(treeId);
+        alert("id: "+ treeNode.id + ", name:  " + treeNode.name +", pid :"+treeNode.pId);
+        //$(treeNode).addClass('active');
+    };
 }
 
