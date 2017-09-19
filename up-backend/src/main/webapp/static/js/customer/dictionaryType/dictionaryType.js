@@ -13,7 +13,7 @@ function del_dic_type(id) {
     }, function (isConfirm) {
         if (isConfirm) {
             $.ajax({
-                url: ctx + "/dictionaryType/" + id + "/delete",
+                url: ctx + "/system/dictionaryType/" + id + "/delete",
                 type: 'post',
                 data: id,
                 dataType: 'json',
@@ -125,7 +125,7 @@ var Type_Table = function () {
                 return nRow;
             },
 
-            "sAjaxSource": ctx + "/dictionaryType/list?now=" + new Date().getTime(),
+            "sAjaxSource": ctx + "/system/dictionaryType/list?now=" + new Date().getTime(),
             //服务器端，数据回调处理
             "fnServerData": function (sSource, aDataSet, fnCallback) {
                 $("#dictionaryDiv").hide();
@@ -277,7 +277,7 @@ var Table = function () {
                 return nRow;
             },
 
-            "sAjaxSource": ctx + "/dictionary/"+typeCode+"/list?now=" + new Date().getTime(),
+            "sAjaxSource": ctx + "/system/dictionary/"+typeCode+"/list?now=" + new Date().getTime(),
             //服务器端，数据回调处理
             "fnServerData": function (sSource, aDataSet, fnCallback) {
                // alert(typeCode+"----");
@@ -326,7 +326,7 @@ function del_dic(id) {
     }, function (isConfirm) {
         if (isConfirm) {
             $.ajax({
-                url: ctx + "/dictionary/" + id + "/delete",
+                url: ctx + "/system/dictionary/" + id + "/delete",
                 type: 'post',
                 data: id,
                 dataType: 'json',

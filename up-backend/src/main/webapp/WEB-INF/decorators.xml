@@ -6,6 +6,7 @@
             <pattern>*.jpg</pattern>
             <pattern>/admin/login*</pattern>
             <pattern>/user/edit*</pattern>
+            <pattern>/system/resource/*</pattern>
     </excludes>
 
     <!--需要被装饰的页面-->

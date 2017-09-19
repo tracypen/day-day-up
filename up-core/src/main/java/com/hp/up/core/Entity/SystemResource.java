@@ -1,6 +1,8 @@
 package com.hp.up.core.Entity;
 
+import com.google.common.collect.Lists;
 import com.hp.up.core.enums.ResourceOwner;
+import com.hp.up.core.utils.ZTree.ZTree;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
@@ -21,7 +23,7 @@ public class SystemResource extends IdEntity{
     private String identity;
 
     // 只有菜单才拥有
-    private String url;
+        private String url;
 
     // 父路径
     private Long parentId;
@@ -148,5 +150,22 @@ public class SystemResource extends IdEntity{
 
     public void setPermissionList(List<Permission> permissionList) {
         this.permissionList = permissionList;
+    }
+
+    public static List<ZTree> getZTreeList(List<SystemResource> resourceList) {
+
+        List<ZTree> zTrees = Lists.newArrayList();
+        if (null != resourceList) {
+            for (SystemResource resource : resourceList) {
+                if (null != resource) {
+                    ZTree zTree = new ZTree();
+                    zTree.setId(resource.getId());
+                    zTree.setpId(resource.getParentId()+"");
+                    zTree.setName(resource.getName());
+                    zTrees.add(zTree);
+                }
+            }
+        }
+        return zTrees;
     }
 }

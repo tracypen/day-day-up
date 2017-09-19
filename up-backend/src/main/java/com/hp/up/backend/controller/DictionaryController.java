@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 
 @Controller
-@RequestMapping("/dictionary")
+@RequestMapping("/system/dictionary")
 public class DictionaryController extends BaseController <Dictionary>{
 
     @Autowired

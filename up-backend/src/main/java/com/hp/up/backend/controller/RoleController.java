@@ -17,7 +17,7 @@ import java.util.List;
  * @Date 2017/9/19 13:42
  */
 @Controller
-@RequestMapping("/role")
+@RequestMapping("/system/role")
 public class RoleController extends BaseController<Role>{
 
     @Autowired
@@ -25,7 +25,7 @@ public class RoleController extends BaseController<Role>{
 
     @RequestMapping
     public String rolePage(){
-        return "role/role";
+        return "system/role/role";
     }
 
     /**

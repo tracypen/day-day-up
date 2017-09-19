@@ -101,7 +101,7 @@ var roleTable = function () {
 
                 return nRow;
             },
-            "sAjaxSource": ctx + "/role/all?now=" + new Date().getTime(),
+            "sAjaxSource": ctx + "/system/role/all?now=" + new Date().getTime(),
             //服务器端，数据回调处理
             "fnServerData": function (sSource, aDataSet, fnCallback) {
                // $("#dictionaryDiv").hide();
@@ -184,7 +184,7 @@ function initZtree() {
     $.ajax({
         async:true,
         "type" : "get",
-        "url" : ctx + '/menu/ajax',
+        "url" : ctx + '/system/menu/ajax',
         "data" :  "",
         dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
         contentType:"application/json",

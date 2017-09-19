@@ -28,13 +28,13 @@ function initZtree() {
     $.ajax({
         async:true,
         "type" : "get",
-        "url" : ctx + '/sys/resources/ajax',
+        "url" : ctx + '/system/resource/ajax',
         "data" :  "",
         dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
         contentType:"application/json",
         "success" :function(msg){
             nodes =  msg;
-            zTreeObj = $.fn.zTree.init($("#treeDemo"), setting, nodes);
+            zTreeObj = $.fn.zTree.init($("#ztree"), setting, nodes);
         },
         "error":function(msg){
             // alert(msg);
@@ -43,8 +43,24 @@ function initZtree() {
 
     //单击事件
     function zTreeOnClick(event, treeId, treeNode) {
-        //alert(treeId);
-        alert("id: "+ treeNode.id + ", name:  " + treeNode.name +", pid :"+treeNode.pId);
-        //$(treeNode).addClass('active');
+
+      //  alert("id: "+ treeNode.id + ", name:  " + treeNode.name +", pid :"+treeNode.pId);
+       // alert(ctx + '/system/resource/'+treeNode.pId);
+        $.ajax({
+            async:true,
+            "type" : "get",
+            "url" : ctx + '/system/resource/'+treeNode.pId,
+            "data" :  "",
+            dataType:'html',    //返回的数据格式：json/xml/html/script/jsonp/text
+            contentType:"json",
+            success :function(msg){
+                $("#rightDiv").html(msg);
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                alert(XMLHttpRequest.status);
+                alert(XMLHttpRequest.readyState);
+                alert(textStatus);
+            }
+        });
     };
 }

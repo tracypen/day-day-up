@@ -45,7 +45,7 @@
                         <a class="J_menuItem" href="${ctx}/user"  >用户管理</a>
                     </li>
                     <li>
-                        <a class="J_menuItem" href="${ctx}/role">角色管理</a>
+                        <a class="J_menuItem" href="${ctx}/system/role">角色管理</a>
                     </li>
 
                     <li>
@@ -53,7 +53,7 @@
                     </li>
 
                     <li>
-                        <a class="J_menuItem" href="${ctx}/dictionaryType">数据字典</a>
+                        <a class="J_menuItem" href="${ctx}/system/dictionaryType">数据字典</a>
                     </li>
 
 

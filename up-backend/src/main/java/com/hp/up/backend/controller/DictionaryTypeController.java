@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * Created by haopeng on 2017/9/13  23:14.
  */
 @Controller
-@RequestMapping("/dictionaryType")
+@RequestMapping("/system/dictionaryType")
 public class DictionaryTypeController extends BaseController<DictionaryType> {
 
     @Autowired
@@ -40,7 +40,7 @@ public class DictionaryTypeController extends BaseController<DictionaryType> {
      */
     @RequestMapping
     public String dictionaryPage() {
-        return "dictionaryType/list";
+        return "system/dictionaryType/list";
     }
 
     /**
