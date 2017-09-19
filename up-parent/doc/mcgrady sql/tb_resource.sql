@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50718
 File Encoding         : 65001
 
-Date: 2017-09-12 17:43:44
+Date: 2017-09-19 18:02:17
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -37,3 +37,6 @@ CREATE TABLE `tb_resource` (
 -- ----------------------------
 -- Records of tb_resource
 -- ----------------------------
+INSERT INTO `tb_resource` VALUES ('1', '系统资源', null, null, '0', '0/', null, '0', null, '1', null);
+INSERT INTO `tb_resource` VALUES ('2', '系统管理', 'system', '', '1', '0/1/', null, null, null, '1', null);
+INSERT INTO `tb_resource` VALUES ('3', '用户管理', 'system_user', 'system/user', '2', '0/1/2/', null, null, null, '1', null);
