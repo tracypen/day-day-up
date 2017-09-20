@@ -15,7 +15,7 @@
     <link href="${ctx}/static/css/plugins/switchery/switchery.css" rel="stylesheet">
 
     <link href="${ctx}/static/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
-    <link href="${ctx}/static/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+    <script src="${ctx}/static/js/plugins/sweetalert/sweetalert.min.js"></script>
     <link href="${ctx}/static/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
 
     <link href="${ctx}/static/plugin/zTree_v3/css/zTreeStyle/zTreeStyle.css" rel="stylesheet">

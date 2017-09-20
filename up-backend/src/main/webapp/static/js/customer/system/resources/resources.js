@@ -141,8 +141,13 @@ function saveOk () {
             console.log(XMLHttpRequest.readyState);
         },
         success: function(data) {
-            console.log('statusCode: '+data.statusCode)
-            alert("保存成功");
+            console.log(data);
+            if (data){
+                swal("保存成功！", "", "success");
+
+            }else{
+                swal("操作失败！", "请稍后尝试！", "error");
+            }
             //更新树
             var treeObj = $.fn.zTree.getZTreeObj("ztree");
             var node = treeObj.getNodeByParam("id", resources_id, null);
