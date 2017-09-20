@@ -16,4 +16,6 @@ public interface SystemResourceService extends BaseService<SystemResource>{
 
     public List<Menu> findMenus(User user);
 
+    public SystemResource getById(Long id) ;
+
 }

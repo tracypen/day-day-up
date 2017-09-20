@@ -3,6 +3,7 @@ package com.hp.up.business.service.impl;
 import com.hp.up.business.repository.BaseRepository;
 import com.hp.up.business.service.BaseService;
 import com.hp.up.core.Entity.BaseEntity;
+import com.hp.up.core.common.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ public abstract class BaseServiceImpl <E extends BaseEntity> implements BaseServ
 
     @Cacheable(value = "resourceCache", key = "#id", condition = "#id gt 0")
     public E getById(Long id) {
-        System.out.println("query database !!!");
+        logger.info(Constants.LOGPREFIX+ "query from database !");
         return baseRepository.get(id);
     }
 

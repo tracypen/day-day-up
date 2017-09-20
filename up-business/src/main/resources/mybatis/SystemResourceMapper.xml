@@ -31,8 +31,7 @@
             t.is_show,
             t.owner
         FROM tb_resource t
-        WHERE
-            t.is_show = 1
+
     </select>
 
     <select id="get" resultMap="systemResourceMap" parameterType="long">
@@ -53,5 +52,24 @@
         WHERE
             t.id = #{value}
     </select>
+
+    <update id="update" parameterType="SystemResource">
+        <![CDATA[
+			UPDATE tb_resource
+			SET
+				NAME = #{name},
+				identity = #{identity},
+				url = #{url},
+				parent_id = #{parentId},
+				parent_ids = #{parentIds},
+				permissions = #{permissions},
+				icon = #{icon},
+				weight = #{weight},
+
+				is_show = #{show}
+			WHERE
+			id = #{id};
+		]]>
+    </update>
 
 </mapper>

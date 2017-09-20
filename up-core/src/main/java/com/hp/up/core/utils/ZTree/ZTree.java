@@ -25,6 +25,11 @@ public class ZTree<ID extends Serializable> implements Serializable {
     private boolean preOpen;
     private boolean checked = false;
 
+    private String description;
+
+    private String identity;
+
+
     public Long getId() {
         return id;
     }
@@ -111,6 +116,22 @@ public class ZTree<ID extends Serializable> implements Serializable {
 
     public void setChecked(boolean checked) {
         this.checked = checked;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getIdentity() {
+        return identity;
+    }
+
+    public void setIdentity(String identity) {
+        this.identity = identity;
     }
 
     @Override

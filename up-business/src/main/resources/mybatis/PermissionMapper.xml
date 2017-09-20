@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hp.up.business.repository.PermissionRepository">
+
+    <resultMap type="Permission" id="PermissionResult">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="permission" column="permission"/>
+        <result property="description" column="description"/>
+        <result property="show" column="is_show"/>
+    </resultMap>
+
+
+    <select id="getAll" resultMap="PermissionResult">
+        select id, NAME, permission, description, is_show from tb_permission order by id
+    </select>
+
+    <select id="get" parameterType="long" resultMap="PermissionResult">
+        select id, NAME, permission, description, is_show from tb_permission where id=#{id}
+    </select>
+
+
+    <select id="getByResourceIds" parameterType="list" resultMap="PermissionResult">
+
+        select id, NAME, permission, description, is_show from tb_permission
+        <trim prefix="WHERE" prefixOverrides="AND|OR">
+            <foreach collection="list" item="id" index="index" separator="OR" >
+                id = #{id}
+            </foreach>
+        </trim>
+    </select>
+
+
+</mapper>

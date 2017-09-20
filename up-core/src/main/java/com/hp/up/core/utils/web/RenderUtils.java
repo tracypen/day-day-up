@@ -19,7 +19,7 @@ public class RenderUtils {
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.add("Content-Type", MediaTypes.APPLICATION_JSON_UTF_8);
         String json = JsonMapper.nonNullMapper().toJson(obj);
-        logger.debug(json);
+        logger.info(json);
         return new ResponseEntity(json, responseHeaders, HttpStatus.OK);
     }
 
