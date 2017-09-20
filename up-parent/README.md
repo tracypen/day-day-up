@@ -19,7 +19,7 @@ DataProp_0=id
 <script src="${ctx}/static/js/plugins/switchery/switchery.js"></script>
  //初始化ios风格按钮
         var elem = document.querySelector('.js-switch');
-        var init = new Switchery(elem);
+        var init = new Swit chery(elem);
 
 2.引入弹窗插件
 <link href="${ctx}/static/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">

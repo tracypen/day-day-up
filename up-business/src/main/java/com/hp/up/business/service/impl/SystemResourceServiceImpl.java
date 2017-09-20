@@ -41,7 +41,7 @@ public class SystemResourceServiceImpl extends BaseServiceImpl<SystemResource> i
         SystemResource resource = systemResourceRepository.get(id);
         if (resource != null && StringUtils.isNotBlank(resource.getPermissions())) {
             String[] ids = resource.getPermissions().split(",");
-            List<Permission> permissions = permissionRepository.getByResourceIds(Lists.newArrayList(ids));
+             List<Permission> permissions = permissionRepository.getByResourceIds(Lists.newArrayList(ids));
             resource.setPermissionList(permissions);
         }
         return resource;
