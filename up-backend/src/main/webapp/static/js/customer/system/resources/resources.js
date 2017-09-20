@@ -41,8 +41,13 @@ function initZtree() {
             console.log(setting);
             zTreeObj = $.fn.zTree.init($("#ztree"), setting, nodes);
         },
-        "error":function(msg){
-            // alert(msg);
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            // 状态码
+            console.log(XMLHttpRequest.status);
+            // 状态
+            console.log(XMLHttpRequest.readyState);
+            // 错误信息
+            console.log(textStatus);
         }
     });
 
@@ -59,7 +64,6 @@ function initZtree() {
                 show_oper_btn = true;
             }
         }
-    //alert(show_oper_btn);
         var  url = '/system/resource/'+treeNode.id +'?show_oper_btn='+show_oper_btn;
         getPage(url);
     };
@@ -75,6 +79,7 @@ function  operPerm(){
         getPage(url);
     }
 }
+
 function getPage(url) {
     $.ajax({
         async:true,
@@ -93,9 +98,12 @@ function getPage(url) {
                 $("#rightDiv").html(html);
             }
         },
-        error:function(){
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            // 状态码
             console.log(XMLHttpRequest.status);
+            // 状态
             console.log(XMLHttpRequest.readyState);
+            // 错误信息
             console.log(textStatus);
         }
     });
@@ -117,43 +125,77 @@ function checkAllPerm (){
 
 //保存资源信息
 function saveOk () {
-    var permissions ;
-    var str = "";
-    var list = document.getElementsByName("myCheck");
-    for (var i = 0; i < list.length; i++) {
-        if (list[i].checked == true) {
-            str += list[i].value + ",";
-        }
-    }
-    permissions=str.substring(0,str.length-1);
-    $("#permissions").val(permissions);
 
-    $("#is_show_switch").val(document.getElementById("is_show_switch").checked);
-
-    $.ajax({
-        cache: true,
-        type: "POST",
-        url: ctx + '/system/resource/'+resources_id+'/update',
-        data:$('#myForm').serialize(),// 你的formid
-        async: false,
-        error: function(e) {
-            console.log(XMLHttpRequest.status);
-            console.log(XMLHttpRequest.readyState);
-        },
-        success: function(data) {
-            console.log(data);
-            if (data){
-                swal("保存成功！", "", "success");
-
-            }else{
-                swal("操作失败！", "请稍后尝试！", "error");
+    swal({
+        title: "您确定要保存数据吗",
+        text: "",
+        type: "info",
+        showCancelButton: true,
+        confirmButtonColor: "#44CCDD",
+        confirmButtonText: "是的，保存！",
+        cancelButtonText: "取消...",
+        closeOnConfirm: false,
+        closeOnCancel: true
+    }, function (isConfirm) {
+        if (isConfirm) {
+            var permissions ;
+            var str = "";
+            var list = document.getElementsByName("myCheck");
+            for (var i = 0; i < list.length; i++) {
+                if (list[i].checked == true) {
+                    str += list[i].value + ",";
+                }
             }
-            //更新树
-            var treeObj = $.fn.zTree.getZTreeObj("ztree");
-            var node = treeObj.getNodeByParam("id", resources_id, null);
-            node.name = $('#name').val();
-            treeObj.updateNode(node);
+            permissions=str.substring(0,str.length-1);
+            $("#permissions").val(permissions);
+
+            $("#is_show_switch").val(document.getElementById("is_show_switch").checked);
+
+            $.ajax({
+                cache: true,
+                type: "POST",
+                url: ctx + '/system/resource/'+resources_id+'/update',
+                data:$('#myForm').serialize(),// 你的formid
+                async: false,
+                error: function(e) {
+                    console.log(XMLHttpRequest.status);
+                    console.log(XMLHttpRequest.readyState);
+                },
+                success: function(data) {
+                    console.log(data);
+                    if (data){
+                        swal("保存成功！", "", "success");
+
+                    }else{
+                        swal("操作失败！", "请稍后尝试！", "error");
+                    }
+
+                    //更新树
+                    var treeObj = $.fn.zTree.getZTreeObj("ztree");
+                    //获取当前节点
+                    var node = treeObj.getNodeByParam("id", resources_id, null);
+                    //由于可能修改了节点名（资源名称） 所以这块动态更改当前节点名
+                    node.name = $('#name').val();
+                    treeObj.updateNode(node);
+                    //节点单击事件
+                    treeObj.setting.callback.onClick(null, treeObj.setting.treeId,node);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    // 状态码
+                    console.log(XMLHttpRequest.status);
+                    // 状态
+                    console.log(XMLHttpRequest.readyState);
+                    // 错误信息
+                    console.log(textStatus);
+                }
+            });
+
+        } else {
+            swal("已取消", "", "info");
         }
-    });
+    })
+
+
+
 
 }

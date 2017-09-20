@@ -34,7 +34,7 @@
                     <a href="javascript:void(0);" class="btn btn-info " id="search-type-btn"
                        style="display: none">查询</a>
                 </div>
-                <span style="font-size: 14px"><b>角色信息树</b></span>
+                <span style="font-size: 14px"><b>资源树</b></span>
                 <a href="javascript:void(0);" class="btn btn-primary" style="float: right" title="新增资源"><span
                         class="glyphicon glyphicon-plus" aria-hidden="true"></span></a><br><br>
                 <div class="ztree" id="ztree"></div>

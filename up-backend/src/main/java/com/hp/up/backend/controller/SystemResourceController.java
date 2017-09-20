@@ -6,6 +6,7 @@ import com.hp.up.business.service.SystemResourceService;
 import com.hp.up.core.Entity.Permission;
 import com.hp.up.core.Entity.SystemResource;
 import com.hp.up.core.utils.ZTree.ZTree;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -141,28 +142,28 @@ public class SystemResourceController extends BaseController<SystemResource> {
 
    public SystemResource convert2update(SystemResource dbResource, SystemResource systemResource){
         if (null != systemResource){
-            if (null != systemResource.getName()){
+            if (StringUtils.isNotBlank(systemResource.getName())){
                 dbResource.setName(systemResource.getName());
             }
-            if (null != systemResource.getIcon()){
+            if (StringUtils.isNotBlank(systemResource.getIcon())){
                 dbResource.setIcon(systemResource.getIcon());
             }
-            if (null != systemResource.getIdentity()){
+            if (StringUtils.isNotBlank(systemResource.getIdentity())){
                 dbResource.setIdentity(systemResource.getIdentity());
             }
             if (null != systemResource.getParentId()){
                 dbResource.setParentId(systemResource.getParentId());
             }
-            if (null != systemResource.getParentIds()){
+            if (StringUtils.isNotBlank(systemResource.getParentIds())){
                 dbResource.setParentIds(systemResource.getParentIds());
             }
-            if (null != systemResource.getPermissions()){
+            if (StringUtils.isNotBlank(systemResource.getPermissions())){
                 dbResource.setPermissions(systemResource.getPermissions());
             }
             if (null != systemResource.getOwner()){
                 dbResource.setOwner(systemResource.getOwner());
             }
-            if (null != systemResource.getUrl()){
+            if (StringUtils.isNotBlank(systemResource.getUrl())){
                 dbResource.setUrl(systemResource.getUrl());
             }
             if (null != systemResource.getWeight()){

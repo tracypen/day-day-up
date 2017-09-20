@@ -43,7 +43,7 @@
 <br>
     <%--下方表格--%>
 <div>
-    <a onclick="operPerm();" class="btn btn-info" href="javascript:void(0);"
+    <a onclick="operPerm();" class="btn btn-primary" href="javascript:void(0);"
             <c:if test="${show_oper_btn == false}">disabled="disabled" </c:if>
        id="operater_permission">分配权限</a>
 

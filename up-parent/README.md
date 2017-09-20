@@ -14,15 +14,15 @@ DataProp_0=id
 
 
 
-
+1.引入ios风格按钮
 <link href="${ctx}/static/css/plugins/switchery/switchery.css" rel="stylesheet">
 <script src="${ctx}/static/js/plugins/switchery/switchery.js"></script>
  //初始化ios风格按钮
         var elem = document.querySelector('.js-switch');
         var init = new Switchery(elem);
 
-
-<script src="${ctx}/static/js/plugins/sweetalert/sweetalert.min.js"></script>
+2.引入弹窗插件
+<link href="${ctx}/static/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
 <script src="${ctx}/static/js/plugins/sweetalert/sweetalert.min.js"></script>
 
  function delUser(id) {
