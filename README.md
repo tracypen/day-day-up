@@ -5,10 +5,11 @@
 - 3.使用 redis 作为缓存数据库
 - 4.quartz    任务调度
 - 5.activemq 消息队列
-- 6.bootstrap
-- 7.sitemesh
-- 8.elasticsearch
--9.datatable 插件
+- 6.Spring Email 邮件发送
+- 6.bootstrap 
+- 7.sitemesh  页面布局框架
+- 8.elasticsearch 全文搜索引擎
+-9.datatable  表格插件
 
 
 ## 模块说明
