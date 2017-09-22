@@ -12,7 +12,7 @@ export JAVA_HOME JRE_HOME CLASS_PATH PATH
  - 分别mkdir tomcat8080 tomcat8081 tomcat802 
  
  - 编辑 /etc/profile 文件
-		##########first tomcat###########
+		##########first tomcat########### 
 CATALINA_HOME=/usr/softwar/tomcat/tomcat8080/apache-tomcat-8.0.39
 TOMCAT_HOME=/usr/softwar/tomcat/tomcat8080/apache-tomcat-8.0.39
 export CATALINA_BASE CATALINA_HOME TOMCAT_HOME
