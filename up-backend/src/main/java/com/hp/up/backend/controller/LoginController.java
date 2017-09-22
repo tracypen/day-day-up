@@ -134,4 +134,14 @@ public class LoginController {
         return "admin/index";
     }
 
+
+    /**
+     * druid 数据监控页面由于siteMesh拦截后页面样式冲突，所以用iFrame处理
+     */
+    @RequestMapping(value = "/database/monitor", method = RequestMethod.GET)
+    public String dbMonitor() {
+        return "system/database/monitor";
+    }
+
+
 }
