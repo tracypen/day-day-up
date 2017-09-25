@@ -22,12 +22,13 @@ import java.util.Map;
 
 /**
  * roleController
+ *
  * @Author haopeng
  * @Date 2017/9/19 13:42
  */
 @Controller
 @RequestMapping("/system/role")
-public class RoleController extends BaseController<Role>{
+public class RoleController extends BaseController<Role> {
 
     @Autowired
     RoleService roleService;
@@ -36,18 +37,18 @@ public class RoleController extends BaseController<Role>{
     SystemResourceService systemResourceService;
 
     @RequestMapping
-    public String rolePage(){
+    public String rolePage() {
         return "system/role/role";
     }
 
     /**
      * get all roles
      */
-    @RequestMapping(value = "/all",method = RequestMethod.GET)
-    public @ResponseBody String getAll(){
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    public @ResponseBody String getAll() {
         // get roleList
-       List<Role> roleList = roleService.getAll();
-        PagingList<Role> list = new PagingList<Role>(roleList,null);
+        List<Role> roleList = roleService.getAll();
+        PagingList<Role> list = new PagingList<Role>(roleList, null);
         return convert2DatatablesJson(list);
 
     }
@@ -55,13 +56,13 @@ public class RoleController extends BaseController<Role>{
     /**
      * get single role's detail with all permission
      */
-    @RequestMapping(value = "/{id}/permission",method = RequestMethod.GET)
-    public @ResponseBody ResponseEntity getSingleRoleWithPermission(ModelMap modelMap , @PathVariable("id") Long id){
+    @RequestMapping(value = "/{id}/permission", method = RequestMethod.GET)
+    public @ResponseBody ResponseEntity getSingleRoleWithPermission(ModelMap modelMap, @PathVariable("id") Long id) {
 
         Role role = roleService.getById(id);
 
         //get resources permission
-        List<Map<String, Object>> resourceTree  = roleService.getResourceTree(id);
+        List<Map<String, Object>> resourceTree = roleService.getResourceTree(id);
 
         modelMap.put("role", role);
         modelMap.put("treeList", resourceTree);
@@ -73,21 +74,24 @@ public class RoleController extends BaseController<Role>{
 
 
     /**
-     *  delete role by roleId
+     * delete role by roleId
      */
     @RequestMapping(value = "/{id}/delete", method = RequestMethod.POST)
-    public @ResponseBody String deleteRoleById(@PathVariable("id") Long id){
+    public @ResponseBody String deleteRoleById(@PathVariable("id") Long id) {
         int result = roleService.remove(id);
         if (result <= 0) {
-            logger.info(Constants.LOGPREFIX + "delete role failure! roleId : "+id);
+            logger.info(Constants.LOGPREFIX + "delete role failure! roleId : " + id);
             return ResponseStatus.FAILURE_DELETE.toJson();
         }
-        logger.info(Constants.LOGPREFIX + "delete role success! roleId : "+id);
+        logger.info(Constants.LOGPREFIX + "delete role success! roleId : " + id);
         return ResponseStatus.OK.toJson();
     }
 
-    @RequestMapping(value = "/updatRoleResourPermission",method = RequestMethod.POST)
-    public @ResponseBody String updatRoleResourPermission(String resourceId, Long roleId){
+    /**
+     * update role's permission that operate for resources
+     */
+    @RequestMapping(value = "/updatRoleResourPermission", method = RequestMethod.POST)
+    public @ResponseBody String updatRoleResourPermission(String resourceId, Long roleId) {
 
         String resourceID = "";
         if (!"".equals(resourceId) && null != resourceId) {
@@ -102,9 +106,33 @@ public class RoleController extends BaseController<Role>{
             }
         }
 
-            roleService.updatRoleResourPermission(roleId, resourceID);
+        roleService.updatRoleResourPermission(roleId, resourceID);
         return ResponseStatus.OK.toJson();
 
     }
+
+
+    /**
+     * add or update role
+     */
+    @RequestMapping(value = "/saveOrUpdate",method = RequestMethod.POST)
+    public @ResponseBody String saveOrUpdateRole(Role role) {
+
+        int result = 0;
+        if (null != role) {
+            if (null != role.getId() && role.getId() > 0) {
+                //update
+                Role updateRole = roleService.update(role);
+                if (null != updateRole) {
+                    result++;
+                }
+            } else {
+                //add
+                result = roleService.save(role);
+            }
+        }
+        return result > 0 ? ResponseStatus.OK.toJson() : ResponseStatus.FAILURE_UPDATE.toJson();
+    }
+
 
 }
