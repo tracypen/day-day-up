@@ -9,6 +9,13 @@ chkconfig iptables off
 service iptables status
 
 
+注意 CentOS 7.0默认使用的是firewall作为防火墙，这里改为iptables防火墙步骤。
+
+1、关闭firewall：
+systemctl stop firewalld.service #停止firewall
+systemctl disable firewalld.service #禁止firewall开机启动
+firewall-cmd --state #查看默认防火墙状态（关闭后显示notrunning，开启后显示running）
+
 编辑防火墙白名单
  vim /etc/sysconfig/iptables
 增加下面一行代码
