@@ -15,6 +15,7 @@ public class RenderUtils {
 
     private static final Logger logger = LoggerFactory.getLogger(RenderUtils.class);
 
+    //返回JSON格式数据
     public static <T> ResponseEntity<T> getJsonResponseEntity(Object obj) {
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.add("Content-Type", MediaTypes.APPLICATION_JSON_UTF_8);
@@ -23,6 +24,7 @@ public class RenderUtils {
         return new ResponseEntity(json, responseHeaders, HttpStatus.OK);
     }
 
+    //返回script脚本
     public static <T> ResponseEntity<T> getScriptResponseEntity(Object obj) {
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.add("Content-Type", MediaTypes.TEXT_PLAIN_UTF_8);

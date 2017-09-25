@@ -4,6 +4,7 @@ import com.hp.up.core.Entity.Role;
 import com.hp.up.core.Entity.User;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -21,5 +22,9 @@ public interface RoleService extends BaseService<Role>{
    public List<Role> getRolesByids(String ids);
 
     Set<Role> findRoles(User user);
+
+    public List<Map<String, Object>> getResourceTree(Long roleId);
+
+    int updatRoleResourPermission(final Long roleId, final String resourceId);
 
 }

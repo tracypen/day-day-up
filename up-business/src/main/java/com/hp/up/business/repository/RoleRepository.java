@@ -1,6 +1,8 @@
 package com.hp.up.business.repository;
 
 import com.hp.up.core.Entity.Role;
+import com.hp.up.core.Entity.RoleResourcePermission;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -19,5 +21,12 @@ public interface RoleRepository extends BaseRepository<Role>{
     List<Role> getRolesByids(String ids);
 
     List<Role> getRolesWithPermissionByids(String ids);
+
+    List<RoleResourcePermission> getRoleResourcePermission(final Long id);
+
+    int deleteRoleResourcePermissionByRoleId(final long roleId);
+
+    int insertRoleResourcePermission(@Param(value = "roleId") final Long roleId, @Param(value = "resourceId") final Long resourceId,
+                                     @Param(value = "permissionIds") final String permissionIds);
 
 }

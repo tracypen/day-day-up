@@ -51,7 +51,7 @@ public class SystemResourceController extends BaseController<SystemResource> {
     List<ZTree> getAll() {
 
         List<SystemResource> resourcesAll = systemResourceService.getAll();
-        List<SystemResource> resources = Lists.newArrayList();
+       // List<SystemResource> resources = Lists.newArrayList();
         // 屏蔽数据
         //for (SystemResource resource : resourcesAll) {
         //    if (!resource.getIdentity().equals("resource")) {

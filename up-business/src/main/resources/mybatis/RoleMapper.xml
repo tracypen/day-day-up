@@ -15,11 +15,35 @@
     <resultMap type="com.hp.up.core.Entity.Role" id="RolePermissionResult" extends="roleMap">
         <collection property="resourcePermissions" ofType="RoleResourcePermission">
             <id property="id" column="pid"/>
-            <result property="resourceId" column="resource_id" />
+            <result property="resourceId" column="resource_id"/>
             <result property="permissionIds" column="permission_ids"/>
-            <association property="role" javaType="Role" />
+            <association property="role" javaType="Role"/>
         </collection>
     </resultMap>
+
+
+    <resultMap id="RoleResourcePermissionResult" type="RoleResourcePermission">
+        <result property="id" column="id"/>
+        <result property="resourceId" column="resource_id"/>
+        <result property="permissionIds" column="permission_ids"/>
+        <association property="role" column="role_id" javaType="Role">
+            <result property="id" column="role_id"/>
+        </association>
+    </resultMap>
+
+
+    <select id="get" parameterType="long" resultMap="roleMap">
+        SELECT
+            r.id id,
+            r.name,
+            r.role,
+            r.description,
+            r.is_show,
+            r.role_type
+        FROM tb_role r
+        WHERE r.id = #{value}
+    </select>
+
 
     <select id="findRoleIds" parameterType="long" resultType="String">
         SELECT ru.role_ids
@@ -30,7 +54,7 @@
     <select id="getRolesByids" parameterType="string" resultMap="roleMap">
         SELECT *
         FROM tb_role role
-        WHERE find_in_set(role.id, #{value})
+        WHERE find_in_set(role.id, #{value}) <![CDATA[>]]> 0
     </select>
 
     <select id="getRolesWithPermissionByids" resultMap="RolePermissionResult" parameterType="list">
@@ -66,6 +90,34 @@
         FROM tb_role r
         WHERE r.is_show = 1
     </select>
+
+
+    <select id="getRoleResourcePermission" resultMap="RoleResourcePermissionResult" parameterType="long">
+        SELECT *
+        FROM tb_role_resource_permission
+        WHERE role_id = <![CDATA[#{value}
+        ]]>
+    </select>
+
+    <delete id="remove" parameterType="long" >
+
+        DELETE FROM tb_role WHERE id = #{value}
+
+    </delete>
+
+    <delete id="deleteRoleResourcePermissionByRoleId" parameterType="long">
+        DELETE FROM tb_role_resource_permission WHERE role_id = <![CDATA[#{roleId}]]>
+    </delete>
+
+    <insert id="insertRoleResourcePermission" parameterType="map">
+        INSERT INTO tb_role_resource_permission(
+        role_id,resource_id,permission_ids
+        )VALUES(
+        <![CDATA[#{roleId}]]>,
+        <![CDATA[#{resourceId}]]>,
+        <![CDATA[#{permissionIds}]]>
+        )
+    </insert>
 
 
 </mapper>

@@ -29,7 +29,7 @@ CATALINA_3_HOME=/usr/software/tomcat/tomcat8082/apache-tomcat-8.0.39
 TOMCAT_3_HOME=/usr/software/tomcat/tomcat8082/apache-tomcat-8.0.39
 export CATALINA_3_BASE CATALINA_3_HOME TOMCAT_3_HOME
 
-- 分别修改config/server.xml,中各个端口保证与林割爱两个tomcat不冲突
+- 分别修改config/server.xml,中各个端口保证与另外两个tomcat不冲突
 
 
 - 最后分别修改第二个和第三个tomcat bin目录下的catalina.sh文件，
@@ -190,17 +190,17 @@ service mysqld restart
 
 2.修改mysql库里的host
 
-    登录mysql:
+   登录mysql:
 
-    use mysql
+   use mysql
 
-    update user set host='%' where user='root' and host='localhost';
+   update user set host='%' where user='root' and host='localhost';
 
-    记得一定还得修改密码，因为这时密码已失效，虽然本地还可以原密码登录，可远程改了host后还是没法访问
+   记得一定还得修改密码，因为这时密码已失效，虽然本地还可以原密码登录，可远程改了host后还是没法访问
 
-    UPDATE user SET password=password("root") WHERE user='root';
+   UPDATE user SET password=password("root") WHERE user='root';
 
-    flush privileges;
+   flush privileges;
 
 3.重启mysql，远程就可以访问了
 

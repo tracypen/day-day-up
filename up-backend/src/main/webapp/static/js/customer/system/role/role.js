@@ -1,9 +1,9 @@
 //*********************************************dictionary**********************************************
 
-function del_dic_type(id) {
+function deleteRole(id) {
     swal({
-        title: "您确定要删除该类型吗",
-        text: "删除后将会删除该类型下所有数据字典！！",
+        title: "您确定要删除该角色吗",
+        text: "删除后无法回复，请谨慎操作！！",
         type: "warning",
         showCancelButton: true,
         confirmButtonColor: "#DD6B55",
@@ -14,17 +14,15 @@ function del_dic_type(id) {
     }, function (isConfirm) {
         if (isConfirm) {
             $.ajax({
-                url: ctx + "/dictionaryType/" + id + "/delete",
+                url: ctx + "/system/role/" + id + "/delete",
                 type: 'post',
                 data: id,
                 dataType: 'json',
                 async: true,
                 success: function (msg) {
-                    // swal({title: "操作成功", text: "数据已经删除", type: "success"});
-                    //window.location.href = ctx+'/user/list';
                     if (msg.code == 10001) {
-                        swal("删除成功！", "您已经永久删除了这字典类型。", "success");
-                        $("#search-type-btn").click();
+                        swal("删除成功！", "您已经永久删除了该条记录。", "success");
+                        $("#relode_btn").click();
                     } else {
                         swal("删除失败！", "请稍后尝试！", "error");
                     }
@@ -94,9 +92,9 @@ var roleTable = function () {
                 $('td:eq(2)', nRow).html('<a title="编辑"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>');
 
 
-                $('td:eq(2)', nRow).append('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a title="删除" href="javascript:void(0);" onclick="del_dic_type(' + aData.id + ')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>');
+                $('td:eq(2)', nRow).append('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a title="删除" href="javascript:void(0);" onclick="deleteRole(' + aData.id + ')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>');
 
-                $('td:eq(2)', nRow).append('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a title="授权" href="javascript:void(0);" onclick="loadMenu(' + aData.id + ')"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>');
+                $('td:eq(2)', nRow).append('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a title="授权" href="javascript:void(0);" onclick="loadPermission(' + aData.id + ')"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>');
 
 
                 return nRow;
@@ -123,18 +121,19 @@ var roleTable = function () {
             });
             $(event.target.parentNode).addClass('row_selected');
             var aData = oTable.fnGetData(event.target.parentNode);
-            alert(aData.id);
-          //   $("#typeCode").val(aData.id);
-            // $("#userN").val(aData.USERNAME);
+
+            $("#name").val(aData.name);
+             $("#role").val(aData.role);
+             $("#description").val(aData.description);
+             $("#typeName").val(aData.typeName);
             //查询选中字典类型对应的数据字典  右侧显示
            // Table.initTa($("#typeCode").val())
 
 
         });
 
-        $('#search-type-btn').click(function () {
-            //$("#errormsg").html('');
-            //  $("#errordiv").hide();
+
+        $('#relode_btn').click(function () {
             oTable.fnDraw();
         });
 
@@ -153,54 +152,94 @@ var roleTable = function () {
     };
 }();
 
-
-
-/**
- * 初始化ztree菜单
- */
-function initZtree() {
-    var zTreeObj;
-    // zTree 的参数配置，深入使用请参考 API 文档（setting 配置详解）
-    var setting = {
-        view: {
-            dblClickExpand: false,
-            selectedMulti: false, //设置是否能够同时选中多个节点
-            showIcon: true,  //设置是否显示节点图标
-            showLine: true,  //设置是否显示节点与节点之间的连线
-            showTitle: true,  //设置是否显示节点的title提示信息
-        },
-        data: {
-            simpleData: {
+    var roleId = "";
+    function loadPermission(id){
+    //获取所有资源菜单 以及资源对应的操作权限
+        roleId = id;
+        var zTreeObj;
+        var setting = {
+            check: {
                 enable: true,
-                idKey: "id",
-                pIdKey: "pId",
+                chkStyle: "checkbox"
+            },
+            data: {
+                simpleData: {
+                    enable: true
+                }
+            },
+            callback: {
+               // onCheck: onCheck,
+                onClick: zTreeOnClick
+            }
+        };
+
+
+        //选中事件
+        function onCheck(event, treeId, treeNode) {
+            var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+            zTree.expandNode(treeNode, null, null, null, true);
+        }
+
+        var nodes ;
+        $.ajax({
+            async:true,
+            "type" : "get",
+            "url" : ctx + '/system/role/'+id+'/permission',
+            "data" :  "",
+            dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+            contentType:"application/json",
+            "success" :function(result){
+
+
+                $("#name").val(result.role.name);
+                $("#role").val(result.role.role);
+                $("#description").val(result.role.description);
+                $("#typeName").val(result.role.typeName);
+
+                $("#save_btn").show();
+                nodes = result.treeList;
+                zTreeObj = $.fn.zTree.init($("#treeDemo"), setting, nodes);
+            },
+            "error":function(msg){
+                alert(msg);
+            }
+        });
+
+        //单击事件
+        function zTreeOnClick(event, treeId, treeNode) {
+            //alert(treeId);
+            alert("id: "+ treeNode.id + ", name:  " + treeNode.name +", pid :"+treeNode.pId);
+            //$(treeNode).addClass('active');
+        };
+    }
+
+var resourceId="";
+//保存权限
+$("#save_btn").click(function (){
+    var treeObj = $.fn.zTree.getZTreeObj("treeDemo");
+    var str="";
+    var nodes=treeObj.getCheckedNodes(true);
+    for(var i=0;i<nodes.length;i++){
+        //获取选中节点的值
+        str+=nodes[i].id+",";
+    }
+    resourceId=str.substring(0,str.length-1);
+    console.log(resourceId);
+    $.ajax({
+        type:"POST",
+        data:"roleId="+roleId+"&resourceId="+resourceId,
+        dataType: 'json',
+        url:ctx+"/system/role/updatRoleResourPermission",
+        success:function(result){
+            if (result.code == 10001) {
+                swal("保存成功！", "", "success");
+                $("#relode_btn").click();
+            } else {
+                swal("保存失败！", "请稍后尝试！", "error");
             }
         },
-        callback: {
-            onClick: zTreeOnClick, //单击事件
-        }
-    };
-    var nodes ;
-    $.ajax({
-        async:true,
-        "type" : "get",
-        "url" : ctx + '/system/menu/ajax',
-        "data" :  "",
-        dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
-        contentType:"application/json",
-        "success" :function(msg){
-            nodes =  msg;
-            zTreeObj = $.fn.zTree.init($("#treeDemo"), setting, nodes);
-        },
-        "error":function(msg){
-            // alert(msg);
+        error:function(){
+            swal("保存失败！", "请稍后尝试！", "error");
         }
     });
-
-    //单击事件
-    function zTreeOnClick(event, treeId, treeNode) {
-        //alert(treeId);
-        alert("id: "+ treeNode.id + ", name:  " + treeNode.name +", pid :"+treeNode.pId);
-        //$(treeNode).addClass('active');
-    };
-}
+});
