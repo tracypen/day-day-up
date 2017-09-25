@@ -33,7 +33,7 @@
                        style="display: none">查询</a>
                 </div>
                      <span>角色信息列表</span>
-                    <a  href="javascript:void(0);" class="btn btn-primary" style="float: right" title="新增角色"><span class="glyphicon glyphicon-plus" aria-hidden="true" ></span></a><br><br>
+                    <a  href="${ctx}/system/role/saveOrUpdate" class="btn btn-primary" style="float: right" title="新增角色"><span class="glyphicon glyphicon-plus" aria-hidden="true" ></span></a><br><br>
                     <table class="table table-striped table-bordered table-hover dataTables-example" id="role-list">
                     <thead>
                     <tr>

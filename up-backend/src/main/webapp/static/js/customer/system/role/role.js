@@ -87,9 +87,7 @@ var roleTable = function () {
 
                 $('td:eq(0)', nRow).html(iDisplayIndex + 1);
 
-
-
-                $('td:eq(2)', nRow).html('<a title="编辑"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>');
+                $('td:eq(2)', nRow).html('<a href="'+ctx+'/system/role/saveOrUpdate?id='+aData.id +'" title="编辑"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>');
 
 
                 $('td:eq(2)', nRow).append('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a title="删除" href="javascript:void(0);" onclick="deleteRole(' + aData.id + ')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>');

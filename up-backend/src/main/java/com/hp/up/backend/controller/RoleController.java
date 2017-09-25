@@ -111,6 +111,15 @@ public class RoleController extends BaseController<Role> {
 
     }
 
+    /**
+     * add or update page
+     */
+    @RequestMapping(value = "/saveOrUpdate",method = RequestMethod.GET)
+    public String addOrUpdatePage(ModelMap map,Long id){
+        Role role = roleService.getById(id);
+        map.put("role",role);
+        return "/system/role/edit";
+    }
 
     /**
      * add or update role
