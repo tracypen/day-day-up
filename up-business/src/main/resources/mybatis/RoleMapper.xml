@@ -99,25 +99,64 @@
         ]]>
     </select>
 
-    <delete id="remove" parameterType="long" >
+    <delete id="remove" parameterType="long">
 
-        DELETE FROM tb_role WHERE id = #{value}
+        DELETE FROM tb_role
+        WHERE id = #{value}
 
     </delete>
 
     <delete id="deleteRoleResourcePermissionByRoleId" parameterType="long">
-        DELETE FROM tb_role_resource_permission WHERE role_id = <![CDATA[#{roleId}]]>
+        DELETE FROM tb_role_resource_permission
+        WHERE role_id = <![CDATA[#{roleId}
+        ]]>
     </delete>
 
     <insert id="insertRoleResourcePermission" parameterType="map">
-        INSERT INTO tb_role_resource_permission(
-        role_id,resource_id,permission_ids
-        )VALUES(
+        INSERT INTO tb_role_resource_permission (
+            role_id, resource_id, permission_ids
+        ) VALUES (
         <![CDATA[#{roleId}]]>,
         <![CDATA[#{resourceId}]]>,
         <![CDATA[#{permissionIds}]]>
         )
     </insert>
+
+
+    <insert id="save" parameterType="Role">
+        INSERT INTO tb_role (
+            name, role, description, role_type
+        ) VALUES (
+        <![CDATA[#{name}]]>,
+        <![CDATA[#{role}]]>,
+        <![CDATA[#{description}]]>,
+        <![CDATA[#{typeName}]]>
+        )
+    </insert>
+
+
+    <update id="update" parameterType="role" useGeneratedKeys="true" keyProperty="id">
+
+        UPDATE tb_role
+        <set>
+            <if test=" null !=name">
+                name = #{name},
+            </if>
+            <if test=" null !=role">
+                role = #{role},
+            </if>
+            <if test=" null !=description">
+                description = #{description},
+            </if>
+            <if test=" null !=typeName">
+                role_type = #{typeName},
+            </if>
+
+        </set>
+
+        WHERE id = #{id}
+
+    </update>
 
 
 </mapper>

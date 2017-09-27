@@ -41,7 +41,7 @@
                                    style="width: 50%" required>
                         </div>
                     </div>
-                </form>
+
                 <br>
                 <br>
                 <div class="form-group">
@@ -52,25 +52,66 @@
                        <a  href="${ctx}/system/role" class="btn btn-primary">返回</a>
                     </div>
                 </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
+<link href="${ctx}/static/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
 <script src="${ctx}/static/js/plugins/validate/jquery.validate.min.js"></script>
 <script src="${ctx}/static/js/plugins/validate/messages_zh.min.js"></script>
 <script src="${ctx}/static/js/demo/form-validate-demo.min.js"></script>
+<script src="${ctx}/static/js/plugins/sweetalert/sweetalert.min.js"></script>
+<script> var result = '${result}';</script>
 
 <script>
     $().ready(function() {
         $("#roleForm").validate({
             submitHandler:function(form){
-                alert("submitted");
-                form.submit();
+                swal({
+                    title: "您确定要提交该操作吗",
+                    text: "",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "是的，现在提交！",
+                    cancelButtonText: "让我再考虑一下…",
+                    closeOnConfirm: false,
+                    closeOnCancel: false
+                }, function (isConfirm) {
+                    if (isConfirm) {
+                        form.submit();
+                    } else {
+                        swal("已取消", "您取消了提交操作！", "error");
+                    }
+                })
             }
         });
     });
 
+    if (null != result && result != undefined && result != ""){
+        if(result > 0){
 
+            swal({
+                title: "操作成功！",
+                text: "",
+                type: "success",
+                showCancelButton: false,
+                confirmButtonColor: "#0AA",
+                confirmButtonText: "确定",
+                cancelButtonText: "让我再考虑一下…",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            }, function (isConfirm) {
+                if (isConfirm) {
+                    window.location.href = ctx + '/system/role'
+                }
+            })
+        }else{
+            swal("操作失败！", "请稍后尝试！", "error");
+        }
+
+    }
 
 
 </script>

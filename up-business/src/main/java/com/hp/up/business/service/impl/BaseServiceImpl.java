@@ -54,7 +54,7 @@ public abstract class BaseServiceImpl <E extends BaseEntity> implements BaseServ
     }
 
     @Transactional
-    @CachePut(value = "resourceCache", key = "#entity.id")
+    //@CachePut(value = "resourceCache", key = "#entity.id")
     public int save(E entity) {
         entity.setCreateDate(new Date());
         int count = baseRepository.save(entity);

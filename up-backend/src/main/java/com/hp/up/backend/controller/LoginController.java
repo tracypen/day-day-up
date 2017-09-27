@@ -1,9 +1,9 @@
 package com.hp.up.backend.controller;
 
 import com.hp.up.backend.shiro.Exception.ShiroException;
-import com.hp.up.backend.shiro.UserShiro;
 import com.hp.up.core.common.Constants;
 import com.hp.up.core.enums.ResponseStatus;
+import com.hp.up.core.web.shiro.UserShiro;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;

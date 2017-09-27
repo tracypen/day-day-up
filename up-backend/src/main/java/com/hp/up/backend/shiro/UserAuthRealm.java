@@ -4,6 +4,7 @@ import com.hp.up.business.service.PermissionService;
 import com.hp.up.business.service.RoleService;
 import com.hp.up.business.service.UserService;
 import com.hp.up.core.Entity.User;
+import com.hp.up.core.web.shiro.UserShiro;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;

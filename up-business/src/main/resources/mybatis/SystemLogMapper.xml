@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hp.up.business.repository.SystemLogRepository">
+
+
+    <resultMap id="systemLogMap" type="com.hp.up.core.Entity.SystemLog">
+        <id property="id" column="id"/>
+
+        <result property="username" column="username"/>
+        <result property="module" column="module"/>
+        <result property="ip" column="ip"/>
+        <result property="content" column="content"/>
+        <result property="description" column="description"/>
+        <result property="createDate" column="create_time"/>
+        <result property="modifyDate" column="modify_time"/>
+        <result property="responseTime" column="response_time"/>
+    </resultMap>
+
+    <select id="getAll" resultMap="systemLogMap">
+        SELECT
+            id,
+            username,
+            module,
+            ip,
+            content,
+            description,
+            create_time,
+            modify_time,
+            response_time
+
+        FROM tb_system_log
+    </select>
+
+    <insert id="save" parameterType="SystemLog" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO tb_system_log (username, module, ip, content, description, create_time, modify_time, response_time)
+        VALUES (
+        <![CDATA[#{username}]]>,
+        <![CDATA[#{module}]]>,
+        <![CDATA[#{ip}]]>,
+        <![CDATA[#{content}]]>,
+        <![CDATA[#{description}]]>,
+            NOW(),
+            NOW(),
+        <![CDATA[#{responseTime}]]>
+        )
+    </insert>
+
+
+</mapper>

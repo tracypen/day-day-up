@@ -1,11 +1,11 @@
 package com.hp.up.backend.shiro.filter;
 
-import com.hp.up.backend.shiro.UserShiro;
 import com.hp.up.business.service.SystemResourceService;
 import com.hp.up.business.service.UserService;
 import com.hp.up.core.Entity.Menu;
 import com.hp.up.core.Entity.User;
 import com.hp.up.core.common.Constants;
+import com.hp.up.core.web.shiro.UserShiro;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.AccessControlFilter;
 import org.springframework.beans.factory.annotation.Autowired;

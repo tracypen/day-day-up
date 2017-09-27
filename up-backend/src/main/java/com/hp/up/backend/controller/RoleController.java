@@ -125,7 +125,7 @@ public class RoleController extends BaseController<Role> {
      * add or update role
      */
     @RequestMapping(value = "/saveOrUpdate",method = RequestMethod.POST)
-    public @ResponseBody String saveOrUpdateRole(Role role) {
+    public  String saveOrUpdateRole(ModelMap modelMap,Role role) {
 
         int result = 0;
         if (null != role) {
@@ -140,7 +140,10 @@ public class RoleController extends BaseController<Role> {
                 result = roleService.save(role);
             }
         }
-        return result > 0 ? ResponseStatus.OK.toJson() : ResponseStatus.FAILURE_UPDATE.toJson();
+
+        modelMap.put("result",result);
+
+        return "/system/role/edit";
     }
 
 

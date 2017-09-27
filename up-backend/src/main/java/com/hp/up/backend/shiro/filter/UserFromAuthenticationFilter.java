@@ -1,15 +1,12 @@
 package com.hp.up.backend.shiro.filter;
 
-import com.hp.up.backend.shiro.UserShiro;
 import com.hp.up.business.service.UserService;
-import com.hp.up.core.Entity.User;
 import com.hp.up.core.common.Constants;
 import com.hp.up.core.utils.date.DateUtils;
+import com.hp.up.core.web.shiro.UserShiro;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
-import org.apache.shiro.web.util.SavedRequest;
-import org.apache.shiro.web.util.WebUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,9 +56,16 @@ public class UserFromAuthenticationFilter extends FormAuthenticationFilter {
      */
     protected boolean onLoginSuccess(AuthenticationToken token, Subject subject,
                                      ServletRequest request, ServletResponse response) throws Exception {
+
+        HttpServletRequest httpServletRequest = (HttpServletRequest) request;
+        HttpSession session = httpServletRequest.getSession();
+        session.setAttribute(Constants.CURRENT_USER,subject.getPrincipal());
+
         //更新用户最后登录时间
 
         UserShiro userShiro = (UserShiro) subject.getPrincipal();
+
+        session.setAttribute(Constants.CURRENT_USER,userShiro);
 
         userService.updateLastLoginTime(userShiro.getId());
 

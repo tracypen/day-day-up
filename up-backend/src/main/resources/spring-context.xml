@@ -61,8 +61,18 @@
     <aop:aspectj-autoproxy proxy-target-class="true" />
 
 
-
-
+    <!-- 扫描切面包路径 已经改为注解配置 -->
+    <!--<bean id="logAspect" class="com.hp.up.business.modules.aspect.log.LogAspect">-->
+        <!--<property name="logPoint">-->
+            <!--<bean class="com.hp.up.business.service.impl.SystemLogServiceImpl" />-->
+        <!--</property>-->
+    <!--</bean>-->
+    <!--<aop:config>-->
+        <!--<aop:aspect ref="logAspect">-->
+            <!--<aop:pointcut id="logPointCut" expression="@annotation(com.hp.up.business.annotation.Log)" />-->
+            <!--<aop:around pointcut-ref="logPointCut" method="save" />-->
+        <!--</aop:aspect>-->
+    <!--</aop:config>-->
 
     <bean id="springBeanUtils" class="com.hp.up.core.utils.SpringBeanUtils" scope="singleton"/>
 

@@ -5,10 +5,12 @@ import com.github.pagehelper.PageInfo;
 import com.hp.up.business.repository.DictionaryRepository;
 import com.hp.up.business.service.DictionaryService;
 import com.hp.up.core.Entity.Dictionary;
+import com.hp.up.core.annotation.Log;
 import com.hp.up.core.web.page.PageDto;
 import com.hp.up.core.web.page.PagingList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -22,8 +24,16 @@ public class DictionaryServiceImpl extends BaseServiceImpl<Dictionary> implement
     @Autowired
     DictionaryRepository dictionaryRepository;
 
+    @Transactional
+    @Log(module = "系统字典数据", description = "删除数据字典")
     public int deleteById(Long id) {
         return dictionaryRepository.deleteById(id);
+    }
+
+    @Transactional
+    @Log(module = "系统字典数据", description = "添加数据字典")
+    public int save(Dictionary dictionary){
+       return dictionaryRepository.save(dictionary);
     }
 
     public PagingList<Dictionary> getDictionaryByTypeCode(PageDto pageDto, Dictionary dictionary) {

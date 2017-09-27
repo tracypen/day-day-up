@@ -31,7 +31,6 @@
         <module>../up-backend</module>
         <!--<module>../up-producer</module>-->
         <!--<module>../up-consumer</module>-->
-
     </modules>
 
     <properties>

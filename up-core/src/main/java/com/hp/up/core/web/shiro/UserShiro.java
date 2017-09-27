@@ -1,4 +1,4 @@
-package com.hp.up.backend.shiro;
+package com.hp.up.core.web.shiro;
 
 /**
  * @Author haopeng
