@@ -1,10 +1,14 @@
 package com.hp.up.business.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.hp.up.business.modules.aspect.log.LogPoint;
 import com.hp.up.business.repository.SystemLogRepository;
 import com.hp.up.business.service.SystemLogService;
 import com.hp.up.core.Entity.SystemLog;
 import com.hp.up.core.utils.web.IPUtils;
+import com.hp.up.core.web.page.PageDto;
+import com.hp.up.core.web.page.PagingList;
 import com.hp.up.core.web.shiro.UserShiro;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
@@ -18,6 +22,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 
 /**
@@ -34,6 +39,17 @@ public class SystemLogServiceImpl extends BaseServiceImpl<SystemLog> implements 
     @Autowired
     SystemLogRepository systemLogRepository;
 
+
+    @Override
+    public PagingList<SystemLog> getSystemLogPage(PageDto pageDto, SystemLog systemLog) {
+        PageHelper.startPage(pageDto.getPageNum(), pageDto.getiDisplayLength());
+
+        List<SystemLog> systemLogList = systemLogRepository.getSystemLogs(systemLog);
+
+        PageInfo<SystemLog> pageInfo = new PageInfo<SystemLog>(systemLogList);
+
+        return new PagingList<SystemLog>(systemLogList,pageInfo);
+}
 
     @Override
     @Transactional
@@ -62,6 +78,8 @@ public class SystemLogServiceImpl extends BaseServiceImpl<SystemLog> implements 
         super.save(log);
     }
 
+
+
     public String operateContent(ProceedingJoinPoint joinPoint, String methodName, String ip, HttpServletRequest request) {
         String className = joinPoint.getTarget().getClass().getName();
         Object[] params = joinPoint.getArgs();
@@ -86,8 +104,6 @@ public class SystemLogServiceImpl extends BaseServiceImpl<SystemLog> implements 
         }
         return String.format(LOG_CONTENT, className, methodName, bf.toString(), ip);
     }
-
-
 
     @Override
     public void afterPropertiesSet() throws Exception {

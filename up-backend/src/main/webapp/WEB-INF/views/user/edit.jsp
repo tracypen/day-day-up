@@ -98,3 +98,10 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+    laydate.render({
+        elem: '#up_birthday' //指定元素
+    });
+    });
+</script>
