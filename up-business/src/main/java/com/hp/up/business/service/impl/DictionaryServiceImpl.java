@@ -25,13 +25,13 @@ public class DictionaryServiceImpl extends BaseServiceImpl<Dictionary> implement
     DictionaryRepository dictionaryRepository;
 
     @Transactional
-    @Log(module = "系统字典数据", description = "删除数据字典")
+    @Log(module = "系统数据字典", description = "删除数据字典")
     public int deleteById(Long id) {
         return dictionaryRepository.deleteById(id);
     }
 
     @Transactional
-    @Log(module = "系统字典数据", description = "添加数据字典")
+    @Log(module = "系统数据字典", description = "添加数据字典")
     public int save(Dictionary dictionary){
        return dictionaryRepository.save(dictionary);
     }

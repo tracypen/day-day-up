@@ -8,7 +8,8 @@
                         http://www.springframework.org/schema/cache/spring-cache.xsd">
     <!-- 缓存配置 -->
     <!-- 启用缓存注解功能(请将其配置在Spring主配置文件中) -->
-    <cache:annotation-driven cache-manager="cacheManager"/>
+    <cache:annotation-driven cache-manager="cacheManager"   key-generator="userKeyGenerator"/>
+
 
     <bean id="cacheManagerFactory"
           class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
@@ -30,6 +31,8 @@
         <!--</property>-->
         <!--<property name="fallbackToNoOpCache" value="true"/>-->
     <!--</bean>-->
+
+    <bean id="userKeyGenerator" class="com.hp.up.core.cache.ehcache.UserKeyGenerator"/>
 
 
     <!-- 缓存管理器 使用Ehcache实现 -->

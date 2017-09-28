@@ -69,7 +69,7 @@
             AND  <![CDATA[ create_time  >= #{createDate}]]>
             </if>
             <if test="null !=modifyDate " >
-            AND DATE_FORMAT(create_time,'%Y-%c-%d- %H:%i:%S')  <![CDATA[   <= #{modifyDate}]]>
+            AND  <![CDATA[ create_time  <= #{modifyDate}]]>
             </if>
         </where>
     </select>

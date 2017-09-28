@@ -161,7 +161,8 @@ var Table = function() {
             "sAjaxSource" : ctx + "/system/log/list?now=" + new Date().getTime(),
             //服务器端，数据回调处理
             "fnServerData" : function(sSource, aDataSet, fnCallback) {
-               // sSource=sSource+"&"+$("#searchForm").serialize();
+              //  alert("&"+$("#searchForm").serialize());
+              sSource=sSource+"&"+$("#searchForm").serialize();
                 $.ajax({
                     "dataType" : 'json',
                     "type" : "get",

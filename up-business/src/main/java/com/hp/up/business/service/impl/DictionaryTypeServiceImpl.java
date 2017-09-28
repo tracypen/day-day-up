@@ -7,10 +7,12 @@ import com.hp.up.business.repository.DictionaryRepository;
 import com.hp.up.business.repository.DictionaryTypeRepository;
 import com.hp.up.business.service.DictionaryTypeService;
 import com.hp.up.core.Entity.DictionaryType;
+import com.hp.up.core.annotation.Log;
 import com.hp.up.core.web.page.PageDto;
 import com.hp.up.core.web.page.PagingList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -44,6 +46,8 @@ public class DictionaryTypeServiceImpl extends BaseServiceImpl<DictionaryType> i
         return new PagingList<DictionaryType>(dictionaryTypeList, pageInfo);
     }
 
+    @Transactional
+    @Log(module = "系统字典类型", description = "删除字典类型")
     public int deleteById(Long id) {
         //先删除该类型所有字典记录
         DictionaryType dictionaryType = dictionaryTypeRepository.get(id);

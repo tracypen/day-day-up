@@ -72,16 +72,16 @@
 
 
                                                 <div class="form-group" style="margin-left:50px">
-                                                    <span>结束时间：</span><label for="createDate"
-                                                                             class="sr-only">结束时间</label>
-                                                    <input name="createDate" type="text" id="createDate"
+                                                    <span>开始时间：</span><label for="start_time"
+                                                                             class="sr-only">开始时间</label>
+                                                    <input name="start_time" type="text" id="start_time"
                                                            class="form-control">
                                                 </div>
 
                                                 <div class="form-group" style="margin-left:50px">
-                                                    <span>结束时间：</span><label for="modifyDate"
+                                                    <span>结束时间：</span><label for="end_time"
                                                                              class="sr-only">结束时间</label>
-                                                    <input name="modifyDate" type="text" id="modifyDate"
+                                                    <input name="end_time" type="text" id="end_time"
                                                            class="form-control">
                                                 </div>
 
@@ -147,12 +147,12 @@
 
         //初始化新增页面时间框
         laydate.render({
-            elem: '#createDate', //指定元素
+            elem: '#start_time', //指定元素
             type: 'datetime'
         });
 
         laydate.render({
-            elem: '#modifyDate', //指定元素
+            elem: '#end_time', //指定元素
             type: 'datetime'
         });
 

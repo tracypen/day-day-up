@@ -32,6 +32,7 @@
 - 日志管理：Log4j
 - 数据库：MySQL
 - 后台前端框架：Jquery EasyUI 1.5.X 和 JQuery EasyUI 1.5.x of Insdep Theme 
+- AOP方式集成系统日志 
 
 
 欢迎进群交流

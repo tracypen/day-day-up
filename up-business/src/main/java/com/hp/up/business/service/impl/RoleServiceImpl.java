@@ -10,9 +10,11 @@ import com.hp.up.core.Entity.Role;
 import com.hp.up.core.Entity.RoleResourcePermission;
 import com.hp.up.core.Entity.SystemResource;
 import com.hp.up.core.Entity.User;
+import com.hp.up.core.annotation.Log;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -184,6 +186,8 @@ public class RoleServiceImpl extends BaseServiceImpl<Role> implements RoleServic
 
     }
 
+    @Transactional
+    @Log(module = "系统角色", description = "修改角色资源权限")
     public int updatRoleResourPermission(final Long roleId, final String resourcePermission) {
 
         if (null == roleId || roleId <= 0) {
