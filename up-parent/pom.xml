@@ -60,6 +60,7 @@
         <jackjson.version>2.6.3</jackjson.version>
         <fastjson.version>1.1.36</fastjson.version>
         <sitemesh.version>2.4.2</sitemesh.version>
+        <poi.version>3.14</poi.version>
 
     </properties>
 
@@ -378,6 +379,12 @@
                     <artifactId>sitemesh</artifactId>
                 <version>${sitemesh.version}</version>
 
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>${poi.version}</version>
             </dependency>
 
         </dependencies>

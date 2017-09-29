@@ -6,6 +6,7 @@ import com.hp.up.core.common.Constants;
 import com.hp.up.core.enums.ResponseStatus;
 import com.hp.up.core.web.page.PageDto;
 import com.hp.up.core.web.page.PagingList;
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +15,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+import java.io.InputStream;
 
 /**
  * userController
@@ -92,6 +97,18 @@ public class UserController extends BaseController<User> {
             return super.getJsonResponseEntity(Boolean.TRUE);
         }
         return super.getJsonResponseEntity(Boolean.FALSE);
+    }
+
+    /**
+     * export Excel
+     */
+    @RequestMapping(value = "export",method = RequestMethod.GET)
+    public void exportExcel(HttpServletResponse response)throws Exception{
+        InputStream is=userService.getInputStream();
+        response.setContentType("application/vnd.ms-excel");
+        response.setHeader("contentDisposition", "attachment;filename=AllUsers.xls");
+        ServletOutputStream output = response.getOutputStream();
+        IOUtils.copy(is, output);
     }
 
 

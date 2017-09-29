@@ -4,6 +4,7 @@ import com.hp.up.core.Entity.User;
 import com.hp.up.core.web.page.PageDto;
 import com.hp.up.core.web.page.PagingList;
 
+import java.io.InputStream;
 import java.util.List;
 
 /**
@@ -29,5 +30,7 @@ public interface UserService extends BaseService<User>{
     int updateLastLoginTime(Long id);
 
     int saveOrUpdateUser(User user);
+
+    InputStream getInputStream() throws Exception;
 
 }
