@@ -1,7 +1,29 @@
 #Linux 下elasticsearch 环境搭建
+elsticsearch 中文社区 https://elasticsearch.cn/
 
 ###一.下载安装elasticsearch (单机)
-https://www.elastic.co/cn/downloads/elasticsearch 右键复制链接地址
+
+安装亲检查下jdk elasticsearch5+ 要求jdk1.8+
+	
+rpm -qa | grep java
+如果有就卸载
+yum -y remove  java-1.7.0-openjdk-1.7.0.65-2.5.1.2.el65.x8664
+yum -y remove java-1.6.0-openjdk-1.6.0.0-11.1.13.4.el6.x86_64
+
+
+安装maven （后面安装ik分词器时要编译源码）
+
+/usr/local下
+wget http://mirrors.hust.edu.cn/apache/maven/maven-3/3.2.5/binaries/apache-maven-3.2.5-bin.tar.gz
+tar -zxvf apache-maven-3.2.5-bin.tar.gz
+
+配置环境变量etc/profile 最后添加以下两行
+export MAVEN_HOME=/usr/local/apache-maven-3.2.5
+export PATH=${PATH}:${MAVEN_HOME}/bin
+检测是否安装成功
+mvn -v
+
+https://www.elastic.co/cn/downloads/elasticsearch 
 将 elasticsearch-5.0.0.tar.gz 拷贝到 /opt 目录下。
 
 在Linux中，/opt这个目录wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.2.tar.gz 下载 
@@ -16,7 +38,9 @@ useradd  elasticsearch -g elasticsearch -p elasticsearch
 chown -R elasticsearch:elasticsearch elasticsearch-5.2.2
 
 
-切换root用户更改系统参数
+
+
+切换root用户更改系统参数（否则启动报错）
 vi /etc/security/limits.conf 
 添加如下内容:
 
@@ -36,7 +60,11 @@ vi /etc/sysctl.conf
 vm.max_map_count=655360
 并执行命令：
 sysctl -p
+
+
 在elasticsearch.yml最后添加****************
+Centos6不支持SecComp，而ES5.4.1默认bootstrap.system_call_filter为true进行检测，所以导致检测失败，失败后直接导致ES不能启动。
+bootstrap.memory_lock: false
 bootstrap.system_call_filter: false
 
 
@@ -48,8 +76,179 @@ su elasticsearch
 
 ./bin/elasticsearch
 
-### 安装head插件
 
+elasticsearch 默认 restful-api 的端口是 9200 不支持 IP 地址，也就是说无法从主机访问虚拟机中的服务，只能在本机用 http://localhost:9200 来访问。如果需要改变，需要修改配置文件 /usr/local/elasticsearch/config/elasticsearch.yml 文件，加入以下两行：
+
+network.bind_host: 0.0.0.0
+network.publish_host: _nonloopback:ipv4
+或去除 network.host 和 http.port 之前的注释，并将 network.host 的 IP 地址修改为本机外网 IP。然后重启，Elasticsearch
+
+关闭方法（输入命令：ps -ef | grep elasticsearch ，找到进程，然后 kill 掉就行了。
+
+
+修改配置文件：vim config/elasticsearch.yml
+cluster.name : my-app (集群的名字，名字相同的就是一个集群)
+
+node.name : es1 （节点的名字, 和前面配置的 hosts 中的 name 要一致）
+path.data: /data/elasticsearch/data （数据的路径。没有要创建（mkdir -p /data/elasticsearch/{data,logs}），并且给执行用户权限 chown tzs /data/elasticsearch/{data,logs} -R ）
+path.logs: /data/elasticsearch/logs （数据 log 信息的路径，同上）
+network.host: 0.0.0.0 //允许外网访问，也可以是自己的ip地址
+http.port: 9200 //访问的端口
+discovery.zen.ping.unicast.hosts: [“192.168.153.133”, “192.168.153.134”, “192.168.153.132”] //各个节点的ip地址
+
+记得需要添加上：（这个是安装 head 插件要用的）
+http.cors.enabled: true
+http.cors.allow-origin: "*"
+
+如果外网还是不能访问，则有可能是防火墙设置导致的 ( 关闭防火墙：service iptables stop )
+
+
+### 安装head插件
+opt下 
+安装git
+ yum remove git
+ yum install git
+ git clone git://github.com/mobz/elasticsearch-head.git 拉取 head 插件到本地，或者直接在 GitHub 下载 压缩包下来
+ 安装nodejs
+ 先去官网下载 node-v8.4.0-linux-x64.tar.xz
+ 
+ tar -Jxv -f  node-v8.4.0-linux-x64.tar.xz
+ mv node-v8.4.0-linux-x64  node
+ vim  /etc/profile
+ export NODE_HOME=/opt/node
+ export PATH=$PATH:$NODE_HOME/bin
+ export NODE_PATH=$NODE_HOME/lib/node_modules
+ 
+ source /etc/profile
+ 检测node版本
+ node -v
+ 
+ 然后安装head
+ mv elasticsearch-head head
+ cd head/
+ npm install -g grunt-cli
+ npm install
+ grunt server
+ 
+ 记得需要在elasticsearch.yml添加上：
+ http.cors.enabled: true
+ http.cors.allow-origin: “*”
+ 
+ 参考 ： http://blog.csdn.net/napoay/article/details/53896348
+ 
+ ###安装ik分词
+ 参考 http://www.cnblogs.com/phpshen/p/6085274.html
+ 
+ 在github下载ik分词 
+ https://github.com/medcl/elasticsearch-analysis-ik/releases/tag/v5.6.1
+ 如果下载源码则需要mvn clean package
+ 复制到el安装目录plugins下 解压重命名为 analysis-ik
+ 注：es5以后不支持在yml文家中指定ik分词器（会报错）
+ 所以在创建索引的时候指定分词器
+ 首先重启es
+ 用postman工具创建测试索引
+ put 192.168.2.38:9200/test
+ {
+     "settings" : {
+         "analysis" : {
+             "analyzer" : {
+                 "ik" : {
+                     "tokenizer" : "ik_smart"
+                 }
+             }
+         }
+     },
+     "mappings" : {
+         "logs" : {
+             "dynamic" : true,
+             "properties" : {
+                 "message" : {
+                     "type" : "string",
+                     "analyzer" : "ik_smart"
+                 }
+             }
+         }
+     }
+ }
+ 
+ 完成后测试分词器
+ 
+ get  192.168.2.38:9200/test/_analyze?analyzer=ik_max_word&text=陕西省西安市大唐芙蓉园
+ 
+ {
+     "tokens": [
+         {
+             "token": "陕西省",
+             "start_offset": 0,
+             "end_offset": 3,
+             "type": "CN_WORD",
+             "position": 0
+         },
+         {
+             "token": "陕西",
+             "start_offset": 0,
+             "end_offset": 2,
+             "type": "CN_WORD",
+             "position": 1
+         },
+         {
+             "token": "省",
+             "start_offset": 2,
+             "end_offset": 3,
+             "type": "CN_CHAR",
+             "position": 2
+         },
+         {
+             "token": "西安市",
+             "start_offset": 3,
+             "end_offset": 6,
+             "type": "CN_WORD",
+             "position": 3
+         },
+         {
+             "token": "西安",
+             "start_offset": 3,
+             "end_offset": 5,
+             "type": "CN_WORD",
+             "position": 4
+         },
+         {
+             "token": "市",
+             "start_offset": 5,
+             "end_offset": 6,
+             "type": "CN_CHAR",
+             "position": 5
+         },
+         {
+             "token": "大唐",
+             "start_offset": 6,
+             "end_offset": 8,
+             "type": "CN_WORD",
+             "position": 6
+         },
+         {
+             "token": "芙蓉",
+             "start_offset": 8,
+             "end_offset": 10,
+             "type": "CN_WORD",
+             "position": 7
+         },
+         {
+             "token": "蓉园",
+             "start_offset": 9,
+             "end_offset": 11,
+             "type": "CN_WORD",
+             "position": 8
+         }
+     ]
+ }
+ 
+
+ 
+ 
+ 
+ 
+ 
 
 
 

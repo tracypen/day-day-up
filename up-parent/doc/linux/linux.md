@@ -2,8 +2,8 @@
 
 ###一.安装JDK
 解压后设置环境变量
-JAVA_HOME=/usr/software/jdk/jdk1.8.0_72
-JRE_HOME=/usr/software/jdk/jdk1.8.0_72/jre
+JAVA_HOME=/usr/software/jdk
+JRE_HOME=/usr/software/jdk/jre
 CLASS_PATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib
 PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
 export JAVA_HOME JRE_HOME CLASS_PATH PATH
