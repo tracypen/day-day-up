@@ -33,6 +33,7 @@
 - 数据库：MySQL
 - 后台前端框架：Jquery EasyUI 1.5.X 和 JQuery EasyUI 1.5.x of Insdep Theme 
 - AOP方式集成系统日志 
+- POI Excel导入导出
 
 
 欢迎进群交流
