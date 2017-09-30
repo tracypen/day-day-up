@@ -22,3 +22,11 @@ firewall-cmd --state #查看默认防火墙状态（关闭后显示notrunning，
 -A INPUT -p tcp -m state -- state NEW -m tcp --dport 80 -j ACCEPT
 保存退出，重启防火墙
  service iptables restart
+ 
+ 
+ 
+ 
+ 文件查找与替换
+ grep "要查找的字符串" 文件名 
+ grep -rn "要找查找的文本" 文件名（显示行数）
+ 进入vi 编辑 :123 (定位到123行)  

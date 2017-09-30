@@ -1,6 +1,10 @@
 #Linux 下elasticsearch 环境搭建
 elsticsearch 中文社区 https://elasticsearch.cn/
 
+elasticsearch 配置文件详解参考：
+http://blog.csdn.net/qinfei_635879582/article/details/51603219
+
+
 ###一.下载安装elasticsearch (单机)
 
 安装亲检查下jdk elasticsearch5+ 要求jdk1.8+
@@ -132,9 +136,40 @@ opt下
  
  记得需要在elasticsearch.yml添加上：
  http.cors.enabled: true
- http.cors.allow-origin: “*”
+ http.cors.allow-origin: "*"
  
  参考 ： http://blog.csdn.net/napoay/article/details/53896348
+ 
+ 在这里有个问题就是head插件一直是只能虚拟机本地访问  跨域不嫩给链接到集群(折腾好久)
+ 参考http://www.cnblogs.com/xing901022/p/6030296.html
+ 
+ 1.编辑 head/Gruntfile.js
+ connect: {
+     server: {
+         options: {
+             port: 9100,
+             hostname: '*',
+             base: '.',
+             keepalive: true
+         }
+     }
+ }
+ hostname 改为* 表示所有域名可以访问
+ 2.编辑 head/_site/app.js
+
+ this.base_uri = this.config.base_uri || this.prefs.get("app-base_uri") || "http://localhost:9200";
+  grep -rn  "localhost" app.js 快速查找"localhost" 所在行数
+ 把localhost改为虚拟机ip
+ 重启head插件 ok
+ 
+ 注：head插件后台启动方式：
+ nohup grunt server &exit
+ 如果想关闭head插件，使用linux查找进程命令：
+ ps aux|grep head
+ 结束进程：
+ kill 进程号
+
+ 
  
  ###安装ik分词
  参考 http://www.cnblogs.com/phpshen/p/6085274.html
@@ -245,10 +280,36 @@ opt下
  
 
  
+ ###二.elasticsearch集群搭建
+ 
+ 创建slave1 slave2 并复制解压es5.6tar包
  
  
+ 在主节点配置文件加上
+ node.master: true
+ node.data: true 
+  http.port: 9200
+  transport.tcp.port: 9300
+  discovery.zen.ping.unicast.hosts: ["192.168.2.38:9300"]
  
- 
+ 对es账户授予slave1 slave2 操作权限
+ 配置文件中节点名必须与master一直 端口不能过冲突
+ 最后加上
+ bootstrap.memory_lock: false
+ bootstrap.system_call_filter: false
+ 分别启动两个slave节点和master节点
+  参考 http://www.cnblogs.com/fastLearn/p/6509178.html
+  
+  ********************************************
+ http://www.cnblogs.com/wxw16/p/6160186.html
 
+
+
+
+
+
+处理 Java 的“Cannot allocate memory”错误
+
+ 编辑 /etc/sysctl.conf，修改参数 vm.overcommit_memory = 1
 
 
