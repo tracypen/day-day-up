@@ -94,7 +94,8 @@ network.publish_host: _nonloopback:ipv4
 cluster.name : my-app (集群的名字，名字相同的就是一个集群)
 
 node.name : es1 （节点的名字, 和前面配置的 hosts 中的 name 要一致）
-path.data: /data/elasticsearch/data （数据的路径。没有要创建（mkdir -p /data/elasticsearch/{data,logs}），并且给执行用户权限 chown tzs /data/elasticsearch/{data,logs} -R ）
+path.data: /data/elasticsearch/data （数据的路径。没有要创建（mkdir -p /data/elasticsearch/{data,logs}），
+并且给执行用户权限 chown tzs /data/elasticsearch/{data,logs} -R ）
 path.logs: /data/elasticsearch/logs （数据 log 信息的路径，同上）
 network.host: 0.0.0.0 //允许外网访问，也可以是自己的ip地址
 http.port: 9200 //访问的端口
@@ -119,7 +120,7 @@ opt下
  tar -Jxv -f  node-v8.4.0-linux-x64.tar.xz
  mv node-v8.4.0-linux-x64  node
  vim  /etc/profile
- export NODE_HOME=/opt/node
+ export NODE_HOME=/usr/local/node
  export PATH=$PATH:$NODE_HOME/bin
  export NODE_PATH=$NODE_HOME/lib/node_modules
  
@@ -132,6 +133,8 @@ opt下
  cd head/
  npm install -g grunt-cli
  npm install
+ 如果速度较慢或者安装失败，可以使用国内镜像:
+ npm install -g cnpm --registry=https://registry.npm.taobao.org
  grunt server
  
  记得需要在elasticsearch.yml添加上：
@@ -311,5 +314,49 @@ opt下
 处理 Java 的“Cannot allocate memory”错误
 
  编辑 /etc/sysctl.conf，修改参数 vm.overcommit_memory = 1
+ 
+ 
+ 
+ 
+ 
+ vim /usr/local/elastic/config/jvm.options 
+ -Xms512m
+ -Xmx512m
+ 
+ 参考 http://www.huangxiaobai.com/archives/1007
+
+------------------------------------------------------master---------------------------------------------------------------------------
+cluster.name: mcgrady-cluster
+node.name: master-node
+
+path.data: /data/elasticsearch/data
+path.logs: /data/elasticsearch/logs
+
+node.master: true
+node.data: true
+network.host: 0.0.0.0
+http.port: 9200
+transport.tcp.port: 9300
+discovery.zen.minimum_master_nodes: 1
+discovery.zen.ping.unicast.hosts: ["127.0.0.1"]
+http.cors.enabled: true
+http.cors.allow-origin: "*"
+bootstrap.memory_lock: false
+bootstrap.system_call_filter: false
+
+--------------------------------------------------------slaver-----------------------------------------------------------------------------
+cluster.name: mcgrady-cluster
+node.name: slaver01
+
+node.data: true
+network.host: 0.0.0.0
+http.port: 9201
+# transport.tcp.port: 9301  (改变之后集群不能自动识别)
+discovery.zen.minimum_master_nodes: 1
+discovery.zen.ping.unicast.hosts: ["127.0.0.1"]
+bootstrap.memory_lock: false
+bootstrap.system_call_filter: false
+                                      
+
 
 

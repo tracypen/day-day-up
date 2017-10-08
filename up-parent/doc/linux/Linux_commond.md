@@ -23,8 +23,7 @@ firewall-cmd --state #查看默认防火墙状态（关闭后显示notrunning，
 保存退出，重启防火墙
  service iptables restart
  
- 
- 
+
  
  文件查找与替换
  grep "要查找的字符串" 文件名 
