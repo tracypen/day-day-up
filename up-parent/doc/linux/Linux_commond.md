@@ -29,3 +29,12 @@ firewall-cmd --state #查看默认防火墙状态（关闭后显示notrunning，
  grep "要查找的字符串" 文件名 
  grep -rn "要找查找的文本" 文件名（显示行数）
  进入vi 编辑 :123 (定位到123行)  
+ 
+ 
+ 
+ 1)统计80端口连接数
+ netstat -nat|grep -i "80"|wc -l
+ 
+ 2)查看端口是否在监听状态
+ netstat -an | grep 9300  
+ 

@@ -1,4 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"  pageEncoding="UTF-8"%>
+
+
+    <link rel="stylesheet" href="${ctx}/static/css/fileinput/file-input.min.css">
+    <link rel="stylesheet" href="${ctx}/static/css/jcrop/jquery.Jcrop.min.css">
+    <link rel="stylesheet" href="${ctx}/static/css/sco/scojs.css">
+    <link rel="stylesheet" href="${ctx}/static/css/sco/sco.message.css">
+
 <!--左侧导航-->
 <nav class="navbar-default navbar-static-side" role="navigation">
     <div class="nav-close"><i class="fa fa-times-circle"></i>
@@ -16,7 +23,7 @@
                                 </span>
                     </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                        <li><a class="J_menuItem" href="form_avatar.html">修改头像</a>
+                        <li><a class="J_menuItem" id="edit_image" href="javascript:void(0);">修改头像</a>
                         </li>
                         <li><a class="J_menuItem" href="profile.html">个人资料</a>
                         </li>
@@ -120,3 +127,37 @@
         </ul>
     </div>
 </nav>
+
+<!--图片裁剪插件-->
+<script type="text/javascript" src="${ctx}/static/js/plugins/fileupload/jcrop/jquery.Jcrop.min.js"></script>
+<!--文件上传插件-->
+<script type="text/javascript" src="${ctx}/static/js/plugins/fileupload/fileinput/file-input.min.js"></script>
+<!--fileinput中文化-->
+<script type="text/javascript" src="${ctx}/static/js/plugins/fileupload/fileinput/zh.js"></script>
+<!--模态窗口优化插件,sco还有很多其他优化组件-->
+<script type="text/javascript" src="${ctx}/static/js/plugins/fileupload/sco/sco.modal.js"></script>
+<!--腾讯的模板插件,使用起来类似JSTL和EL表达式-->
+<script type="text/javascript" src="${ctx}/static/js/plugins/fileupload/template/template.js"></script>
+<script type="text/javascript" src="${ctx}/static/js/plugins/fileupload/portrait.js"></script>
+<!--这段不是js代码,注意了,这个是ArtTemplate专用的模板代码,就是前面加载的template.js这个插件-->
+<script id="portraitUpload" type="text/html">
+    <div style="padding: 10px 20px">
+        <form role="form" enctype="multipart/form-data" method="post">
+            <div class="embed-responsive embed-responsive-16by9">
+                <div class="embed-responsive-item pre-scrollable">
+                    <img alt="" src="${ctx}/static/images/showings.jpg" id="cut-img"
+                         class="img-responsive img-thumbnail"/>
+                </div>
+            </div>
+            <div class="white-divider-md"></div>
+            <input type="file" name="imgFile" id="fileUpload"/>
+            <div class="white-divider-md"></div>
+            <div id="alert" class="alert alert-danger hidden" role="alert"></div>
+            <input type="hidden" id="x" name="x"/>
+            <input type="hidden" id="y" name="y"/>
+            <input type="hidden" id="w" name="w"/>
+            <input type="hidden" id="h" name="h"/>
+        </form>
+    </div>
+</script>
+

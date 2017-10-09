@@ -2,6 +2,7 @@ package com.hp.up.business.service.impl;
 
 import com.google.common.collect.Sets;
 import com.hp.up.business.repository.PermissionRepository;
+import com.hp.up.business.repository.RoleRepository;
 import com.hp.up.business.service.PermissionService;
 import com.hp.up.business.service.RoleService;
 import com.hp.up.business.service.SystemResourceService;
@@ -34,7 +35,7 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission> implement
     private SystemResourceService systemResourceService;
 
     @Autowired
-    private RoleService roleService;
+    private RoleRepository roleRepository;
 
     // 所有的资源
     private List<SystemResource> resourceAll = null;
@@ -55,7 +56,7 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission> implement
             permissionAll = super.getAll();
 
             permissions = Sets.newHashSet();
-            Set<Role> roles = roleService.findRoles(user);
+            Set<Role> roles = findRoles(user);
             if (roles == null) {
                 return null;
             }
@@ -199,5 +200,19 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission> implement
     public void afterPropertiesSet() throws Exception {
 
         super.baseRepository = permissionRepository;
+    }
+
+    public Set<Role> findRoles(User user){
+        Set<Role> resultSet = Sets.newHashSet();
+        if (user != null) {
+            Long userId = user.getId();
+
+            String roleIds = roleRepository.findRoleIds(user.getId());
+            List<Role> roleList = roleRepository.getRolesByids(roleIds);
+
+            resultSet.addAll(roleList);
+        }
+
+        return resultSet;
     }
 }

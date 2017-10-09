@@ -2,7 +2,9 @@ package com.hp.up.backend.controller;
 
 import com.sun.deploy.net.URLEncoder;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -16,12 +18,14 @@ import java.io.*;
  * com.hp.up.backend.controller
  * Created by haopeng on 2017/9/29  22:01.
  */
+@Controller
+@RequestMapping("/file")
 public class FileUploadController extends BaseController{
 
     /**
      *  single file upload
      */
-    @RequestMapping("/upload")
+    @RequestMapping(value = "/upload",method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity singleFile(@RequestParam MultipartFile file, HttpServletRequest request){
         try{
@@ -44,7 +48,7 @@ public class FileUploadController extends BaseController{
     /**
      * multi-file upload
      */
-    @RequestMapping("/multi_upload")
+    @RequestMapping(value = "/multi_upload",method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity multiFile(@RequestParam MultipartFile[] files,HttpServletRequest request){
         try{
