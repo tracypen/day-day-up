@@ -354,6 +354,8 @@ http.port: 9201
 # transport.tcp.port: 9301  (改变之后集群不能自动识别)
 discovery.zen.minimum_master_nodes: 1
 discovery.zen.ping.unicast.hosts: ["127.0.0.1"]
+http.cors.enabled: true
+http.cors.allow-origin: "*"
 bootstrap.memory_lock: false
 bootstrap.system_call_filter: false
                                       
