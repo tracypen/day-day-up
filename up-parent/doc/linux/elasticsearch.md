@@ -5,7 +5,7 @@ elasticsearch 配置文件详解参考：
 http://blog.csdn.net/qinfei_635879582/article/details/51603219
 
 
-###一.下载安装elasticsearch (单机)
+###一.下载安装elasticsearch5.6.1 (单机)
 
 安装亲检查下jdk elasticsearch5+ 要求jdk1.8+
 	
@@ -351,13 +351,20 @@ node.name: slaver01
 node.data: true
 network.host: 0.0.0.0
 http.port: 9201
-# transport.tcp.port: 9301  (改变之后集群不能自动识别)
+(# transport.tcp.port: 9301  (改变之后集群不能自动识别))
 discovery.zen.minimum_master_nodes: 1
 discovery.zen.ping.unicast.hosts: ["127.0.0.1"]
 http.cors.enabled: true
 http.cors.allow-origin: "*"
 bootstrap.memory_lock: false
 bootstrap.system_call_filter: false
+
+#补充es低版本集群环境搭建
+
+
+
+
+
                                       
 
 
