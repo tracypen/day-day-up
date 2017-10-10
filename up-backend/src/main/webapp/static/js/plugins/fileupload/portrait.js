@@ -28,7 +28,7 @@ function PageInit() {
         var fileUp = new FileUpload();
         var portrait = $('#fileUpload');
         var alert = $('#alert');
-        fileUp.portrait(portrait, ctx+'/file/upload', _this.getExtraData);
+        fileUp.portrait(portrait, ctx+'/file/image', _this.getExtraData);
         portrait.on('change', _this.readURL);
         portrait.on('fileuploaderror', function (event, data, msg) {
             alert.removeClass('hidden').html(msg);
@@ -41,10 +41,14 @@ function PageInit() {
             alert.addClass('hidden').html();
         });
         portrait.on('fileuploaded', function (event, data) {
-            alert(1)
-            if (!data.response.status) {
+            if (!data) {
                 alert.html(data.response.message).removeClass('hidden');
+            }else {
+                alert.html('<p>修改成功！</p>').removeClass('hidden');
+                setTimeout(" location.reload();",800);
+
             }
+
         })
     };
 
@@ -108,16 +112,16 @@ function FileUpload() {
             uploadAsync: true,//ajax同步
             dropZoneEnabled: false,//是否显示拖拽区域
             uploadUrl: uploadUrl, //上传的地址
-            allowedFileExtensions: ['jpg'],//接收的文件后缀
+            allowedFileExtensions: ['jpg','gif'],//接收的文件后缀
             showUpload: true, //是否显示上传按钮
             showCaption: true,//是否显示标题
             browseClass: "btn btn-primary", //按钮样式
             previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
-            ajaxSettings: {//这个是因为我使用了SpringSecurity框架，有csrf跨域提交防御，所需需要设置这个值,没用SpringSecurity的朋友去掉这个参数
-                beforeSend: function (xhr) {
-                  // xhr.setRequestHeader(header, token);
-                }
-            }
+            // ajaxSettings: {//这个是因为我使用了SpringSecurity框架，有csrf跨域提交防御，所需需要设置这个值,没用SpringSecurity的朋友去掉这个参数
+            //     beforeSend: function (xhr) {
+            //       // xhr.setRequestHeader(header, token);
+            //     }
+            // }
         });
     }
 }

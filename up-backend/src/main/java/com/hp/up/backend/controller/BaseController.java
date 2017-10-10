@@ -9,6 +9,7 @@ import com.hp.up.core.Entity.User;
 import com.hp.up.core.common.Constants;
 import com.hp.up.core.utils.web.RenderUtils;
 import com.hp.up.core.web.page.PagingList;
+import com.hp.up.core.web.shiro.UserShiro;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
@@ -55,9 +56,9 @@ public class BaseController <E extends Serializable> {
 
         Subject subject = SecurityUtils.getSubject();
 
-        String userName = (String) subject.getPrincipal();
+        UserShiro userShiro = (UserShiro) subject.getPrincipal();
 
-        User currentUser = userService.getUserByName(userName);
+        User currentUser = userService.getUserByName(userShiro.getName());
 
         return currentUser;
     }

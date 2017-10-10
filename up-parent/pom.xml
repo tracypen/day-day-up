@@ -90,7 +90,7 @@
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>4.10</version>
-               <!-- <scope>test</scope>-->
+                <!-- <scope>test</scope>-->
             </dependency>
 
             <dependency>
@@ -262,8 +262,6 @@
             </dependency>
 
 
-
-
             <!-- apache.commons-->
             <dependency>
                 <groupId>commons-fileupload</groupId>
@@ -346,7 +344,7 @@
             </dependency>
             <!-- shiro end-->
 
-           <!-- jackJson -->
+            <!-- jackJson -->
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-core</artifactId>
@@ -376,8 +374,8 @@
             </dependency>
 
             <dependency>
-                    <groupId>opensymphony</groupId>
-                    <artifactId>sitemesh</artifactId>
+                <groupId>opensymphony</groupId>
+                <artifactId>sitemesh</artifactId>
                 <version>${sitemesh.version}</version>
 
             </dependency>
@@ -389,15 +387,15 @@
             </dependency>
 
             <!--<dependency>-->
-                <!--<groupId>org.elasticsearch</groupId>-->
-                <!--<artifactId>elasticsearch</artifactId>-->
-                <!--<version>${elasticsearch.version}</version>-->
+            <!--<groupId>org.elasticsearch</groupId>-->
+            <!--<artifactId>elasticsearch</artifactId>-->
+            <!--<version>${elasticsearch.version}</version>-->
             <!--</dependency>-->
 
             <!--<dependency>-->
-                <!--<groupId>org.elasticsearch.client</groupId>-->
-                <!--<artifactId>transport</artifactId>-->
-                <!--<version>${elasticsearch.version}</version>-->
+            <!--<groupId>org.elasticsearch.client</groupId>-->
+            <!--<artifactId>transport</artifactId>-->
+            <!--<version>${elasticsearch.version}</version>-->
             <!--</dependency>-->
             <dependency>
                 <groupId>fr.pilato.spring</groupId>
@@ -439,56 +437,60 @@
         </profile>
     </profiles>
 
-    <!--<build>-->
-    <!--<finalName>up</finalName>-->
-    <!--<defaultGoal>compile</defaultGoal>-->
+    <build>
+        <finalName>up</finalName>
+        <defaultGoal>compile</defaultGoal>
 
-    <!--<plugins>-->
-    <!--&lt;!&ndash; maven compiler &ndash;&gt;-->
-    <!--<plugin>-->
-    <!--<groupId>org.apache.maven.plugins</groupId>-->
-    <!--<artifactId>maven-compiler-plugin</artifactId>-->
-    <!--<version>3.1</version>-->
-    <!--<configuration>-->
-    <!--<source>${jdk.version}</source>-->
-    <!--<target>${jdk.version}</target>-->
-    <!--<encoding>${project.build.sourceEncoding}</encoding>-->
-    <!--<fork>true</fork>-->
-    <!--<meminitial>512m</meminitial>-->
-    <!--<maxmem>2048m</maxmem>-->
-    <!--</configuration>-->
-    <!--</plugin>-->
+        <plugins>
+            <!-- maven compiler -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>${jdk.version}</source>
+                    <target>${jdk.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <compilerArguments>
+                        <verbose />
+                        <bootclasspath>${java.home}\lib\rt.jar;${java.home}\lib\jce.jar</bootclasspath>
+                    </compilerArguments>
+                    <fork>true</fork>
+                    <meminitial>512m</meminitial>
+                    <maxmem>2048m</maxmem>
+                </configuration>
+            </plugin>
 
-    <!--&lt;!&ndash; maven war &ndash;&gt;-->
-    <!--<plugin>-->
-    <!--<artifactId>maven-war-plugin</artifactId>-->
-    <!--<version>3.0.0</version>-->
-    <!--<configuration>-->
-    <!--<warSourceDirectory>src/main/webapp</warSourceDirectory>-->
-    <!--<archive>-->
-    <!--<addMavenDescriptor>false</addMavenDescriptor>-->
-    <!--</archive>-->
-    <!--&lt;!&ndash;<warName>app</warName>&ndash;&gt;-->
-    <!--<webResources>-->
-    <!--<resource>-->
-    <!--<directory>src/main/resources/config/${profile.active}</directory>-->
-    <!--<targetPath>WEB-INF/classes/config</targetPath>-->
-    <!--<filtering>true</filtering>-->
-    <!--</resource>-->
-    <!--</webResources>-->
-    <!--</configuration>-->
-    <!--</plugin>-->
-    <!--</plugins>-->
+            <!-- maven war -->
+            <!--<plugin>-->
+                <!--<artifactId>maven-war-plugin</artifactId>-->
+                <!--<version>3.0.0</version>-->
+                <!--<configuration>-->
+                    <!--<warSourceDirectory>src/main/webapp</warSourceDirectory>-->
+                    <!--<archive>-->
+                        <!--<addMavenDescriptor>false</addMavenDescriptor>-->
+                    <!--</archive>-->
+                    <!--&lt;!&ndash;<warName>app</warName>&ndash;&gt;-->
+                    <!--<webResources>-->
+                        <!--<resource>-->
+                            <!--<directory>src/main/resources/config/${profile.active}</directory>-->
+                            <!--<targetPath>WEB-INF/classes/config</targetPath>-->
+                            <!--<filtering>true</filtering>-->
+                        <!--</resource>-->
+                    <!--</webResources>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+        </plugins>
 
-    <!--<resources>-->
-    <!--<resource>-->
-    <!--<directory>src/main</directory>-->
-    <!--<includes>-->
-    <!--<include>**/*.xml</include>-->
-    <!--</includes>-->
-    <!--</resource>-->
-    <!--</resources>-->
-    <!--</build>-->
+        <!--<resources>-->
+            <!--<resource>-->
+                <!--<directory>src/main</directory>-->
+                <!--<includes>-->
+                    <!--<include>**/*.xml</include>-->
+                <!--</includes>-->
+            <!--</resource>-->
+        <!--</resources>-->
+    </build>
 
 
 </project>
