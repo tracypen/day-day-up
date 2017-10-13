@@ -60,6 +60,10 @@ public class BaseController <E extends Serializable> {
 
         User currentUser = userService.getUserByName(userShiro.getName());
 
+        if (null == currentUser){
+            currentUser = new User();
+        }
+
         return currentUser;
     }
 

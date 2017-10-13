@@ -6,7 +6,7 @@
         <div class="ibox float-e-margins">
 
             <div class="ibox-content">
-                <form id="roleForm" class="form-horizontal m-t" method="post" action="${ctx}/system/role/saveOrUpdate">
+                <form id="roleForm" class="form-horizontal m-t" method="post"  action="${ctx}/system/role/saveOrUpdate">
                     <input  name="id" value="${role.id}" type="hidden">
                     <div class="form-group">
                         <label class="col-sm-3 control-label">角色名称：</label>

@@ -25,16 +25,16 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">性别：</label>
+                        <label class="col-sm-3 control-label">性别：${user.gender}</label>
 
 
                         <div class="col-sm-8" id="up_gender">
                             <div class="radio radio-info radio-inline">
-                                <input type="radio" id="inlineRadio1" value="1" name="gender"  <c:if test="${user.gender eq 1}">checked</c:if> >
+                                <input type="radio" id="inlineRadio1" value="1" name="up_gender"  <c:if test="${user.gender eq 1}">checked</c:if> >
                                 <label for="inlineRadio1"> 男 </label>
                             </div>
                             <div class="radio radio-inline">
-                                <input type="radio" id="inlineRadio2" value="2" name="gender" <c:if test="${user.gender eq 2}">checked</c:if> >
+                                <input type="radio" id="inlineRadio2" value="2" name="up_gender" <c:if test="${user.gender eq 2}">checked</c:if> >
                                 <label for="inlineRadio2"> 女 </label>
                             </div>
                         </div>
@@ -98,6 +98,10 @@
         </div>
     </div>
 </div>
+<!-- UY BEGIN -->
+<%--<div id="uyan_frame"></div>--%>
+<%--<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2146316"></script>--%>
+<!-- UY END -->
 <script>
     $(document).ready(function () {
     laydate.render({

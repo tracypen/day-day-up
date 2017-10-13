@@ -230,7 +230,7 @@ function addUser(){
         "password":$("#password").val(),
         "email":$("#email").val(),
         "qq":$("#qq").val(),
-        "gender":$('#gender input:radio:checked').val(),  //$('input:radio:checked').val()；
+        "gender":$("input[name='gender']:checked").val(),  //$('input:radio:checked').val()；$("input[name='up_gender']:checked").val()
         "phone":$("#phone").val()
     }
     console.log(JSON.stringify(jsonData));
@@ -263,13 +263,14 @@ function updatePage() {
         "id":$("#up_id").val(),
         "name":$("#up_name").val(),
         "userRealName":$("#up_userRealName").val(),
-        "gender":$('#up_gender:input:radio:checked').val(),  //$('input:radio:checked').val()；
+        "gender":$("input[name='up_gender']:checked").val(),  //$('input:radio:checked').val()；
         "birthday":$("#up_birthday").val(),
         "email":$("#up_email").val(),
         "phone":$("#up_phone").val(),
         "qq":$("#up_qq").val()
     }
     console.log(JSON.stringify(jsonData));
+    console.log($("input[name='up_gender']:checked").val());
     $.ajax({
         async:true,
         "type" : "post",

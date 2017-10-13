@@ -86,6 +86,17 @@ public class UserController extends BaseController<User> {
 
 
     /**
+     * get current user info
+     */
+    @RequestMapping(value = {"/info"}, method = RequestMethod.GET)
+    @ResponseBody
+    public User getCurrentUserInfo() {
+        User currentUser = super.getCurrentUser();
+        return currentUser;
+    }
+
+
+    /**
      * update or add user
      */
     @RequestMapping(value = {"/add","/update"}, method = RequestMethod.POST)

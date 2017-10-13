@@ -20,7 +20,8 @@
         <ul class="nav" id="side-menu">
             <li class="nav-header">
                 <div class="dropdown profile-element">
-                    <span><img alt="image" class="img-circle" src="${ctx}/file/download?action=avatar"/></span>
+                    <%--<span><img alt="image" class="img-circle" src="${ctx}/file/download?action=avatar"/></span>--%>
+                    <span><img alt="image" class="img-circle" src="${user.name}"/></span>
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="clear">
                                <span class="block m-t-xs"><strong class="font-bold">
@@ -163,5 +164,24 @@
             <input type="hidden" id="h" name="h"/>
         </form>
     </div>
+</script>
+
+<script>
+    $(function () {
+        $.ajax({
+            url:ctx+"/user/info",
+            data:"",
+            type:get,
+            dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+            contentType:"application/json",
+            "success" :function(user){
+                alert(user);
+            },
+            error:function(e){
+               // swal("添加用户失败！", "请稍后尝试！", "error");
+
+            }
+        })
+    })
 </script>
 

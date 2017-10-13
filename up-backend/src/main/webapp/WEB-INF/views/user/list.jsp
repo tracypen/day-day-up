@@ -280,5 +280,16 @@
     });
 
 </script>
+<script>
+    $("#addLi").click(function(){
+       // $("#addForm").form("clear")
+
+        $(':input','#addForm')
+            .not(':button, :submit, :reset, :hidden')
+            .val('')
+            .removeAttr('checked')
+            .removeAttr('selected');
+    })
+</script>
 </body>
 </html>

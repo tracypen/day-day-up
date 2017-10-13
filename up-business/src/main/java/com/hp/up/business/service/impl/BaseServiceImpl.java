@@ -93,7 +93,8 @@ public abstract class BaseServiceImpl <E extends BaseEntity> implements BaseServ
         }
     }
 
-   // @CachePut(value = "e:entity", key = "#entity.id")
+    //@CachePut(value = "resourceCache", key = "#entity.id")
+    @CacheEvict(value = { "resourceCache"}, key = "#entity.id", condition = "#entity.id gt 0",beforeInvocation=true)
     public E update(E entity) {
         entity.beforUpdate();
         if (entity.getModifyDate() == null) {
