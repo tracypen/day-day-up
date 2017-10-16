@@ -1,4 +1,5 @@
 # day-day-up
+![](http://wx2.sinaimg.cn/mw690/005QOldSly1fkk2wqy9z6j31hc0s1tdh.jpg)
 ## 项目简介
 - 1.基于SSM、maven搭建的web项目(包括前台后台)
 - 2.集成Apache shiro权限管理框架 
