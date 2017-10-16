@@ -20,8 +20,8 @@
         <ul class="nav" id="side-menu">
             <li class="nav-header">
                 <div class="dropdown profile-element">
-                    <%--<span><img alt="image" class="img-circle" src="${ctx}/file/download?action=avatar"/></span>--%>
-                    <span><img alt="image" class="img-circle" src="${user.name}"/></span>
+                    <span><img alt="image" class="img-circle" src="" id="headImg"/></span>
+                    <%--<span><img alt="image" class="img-circle" src="${user.name}"/></span>--%>
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="clear">
                                <span class="block m-t-xs"><strong class="font-bold">
@@ -49,13 +49,13 @@
             </li>
 
 
-            <li>
+            <li class="active">
                 <a href="#">
                     <i class="fa fa-home"></i>
                     <span class="nav-label">系统管理</span>
                     <span class="fa arrow"></span>
                 </a>
-                <ul class="nav nav-second-level">
+                <ul class="nav nav-second-level" >
                     <li>
                         <a class="J_menuItem" href="${ctx}/user">用户管理</a>
                     </li>
@@ -167,21 +167,21 @@
 </script>
 
 <script>
-    $(function () {
-        $.ajax({
-            url:ctx+"/user/info",
-            data:"",
-            type:get,
-            dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
-            contentType:"application/json",
-            "success" :function(user){
-                alert(user);
-            },
-            error:function(e){
-               // swal("添加用户失败！", "请稍后尝试！", "error");
+    $.ajax({
+        async:true,
+        "type" : "get",
+        "url" : ctx + '/file/headImg',
+        "data" :  "",
+        dataType:'text',    //返回的数据格式：json/xml/html/script/jsonp/text
+        contentType:"application/json",
+        "success" :function(msg){
+            $("#headImg").attr("src", msg);
+        },
+        error:function(){
+          //  swal("添加用户失败！", "请稍后尝试！", "error");
 
-            }
-        })
-    })
+        }
+    });
 </script>
+
 

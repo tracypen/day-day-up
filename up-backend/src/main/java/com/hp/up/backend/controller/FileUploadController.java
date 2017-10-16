@@ -14,6 +14,7 @@ import com.qiniu.storage.UploadManager;
 import com.qiniu.storage.model.DefaultPutRet;
 import com.qiniu.util.Auth;
 import com.qiniu.util.StringMap;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,9 +40,13 @@ import java.util.UUID;
 @RequestMapping("/file")
 public class FileUploadController extends BaseController {
 
+    //默认头像地址
+    public static final String DEFAULT_HEAD_URL = "http://oxqtfspj0.bkt.clouddn.com/DEFAULT_HEAD_URL.png";
+
+    //七牛外链默认域名
     public static final String OUT_URL = "http://oxqtfspj0.bkt.clouddn.com/";
 
-    //设置好账号的ACCESS_KEY和SECRET_KEY
+    //七牛云账号的ACCESS_KEY和SECRET_KEY
     private String ACCESS_KEY = "8RqeDjBEXVPK_ydlSiNTkXoi9SBsF-tBPJ21PtNS"; //这两个登录七牛 账号里面可以找到
     private String SECRET_KEY = "pRkEFX-RSIWLY93Kd1NostyIA68p7s42LBMqzRpG";
 
@@ -105,34 +110,34 @@ public class FileUploadController extends BaseController {
                 //一次遍历所有文件
                 MultipartFile multipartFile = multiRequest.getFile(iterator.next().toString());
                 if (multipartFile != null) {
-                    String[] allowSuffix = {".jpg",".JPG"};
+                    String[] allowSuffix = {".jpg", ".JPG"};
                     if (!FileTools.checkSuffix(multipartFile.getOriginalFilename(), allowSuffix)) {
                         logger.error("文件后缀名不符合要求！");
-                       // throw new BusinessException("文件后缀名不符合要求！");
+                        // throw new BusinessException("文件后缀名不符合要求！");
                     }
-                   String uuidFileName = getFileName() + "_" + multipartFile.getOriginalFilename();
-                   // path = filePath + FileTools.getPortraitFileName(uuidFileName);
-                    path = filePath +"\\"+ uuidFileName;
-                     //path = request.getSession().getServletContext().getRealPath("upload");
+                    String uuidFileName = getFileName() + "_" + multipartFile.getOriginalFilename();
+                    // path = filePath + FileTools.getPortraitFileName(uuidFileName);
+                    path = filePath + "\\" + uuidFileName;
+                    //path = request.getSession().getServletContext().getRealPath("upload");
                     //存入硬盘
-                   // MultipartFile file =  multiRequest.getFile(iterator.next().toString());
-                   //String  fileName = getFileName() + "_" + file.getOriginalFilename();
+                    // MultipartFile file =  multiRequest.getFile(iterator.next().toString());
+                    //String  fileName = getFileName() + "_" + file.getOriginalFilename();
                     multipartFile.transferTo(new File(path));
                     //图片截取
                     if (FileTools.imgCut(path, x, y, w, h, sw, sh)) {
                         CompressTools compressTools = new CompressTools();
                         if (compressTools.simpleCompress(new File(path))) {
-                           // return JsonResult.success(FileTools.filePathToSRC(path, FileTools.IMG));
+                            // return JsonResult.success(FileTools.filePathToSRC(path, FileTools.IMG));
                             //上传至七牛云服务器
                             upload(path);
-                            return  super.getJsonResponseEntity(Boolean.TRUE);
+                            return super.getJsonResponseEntity(Boolean.TRUE);
                         } else {
-                           // return JsonResult.error("图片压缩失败！请重新上传！");
-                            return  super.getJsonResponseEntity(Boolean.TRUE);
+                            // return JsonResult.error("图片压缩失败！请重新上传！");
+                            return super.getJsonResponseEntity(Boolean.TRUE);
                         }
                     } else {
-                      //  return JsonResult.error("图片截取失败！请重新上传！");
-                        return  super.getJsonResponseEntity(Boolean.TRUE);
+                        //  return JsonResult.error("图片截取失败！请重新上传！");
+                        return super.getJsonResponseEntity(Boolean.TRUE);
                     }
                 }
             }
@@ -235,8 +240,8 @@ public class FileUploadController extends BaseController {
      * file download
      */
     @RequestMapping("/download")
-    public void down(HttpServletRequest request, HttpServletResponse response, String fileName,String action) throws Exception {
-        if(null == fileName && null != action){
+    public void down(HttpServletRequest request, HttpServletResponse response, String fileName, String action) throws Exception {
+        if (null == fileName && null != action) {
             //获取用户头像路径
             fileName = super.getCurrentUser().getAvatar();
         }
@@ -262,9 +267,25 @@ public class FileUploadController extends BaseController {
     }
 
 
+    /**
+     * get user head img
+     */
+    @RequestMapping("/headImg")
+    @ResponseBody
+    public String getUserImg(HttpServletRequest request, HttpServletResponse response, String fileName, String action) throws Exception {
+
+        User currentUser = super.getCurrentUser();
+        if (null != currentUser && StringUtils.isNotBlank(currentUser.getAvatar())) {
+            return currentUser.getAvatar();
+        }
+        return DEFAULT_HEAD_URL;
+    }
+
+
     public String getFileName() {
         return UUID.randomUUID().toString().replaceAll("-", "");
     }
+
     void saveUserImageInfo(String fileName) {
         User user = new User();
         user.setId(super.getCurrentUser().getId());
@@ -309,7 +330,6 @@ public class FileUploadController extends BaseController {
             }
         }
     }
-
 
 
 }
