@@ -69,3 +69,144 @@ DataProp_0=id
  http://www.sojson.com/other/music.html
  天气
  http://www.sojson.com/blog/234.html
+ 
+ 
+ 
+ 
+ 
+ 
+
+<%@ taglib uri="http://shiro.apache.org/tags" prefix="shiro" %>
+
+<!--securityManage-->
+  <!-- 安全管理器 -->
+  <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+      <property name="realm" ref="customRealm" />
+
+      <!--注入缓存管理器-->
+      <property name="cacheManager" ref="cacheManager"/>
+
+      <!--注入会话管理器-->
+      <property name="sessionManager" ref="sessionManager" />
+  </bean>
+
+  <property name="hashAlgorithmName" value="md5"/>指定hash算法为MD5；  
+  <property name="hashIterations" value="2"/>指定散列次数为2次；
+  <pre name="code" class="html"><property name="storedCredentialsHexEncoded"
+   value="true"/>指定Hash散列值使用Hex加密存储。
+  value="false"表明hash散列值用用Base64-encoded存储。
+  
+ 
+ 
+ //获取第1页，10条内容，默认查询总数count
+ PageHelper.startPage(1, 10);
+ List<Country> list = countryMapper.selectAll();
+ //用PageInfo对结果进行包装
+ PageInfo page = new PageInfo(list);
+ //测试PageInfo全部属性
+ //PageInfo包含了非常全面的分页属性
+ assertEquals(1, page.getPageNum());
+ assertEquals(10, page.getPageSize());
+ assertEquals(1, page.getStartRow());
+ assertEquals(10, page.getEndRow());
+ assertEquals(183, page.getTotal());
+ assertEquals(19, page.getPages());
+ assertEquals(1, page.getFirstPage());
+ assertEquals(8, page.getLastPage());
+ assertEquals(true, page.isFirstPage());
+ assertEquals(false, page.isLastPage());
+ assertEquals(false, page.isHasPreviousPage());
+ assertEquals(true, page.isHasNextPage());
+ 
+ 
+ 
+ 学习目标
+ 1.https://git.oschina.net/hawawa/easyui-rbac.git  crm基于springboot搭建的权限管理系统
+ 
+ 2.https://git.oschina.net/hawawa/WhereURP.git easyui+shiro搭建的权限管理系统
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 	<select id="findRoleByIds" resultMap="RolePermissionResult" parameterType="list">
+ 		select 
+ 		r.id rid,
+ 		r.name,
+ 		r.role,
+ 		r.description,
+ 		r.is_show,
+ 		
+ 		p.id pid,
+ 		p.role_id,
+ 		p.resource_id,
+ 		p.permission_ids
+ 
+ 		from t_role r left outer join
+ 		t_role_resource_permission p on r.id = p.role_id where r.id in
+ 		<foreach collection="list" index="index" close=")" item="item" open="(" separator=",">#{item}</foreach>
+ 
+ 	</select>
+ 	
+ 		<resultMap type="Role" id="RolePermissionResult" extends="RoleResult">
+    		<collection property="resourcePermissions" ofType="RoleResourcePermission">
+    			<id property="id" column="pid"/>
+    			<result property="resourceId" column="resource_id" />
+    			<result property="permissionIds" column="permission_ids"/>
+    			<association property="role" javaType="Role" />
+    		</collection> 
+    	</resultMap>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <div class="row J_mainContent" id="content-main">
+ 
+ 
+ 
+ 
+ 
+ 
+ 模态窗
+ 
+  <script>var ctx = '${ctx}', uid = '${user.id}', is_logined = '${status}';</script>
+ 
+ <script type="text/javascript">
+ 
+     if (is_logined) {
+         $("#loginModal").modal('show');
+         setTimeout(function(){
+             $("#loginModal").modal('hide');
+         },1000)
+     }
+ 
+ </script>
+ 
+ <!-- Modal -->
+ <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+     <div class="modal-dialog" role="document">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                 </button>
+                 <h4 class="modal-title" id="myModalLabel">提示</h4>
+             </div>
+             <div class="modal-body">
+                您已登录！
+             </div>
+           <%--  <div class="modal-footer">
+                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                 <button type="button" class="btn btn-primary">Save changes</button>
+             </div>--%>
+         </div>
+     </div>
+ </div>
+ 
