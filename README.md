@@ -31,10 +31,15 @@
 - 持久层框架：Mybatis（mybatis-plus）
 - 数据库连接池：Alibaba Druid 1.0.29
 
+#####项目截图
+![avatar](http://oxwfiudhp.bkt.clouddn.com/up.jpg)
+
 欢迎进群交流
 #### 点击加入QQ群[245682819](https://jq.qq.com/?_wv=1027&k=47ErLEy)
 
 我的[博客](https://youbatis.github.io/)
+
+
 
 
  
