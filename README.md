@@ -11,6 +11,7 @@
 - 8.elasticsearch 全文搜索引擎
 - 9.datatable  表格插件
 - 10.POI Excel导入导出
+- 11.七牛云文件上传
 
 
 ## 模块说明
