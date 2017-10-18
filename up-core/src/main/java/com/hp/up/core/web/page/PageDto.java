@@ -57,4 +57,8 @@ public class PageDto implements Serializable{
     public void setiDisplayLength(int iDisplayLength) {
         this.iDisplayLength = iDisplayLength;
     }
+
+    public void setPageNum(int pageNum) {
+        this.pageNum = pageNum;
+    }
 }

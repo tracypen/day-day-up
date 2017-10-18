@@ -36,7 +36,7 @@
 
                 <div class="tab-content" id="optionDiv">
                     <%--list div start--%>
-                    <div id="tab-1" class="tab-pane active">
+                    <div id="tab-1" class="tab-pane active" >
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="ibox float-e-margins">
@@ -94,7 +94,7 @@
 
                                         <br/><br/>
                                         <table class="table table-striped table-bordered table-hover dataTables-example"
-                                               id="list">
+                                               id="list" >
                                             <thead>
                                             <tr>
                                                 <th>id</th>

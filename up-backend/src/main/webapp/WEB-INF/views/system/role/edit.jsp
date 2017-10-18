@@ -67,6 +67,7 @@
 <script>
     $().ready(function() {
         $("#roleForm").validate({
+            onfocusout:function(element){$(element).valid();},
             submitHandler:function(form){
                 swal({
                     title: "您确定要提交该操作吗",

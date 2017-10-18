@@ -48,6 +48,7 @@ public class SystemLogController extends BaseController<SystemLog>{
                                        @RequestParam(value = "end_time",required = false) String end_time){
 
         convertQueryDate(systemLog,start_time,end_time);
+        pageDto.setiDisplayLength(8);
         PagingList<SystemLog> systemLogList = systemLogService.getSystemLogPage(pageDto,convertQueryDate(systemLog,start_time,end_time));
 
         return convert2DatatablesJson(systemLogList);

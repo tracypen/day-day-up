@@ -166,7 +166,7 @@ var roleTable = function () {
                 }
             },
             callback: {
-               // onCheck: onCheck,
+              //  onCheck: onCheck,
                 onClick: zTreeOnClick
             }
         };

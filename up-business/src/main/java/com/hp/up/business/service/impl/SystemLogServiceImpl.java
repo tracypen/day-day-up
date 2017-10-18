@@ -103,6 +103,7 @@ public class SystemLogServiceImpl extends BaseServiceImpl<SystemLog> implements 
             }
         }
         return String.format(LOG_CONTENT, className, methodName, bf.toString(), ip);
+        //return String.format(LOG_CONTENT, className, "", "", ip);
     }
 
     @Override

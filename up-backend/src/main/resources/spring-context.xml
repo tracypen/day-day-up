@@ -14,8 +14,8 @@
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
-                <value>classpath*:config/dev/db.properties</value>
-                <value>classpath*:config/dev/application.properties</value>
+                <value>classpath*:config/${profile.active}/db.properties</value>
+                <value>classpath*:config/${profile.active}/application.properties</value>
             </list>
         </property>
         <property name="ignoreUnresolvablePlaceholders" value="true"/>
@@ -29,7 +29,7 @@
           class="org.springframework.beans.factory.config.PropertiesFactoryBean">
         <property name="locations">
             <list>
-                <value>classpath*:config/dev/application.properties</value>
+                <value>classpath*:config/${profile.active}/application.properties</value>
             </list>
         </property>
         <!-- 设置编码格式 -->
