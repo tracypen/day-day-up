@@ -122,7 +122,11 @@ public class FileUploadController extends BaseController {
                     //存入硬盘
                     // MultipartFile file =  multiRequest.getFile(iterator.next().toString());
                     //String  fileName = getFileName() + "_" + file.getOriginalFilename();
-                    multipartFile.transferTo(new File(path));
+                    File dir = new File(path);
+                    if (!dir.exists()) {
+                        dir.mkdirs();
+                    }
+                    multipartFile.transferTo(dir);
                     //图片截取
                     if (FileTools.imgCut(path, x, y, w, h, sw, sh)) {
                         CompressTools compressTools = new CompressTools();
