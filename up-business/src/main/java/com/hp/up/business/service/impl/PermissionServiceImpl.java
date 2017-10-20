@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * @Author haopeng
+ * @author haopeng
  * @Date 2017/9/11 17:36
  */
 @Service
@@ -43,6 +43,7 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission> implement
     // 所有的操作权限
     private List<Permission> permissionAll = null;
 
+    @Override
     public Set<String> getStringPermissions(User user) {
 
         //后期优化加入缓存
@@ -91,7 +92,12 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission> implement
 
     }
 
-    // 通过resourceID获取资源
+    /**
+     * 通过resourceID获取资源
+     * @param resource
+     * @param id
+     * @return
+     */
     private SystemResource getResourceById(List<SystemResource> resource, Long id) {
         if (null == id || null == resource || resource.size() == 0) {
             return null;
@@ -107,7 +113,11 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission> implement
     }
 
 
-    // 获取资源标识
+    /**
+     * 获取资源标识
+     * @param resource
+     * @return
+     */
     private String getIdentity(SystemResource resource) {
         if (resource == null) {
             return null;
@@ -149,7 +159,11 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission> implement
     }
 
 
-    // 通过resourceID获取资源
+    /**
+     * 通过resourceID获取资源
+     * @param id
+     * @return
+     */
     private SystemResource getSystemResourceById(Long id) {
         SystemResource resource = getResourceById(resourceAll, id);
         if (resource != null && StringUtils.isNotBlank(resource.getPermissions())) {
@@ -165,7 +179,12 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission> implement
     }
 
 
-    // 通过permissionID获取操作权限
+    /**
+     * 通过permissionID获取操作权限
+     * @param permission
+     * @param id
+     * @return
+     */
     private Permission getPermissionById(List<Permission> permission, Long id) {
         if (null == id || null == permission || permission.size() == 0) {
             return null;
@@ -180,8 +199,12 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission> implement
         return returnPermission;
     }
 
-
-    // 通过resource parentID获取资源
+    /**
+     * 通过resource parentID获取资源
+     * @param resource
+     * @param id
+     * @return
+     */
     private Set<SystemResource> getResourceByParentId(List<SystemResource> resource, Long id) {
         if (null == id || null == resource || resource.size() == 0) {
             return null;
@@ -197,6 +220,7 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission> implement
     }
 
 
+    @Override
     public void afterPropertiesSet() throws Exception {
 
         super.baseRepository = permissionRepository;

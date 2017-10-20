@@ -25,7 +25,7 @@
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="clear">
                                <span class="block m-t-xs"><strong class="font-bold">
-                                 <shiro:principal type="com.hp.up.backend.shiro.UserShiro" defaultValue="Mcgrady"
+                                 <shiro:principal type="com.hp.up.core.web.shiro.UserShiro" defaultValue="Mcgrady"
                                                   property="name"></shiro:principal></strong></span>
                                 <span class="text-muted text-xs block">管理员<b class="caret"></b></span>
                                 </span>

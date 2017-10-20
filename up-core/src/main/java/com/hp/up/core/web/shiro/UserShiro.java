@@ -59,14 +59,24 @@ public class UserShiro {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof UserShiro)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof UserShiro)) {
+            return false;
+        }
 
         UserShiro userShiro = (UserShiro) o;
 
-        if (id != null ? !id.equals(userShiro.id) : userShiro.id != null) return false;
-        if (name != null ? !name.equals(userShiro.name) : userShiro.name != null) return false;
-        if (password != null ? !password.equals(userShiro.password) : userShiro.password != null) return false;
+        if (id != null ? !id.equals(userShiro.id) : userShiro.id != null) {
+            return false;
+        }
+        if (name != null ? !name.equals(userShiro.name) : userShiro.name != null) {
+            return false;
+        }
+        if (password != null ? !password.equals(userShiro.password) : userShiro.password != null) {
+            return false;
+        }
         return realName != null ? realName.equals(userShiro.realName) : userShiro.realName == null;
     }
 

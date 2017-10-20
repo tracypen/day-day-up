@@ -1,7 +1,9 @@
 package com.hp.up.backend.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.hp.up.business.service.SystemLogService;
 import com.hp.up.core.Entity.SystemLog;
+import com.hp.up.core.common.Constants;
 import com.hp.up.core.web.page.PageDto;
 import com.hp.up.core.web.page.PagingList;
 import org.apache.commons.lang3.StringUtils;
@@ -16,8 +18,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
+
+import static com.hp.up.core.common.Constants.DATE_FORMAT_SIMPLE;
 
 /**
  * systemLogController
@@ -28,7 +30,7 @@ import java.util.List;
 @RequestMapping("/system/log")
 public class SystemLogController extends BaseController<SystemLog>{
     private static Logger logger = LoggerFactory.getLogger(LoginController.class);
-    private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
 
     @Autowired
     SystemLogService systemLogService;
@@ -50,12 +52,15 @@ public class SystemLogController extends BaseController<SystemLog>{
         convertQueryDate(systemLog,start_time,end_time);
         pageDto.setiDisplayLength(8);
         PagingList<SystemLog> systemLogList = systemLogService.getSystemLogPage(pageDto,convertQueryDate(systemLog,start_time,end_time));
-
+        logger.info(Constants.LOGPREFIX + "系统日子列表:{}",JSONObject.toJSONString(systemLogList));
         return convert2DatatablesJson(systemLogList);
     }
 
 
     private SystemLog convertQueryDate(SystemLog systemLog,String start_time,String end_time) {
+
+          SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT_SIMPLE);
+
         try {
             if (StringUtils.isNotBlank(start_time)){
 

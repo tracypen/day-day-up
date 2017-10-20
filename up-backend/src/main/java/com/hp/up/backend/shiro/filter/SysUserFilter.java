@@ -44,6 +44,7 @@ public class SysUserFilter extends AccessControlFilter {
         return true;
     }
 
+    @Override
     protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) throws Exception {
         User user = (User) request.getAttribute(Constants.CURRENT_USER);
         if (user == null) {
@@ -58,6 +59,7 @@ public class SysUserFilter extends AccessControlFilter {
         return true;
     }
 
+    @Override
     protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
         getSubject(request, response).logout();
         saveRequestAndRedirectToLogin(request, response);

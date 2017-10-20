@@ -129,3 +129,18 @@
     <a href="${ctx}/logout.action" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i>
         退出</a>
 </div>
+
+<div class="row" id="infoSwitch">
+    <blockquote class="layui-elem-quote col-md-12 head-con">
+        <div>尊敬的${user.name}<span id="weather"></span></div>
+        <i class="larry-icon larry-guanbi close" id="closeInfo"></i>
+    </blockquote>
+</div>
+<link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_bmgv5kod196q1tt9.css">
+<link href="${ctx}/static/css/main.css?v=3.3.5" rel="stylesheet">
+
+<script>
+    // header信息
+    $('#weather').leoweather({format:'，{时段}好！<span id="colock">现在时间是：<strong>{年}年{月}月{日}日 星期{周} {时}:{分}:{秒}</strong>，</span> <b>{城市}天气</b> {天气} {夜间气温}℃ ~ {白天气温}℃'});
+    $('#closeInfo').on('click',function(){$('#infoSwitch').hide();});
+</script>

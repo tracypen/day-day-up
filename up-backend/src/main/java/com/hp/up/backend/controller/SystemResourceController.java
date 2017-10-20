@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @Author haopeng
@@ -131,7 +132,7 @@ public class SystemResourceController extends BaseController<SystemResource> {
         boolean checked = Boolean.FALSE;
         if (null != permissionsHave && permissionsHave.size() > 0) {
             for (Permission perm : permissionsHave) {
-                if (permission.getId() == perm.getId()) {
+                if (Objects.equals(permission.getId(), perm.getId())) {
                     checked = Boolean.TRUE;
                     break;
                 }

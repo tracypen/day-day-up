@@ -442,8 +442,9 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
         int hour = 0;
         int minute = 0;
         int second = 0;
-        if (time <= 0)
+        if (time <= 0) {
             return "00:00";
+        }
         else {
             minute = time / 60;
             if (minute < 60) {
@@ -451,8 +452,9 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
                 timeStr = unitFormat(minute) + ":" + unitFormat(second);
             } else {
                 hour = minute / 60;
-                if (hour > 99)
+                if (hour > 99) {
                     return "99:59:59";
+                }
                 minute = minute % 60;
                 second = time - hour * 3600 - minute * 60;
                 timeStr = unitFormat(hour) + ":" + unitFormat(minute) + ":" + unitFormat(second);
@@ -463,10 +465,11 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 
     public static String unitFormat(int i) {
         String retStr = null;
-        if (i >= 0 && i < 10)
+        if (i >= 0 && i < 10) {
             retStr = "0" + Integer.toString(i);
-        else
+        } else {
             retStr = "" + i;
+        }
         return retStr;
     }
 
@@ -494,7 +497,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
     public static String getBetweenTime(Date sourceDate) {
 
         if (null != sourceDate) {
-            long l = new Date().getTime() - sourceDate.getTime();
+            long l = System.currentTimeMillis() - sourceDate.getTime();
             long day = l / (24 * 60 * 60 * 1000);
             long hour = (l / (60 * 60 * 1000) - day * 24);
             long min = ((l / (60 * 1000)) - day * 24 * 60 - hour * 60);

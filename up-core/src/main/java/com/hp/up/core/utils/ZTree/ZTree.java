@@ -152,20 +152,42 @@ public class ZTree<ID extends Serializable> implements Serializable {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof ZTree)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof ZTree)) {
+            return false;
+        }
 
         ZTree<?> zTree = (ZTree<?>) o;
 
-        if (open != zTree.open) return false;
-        if (root != zTree.root) return false;
-        if (isParent != zTree.isParent) return false;
-        if (nocheck != zTree.nocheck) return false;
-        if (preOpen != zTree.preOpen) return false;
-        if (checked != zTree.checked) return false;
-        if (id != null ? !id.equals(zTree.id) : zTree.id != null) return false;
-        if (pId != null ? !pId.equals(zTree.pId) : zTree.pId != null) return false;
-        if (name != null ? !name.equals(zTree.name) : zTree.name != null) return false;
+        if (open != zTree.open) {
+            return false;
+        }
+        if (root != zTree.root) {
+            return false;
+        }
+        if (isParent != zTree.isParent) {
+            return false;
+        }
+        if (nocheck != zTree.nocheck) {
+            return false;
+        }
+        if (preOpen != zTree.preOpen) {
+            return false;
+        }
+        if (checked != zTree.checked) {
+            return false;
+        }
+        if (id != null ? !id.equals(zTree.id) : zTree.id != null) {
+            return false;
+        }
+        if (pId != null ? !pId.equals(zTree.pId) : zTree.pId != null) {
+            return false;
+        }
+        if (name != null ? !name.equals(zTree.name) : zTree.name != null) {
+            return false;
+        }
         return iconSkin != null ? iconSkin.equals(zTree.iconSkin) : zTree.iconSkin == null;
     }
 

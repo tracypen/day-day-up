@@ -25,5 +25,7 @@ public interface Constants {
 
     String PAGE_DTAA = "pagination";
 
+    String  DATE_FORMAT_SIMPLE = "yyyy-MM-dd HH:mm:ss";
+
 
 }

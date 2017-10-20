@@ -13,6 +13,7 @@ import java.io.IOException;
  * Created by haopeng on 2017/9/3  21:36.
  */
 public class ShiroExceptionHandler implements HandlerExceptionResolver {
+    @Override
     public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object o, Exception ex) {
         //输出异常
         ex.printStackTrace();
