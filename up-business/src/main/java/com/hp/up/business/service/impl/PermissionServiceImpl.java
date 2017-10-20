@@ -37,10 +37,14 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission> implement
     @Autowired
     private RoleRepository roleRepository;
 
-    // 所有的资源
+    /**
+     * 所有的资源
+     */
     private List<SystemResource> resourceAll = null;
 
-    // 所有的操作权限
+    /**
+     * 所有的操作权限
+     */
     private List<Permission> permissionAll = null;
 
     @Override

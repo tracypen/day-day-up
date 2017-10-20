@@ -4,12 +4,19 @@ import com.hp.up.core.enums.ResponseStatus;
 
 /**
  * com.hp.up.backend.shiro.Exception
- * Created by haopeng on 2017/9/3  21:35.
+ *
+ * @author haopeng
+ * @date 2017/9/3  21:35
  */
 public class ShiroException extends Exception{
 
+    /**
+     * 异常码
+     */
     private Integer code;
-    //异常信息
+    /**
+     * 异常信息
+     */
     private String message;
 
 

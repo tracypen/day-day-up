@@ -23,7 +23,7 @@ import static com.hp.up.core.common.Constants.DATE_FORMAT_SIMPLE;
 
 /**
  * systemLogController
- * @Author haopeng
+ * @author haopeng
  * @Date 2017/9/27 15:47
  */
 @Controller

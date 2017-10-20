@@ -10,7 +10,9 @@ import java.io.IOException;
 
 /**
  * com.hp.up.backend.shiro.Exception
- * Created by haopeng on 2017/9/3  21:36.
+ *
+ * @author haopeng
+ * @date 2017/9/3  21:36
  */
 public class ShiroExceptionHandler implements HandlerExceptionResolver {
     @Override
