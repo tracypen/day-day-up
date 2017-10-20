@@ -3,7 +3,6 @@ package com.hp.up.business.service.impl;
 import com.google.common.collect.Lists;
 import com.hp.up.business.repository.PermissionRepository;
 import com.hp.up.business.repository.SystemResourceRepository;
-import com.hp.up.business.service.RoleService;
 import com.hp.up.business.service.SystemResourceService;
 import com.hp.up.core.Entity.Menu;
 import com.hp.up.core.Entity.Permission;
@@ -28,10 +27,12 @@ public class SystemResourceServiceImpl extends BaseServiceImpl<SystemResource> i
     @Autowired
     private PermissionRepository permissionRepository;
 
+    @Override
     public String getIdentity(SystemResource resource) {
         return null;
     }
 
+    @Override
     public List<Menu> findMenus(User user) {
         return null;
     }
@@ -48,6 +49,7 @@ public class SystemResourceServiceImpl extends BaseServiceImpl<SystemResource> i
     }
 
 
+    @Override
     public void afterPropertiesSet() throws Exception {
         super.baseRepository = systemResourceRepository;
     }

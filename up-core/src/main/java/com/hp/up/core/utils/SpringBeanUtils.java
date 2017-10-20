@@ -40,6 +40,7 @@ public final class SpringBeanUtils implements BeanFactoryPostProcessor {
         return beanFactory.getAliases(name);
     }
 
+    @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
         SpringBeanUtils.beanFactory = beanFactory;
     }

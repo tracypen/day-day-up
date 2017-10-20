@@ -35,6 +35,7 @@ public class DictionaryTypeServiceImpl extends BaseServiceImpl<DictionaryType> i
      * @param dictionaryType condition
      * @return pageList
      */
+    @Override
     public PagingList<DictionaryType> getDictionaryTypePage(PageDto pageDto, DictionaryType dictionaryType) {
 
         PageHelper.startPage(pageDto.getPageNum(), pageDto.getiDisplayLength());
@@ -46,6 +47,7 @@ public class DictionaryTypeServiceImpl extends BaseServiceImpl<DictionaryType> i
         return new PagingList<DictionaryType>(dictionaryTypeList, pageInfo);
     }
 
+    @Override
     @Transactional
     @Log(module = "系统字典类型", description = "删除字典类型")
     public int deleteById(Long id) {
@@ -57,6 +59,7 @@ public class DictionaryTypeServiceImpl extends BaseServiceImpl<DictionaryType> i
         return dictionaryTypeRepository.deleteById(id);
     }
 
+    @Override
     public void afterPropertiesSet() throws Exception {
 
         super.baseRepository = dictionaryTypeRepository;

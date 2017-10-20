@@ -23,10 +23,12 @@ public enum BooleanType implements EnumIntegerValue {
         this.info = info;
     }
 
+    @Override
     public int getValue() {
         return value;
     }
 
+    @Override
     public String getInfo() {
         return info;
     }

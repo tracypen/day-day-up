@@ -15,8 +15,6 @@ public interface UserRepository extends BaseRepository<User>{
 
     public User findUserByName(@Param("name") String name);
 
-    public int remove(Long id);
-
     public int updateLastLoginTime(Long id);
 
     public List<User> getUsers(User user);

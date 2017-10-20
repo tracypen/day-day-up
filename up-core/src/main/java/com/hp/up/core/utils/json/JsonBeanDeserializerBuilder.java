@@ -25,6 +25,7 @@ public class JsonBeanDeserializerBuilder extends BeanDeserializerBuilder {
         super(src);
     }
 
+    @Override
     public JsonDeserializer<?> build() {
         Collection<SettableBeanProperty> props = this._properties.values();
         BeanPropertyMap propertyMap = new BeanPropertyMap(this._caseInsensitivePropertyComparison, props);

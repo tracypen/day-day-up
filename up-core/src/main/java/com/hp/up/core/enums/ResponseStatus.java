@@ -82,10 +82,12 @@ public enum ResponseStatus implements Status {
 
     // private volatile MessageMapper messageMapper = MessageMapper.getInstance();
 
+    @Override
     public Integer getCode() {
         return this.code;
     }
 
+    @Override
     public String getReason() {
         return this.reason;
     }

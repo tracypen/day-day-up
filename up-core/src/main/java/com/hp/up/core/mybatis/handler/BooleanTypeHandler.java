@@ -14,10 +14,12 @@ import java.sql.SQLException;
  */
 public class BooleanTypeHandler implements TypeHandler<Boolean> {
 
+	@Override
 	public void setParameter(PreparedStatement ps, int i, Boolean parameter, JdbcType jdbcType) throws SQLException {
 		ps.setString(i, parameter ? "1" : "0");
 	}
 
+	@Override
 	public Boolean getResult(ResultSet rs, String columnName) throws SQLException {
 		String str = rs.getString(columnName);
 		Boolean result = Boolean.FALSE;
@@ -27,6 +29,7 @@ public class BooleanTypeHandler implements TypeHandler<Boolean> {
 		return result;
 	}
 
+	@Override
 	public Boolean getResult(ResultSet rs, int columnIndex) throws SQLException {
 		String str = rs.getString(columnIndex);
 		Boolean result = Boolean.FALSE;
@@ -36,6 +39,7 @@ public class BooleanTypeHandler implements TypeHandler<Boolean> {
 		return result;
 	}
 
+	@Override
 	public Boolean getResult(CallableStatement cs, int columnIndex) throws SQLException {
 		return cs.getBoolean(columnIndex);
 	}

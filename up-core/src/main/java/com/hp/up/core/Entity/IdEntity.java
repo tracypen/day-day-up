@@ -14,14 +14,17 @@ public class IdEntity extends BaseEntity {
     public IdEntity() {
     }
 
+    @Override
     public Long getId() {
         return this.id;
     }
 
+    @Override
     public void setId(Long id) {
         this.id = id;
     }
 
+    @Override
     public int hashCode() {
         int result = super.hashCode();
         result = 31 * result + (this.createBy == null?0:this.createBy.hashCode());
@@ -32,6 +35,7 @@ public class IdEntity extends BaseEntity {
         return result;
     }
 
+    @Override
     public boolean equals(Object obj) {
         if(this == obj) {
             return true;

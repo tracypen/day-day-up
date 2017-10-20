@@ -30,6 +30,7 @@ public class UserAuthRealm extends AuthorizingRealm {
     @Autowired
     private PermissionService permissionService;
 
+    @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 
         UsernamePasswordToken usernamePasswordToken = (UsernamePasswordToken) token;
@@ -37,8 +38,8 @@ public class UserAuthRealm extends AuthorizingRealm {
         User user = userService.getUserByName(usernamePasswordToken.getUsername());
 
         if (user == null) {
-
-            throw new UnknownAccountException();//没找到帐号
+            //没找到帐号
+            throw new UnknownAccountException();
 
         }
 
@@ -53,6 +54,7 @@ public class UserAuthRealm extends AuthorizingRealm {
         return authInfo;
     }
 
+    @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
 
         UserShiro userShiro = (UserShiro) principals;

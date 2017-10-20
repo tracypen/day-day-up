@@ -24,18 +24,21 @@ public class DictionaryServiceImpl extends BaseServiceImpl<Dictionary> implement
     @Autowired
     DictionaryRepository dictionaryRepository;
 
+    @Override
     @Transactional
     @Log(module = "系统数据字典", description = "删除数据字典")
     public int deleteById(Long id) {
         return dictionaryRepository.deleteById(id);
     }
 
+    @Override
     @Transactional
     @Log(module = "系统数据字典", description = "添加数据字典")
     public int save(Dictionary dictionary){
        return dictionaryRepository.save(dictionary);
     }
 
+    @Override
     public PagingList<Dictionary> getDictionaryByTypeCode(PageDto pageDto, Dictionary dictionary) {
 
         PageHelper.startPage(pageDto.getPageNum(), pageDto.getiDisplayLength());
@@ -47,6 +50,7 @@ public class DictionaryServiceImpl extends BaseServiceImpl<Dictionary> implement
         return new PagingList<Dictionary>(dictionaryList, pageInfo);
     }
 
+    @Override
     public void afterPropertiesSet() throws Exception {
         super.baseRepository = dictionaryRepository;
     }

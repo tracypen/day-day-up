@@ -18,6 +18,7 @@ public class JsonBeanDeserializerFactory extends BeanDeserializerFactory {
         super(config);
     }
 
+    @Override
     protected BeanDeserializerBuilder constructBeanDeserializerBuilder(DeserializationContext ctxt, BeanDescription beanDesc) {
         return new JsonBeanDeserializerBuilder(beanDesc, ctxt.getConfig());
     }

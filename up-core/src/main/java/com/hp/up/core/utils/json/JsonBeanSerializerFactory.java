@@ -16,6 +16,7 @@ public class JsonBeanSerializerFactory extends BeanSerializerFactory {
         super(config);
     }
 
+    @Override
     protected BeanSerializerBuilder constructBeanSerializerBuilder(BeanDescription beanDesc) {
         return new JsonBeanSerializerBuilder(beanDesc);
     }

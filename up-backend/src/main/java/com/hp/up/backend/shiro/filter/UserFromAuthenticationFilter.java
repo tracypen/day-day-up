@@ -23,7 +23,7 @@ import java.util.Date;
  */
 public class UserFromAuthenticationFilter extends FormAuthenticationFilter {
 
-    public static final String DEFAULT_CAPTCHA_PARAM = "validateCode";
+    private static final String DEFAULT_CAPTCHA_PARAM = "validateCode";
 
     private static Logger logger = LoggerFactory.getLogger(UserFromAuthenticationFilter.class);
 
@@ -54,6 +54,7 @@ public class UserFromAuthenticationFilter extends FormAuthenticationFilter {
     /**
      * 登录成功后执行
      */
+    @Override
     protected boolean onLoginSuccess(AuthenticationToken token, Subject subject,
                                      ServletRequest request, ServletResponse response) throws Exception {
 

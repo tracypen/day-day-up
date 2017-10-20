@@ -39,6 +39,7 @@ public class RoleServiceImpl extends BaseServiceImpl<Role> implements RoleServic
     private PermissionService permissionService;
 
 
+    @Override
     public Set<String> getUserRoles(User user) {
 
         //后期添加redis缓存
@@ -58,10 +59,12 @@ public class RoleServiceImpl extends BaseServiceImpl<Role> implements RoleServic
 
     }
 
+    @Override
     public List<Role> getRolesByids(String ids) {
         return roleRepository.getRolesByids(ids);
     }
 
+    @Override
     public Set<Role> findRoles(User user) {
         Set<Role> resultSet = Sets.newHashSet();
         if (user != null) {
@@ -76,6 +79,7 @@ public class RoleServiceImpl extends BaseServiceImpl<Role> implements RoleServic
         return resultSet;
     }
 
+    @Override
     public List<Map<String, Object>> getResourceTree(Long roleId) {
         if (null == roleId || roleId < 1) {
             return null;
@@ -186,6 +190,7 @@ public class RoleServiceImpl extends BaseServiceImpl<Role> implements RoleServic
 
     }
 
+    @Override
     @Transactional
     @Log(module = "系统角色", description = "修改角色资源权限")
     public int updatRoleResourPermission(final Long roleId, final String resourcePermission) {
@@ -222,6 +227,7 @@ public class RoleServiceImpl extends BaseServiceImpl<Role> implements RoleServic
         return 0;
     }
 
+    @Override
     public void afterPropertiesSet() throws Exception {
 
         super.baseRepository = roleRepository;

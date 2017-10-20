@@ -27,12 +27,14 @@ public abstract class BaseServiceImpl <E extends BaseEntity> implements BaseServ
     protected BaseRepository<E> baseRepository;
 
 
+    @Override
     @Cacheable(value = "resourceCache", key = "#id", condition = "#id gt 0")
     public E getById(Long id) {
         logger.info(Constants.LOGPREFIX+ "query from database !");
         return baseRepository.get(id);
     }
 
+    @Override
     public List<E> getByIds(List<Long> ids) {
         List<E> entities = new LinkedList<E>();
         for (Long id : ids) {
@@ -44,15 +46,18 @@ public abstract class BaseServiceImpl <E extends BaseEntity> implements BaseServ
         return entities;
     }
 
+    @Override
     @Cacheable(value = "resourceCache", key = "#id", condition = "#id gt 0")
     public Boolean exists(Long id) {
         return getById(id) != null;
     }
 
+    @Override
     public List<E> getAll() {
         return baseRepository.getAll();
     }
 
+    @Override
     @Transactional
     //@CachePut(value = "resourceCache", key = "#entity.id")
     public int save(E entity) {
@@ -61,12 +66,14 @@ public abstract class BaseServiceImpl <E extends BaseEntity> implements BaseServ
         return count;
     }
 
+    @Override
     public void save(List<E> entities) {
         for (E entity : entities) {
             save(entity);
         }
     }
 
+    @Override
     public E saveAndReturn(E entity) {
         save(entity);
         if (entity.getId() != null) {
@@ -75,6 +82,7 @@ public abstract class BaseServiceImpl <E extends BaseEntity> implements BaseServ
         return null;
     }
 
+    @Override
     @CacheEvict(value = { "resourceCache"}, key = "#id", condition = "#id gt 0")
     public int remove(Long id) {
         E entity = getById(id);
@@ -87,6 +95,7 @@ public abstract class BaseServiceImpl <E extends BaseEntity> implements BaseServ
         return 0;
     }
 
+    @Override
     public void remove(List<Long> ids) {
         for (Long id : ids) {
             remove(id);
@@ -94,6 +103,7 @@ public abstract class BaseServiceImpl <E extends BaseEntity> implements BaseServ
     }
 
     //@CachePut(value = "resourceCache", key = "#entity.id")
+    @Override
     @CacheEvict(value = { "resourceCache"}, key = "#entity.id", condition = "#entity.id gt 0",beforeInvocation=true)
     public E update(E entity) {
         entity.beforUpdate();
@@ -110,11 +120,13 @@ public abstract class BaseServiceImpl <E extends BaseEntity> implements BaseServ
         return entity;
     }
 
+    @Override
     public Long getCount() {
         long count = baseRepository.getCount();
         return count > 0 ? count : 0L;
     }
 
 
+    @Override
     public abstract   void afterPropertiesSet() throws Exception ;
 }

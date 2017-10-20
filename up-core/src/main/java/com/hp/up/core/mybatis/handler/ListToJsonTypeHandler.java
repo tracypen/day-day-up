@@ -18,6 +18,7 @@ import java.util.ArrayList;
  */
 public class ListToJsonTypeHandler implements TypeHandler<Tags> {
 
+    @Override
     public void setParameter(PreparedStatement ps, int i, Tags parameter, JdbcType jdbcType) throws SQLException {
         if (parameter != null && parameter.getNames() != null && parameter.getNames().size() > 0) {
             ps.setString(i, JSONArray.toJSONString(parameter.getNames()));
@@ -26,6 +27,7 @@ public class ListToJsonTypeHandler implements TypeHandler<Tags> {
         }
     }
 
+    @Override
     public Tags getResult(ResultSet rs, String columnName) throws SQLException {
         String str = rs.getString(columnName);
         if (StringUtils.isNotBlank(str)) {
@@ -39,6 +41,7 @@ public class ListToJsonTypeHandler implements TypeHandler<Tags> {
         return null;
     }
 
+    @Override
     public Tags getResult(ResultSet rs, int columnIndex) throws SQLException {
         String str = rs.getString(columnIndex);
         if (StringUtils.isNotBlank(str)) {
@@ -52,6 +55,7 @@ public class ListToJsonTypeHandler implements TypeHandler<Tags> {
         return null;
     }
 
+    @Override
     public Tags getResult(CallableStatement cs, int columnIndex) throws SQLException {
         String result = cs.getString(columnIndex);
         if (StringUtils.isNotBlank(result)) {

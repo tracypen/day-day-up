@@ -48,6 +48,7 @@ public class JsonBeanDeserializer extends BeanDeserializer {
         super(builder, beanDesc, properties, backRefs, ignorableProps, ignoreAllUnknown, hasViews);
     }
 
+    @Override
     public Object deserialize(JsonParser jp, DeserializationContext ctxt) throws JsonProcessingException, IOException {
         Object result = super.deserialize(jp, ctxt);
         Field[] fields = result.getClass().getDeclaredFields();

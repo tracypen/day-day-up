@@ -101,8 +101,9 @@ public class ReadExcel {
         if(isMergedRegion(sheet, rownum, colnum)){
             CellRegion r=getMergedRegionValue(sheet, rownum, colnum);
             return r.endrownum-r.startrownum+1;
-        }else
+        }else {
             return 1;
+        }
     }
     //获取合并或未合并的任意单元格
     public static String getvalue(Sheet sheet,int rownum,int colnum){

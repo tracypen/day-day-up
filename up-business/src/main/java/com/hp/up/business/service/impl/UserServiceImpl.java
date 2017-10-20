@@ -40,10 +40,12 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
     @Autowired
     private UserRepository userRepository;
 
+    @Override
     public User getUserByName(String userName) {
         return userRepository.findUserByName(userName);
     }
 
+    @Override
     @Transactional(propagation = Propagation.REQUIRED)
     @Log(module = "系统用户管理", description = "删除用户")
     public int remove(Long id) {
@@ -58,6 +60,7 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
         return userRepository.remove(id);
     }
 
+    @Override
     public PagingList<User> getUserPage(PageDto pageDto, User user) {
 
         PageHelper.startPage(pageDto.getPageNum(), pageDto.getiDisplayLength());
@@ -69,6 +72,7 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
         return new PagingList<User>(userList, pageInfo);
     }
 
+    @Override
     @Transactional
     @Log(module = "系统用户管理", description = "新增用户")
     public int save(User user) {
@@ -80,10 +84,12 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
         return count;
     }
 
+    @Override
     public int updateLastLoginTime(Long id) {
         return userRepository.updateLastLoginTime(id);
     }
 
+    @Override
     @Transactional
     @Log(module = "系统用户管理", description = "新增/修改用户")
     public int saveOrUpdateUser(User user) {
@@ -115,11 +121,12 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
         return in;
     }
 
+    @Override
     public void afterPropertiesSet() throws Exception {
         super.baseRepository = userRepository;
     }
 
-    public void sendRegistedMail(User user){
+    private void sendRegistedMail(User user){
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
         //用户通知邮件
@@ -127,14 +134,13 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
         JavaMailUtils.senMail(mailEntity);
 
         //系统管理员通知邮件
-        StringBuffer buffer = new StringBuffer("有新用户注册成功");
-        buffer.append("\n\r");
-        buffer.append("用户名:" + user.getName());
-        buffer.append("\n\r");
-        buffer.append("时间:" + sdf.format(new Date()));
-        buffer.append("\n\r");
+        String buffer = "有新用户注册成功" + "\n\r" +
+                "用户名:" + user.getName() +
+                "\n\r" +
+                "时间:" + sdf.format(new Date()) +
+                "\n\r";
 
-        mailEntity = new MailEntity("sign up success notify", buffer.toString(), "18802953162@163.com");
+        mailEntity = new MailEntity("sign up success notify", buffer, "18802953162@163.com");
         JavaMailUtils.senMail(mailEntity);
 
     }

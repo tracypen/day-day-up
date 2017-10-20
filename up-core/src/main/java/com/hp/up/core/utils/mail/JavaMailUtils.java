@@ -46,11 +46,13 @@ public class JavaMailUtils {
         // Get the Session object.
         Session session = Session.getInstance(props,
                 new javax.mail.Authenticator() {
+                    @Override
                     protected PasswordAuthentication getPasswordAuthentication() {
                         return new PasswordAuthentication(SENDER_EMAIL_ACCOUNT, SENDER_EMAIL_PASSWORD);
                     }
                 });
-        session.setDebug(true);                                 // 设置为debug模式, 可以查看详细的发送 log
+        session.setDebug(true);
+        // 设置为debug模式, 可以查看详细的发送 log
 
         // 4. 根据 Session 获取邮件传输对象
         Transport transport = null;

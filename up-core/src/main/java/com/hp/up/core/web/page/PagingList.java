@@ -42,6 +42,7 @@ public class PagingList <T> implements Iterable<T>, Serializable {
         this.pageInfo = pageInfo;
     }
 
+    @Override
     public Iterator<T> iterator() {
         return this.getData().iterator();
     }

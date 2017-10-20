@@ -102,6 +102,55 @@ public class Role extends IdEntity{
         this.resourcePermissions = resourcePermissions;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Role)) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+
+        Role role1 = (Role) o;
+
+        if (name != null ? !name.equals(role1.name) : role1.name != null) {
+            return false;
+        }
+        if (role != null ? !role.equals(role1.role) : role1.role != null) {
+            return false;
+        }
+        if (description != null ? !description.equals(role1.description) : role1.description != null) {
+            return false;
+        }
+        if (show != null ? !show.equals(role1.show) : role1.show != null) {
+            return false;
+        }
+        if (typeName != null ? !typeName.equals(role1.typeName) : role1.typeName != null) {
+            return false;
+        }
+        if (parent_id != null ? !parent_id.equals(role1.parent_id) : role1.parent_id != null) {
+            return false;
+        }
+        return (parent_ids != null ? parent_ids.equals(role1.parent_ids) : role1.parent_ids == null) && (resourcePermissions != null ? resourcePermissions.equals(role1.resourcePermissions) : role1.resourcePermissions == null);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (role != null ? role.hashCode() : 0);
+        result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + (show != null ? show.hashCode() : 0);
+        result = 31 * result + (typeName != null ? typeName.hashCode() : 0);
+        result = 31 * result + (parent_id != null ? parent_id.hashCode() : 0);
+        result = 31 * result + (parent_ids != null ? parent_ids.hashCode() : 0);
+        result = 31 * result + (resourcePermissions != null ? resourcePermissions.hashCode() : 0);
+        return result;
+    }
+
     //public static List<ZTree> getZTreeList(List<Role> roleList) {
     //
     //    List<ZTree> zTrees = Lists.newArrayList();
@@ -118,5 +167,8 @@ public class Role extends IdEntity{
     //    }
     //    return zTrees;
     //}
+
+
+
 
 }

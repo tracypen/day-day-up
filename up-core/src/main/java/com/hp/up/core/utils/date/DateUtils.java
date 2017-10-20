@@ -235,7 +235,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
      * @author
      */
     public static String getTimeMilliseconds() {
-        return String.valueOf(new Date().getTime());
+        return String.valueOf(System.currentTimeMillis());
     }
 
     /**

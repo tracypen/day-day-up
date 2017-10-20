@@ -41,6 +41,7 @@ public class JsonBeanSerializer extends BeanSerializer {
         super(type, builder, properties, filteredProperties);
     }
 
+    @Override
     protected void serializeFields(Object bean, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonGenerationException {
         super.serializeFields(bean, jgen, provider);
 
@@ -74,10 +75,8 @@ public class JsonBeanSerializer extends BeanSerializer {
                     if(field.getAnnotation(NotNull.class) != null && value == null) {
                         throw new JsonMapperException(prop.getName() + " is not null.");
                     }
-                } catch (IllegalAccessException var11) {
+                } catch (IllegalAccessException | IllegalArgumentException var11) {
                     var11.printStackTrace();
-                } catch (IllegalArgumentException var12) {
-                    var12.printStackTrace();
                 } catch (InvocationTargetException var13) {
                     var13.printStackTrace();
                 } catch (NoSuchFieldException var14) {

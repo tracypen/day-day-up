@@ -19,6 +19,7 @@ public class JsonBeanSerializerBuilder extends BeanSerializerBuilder {
         super(src);
     }
 
+    @Override
     public JsonSerializer<?> build() {
         BeanPropertyWriter[] properties;
         if(this._properties != null && !this._properties.isEmpty()) {
