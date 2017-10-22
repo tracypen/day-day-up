@@ -13,6 +13,7 @@
 - 9.datatable  表格插件
 - 10.POI Excel导入导出
 - 11.七牛云文件上传
+- 12.websocket即时通讯
 
 
 ## 模块说明
