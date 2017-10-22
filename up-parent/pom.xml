@@ -229,7 +229,15 @@
                 <version>${aspectj.version}</version>
             </dependency>
 
+            <!--druid start-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <!--druid end-->
 
+            <!--redis start-->
             <dependency>
                 <groupId>redis.clients</groupId>
                 <artifactId>jedis</artifactId>
@@ -241,12 +249,6 @@
                 <groupId>org.springframework.data</groupId>
                 <artifactId>spring-data-redis</artifactId>
                 <version>${spring-data-redis.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>druid</artifactId>
-                <version>${druid.version}</version>
             </dependency>
 
             <!-- redis config need jar -->
@@ -262,20 +264,23 @@
             </dependency>
 
 
-            <!-- apache.commons-->
+            <!-- apache.commons start-->
             <dependency>
                 <groupId>commons-fileupload</groupId>
                 <artifactId>commons-fileupload</artifactId>
                 <version>${commons-fileupload.version}</version>
             </dependency>
+            <!-- apache.commons end-->
 
+            <!--kaptcha start-->
             <dependency>
                 <groupId>com.github.axet</groupId>
                 <artifactId>kaptcha</artifactId>
                 <version>${kaptcha.version}</version>
             </dependency>
+            <!--kaptcha end-->
 
-            <!-- log begin -->
+            <!-- log start -->
             <dependency>
                 <groupId>log4j</groupId>
                 <artifactId>log4j</artifactId>
@@ -291,7 +296,9 @@
                 <artifactId>slf4j-log4j12</artifactId>
                 <version>${slf4j.version}</version>
             </dependency>
+            <!-- log end -->
 
+            <!--mybatis start-->
             <dependency>
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis</artifactId>
@@ -302,14 +309,17 @@
                 <artifactId>mybatis-spring</artifactId>
                 <version>${mybatis.spring.version}</version>
             </dependency>
+            <!--mybatis end-->
 
-            <!-- https://mvnrepository.com/artifact/com.github.pagehelper/pagehelper -->
+            <!--mybatis pageHelper start-->
             <dependency>
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper</artifactId>
                 <version>3.3.2</version>
             </dependency>
+            <!--mybatis pageHelper end-->
 
+            <!--quartz start-->
             <dependency>
                 <groupId>org.quartz-scheduler</groupId>
                 <artifactId>quartz</artifactId>
@@ -320,8 +330,9 @@
                 <artifactId>quartz-jobs</artifactId>
                 <version>2.2.2</version>
             </dependency>
+            <!--quartz end-->
 
-            <!-- shiro begin-->
+            <!-- shiro start-->
             <dependency>
                 <groupId>org.apache.shiro</groupId>
                 <artifactId>shiro-core</artifactId>
@@ -344,7 +355,7 @@
             </dependency>
             <!-- shiro end-->
 
-            <!-- jackJson -->
+            <!-- jackJson start -->
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-core</artifactId>
@@ -366,34 +377,43 @@
                 <artifactId>jackson-module-jaxb-annotations</artifactId>
                 <version>${jackjson.version}</version>
             </dependency>
+            <!--jackjson end-->
 
+
+            <!--fastjson start-->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
             </dependency>
+            <!--fastjson end-->
 
+            <!--sitemesh start-->
             <dependency>
                 <groupId>opensymphony</groupId>
                 <artifactId>sitemesh</artifactId>
                 <version>${sitemesh.version}</version>
-
             </dependency>
+            <!--sitemesh end-->
 
+            <!--poi start-->
             <dependency>
                 <groupId>org.apache.poi</groupId>
                 <artifactId>poi</artifactId>
                 <version>${poi.version}</version>
             </dependency>
+            <!--poi end-->
 
+            <!--java mail start-->
             <dependency>
                 <groupId>com.sun.mail</groupId>
                 <artifactId>javax.mail</artifactId>
                 <version>1.6.0</version>
             </dependency>
+            <!--java mail end-->
 
 
-
+            <!--七牛start-->
             <dependency>
                 <groupId>com.qiniu</groupId>
                 <artifactId>qiniu-java-sdk</artifactId>
@@ -412,12 +432,31 @@
                 <version>2.6.2</version>
                 <scope>compile</scope>
             </dependency>
+
             <dependency>
                 <groupId>com.qiniu</groupId>
                 <artifactId>happy-dns-java</artifactId>
                 <version>0.1.4</version>
                 <scope>compile</scope>
             </dependency>
+            <!--七牛end-->
+
+
+
+            <!--websocket start-->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-messaging</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-websocket</artifactId>
+                <version>4.0.5.RELEASE</version>
+            </dependency>
+
+            <!--websocket end-->
 
 
         </dependencies>

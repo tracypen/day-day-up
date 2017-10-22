@@ -1,5 +1,6 @@
 package com.hp.up.backend.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.hp.up.backend.shiro.utils.PwdUtil;
 import com.hp.up.core.Entity.User;
 import com.hp.up.core.common.Constants;
@@ -92,6 +93,7 @@ public class UserController extends BaseController<User> {
     @ResponseBody
     public User getCurrentUserInfo() {
         User currentUser = super.getCurrentUser();
+        logger.info(Constants.LOGPREFIX + "get current user info! user info : "+ JSONObject.toJSONString(currentUser));
         return currentUser;
     }
 
