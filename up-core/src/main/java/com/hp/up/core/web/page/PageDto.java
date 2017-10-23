@@ -11,7 +11,7 @@ import java.io.Serializable;
 public class PageDto implements Serializable{
 
     private int sEcho;//页数
-    private int iColumns;//
+    private int iColumns;
     private String sColumns;
     private int iDisplayStart;
     private int iDisplayLength;

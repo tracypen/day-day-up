@@ -7,6 +7,7 @@ import com.hp.up.core.web.shiro.UserShiro;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
+import org.apache.shiro.web.util.WebUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
 
@@ -33,22 +35,51 @@ public class UserFromAuthenticationFilter extends FormAuthenticationFilter {
     @Override
     protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
 
-        //在这里进行验证码的校验
-        HttpServletRequest httpServletRequest = (HttpServletRequest) request;
-        HttpSession session = httpServletRequest.getSession();
-        //取出session中的正确验证码
-        String validateCode = (String) session.getAttribute(com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY);
+        if (isLoginRequest(request, response)) {
+            if (isLoginSubmission(request, response)) {
+              //  return executeLogin(request, response);
 
-        //取出页面的验证码
-        String randomcode = httpServletRequest.getParameter(DEFAULT_CAPTCHA_PARAM);
-        if (randomcode != null && validateCode != null && !randomcode.equalsIgnoreCase(validateCode)) {
-            //如果校验失败，将验证码错误的失败信息，通过shiroLoginFailure设置到request中
-            httpServletRequest.setAttribute(FormAuthenticationFilter.DEFAULT_ERROR_KEY_ATTRIBUTE_NAME, "randomCodeError");
-            logger.info(Constants.LOGPREFIX + "验证码错误！");
-            //拒绝访问，不再校验账号和密码
-            return true;
+                //在这里进行验证码的校验
+                HttpServletRequest httpServletRequest = (HttpServletRequest) request;
+                HttpSession session = httpServletRequest.getSession();
+                //取出session中的正确验证码
+                String validateCode = (String) session.getAttribute(com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY);
+
+                //取出页面的验证码
+                String randomcode = httpServletRequest.getParameter(DEFAULT_CAPTCHA_PARAM);
+                if (randomcode != null && validateCode != null && !randomcode.equalsIgnoreCase(validateCode)) {
+                    //如果校验失败，将验证码错误的失败信息，通过shiroLoginFailure设置到request中
+                    httpServletRequest.setAttribute(FormAuthenticationFilter.DEFAULT_ERROR_KEY_ATTRIBUTE_NAME, "randomCodeError");
+                    logger.info(Constants.LOGPREFIX + "验证码错误！");
+                    //拒绝访问，不再校验账号和密码
+                    return true;
+                }
+                return super.onAccessDenied(request, response);
+
+            } else {
+
+                return true;
+            }
+        } else {
+            HttpServletRequest httpRequest = WebUtils.toHttp(request);
+
+            if (isAjax(httpRequest)) {
+
+                HttpServletResponse httpServletResponse = WebUtils.toHttp(response);
+                httpServletResponse.sendError(401);
+
+                return false;
+
+            } else {
+                saveRequestAndRedirectToLogin(request, response);
+            }
+
+            return false;
         }
-        return super.onAccessDenied(request, response);
+
+
+
+
     }
 
     /**
@@ -59,11 +90,12 @@ public class UserFromAuthenticationFilter extends FormAuthenticationFilter {
                                      ServletRequest request, ServletResponse response) throws Exception {
 
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
+
         HttpSession session = httpServletRequest.getSession();
+
         session.setAttribute(Constants.CURRENT_USER,subject.getPrincipal());
 
         //更新用户最后登录时间
-
         UserShiro userShiro = (UserShiro) subject.getPrincipal();
 
         session.setAttribute(Constants.CURRENT_USER,userShiro);
@@ -75,6 +107,17 @@ public class UserFromAuthenticationFilter extends FormAuthenticationFilter {
         // SavedRequest savedRequest = WebUtils.getAndClearSavedRequest(request);
 
         return super.onLoginSuccess(token, subject, request, response);
+    }
+
+
+
+
+    /**
+     * 判断ajax请求
+
+     */
+    boolean isAjax(HttpServletRequest request){
+        return  (request.getHeader("X-Requested-With") != null  && "XMLHttpRequest".equals( request.getHeader("X-Requested-With").toString())   ) ;
     }
 
 }

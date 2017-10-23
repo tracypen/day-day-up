@@ -25,8 +25,7 @@
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="clear">
                                <span class="block m-t-xs"><strong class="font-bold">
-                                 <shiro:principal type="com.hp.up.core.web.shiro.UserShiro" defaultValue="Mcgrady"
-                                                  property="name"></shiro:principal></strong></span>
+                                 <shiro:principal type="com.hp.up.core.web.shiro.UserShiro" defaultValue="Mcgrady" property="name"></shiro:principal></strong></span>
                                 <span class="text-muted text-xs block">管理员<b class="caret"></b></span>
                                 </span>
                     </a>
@@ -119,6 +118,15 @@
                  </ul>
              </li>--%>
 
+
+            <li>
+                <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">组织架构</span><span
+                        class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li><a class="J_menuItem" href="${ctx}/admin/database/monitor">区域管理</a></li>
+                    <li><a class="J_menuItem" href="${ctx}/system/log">机构管理</a></li>
+                </ul>
+            </li>
 
             <li>
                 <a href="#"><i class="fa fa-cutlery"></i> <span class="nav-label">系统监控 </span><span

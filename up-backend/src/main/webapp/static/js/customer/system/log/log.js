@@ -130,20 +130,6 @@ var Table = function() {
 
                 $('td:eq(0)', nRow).html(iDisplayIndex + 1);
 
-             //    if (aData.gender == 1) {
-             //        $('td:eq(3)', nRow).html('男');
-             //    }else {
-             //        $('td:eq(3)', nRow).html('女');
-             //    }
-             //
-             //    var da =new Date(aData.birthday);
-             //    $('td:eq(6)', nRow).html(da.getFullYear() +'-'+ da.getMonth() +'-'+ da.getDate());
-             //
-             //    if (aData.active == 'TRUE') {
-             //        $('td:eq(7)', nRow).html('激活');
-             //    }
-             //    if (aData.active == 'FALSE') {
-             //        $('td:eq(7)', nRow).html('锁定');
 
                 var da =new Date(aData.createDate);
                 $('td:eq(6)', nRow).html(da.getFullYear() +'-'+ da.getMonth() +'-'+ da.getDate() +' '+ da.getHours()+':'+da.getMinutes()+':'+da.getSeconds() );

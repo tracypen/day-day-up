@@ -48,6 +48,16 @@ public class BaseController <E extends Serializable> {
 
     }
 
+
+    public UserShiro getUserShiroInfo() {
+
+        Subject subject = SecurityUtils.getSubject();
+
+        UserShiro userShiro = (UserShiro) subject.getPrincipal();
+
+        return null != userShiro ? userShiro : new UserShiro();
+    }
+
     /**
      * 获取当前用户
      * @return

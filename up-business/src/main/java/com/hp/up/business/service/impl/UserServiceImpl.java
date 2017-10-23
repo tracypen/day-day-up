@@ -8,6 +8,7 @@ import com.hp.up.business.service.UserService;
 import com.hp.up.core.Entity.MailEntity;
 import com.hp.up.core.Entity.User;
 import com.hp.up.core.annotation.Log;
+import com.hp.up.core.utils.date.DateUtils;
 import com.hp.up.core.utils.mail.JavaMailUtils;
 import com.hp.up.core.utils.poi.WriteExcel;
 import com.hp.up.core.web.page.PageDto;
@@ -127,7 +128,6 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
     }
 
     private void sendRegistedMail(User user){
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
         //用户通知邮件
         MailEntity mailEntity = new MailEntity("sign up success notify", "恭喜你注册成功！！！", user.getEmail());
@@ -137,7 +137,7 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
         String buffer = "有新用户注册成功" + "\n\r" +
                 "用户名:" + user.getName() +
                 "\n\r" +
-                "时间:" + sdf.format(new Date()) +
+                "时间:" + DateUtils.convert2String(new Date(),DateUtils.LONG_FORMAT) +
                 "\n\r";
 
         mailEntity = new MailEntity("sign up success notify", buffer, "18802953162@163.com");

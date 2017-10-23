@@ -349,7 +349,7 @@ function initZtree() {
      $.ajax({
          async:true,
          "type" : "get",
-         "url" : ctx + '/role/ajax',
+         "url" : ctx + '/org_structure/district/tree',
          "data" :  "",
          dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
          contentType:"application/json",

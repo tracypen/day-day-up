@@ -257,18 +257,23 @@
         <error-code>400</error-code>
         <location>/WEB-INF/views/error/404.jsp</location>
     </error-page>
-<!--    <error-page>
+   <error-page>
         <error-code>500</error-code>
         <location>/WEB-INF/views/error/500.jsp</location>
-    </error-page>-->
+    </error-page>
     <error-page>
         <error-code>503</error-code>
         <location>/WEB-INF/views/error/404.jsp</location>
     </error-page>
-<!--    <error-page>
+   <error-page>
         <exception-type>java.lang.Exception</exception-type>
         <location>/WEB-INF/views/error/500.jsp</location>
-    </error-page>-->
+    </error-page>
+
+    <error-page>
+        <exception-type>org.apache.shiro.session.InvalidSessionException</exception-type>
+        <location>/WEB-INF/views/error/invalidSession.jsp</location>
+    </error-page>
 
 
 </web-app>

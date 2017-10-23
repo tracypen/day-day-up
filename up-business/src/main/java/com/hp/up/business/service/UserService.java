@@ -29,8 +29,18 @@ public interface UserService extends BaseService<User>{
      */
     int updateLastLoginTime(Long id);
 
+    /**
+     * 保存或者更新用户
+     * @param user
+     * @return
+     */
     int saveOrUpdateUser(User user);
 
+    /**
+     * excel
+     * @return
+     * @throws Exception
+     */
     InputStream getInputStream() throws Exception;
 
 }

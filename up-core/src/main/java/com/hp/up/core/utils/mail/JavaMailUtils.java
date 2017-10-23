@@ -22,11 +22,6 @@ public class JavaMailUtils {
     public static String SENDER_EMAIL_PASSWORD = "vsinsvabodpfbgjc";
     // 发件人邮箱的 SMTP 服务器地址
     public static String SENDER_EMAIL_SMTPHOST = "smtp.qq.com";
-    // 收件人邮箱（替换为自己知道的有效邮箱）
-   // public static String receiverMailAccount = "694505120@qq.com";
-
-
-
 
     public static boolean senMail(MailEntity mailEntity){
 
