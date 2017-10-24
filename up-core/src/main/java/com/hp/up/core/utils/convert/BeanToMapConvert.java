@@ -1,6 +1,7 @@
 package com.hp.up.core.utils.convert;
 
 import org.apache.commons.beanutils.PropertyUtilsBean;
+import org.apache.commons.lang3.StringUtils;
 
 import java.beans.BeanInfo;
 import java.beans.IntrospectionException;
@@ -34,9 +35,10 @@ public class BeanToMapConvert {
                 if (!propertyName.equals("class")) {
                     Method readMethod = descriptor.getReadMethod();
                     Object result = null;
-                    result = readMethod.invoke(bean, new Object[0]);
-                    if (null != propertyName) {
-                        propertyName = propertyName.toString();
+                    if (null != readMethod){
+                        result = readMethod.invoke(bean, new Object[0]);
+                    }else{
+                        result = StringUtils.EMPTY;
                     }
                     if (null != result) {
                         result = result.toString();

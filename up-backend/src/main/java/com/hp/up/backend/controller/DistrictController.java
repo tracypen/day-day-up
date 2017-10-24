@@ -94,6 +94,7 @@ public class DistrictController extends BaseController<District> {
 
             District district = districtService.getByCode(code);
             modelMap.put("district", district);
+            modelMap.put("doUpdate", Boolean.TRUE);
         }
         return "/org_structure/district/edit";
     }

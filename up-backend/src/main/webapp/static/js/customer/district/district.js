@@ -138,15 +138,14 @@ $(function () {
         $(".doedit").on('click',function () {
             var node = $(this).parents('tr');
             var dis_code = $(this).parents('tr').attr('data-id');
-            console.log(dis_code);
             $.ajax({
-                url: ctx + '/org_structure/district',
-                type:get,
-                data:'',
+                url: ctx + '/org_structure/district/update',
+                type:'get',
+                data:{"code":dis_code},
                 async: true,
-                dataType:html,
+                dataType:'html',
                 success:function (data) {
-                    $('. modal-body').html(data);
+                    $('.modal-body').html(data);
                     $("#loginModal").modal('show');
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {

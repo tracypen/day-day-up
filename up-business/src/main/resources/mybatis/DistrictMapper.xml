@@ -20,6 +20,14 @@
         </where>
     </select>
 
+    <select id="getByCode" parameterType="String" resultMap="districtMap">
+        SELECT *
+        FROM tb_district district
+        <where>
+            code = #{value}
+        </where>
+    </select>
+
 
     <select id="getAll"  resultMap="districtMap">
         SELECT *
@@ -45,6 +53,11 @@
 
     <update id="deleteById" parameterType="long">
        UPDATE tb_district SET is_show = 0
+        WHERE id = #{value}
+    </update>
+
+    <update id="deleteByCode" parameterType="long">
+        UPDATE tb_district SET is_show = 0
         WHERE code = #{value}
     </update>
 
@@ -63,26 +76,26 @@
 
     <!--</insert>-->
 
-    <!--<update id="update" parameterType="district">-->
-        <!--UPDATE tb_district-->
-                <!--<set>-->
-                   <!--<if test="null != code">-->
-                       <!--code = <![CDATA[#{code}]]]>,-->
-                   <!--</if>-->
+    <update id="update" parameterType="district">
+        UPDATE tb_district
+                <set>
+                   <if test="null != code">
+                       code = <![CDATA[#{code}]]]>,
+                   </if>
 
-                    <!--<if test="null != parentCode">-->
-                        <!--parent_code = #{parentCode},-->
-                    <!--</if>-->
+                    <if test="null != parentCode">
+                        parent_code = #{parentCode},
+                    </if>
 
-                    <!--<if test="null != name">-->
-                        <!--name = #{name}-->
-                    <!--</if>-->
+                    <if test="null != name">
+                        name = #{name}
+                    </if>
 
-                <!--</set>-->
-        <!--WHERE-->
-            <!--id = #{id}-->
+                </set>
+        WHERE
+            id = #{id}
 
-    <!--</update>-->
+    </update>
 
 
 

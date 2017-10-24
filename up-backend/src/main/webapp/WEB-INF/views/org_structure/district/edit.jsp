@@ -11,7 +11,7 @@
                         <label class="col-sm-3 control-label">编码：</label>
                         <div class="col-sm-8">
                             <input id="district_code" name="district_code" class="form-control" type="text" value="${district.code}"
-                                   style="width: 50%">
+                            <c:if test="${doUpdate}">readonly</c:if>     style="width: 50%">
                             <%--<span class="help-block m-b-none"><i class="fa fa-info-circle"></i> 这里写点提示的内容</span>--%>
                         </div>
                     </div>
