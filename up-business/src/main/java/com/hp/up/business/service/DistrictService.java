@@ -24,5 +24,19 @@ public interface DistrictService extends BaseService<District>{
      */
     int deleteById(Long id);
 
+    /**
+     * 删除区域对象
+     * @param code 编码
+     * @return int
+     */
+    int deleteByCode(String code);
+
+    /**
+     * 根据code获取单个实例
+     * @param code
+     * @return
+     */
+    public District getByCode(String code);
+
 }
 

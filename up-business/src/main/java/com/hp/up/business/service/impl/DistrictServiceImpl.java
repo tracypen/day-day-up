@@ -10,6 +10,7 @@ import com.hp.up.core.annotation.Log;
 import com.hp.up.core.common.Constants;
 import com.hp.up.core.web.page.PageDto;
 import com.hp.up.core.web.page.PagingList;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,6 +53,22 @@ public class DistrictServiceImpl extends BaseServiceImpl<District> implements Di
         logger.info(Constants.LOGPREFIX + "删除区域记录ById id: {}" , id);
 
         return districtRepository.deleteById(id);
+    }
+
+    @Override
+    public int deleteByCode(String code) {
+        if (StringUtils.isBlank(code)){
+            return 0;
+        }
+        return districtRepository.deleteByCode(code);
+    }
+
+    @Override
+    public District getByCode(String code) {
+        if (StringUtils.isBlank(code)){
+            return new District();
+        }
+        return districtRepository.getByCode(code);
     }
 
 

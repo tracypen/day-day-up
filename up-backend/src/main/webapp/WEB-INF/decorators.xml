@@ -6,17 +6,18 @@
             <pattern>*.jpg</pattern>
             <pattern>/admin/login*</pattern>
             <pattern>/user/edit*</pattern>
-            <pattern>/system/resource/*</pattern>
+
     </excludes>
 
     <!--需要被装饰的页面-->
     <decorator name="backend" page="main_decorators.jsp">
 
-        <pattern>/admin/index</pattern>
+        <!--<pattern>/admin/index</pattern>-->
         <pattern>/user*</pattern>
         <pattern>/dictionaryType*</pattern>
+        <pattern>/system/*</pattern>
         <pattern>/role*</pattern>
-        <pattern>/**/*</pattern>
+        <pattern>/org_structure*</pattern>
     </decorator>
 
 

@@ -126,7 +126,14 @@ DataProp_0=id
  2.https://git.oschina.net/hawawa/WhereURP.git easyui+shiro搭建的权限管理系统
  
  3. springboot 最佳实战 https://github.com/ChinaSilence/any-video
+ 
  4. springboot +websocket 及时聊天室 https://github.com/ChinaSilence/any-chat.git
+ 
+ Spring Boot实战项目
+ http://git.oschina.net/roncoocom/roncoo-jui-springboot
+ 
+ Spring Boot教程代码
+ http://git.oschina.net/roncoocom/spring-boot-demo
  
 
  

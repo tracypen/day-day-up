@@ -15,4 +15,11 @@ public interface DistrictRepository extends BaseRepository<District> {
 
     public int deleteById(Long id);
 
-}
+    public int deleteByCode(String code) ;
+
+    public District getByCode(String code);
+
+
+
+
+    }

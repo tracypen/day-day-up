@@ -48,7 +48,7 @@
             </li>
 
 
-            <li class="active">
+            <li>
                 <a href="#">
                     <i class="fa fa-home"></i>
                     <span class="nav-label">系统管理</span>
@@ -56,18 +56,18 @@
                 </a>
                 <ul class="nav nav-second-level" >
                     <li>
-                        <a class="J_menuItem" href="${ctx}/user">用户管理</a>
+                        <a class="J_menuItem" data-url="${ctx}/user">用户管理</a>
                     </li>
                     <li>
-                        <a class="J_menuItem" href="${ctx}/system/role">角色管理</a>
-                    </li>
-
-                    <li>
-                        <a class="J_menuItem" href="${ctx}/system/resource">资源管理</a>
+                        <a class="J_menuItem" data-url="${ctx}/system/role">角色管理</a>
                     </li>
 
                     <li>
-                        <a class="J_menuItem" href="${ctx}/system/dictionaryType">数据字典</a>
+                        <a class="J_menuItem" data-url="${ctx}/system/resource">资源管理</a>
+                    </li>
+
+                    <li>
+                        <a class="J_menuItem" data-url="${ctx}/system/dictionaryType">数据字典</a>
                     </li>
 
 
@@ -123,8 +123,8 @@
                 <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">组织架构</span><span
                         class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                    <li><a class="J_menuItem" href="${ctx}/admin/database/monitor">区域管理</a></li>
-                    <li><a class="J_menuItem" href="${ctx}/system/log">机构管理</a></li>
+                    <li><a class="J_menuItem" data-url="${ctx}/org_structure/district">区域管理</a></li>
+                    <li><a class="J_menuItem" data-url="${ctx}/system/log">机构管理</a></li>
                 </ul>
             </li>
 
@@ -132,8 +132,8 @@
                 <a href="#"><i class="fa fa-cutlery"></i> <span class="nav-label">系统监控 </span><span
                         class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                    <li><a class="J_menuItem" href="${ctx}/admin/database/monitor">数据监控</a></li>
-                    <li><a class="J_menuItem" href="${ctx}/system/log">系统日志</a></li>
+                    <li><a class="J_menuItem" data-url="${ctx}/admin/database/monitor">数据监控</a></li>
+                    <li><a class="J_menuItem" data-url="${ctx}/system/log">系统日志</a></li>
                 </ul>
             </li>
 
@@ -190,6 +190,7 @@
 
         }
     });
+
 </script>
 
 

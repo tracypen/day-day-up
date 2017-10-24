@@ -134,6 +134,11 @@ public class LoginController {
         return "admin/index";
     }
 
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    public String home(Model model) {
+
+        return "admin/home";
+    }
 
     /**
      * druid 数据监控页面由于siteMesh拦截后页面样式冲突，所以用iFrame处理

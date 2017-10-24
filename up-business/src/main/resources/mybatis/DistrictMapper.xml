@@ -20,6 +20,13 @@
         </where>
     </select>
 
+
+    <select id="getAll"  resultMap="districtMap">
+        SELECT *
+        FROM tb_district district
+        ORDER BY district.code ASC
+    </select>
+
     <select id="getDistrict" parameterType="district" resultMap="districtMap">
         SELECT *
         FROM tb_district district
@@ -38,7 +45,7 @@
 
     <update id="deleteById" parameterType="long">
        UPDATE tb_district SET is_show = 0
-        WHERE id = #{value}
+        WHERE code = #{value}
     </update>
 
     <!--<insert id="save" parameterType="district" useGeneratedKeys="true" keyProperty="id">-->
