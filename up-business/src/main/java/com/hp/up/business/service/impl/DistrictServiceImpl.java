@@ -80,13 +80,26 @@ public class DistrictServiceImpl extends BaseServiceImpl<District> implements Di
     public int insert(District district) {
 
         List<District> childList = getDistrictByParentCode(district.getParentCode());
-        String disCode;
+        String disCode = StringUtils.EMPTY;
         if (null != childList && !childList.isEmpty()) {
             //有子节点--查出该parentCode下最大的code 然后加1
-            disCode = Integer.parseInt(childList.get(0).getCode()) + 1 + StringUtils.EMPTY;
+            int pid = Integer.parseInt(childList.get(0).getCode());
+            if (pid % 10000 == 0){
+                disCode = pid / 10000 +1  + "0000";
+            }else  if (pid % 100 == 0){
+                disCode = pid / 100 +1 + "00";
+            }else {
+
+                disCode = Integer.parseInt(childList.get(0).getCode()) + 1 + StringUtils.EMPTY;
+            }
         } else {
-            //无子节点
-            disCode = district.getParentCode() + "01";
+            int pid = Integer.parseInt(district.getParentCode());
+            if (pid % 10000 == 0){
+                disCode = pid / 10000 + "1100";
+            }else  if (pid % 100 == 0){
+                disCode = pid / 100 + "11";
+            }
+
         }
         district.setCode(disCode);
         return baseRepository.save(district);

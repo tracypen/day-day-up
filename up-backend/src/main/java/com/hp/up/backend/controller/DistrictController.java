@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -90,7 +92,7 @@ public class DistrictController extends BaseController<District> {
      * @return page
      */
     @RequestMapping(value = "/update", method = RequestMethod.GET)
-    public String addorUpdatePage(String code, String parent_code, @ModelAttribute String level, ModelMap modelMap) {
+    public String addorUpdatePage(String code, String parentCode,  Integer disLevel, ModelMap modelMap) {
         District district = new District();
         if (StringUtils.isNotBlank(code)) {
             //更新
@@ -98,9 +100,10 @@ public class DistrictController extends BaseController<District> {
             modelMap.put("doUpdate", Boolean.TRUE);
         }else{
             //新增
-            district.setParentCode(parent_code);
+            district.setParentCode(parentCode);
         }
         modelMap.put("district", district);
+        modelMap.put("disLevel", disLevel);
         return "/org_structure/district/edit";
     }
 

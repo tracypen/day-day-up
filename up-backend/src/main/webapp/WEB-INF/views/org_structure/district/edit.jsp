@@ -7,7 +7,7 @@
                 <form class="form-horizontal m-t" id="theForm" action="">
                     <input id="id" name="id" value="${district.id}" type="hidden">
                     <input id="parentCode" name="parentCode" value="${district.parentCode}" type="hidden">
-                    <input id="level" name="level" value="${level}" >
+                    <input id="level" name="level" value="${disLevel}" >
                     <div class="form-group">
                         <label class="col-sm-3 control-label">编码：</label>
                         <div class="col-sm-8">

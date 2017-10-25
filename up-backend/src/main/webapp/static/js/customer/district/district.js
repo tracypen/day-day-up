@@ -137,13 +137,14 @@ $(function () {
     function doedit(){
         $(".doedit").on('click',function () {
             var node = $(this).parents('tr');
-            var dis_level = node.data('level');
-            console.log('level: ' + level);
+            var disLevel = node.data('level');
+            console.log('level: ' + disLevel);
             var dis_code = $(this).parents('tr').attr('data-id');
-            var data = {"code": dis_code,"parent_code":"",level:""};
+            var data = {"code": dis_code,"parentCode":"",disLevel:""};
             console.log($(this).attr('is_insert') + typeof $(this).attr('is_insert'));
             if ($(this).attr('is_insert') === 'true'){
-                 data = {"code": "","parent_code":dis_code,"level":dis_level};
+                console.log('is_insert : '+ $(this).attr('is_insert'));
+                 data = {"code": "","parentCode":dis_code,"disLevel":disLevel};
             }
             console.log(data);
             $.ajax({
