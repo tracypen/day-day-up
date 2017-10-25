@@ -1,5 +1,7 @@
 #Linux 下elasticsearch 环境搭建
-elsticsearch 中文社区 https://elasticsearch.cn/
+1. [elsticsearch中文社区](https://elasticsearch.cn/)
+2. [ElasticSearch官网安装教程](https://www.elastic.co/guide/en/elasticsearch/reference/current/rpm.html#rpm-key)
+3. [ElasticSearch官网配置教程](https://www.elastic.co/guide/en/elasticsearch/reference/current/important-settings.html)
 
 elasticsearch 配置文件详解参考：
 http://blog.csdn.net/qinfei_635879582/article/details/51603219
@@ -99,7 +101,7 @@ path.data: /data/elasticsearch/data （数据的路径。没有要创建（mkdir
 path.logs: /data/elasticsearch/logs （数据 log 信息的路径，同上）
 network.host: 0.0.0.0 //允许外网访问，也可以是自己的ip地址
 http.port: 9200 //访问的端口
-discovery.zen.ping.unicast.hosts: [“192.168.153.133”, “192.168.153.134”, “192.168.153.132”] //各个节点的ip地址
+discovery.zen.ping.unicast.hosts: ["192.168.153.133", "192.168.153.134", "192.168.153.132"] //各个节点的ip地址
 
 记得需要添加上：（这个是安装 head 插件要用的）
 http.cors.enabled: true
