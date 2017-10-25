@@ -4,6 +4,8 @@ import com.hp.up.core.Entity.District;
 import com.hp.up.core.web.page.PageDto;
 import com.hp.up.core.web.page.PagingList;
 
+import java.util.List;
+
 /**
  * Created by haopeng on 2017/10/23 10:59
  */
@@ -37,6 +39,20 @@ public interface DistrictService extends BaseService<District>{
      * @return
      */
     public District getByCode(String code);
+
+    /**
+     * 新增
+     * @param district  实体
+     * @return int
+     */
+    int insert(District district);
+
+    /**
+     * 根据parentCode查询所有District
+     * @param parentCode 父级code
+     * @return list
+     */
+    List<District> getDistrictByParentCode(String parentCode);
 
 }
 

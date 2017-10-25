@@ -28,6 +28,15 @@
         </where>
     </select>
 
+    <select id="getDistrictByParentCode" parameterType="String" resultMap="districtMap">
+        SELECT *
+        FROM tb_district district
+        <where>
+            parent_code = #{value}
+        </where>
+        ORDER BY code DESC
+    </select>
+
 
     <select id="getAll"  resultMap="districtMap">
         SELECT *
@@ -56,31 +65,33 @@
         WHERE id = #{value}
     </update>
 
-    <update id="deleteByCode" parameterType="long">
+    <update id="deleteByCode" parameterType="String">
         UPDATE tb_district SET is_show = 0
         WHERE code = #{value}
     </update>
 
-    <!--<insert id="save" parameterType="district" useGeneratedKeys="true" keyProperty="id">-->
-        <!--INSERT INTO tb_district (-->
-            <!--code,-->
-            <!--parent_code,-->
-            <!--name-->
-        <!--)-->
-        <!--VALUES-->
-            <!--(-->
-                <!--#{code},-->
-                <!--#{parentCode},-->
-                <!--#{name}-->
-            <!--)-->
+    <insert id="save" parameterType="district" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO tb_district (
+            code,
+            parent_code,
+            parent_codes,
+            name
+        )
+        VALUES
+            (
+                #{code},
+                #{parentCode},
+                #{parentCodes},
+                #{name}
+            )
 
-    <!--</insert>-->
+    </insert>
 
     <update id="update" parameterType="district">
         UPDATE tb_district
                 <set>
                    <if test="null != code">
-                       code = <![CDATA[#{code}]]]>,
+                       code = <![CDATA[#{code}]]>,
                    </if>
 
                     <if test="null != parentCode">

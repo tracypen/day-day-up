@@ -24,6 +24,8 @@ import java.util.List;
 @Service
 public class DistrictServiceImpl extends BaseServiceImpl<District> implements DistrictService {
 
+    private static final String LOG_MODUL = "区域管理";
+
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
@@ -37,7 +39,7 @@ public class DistrictServiceImpl extends BaseServiceImpl<District> implements Di
 
         List<District> districtPageList = districtRepository.getDistrict(district);
 
-        logger.info("获取区域分页列表 List \n {}" , JSONObject.toJSONString(districtPageList,Boolean.TRUE));
+        logger.info("获取区域分页列表 List \n {}", JSONObject.toJSONString(districtPageList, Boolean.TRUE));
 
         //get pageInfo
         PageInfo<District> pageInfo = new PageInfo<District>(districtPageList);
@@ -47,35 +49,61 @@ public class DistrictServiceImpl extends BaseServiceImpl<District> implements Di
     }
 
     @Override
-    @Log(module = "区域管理", description = "删除区域记录ById")
+    @Log(module = LOG_MODUL, description = "删除区域记录ById")
     public int deleteById(Long id) {
 
-        logger.info(Constants.LOGPREFIX + "删除区域记录ById id: {}" , id);
+        logger.info(Constants.LOGPREFIX + "删除区域记录ById id: {}", id);
 
         return districtRepository.deleteById(id);
     }
 
     @Override
+    @Log(module = LOG_MODUL,description = "删除区域记录ByCode")
     public int deleteByCode(String code) {
-        if (StringUtils.isBlank(code)){
+        if (StringUtils.isBlank(code)) {
             return 0;
         }
+        logger.info(Constants.LOGPREFIX + "删除区域记录ByCode code: {}", code);
         return districtRepository.deleteByCode(code);
     }
 
     @Override
     public District getByCode(String code) {
-        if (StringUtils.isBlank(code)){
+        if (StringUtils.isBlank(code)) {
             return new District();
         }
         return districtRepository.getByCode(code);
     }
 
+    @Override
+    @Log(module = LOG_MODUL, description = "新增区域管理")
+    public int insert(District district) {
+
+        List<District> childList = getDistrictByParentCode(district.getParentCode());
+        String disCode;
+        if (null != childList && !childList.isEmpty()) {
+            //有子节点--查出该parentCode下最大的code 然后加1
+            disCode = Integer.parseInt(childList.get(0).getCode()) + 1 + StringUtils.EMPTY;
+        } else {
+            //无子节点
+            disCode = district.getParentCode() + "01";
+        }
+        district.setCode(disCode);
+        return baseRepository.save(district);
+    }
+
+    @Override
+    public List<District> getDistrictByParentCode(String parentCode) {
+        if (StringUtils.isBlank(parentCode)){
+            return null;
+        }
+        return districtRepository.getDistrictByParentCode(parentCode);
+    }
+
+
 
     @Override
     public void afterPropertiesSet() throws Exception {
-
         super.baseRepository = districtRepository;
-
     }
 }

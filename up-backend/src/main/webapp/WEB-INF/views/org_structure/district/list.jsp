@@ -65,6 +65,8 @@
                     </div>
                 </div>
 
+
+
                 <nav class="pull-right">
                     <ul class="pagination">
 
@@ -117,7 +119,8 @@
                                             ${dis.is_leaf==1 ?'是':'否'}
                                     </th>
 
-                                    <td ><a href="#" class="doedit">编辑</a> <a href="#" class="dodel">删除</a>
+                                    <td ><a href="#" class="doedit">编辑</a>&nbsp; <a href="#" class="dodel" >删除</a>
+                                        &nbsp; <a href="#" class="doedit" is_insert="true">添加子节点</a>
                                     </td>
                                 </tr>
                             </c:forEach>

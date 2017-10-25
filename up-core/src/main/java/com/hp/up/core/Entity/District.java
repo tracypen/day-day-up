@@ -23,6 +23,11 @@ public class District extends IdEntity {
     private String parentCode;
 
     /**
+     * 所有父级区域编码
+     */
+    private String parentCodes;
+
+    /**
      * 是否可用
      */
     private Integer is_show;
@@ -72,6 +77,14 @@ public class District extends IdEntity {
         this.is_leaf = is_leaf;
     }
 
+    public String getParentCodes() {
+        return parentCodes;
+    }
+
+    public void setParentCodes(String parentCodes) {
+        this.parentCodes = parentCodes;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -118,6 +131,7 @@ public class District extends IdEntity {
                 "code='" + code + '\'' +
                 ", name='" + name + '\'' +
                 ", parentCode='" + parentCode + '\'' +
+                ", parentCodes='" + parentCodes + '\'' +
                 ", is_show=" + is_show +
                 ", is_leaf=" + is_leaf +
                 '}';

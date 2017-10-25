@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -89,13 +90,17 @@ public class DistrictController extends BaseController<District> {
      * @return page
      */
     @RequestMapping(value = "/update", method = RequestMethod.GET)
-    public String addorUpdatePage(String code, ModelMap modelMap) {
+    public String addorUpdatePage(String code, String parent_code, @ModelAttribute String level, ModelMap modelMap) {
+        District district = new District();
         if (StringUtils.isNotBlank(code)) {
-
-            District district = districtService.getByCode(code);
-            modelMap.put("district", district);
+            //更新
+            district = districtService.getByCode(code);
             modelMap.put("doUpdate", Boolean.TRUE);
+        }else{
+            //新增
+            district.setParentCode(parent_code);
         }
+        modelMap.put("district", district);
         return "/org_structure/district/edit";
     }
 
@@ -107,11 +112,11 @@ public class DistrictController extends BaseController<District> {
      */
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public String doAddorUpdate(District district) {
-        if (StringUtils.isNotBlank(district.getCode())) {
+        if (null != district && null != district.getId() && district.getId() > 0) {
             District update = districtService.update(district);
             return null != update ? ResponseStatus.OK.toJson() : ResponseStatus.FAILURE_UPDATE.toJson();
         }
-        int save = districtService.save(district);
+        int save = districtService.insert(district);
         return save > 0 ? ResponseStatus.OK.toJson() : ResponseStatus.FAILURE_ADD.toJson();
     }
 

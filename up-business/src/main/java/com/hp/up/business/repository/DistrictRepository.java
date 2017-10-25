@@ -19,6 +19,8 @@ public interface DistrictRepository extends BaseRepository<District> {
 
     public District getByCode(String code);
 
+    List<District> getDistrictByParentCode(String parentCode);
+
 
 
 

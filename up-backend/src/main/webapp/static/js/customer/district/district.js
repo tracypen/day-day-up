@@ -12,7 +12,7 @@ $(function () {
     }).on("initialized.bs.treetable", function () {
         console.log('初始化完成！！！！');
         var count = treetable.BootstrapTreeTable('getMaxLevel');
-        createExpandButton(count - 1);
+        createExpandButton(count );
         doDelete();
         doedit();
     });
@@ -25,7 +25,7 @@ $(function () {
         $('.expendlevel').click(function (e) {
             e.preventDefault();
             var level = $(this).data('level');
-            $('#treetable').BootstrapTreeTable('expendLevel', level);
+            $('#treetable').BootstrapTreeTable('expendLevel', level - 1);
         })
     }
 
@@ -137,11 +137,19 @@ $(function () {
     function doedit(){
         $(".doedit").on('click',function () {
             var node = $(this).parents('tr');
+            var dis_level = node.data('level');
+            console.log('level: ' + level);
             var dis_code = $(this).parents('tr').attr('data-id');
+            var data = {"code": dis_code,"parent_code":"",level:""};
+            console.log($(this).attr('is_insert') + typeof $(this).attr('is_insert'));
+            if ($(this).attr('is_insert') === 'true'){
+                 data = {"code": "","parent_code":dis_code,"level":dis_level};
+            }
+            console.log(data);
             $.ajax({
                 url: ctx + '/org_structure/district/update',
                 type:'get',
-                data:{"code":dis_code},
+                data:data,
                 async: true,
                 dataType:'html',
                 success:function (data) {
@@ -159,6 +167,8 @@ $(function () {
             })
         })
     }
+
+
 
 
 
