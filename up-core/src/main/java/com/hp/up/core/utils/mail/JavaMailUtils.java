@@ -19,7 +19,7 @@ public class JavaMailUtils {
     // 发件人的 邮箱(qq邮箱)
     public static final String SENDER_EMAIL_ACCOUNT = "245682819@qq.com";
     //此为SMTP客户端的授权码
-    public static String SENDER_EMAIL_PASSWORD = "vsinsvabodpfbgjc";
+    public static String SENDER_EMAIL_PASSWORD = "feygrbxsnnmwbieb";
     // 发件人邮箱的 SMTP 服务器地址
     public static String SENDER_EMAIL_SMTPHOST = "smtp.qq.com";
 

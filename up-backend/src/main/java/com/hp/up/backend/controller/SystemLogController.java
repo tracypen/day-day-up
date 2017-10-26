@@ -57,6 +57,13 @@ public class SystemLogController extends BaseController<SystemLog>{
     }
 
 
+    /**
+     * 将接收到的String类型日期转为Date类型
+     * @param systemLog sysLog实体
+     * @param start_time 开始时间
+     * @param end_time 结束时间
+     * @return sysLog实体
+     */
     private SystemLog convertQueryDate(SystemLog systemLog,String start_time,String end_time) {
 
           SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT_SIMPLE);

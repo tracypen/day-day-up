@@ -5,12 +5,22 @@ package com.hp.up.core.Entity;
  * @Date 2017/10/13 9:52
  */
 public class MailEntity {
-   //收件人账户
+    /**
+     * 收件人账户
+     */
     private String receiverMailAccount;
-    //邮件主题
+    /**
+     * 邮件主题
+     */
     private String topic;
-    //邮件内容
+    /**
+     * 邮件内容
+     */
     private String content;
+    /**
+     *模板文件名
+     */
+    private String templateName;
 
     public MailEntity() {
     }
@@ -19,6 +29,13 @@ public class MailEntity {
         this.topic = topic;
         this.content = content;
         this.receiverMailAccount = receiverMailAccount;
+    }
+
+    public MailEntity(String topic, String content,String receiverMailAccount,String templateName) {
+        this.topic = topic;
+        this.content = content;
+        this.receiverMailAccount = receiverMailAccount;
+        this.templateName = templateName;
     }
 
     public String getTopic() {
@@ -45,12 +62,21 @@ public class MailEntity {
         this.receiverMailAccount = receiverMailAccount;
     }
 
+    public String getTemplateName() {
+        return templateName;
+    }
+
+    public void setTemplateName(String templateName) {
+        this.templateName = templateName;
+    }
+
     @Override
     public String toString() {
         return "MailEntity{" +
                 "receiverMailAccount='" + receiverMailAccount + '\'' +
                 ", topic='" + topic + '\'' +
                 ", content='" + content + '\'' +
+                ", templateName='" + templateName + '\'' +
                 '}';
     }
 }
