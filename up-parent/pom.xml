@@ -19,8 +19,8 @@
                 <role>devoloper</role>
                 <role>Architect</role>
             </roles>
-            <organization>lirenkj</organization>
-            <organizationUrl>http://www.lirenkj.com</organizationUrl>
+            <organization>youBatis</organization>
+            <organizationUrl>https://youbatis.github.io/</organizationUrl>
         </developer>
     </developers>
 
@@ -413,12 +413,24 @@
 
             <!--java mail start-->
             <dependency>
-                <groupId>com.sun.mail</groupId>
-                <artifactId>javax.mail</artifactId>
-                <version>1.6.0</version>
+                <groupId>javax.mail</groupId>
+                <artifactId>javax.mail-api</artifactId>
+                <version>1.5.5</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.mail</groupId>
+                <artifactId>mail</artifactId>
+                <version>1.4.7</version>
             </dependency>
             <!--java mail end-->
 
+            <!--freemarker start-->
+            <dependency>
+                <groupId>org.freemarker</groupId>
+                <artifactId>freemarker</artifactId>
+                <version>2.3.21</version>
+            </dependency>
+            <!--freemarker end-->
 
             <!--七牛start-->
             <dependency>
@@ -464,6 +476,8 @@
             </dependency>
 
             <!--websocket end-->
+
+
 
 
         </dependencies>

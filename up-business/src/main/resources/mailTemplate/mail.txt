@@ -1,0 +1,11 @@
+<html>
+    <body>
+        <h3>你好：${user.name} </h3>
+        <h4>freeMark Mail Test</h4>
+        <div>
+            <p>用户Id : ${user.id}.</p>
+            <p>时间 : ${user.birthday?string("yyyy-MM-dd HH:mm:ss zzzz")}.</p>
+        </div>
+        <a href="https://youbatis.github.io/"><span>youBatis's blog</span></a>
+    </body>
+</html>
