@@ -461,7 +461,6 @@
             <!--七牛end-->
 
 
-
             <!--websocket start-->
             <dependency>
                 <groupId>org.springframework</groupId>
@@ -478,7 +477,14 @@
             <!--websocket end-->
 
 
-
+            <!--阿里 start-->
+            <!-- https://mvnrepository.com/artifact/com.aliyun/aliyun-java-sdk-core -->
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>aliyun-java-sdk-core</artifactId>
+                <version>3.3.1</version>
+            </dependency>
+            <!--阿里end-->
 
         </dependencies>
 
@@ -522,7 +528,7 @@
                     <target>${jdk.version}</target>
                     <encoding>${project.build.sourceEncoding}</encoding>
                     <compilerArguments>
-                        <verbose />
+                        <verbose/>
                         <bootclasspath>${java.home}\lib\rt.jar;${java.home}\lib\jce.jar</bootclasspath>
                     </compilerArguments>
                     <fork>true</fork>
