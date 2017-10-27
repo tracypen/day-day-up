@@ -26,10 +26,10 @@ public class DistrictServiceImpl extends BaseServiceImpl<District> implements Di
 
     private static final String LOG_MODUL = "区域管理";
 
-    Logger logger = LoggerFactory.getLogger(this.getClass());
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
-    DistrictRepository districtRepository;
+    private DistrictRepository districtRepository;
 
     @Override
     public PagingList<District> getDistrictPage(PageDto pageDto, District district) {
