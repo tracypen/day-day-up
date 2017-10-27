@@ -138,12 +138,12 @@ $(function () {
         $(".doedit").on('click',function () {
             var node = $(this).parents('tr');
             var disLevel = node.data('level');
-            console.log('level: ' + disLevel);
             var dis_code = $(this).parents('tr').attr('data-id');
             var data = {"code": dis_code,"parentCode":"",disLevel:""};
-            console.log($(this).attr('is_insert') + typeof $(this).attr('is_insert'));
-            if ($(this).attr('is_insert') === 'true'){
-                console.log('is_insert : '+ $(this).attr('is_insert'));
+            var is_insert = $(this).attr('is_insert');
+            console.log(is_insert + typeof is_insert);
+            if (is_insert){
+                 console.log('is_insert : '+ $(this).attr('is_insert'));
                  data = {"code": "","parentCode":dis_code,"disLevel":disLevel};
             }
             console.log(data);
@@ -155,6 +155,10 @@ $(function () {
                 dataType:'html',
                 success:function (data) {
                     $('.modal-body').html(data);
+                    $("#myModalLabel").html('编辑');
+                    if (is_insert == 'true'){
+                        $("#myModalLabel").html('新增');
+                    }
                     $("#loginModal").modal('show');
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -164,6 +168,8 @@ $(function () {
                     console.log(XMLHttpRequest.readyState);
                     // 错误信息
                     console.log(textStatus);
+
+                    console.log(errorThrown);
                 }
             })
         })

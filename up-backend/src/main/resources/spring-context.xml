@@ -77,7 +77,7 @@
     <bean id="springBeanUtils" class="com.hp.up.core.utils.SpringBeanUtils" scope="singleton"/>
 
      <!--作业调度器Quartz的配置。定义触发器来管理任务Bean,cronExpression指定Cron表达式：测试每5分钟执行一次-->
-    <bean id="cronTriggerPunch" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean" p:cronExpression="0 0/5 * ? * *">
+    <bean id="cronTriggerPunch" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean" p:cronExpression="0 0/2 * ? * *">
         <property name="jobDetail">
             <!-- 使用嵌套Bean的方式来定义任务Bean
                 jobClass指定任务Bean的实现类 -->
@@ -93,8 +93,6 @@
             </list>
         </property>
     </bean>
-
-    <bean id="MySchedule" class="com.hp.up.business.schedule.MySchedule"></bean>
 
     <import resource="/spring-ehcache.xml" />
     <import resource="/spring-mybatis.xml"/>

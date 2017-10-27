@@ -244,7 +244,22 @@ function addUser(){
         contentType:"application/json",
         "success" :function(msg){
             if (msg == true){
-                swal("添加用户成功！", "success", "success");
+
+                swal({
+                    title: "操作成功！",
+                    text: "",
+                    type: "success",
+                    showCancelButton: false,
+                    confirmButtonColor: "#0AA",
+                    confirmButtonText: "确定",
+                    cancelButtonText: "让我再考虑一下…",
+                    closeOnConfirm: false,
+                    closeOnCancel: false
+                }, function (isConfirm) {
+                    if (isConfirm) {
+                        window.location.href = ctx + '/user'
+                    }
+                })
                 $("#search-btn").click();
             }else{
                 swal("添加用户失败！", "请稍后尝试！", "error");
@@ -337,7 +352,7 @@ function initZtree() {
         data: {
             simpleData: {
                 enable: true,
-                idKey: "id",
+                idKey: "code",
                 pIdKey: "pId",
             }
         },
@@ -354,8 +369,11 @@ function initZtree() {
          dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
          contentType:"application/json",
          "success" :function(msg){
+             console.log(msg);
              nodes =  msg;
              zTreeObj = $.fn.zTree.init($("#treeDemo"), setting, nodes);
+             //设置节点自动展开
+            // zTreeObj.expandAll(true);
          },
          "error":function(msg){
             // alert(msg);
@@ -365,7 +383,7 @@ function initZtree() {
     //单击事件
     function zTreeOnClick(event, treeId, treeNode) {
         //alert(treeId);
-        alert("id: "+ treeNode.id + ", name:  " + treeNode.name +", pid :"+treeNode.pId);
+        alert("id: "+ treeNode.id + ", name:  " + treeNode.name +", pid :"+treeNode.pId+ ",code : "+ treeNode.code);
         //$(treeNode).addClass('active');
     };
 }

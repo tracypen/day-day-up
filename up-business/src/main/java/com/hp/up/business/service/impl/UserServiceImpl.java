@@ -76,12 +76,17 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
     @Override
     @Transactional
     @Log(module = "系统用户管理", description = "新增用户")
-    public int save(User user) {
-        int count = baseRepository.save(user);
+    public int save(final User user) {
+        final int count = baseRepository.save(user);
         //用户注册成功后发送邮件test
-        if (count > 0) {
-            sendRegistedMail(user);
-        }
+         new Thread(new Runnable() {
+             @Override
+             public void run() {
+                 if (count > 0) {
+                     sendRegistedMail(user);
+                 }
+             }
+         }).start();
         return count;
     }
 

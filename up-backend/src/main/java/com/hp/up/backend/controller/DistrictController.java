@@ -1,5 +1,6 @@
 package com.hp.up.backend.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.Lists;
 import com.hp.up.business.service.DistrictService;
 import com.hp.up.core.Entity.District;
@@ -63,6 +64,7 @@ public class DistrictController extends BaseController<District> {
 
         List<Map<String, Object>> treeResult = convert2ZTreeJson(districtList);
 
+        logger.info(JSONObject.toJSONString(treeResult,Boolean.TRUE));
         return super.getJsonResponseEntity(treeResult);
     }
 
@@ -114,7 +116,7 @@ public class DistrictController extends BaseController<District> {
      * @return JSON
      */
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public String doAddorUpdate(District district) {
+    public @ResponseBody String doAddorUpdate(District district) {
         if (null != district && null != district.getId() && district.getId() > 0) {
             District update = districtService.update(district);
             return null != update ? ResponseStatus.OK.toJson() : ResponseStatus.FAILURE_UPDATE.toJson();
@@ -134,8 +136,10 @@ public class DistrictController extends BaseController<District> {
         if (null != districtList.getData() && !districtList.getData().isEmpty()) {
             for (District district : districtList) {
                 Map<String, Object> map = BeanToMapConvert.toMap(district);
-                map.remove("parent_id");
-                map.put("parent_id", district.getParentCode());
+                map.remove("parentCode");
+                map.put("pId", district.getParentCode());
+                //设置ztree节点是否展开
+                // map.put("open", true);
                 result.add(map);
             }
         }

@@ -24,6 +24,7 @@ public class UserKeyGenerator implements KeyGenerator {
     @Override
     public Object generate(Object target, Method method, Object... params) {
 
+        log.info("自定义缓存key生成策略  com.hp.up.core.cache.ehcache.UserKeyGenerator ");
 
         StringBuilder key = new StringBuilder();
         key.append(target.getClass().getSimpleName()).append(".").append(method.getName()).append(":");

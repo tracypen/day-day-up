@@ -39,8 +39,6 @@ public class DistrictServiceImpl extends BaseServiceImpl<District> implements Di
 
         List<District> districtPageList = districtRepository.getDistrict(district);
 
-        logger.info("获取区域分页列表 List \n {}", JSONObject.toJSONString(districtPageList, Boolean.TRUE));
-
         //get pageInfo
         PageInfo<District> pageInfo = new PageInfo<District>(districtPageList);
 

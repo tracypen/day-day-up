@@ -3,15 +3,15 @@ package com.hp.up.business.schedule;
 import com.hp.up.business.service.MailService;
 import com.hp.up.core.Entity.MailEntity;
 import com.hp.up.core.Entity.User;
+import com.hp.up.core.utils.SpringBeanUtils;
 import com.hp.up.core.utils.date.DateUtils;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.quartz.QuartzJobBean;
-import org.springframework.stereotype.Component;
-
 import java.util.Date;
 
 /**
@@ -19,12 +19,11 @@ import java.util.Date;
  * @Author haopeng
  * @Date 2017/8/15 16:41
  */
-@Component
 public class MySchedule extends QuartzJobBean {
     private static Logger logger = LoggerFactory.getLogger(MySchedule.class);
 
-    @Autowired
-    private MailService mailService;
+
+
 
     @Override
     protected void executeInternal(JobExecutionContext jobExecutionContext) throws JobExecutionException {
@@ -32,6 +31,7 @@ public class MySchedule extends QuartzJobBean {
         String date = DateUtils.convert2String(new Date(), DateUtils.LONG_FORMAT);
 
         logger.info(date + "执行Quartz 任务调度");
+
 
         //1.执行一步消息任务
 
@@ -60,6 +60,7 @@ public class MySchedule extends QuartzJobBean {
         user.setId(12456789L);
         user.setName("Mcgrady");
         user.setBirthday(DateUtils.now());
+        MailService mailService = SpringBeanUtils.getBean(MailService.class);
         mailService.sendEmail(user,mailEntity);
     }
 }
