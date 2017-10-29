@@ -1,5 +1,6 @@
 package com.hp.up.backend.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.hp.up.backend.shiro.Exception.ShiroException;
 import com.hp.up.core.common.Constants;
 import com.hp.up.core.enums.ResponseStatus;
@@ -77,7 +78,6 @@ public class LoginController {
         if (subject != null && subject.isAuthenticated()) {
             String userName = (String) subject.getPrincipal();
             subject.logout();
-            logger.info(Constants.LOGPREFIX + userName + " 用户已退出！");
         }*/
         return "admin/login";
     }
@@ -101,7 +101,7 @@ public class LoginController {
 
             model.addAttribute("status", request.getParameter("status"));
 
-            logger.info(Constants.LOGPREFIX + userShiro.getName() + " 访问index.jsp");
+            logger.info(Constants.LOGPREFIX + JSONObject.toJSONString(userShiro,Boolean.TRUE));
         }
 
        // SavedRequest savedRequest = WebUtils.getAndClearSavedRequest(request);

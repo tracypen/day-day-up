@@ -7,8 +7,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @Author haopeng
- * @Date 2017/9/7 15:40
+ * 标识当前用户
+ * Created by haopeng on 2017/9/7 15:40
  */
 @Target({ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)

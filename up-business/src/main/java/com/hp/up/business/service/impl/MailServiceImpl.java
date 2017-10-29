@@ -41,6 +41,7 @@ public class MailServiceImpl implements MailService {
             mailSender.send(preparator);
             logger.info("mail send sesuccss.");
         } catch (MailException ex) {
+            ex.printStackTrace();
             logger.error(ex.getMessage(), ex);
         }
 

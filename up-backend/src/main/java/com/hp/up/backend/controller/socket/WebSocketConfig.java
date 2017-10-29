@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 
 /**
  * WebScoket配置处理器
- * @author 郝鹏
+ * @author haopeng
  * @date 2017/10/21  21:36
  */
 @Component

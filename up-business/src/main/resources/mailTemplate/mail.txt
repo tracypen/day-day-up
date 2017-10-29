@@ -6,6 +6,5 @@
             <p>用户Id : ${user.id}.</p>
             <p>时间 : ${user.birthday?string("yyyy-MM-dd HH:mm:ss zzzz")}.</p>
         </div>
-        <a href="https://youbatis.github.io/"><span>youBatis's blog</span></a>
     </body>
 </html>

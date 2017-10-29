@@ -15,6 +15,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import static org.junit.Assert.*;
 
 /**
+ * spring mail 测试
  * Created by haopeng on 2017/10/26 9:32
  */
 @RunWith(SpringJUnit4ClassRunner.class)

@@ -77,17 +77,7 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
     @Transactional
     @Log(module = "系统用户管理", description = "新增用户")
     public int save(final User user) {
-        final int count = baseRepository.save(user);
-        //用户注册成功后发送邮件test
-         new Thread(new Runnable() {
-             @Override
-             public void run() {
-                 if (count > 0) {
-                     sendRegistedMail(user);
-                 }
-             }
-         }).start();
-        return count;
+        return baseRepository.save(user);
     }
 
     @Override
@@ -131,23 +121,4 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
     public void afterPropertiesSet() throws Exception {
         super.baseRepository = userRepository;
     }
-
-    private void sendRegistedMail(User user){
-
-        //用户通知邮件
-        MailEntity mailEntity = new MailEntity("sign up success notify", "恭喜你注册成功！！！", user.getEmail());
-        JavaMailUtils.senMail(mailEntity);
-
-        //系统管理员通知邮件
-        String buffer = "有新用户注册成功" + "\n\r" +
-                "用户名:" + user.getName() +
-                "\n\r" +
-                "时间:" + DateUtils.convert2String(new Date(),DateUtils.LONG_FORMAT) +
-                "\n\r";
-
-        mailEntity = new MailEntity("sign up success notify", buffer, "18802953162@163.com");
-        JavaMailUtils.senMail(mailEntity);
-
-    }
-
 }

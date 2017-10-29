@@ -6,8 +6,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * @Author haopeng
- * @Date 2017/9/12 11:11
+ * Created by haopeng on 2017/9/12 11:11
  */
 public class Menu extends IdEntity implements Serializable {
     private static final long serialVersionUID = -6050648200939169980L;

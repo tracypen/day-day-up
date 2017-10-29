@@ -11,8 +11,7 @@ import java.lang.reflect.Method;
 import java.nio.charset.Charset;
 
 /**
- * @Author haopeng
- * @Date 2017/9/28 9:48
+ * Created by haopeng on 2017/9/13  14:15.
  */
 public class UserKeyGenerator implements KeyGenerator {
     private Logger log = LoggerFactory.getLogger(UserKeyGenerator.class);

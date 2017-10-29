@@ -16,7 +16,6 @@
         <profile.active>dev</profile.active>
         <project.module>up-backend</project.module>
     </properties>
-
     <dependencies>
 
         <dependency>

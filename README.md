@@ -1,20 +1,7 @@
 # day-day-up
 ![](http://wx2.sinaimg.cn/mw690/005QOldSly1fkk2wqy9z6j31hc0s1tdh.jpg)
 ## 项目简介
-- 1.基于SSM、maven搭建的web项目(包括前台后台)
-- 2.集成Apache shiro权限管理框架 
-- 3.使用 redis 作为缓存数据库
-- 4.quartz    任务调度
-- 5.activemq 消息队列
-- 6.Spring Email 邮件发送
-- 6.bootstrap 
-- 7.sitemesh  页面布局框架
-- 8.elasticsearch 全文搜索引擎
-- 9.datatable  表格插件
-- 10.POI Excel导入导出
-- 11.七牛云文件上传
-- 12.websocket即时通讯
-
+ 基于SSM、maven搭建的web项目(包括前台、后台、SDK)
 
 ## 模块说明
 - up-parent         聚合模块
@@ -28,10 +15,20 @@
 - up-utils       API接口模块(...)
 
 ## 技术选型
-- 核心框架：Spring Framework 4.3.6
-- 安全框架：Apache Shiro 1.3.2
-- 持久层框架：Mybatis（mybatis-plus）
-- 数据库连接池：Alibaba Druid 1.0.29
+- 1.基于SSM、maven搭建的web项目(包括前台后台)
+- 2.集成Apache shiro权限管理框架 
+- 3.使用 redis 作为缓存数据库
+- 4.quartz    任务调度
+- 5.activemq 消息队列
+- 6.Spring Email 邮件发送
+- 6.bootstrap 
+- 7.sitemesh  页面布局框架
+- 8.elasticsearch 全文搜索引擎
+- 9.datatable  表格插件
+- 10.POI Excel导入导出
+- 11.七牛云文件上传
+- 12.websocket即时通讯
+- 13.阿里大于短信验证码
 
 ##### 项目截图
 ![avatar](http://oxwfiudhp.bkt.clouddn.com/up.jpg)

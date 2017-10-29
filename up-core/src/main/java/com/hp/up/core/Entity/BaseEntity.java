@@ -10,9 +10,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * BaseEntity
- * @Author haopeng
- * @Date 2017/9/5 16:41
+ * Created by haopeng on 2017/9/13  22:11.
  */
 public abstract class BaseEntity implements Serializable{
 

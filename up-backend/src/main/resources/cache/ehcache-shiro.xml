@@ -41,9 +41,9 @@
 </ehcache>
 
 <!--
+        缓存更新策略
+        1 FIFO ，first in first out ，先进先出
 
-        1 FIFO ，first in first out ，这个是大家最熟的，先进先出，不多讲了
-
-        2 LFU ， Less Frequently Used ，就是上面例子中使用的策略，直白一点就是讲一直以来最少被使用的。如上面所讲，缓存的元素有一个hit 属性，hit 值最小的将会被清出缓存。
+        2 LFU ， Less Frequently Used ，最少被使用的
 
         2 LRU ，Least Recently Used ，最近最少使用的，缓存的元素有一个时间戳，当缓存容量满了，而又需要腾出地方来缓存新的元素的时候，那么现有缓存元素中时间戳离当前时间最远的元素将被清出缓存。-->

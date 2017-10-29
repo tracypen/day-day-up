@@ -473,19 +473,7 @@
                 <artifactId>spring-websocket</artifactId>
                 <version>4.0.5.RELEASE</version>
             </dependency>
-
             <!--websocket end-->
-
-
-            <!--阿里 start-->
-            <!-- https://mvnrepository.com/artifact/com.aliyun/aliyun-java-sdk-core -->
-            <dependency>
-                <groupId>com.aliyun</groupId>
-                <artifactId>aliyun-java-sdk-core</artifactId>
-                <version>3.3.1</version>
-            </dependency>
-            <!--阿里end-->
-
         </dependencies>
 
     </dependencyManagement>

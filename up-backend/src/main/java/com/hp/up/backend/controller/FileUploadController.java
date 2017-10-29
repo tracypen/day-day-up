@@ -1,7 +1,5 @@
 package com.hp.up.backend.controller;
 
-//import com.sun.deploy.net.URLEncoder;
-
 import com.google.gson.Gson;
 import com.hp.up.core.Entity.User;
 import com.hp.up.core.utils.file.CompressTools;
@@ -40,24 +38,30 @@ import java.util.UUID;
 @RequestMapping("/file")
 public class FileUploadController extends BaseController {
 
-    //默认头像地址
-    public static final String DEFAULT_HEAD_URL = "http://oxqtfspj0.bkt.clouddn.com/DEFAULT_HEAD_URL.png";
+    /**
+     * 默认头像地址
+     */
+    private static final String DEFAULT_HEAD_URL = "http://oxqtfspj0.bkt.clouddn.com/DEFAULT_HEAD_URL.png";
 
-    //七牛外链默认域名
-    public static final String OUT_URL = "http://oxqtfspj0.bkt.clouddn.com/";
+    /**
+     * 七牛外链默认域名
+     */
+    private static final String OUT_URL = "http://oxqtfspj0.bkt.clouddn.com/";
 
-    //七牛云账号的ACCESS_KEY和SECRET_KEY
-    private String ACCESS_KEY = "8RqeDjBEXVPK_ydlSiNTkXoi9SBsF-tBPJ21PtNS"; //这两个登录七牛 账号里面可以找到
-    private String SECRET_KEY = "pRkEFX-RSIWLY93Kd1NostyIA68p7s42LBMqzRpG";
+    /**
+     * 七牛云账号的ACCESS_KEY和SECRET_KEY
+     */
+    private String accessKey = "8RqeDjBEXVPK_ydlSiNTkXoi9SBsF-tBPJ21PtNS"; //这两个登录七牛 账号里面可以找到
+    private String secretKey = "pRkEFX-RSIWLY93Kd1NostyIA68p7s42LBMqzRpG";
 
     //要上传的空间
-    private String bucketname = "youbatis"; //对应要上传到七牛上 你的那个路径（自己建文件夹 注意设置公开）
+    private String bucketName = "youbatis"; //对应要上传到七牛上 你的那个路径（自己建文件夹 注意设置公开）
     //上传到七牛后保存的文件名
     private String key = null;
 
 
     //密钥配置
-    private Auth auth = Auth.create(ACCESS_KEY, SECRET_KEY);
+    private Auth auth = Auth.create(accessKey, secretKey);
     //构造一个带指定Zone对象的配置类
     Configuration cfg = new Configuration(Zone.zone0());
     //...其他参数参考类注释
@@ -72,13 +76,6 @@ public class FileUploadController extends BaseController {
     @RequestMapping(value = "/image", method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity singleFile(HttpServletRequest request) throws Exception {
-
-        /*Integer x = Integer.parseInt(MyStringTools.checkParameter(request.getParameter("x"), "图片截取异常:X！"));
-        Integer y = Integer.parseInt(MyStringTools.checkParameter(request.getParameter("y"), "图片截取异常:Y！"));
-        Integer w = Integer.parseInt(MyStringTools.checkParameter(request.getParameter("w"), "图片截取异常:W！"));
-        Integer h = Integer.parseInt(MyStringTools.checkParameter(request.getParameter("h"), "图片截取异常:H！"));
-        String scaleWidthString = MyStringTools.checkParameter(request.getParameter("sw"), "图片截取异常：SW！");
-        */
         Integer x = Integer.parseInt(request.getParameter("x"));
         Integer y = Integer.parseInt(request.getParameter("y"));
         Integer w = Integer.parseInt(request.getParameter("w"));
@@ -86,7 +83,6 @@ public class FileUploadController extends BaseController {
         String scaleWidthString = request.getParameter("sw");
         int swIndex = scaleWidthString.indexOf("px");
         Integer sw = Integer.parseInt(scaleWidthString.substring(0, swIndex));
-        //String scaleHeightString = MyStringTools.checkParameter(request.getParameter("sh"), "图片截取异常：SH！");
         String scaleHeightString = request.getParameter("sh");
         int shIndex = scaleHeightString.indexOf("px");
         Integer sh = Integer.parseInt(scaleHeightString.substring(0, shIndex));
@@ -150,7 +146,7 @@ public class FileUploadController extends BaseController {
 
 
 
-/*
+/*      不用七牛云文对的件上传
         CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver(request.getSession().getServletContext());
 
         MultipartFile file = null;
@@ -304,7 +300,7 @@ public class FileUploadController extends BaseController {
         StringMap putPolicy = new StringMap();
         putPolicy.put("returnBody", "{\"key\":\"$(key)\",\"hash\":\"$(etag)\",\"bucket\":\"$(bucket)\",\"fsize\":$(fsize)}");
         long expireSeconds = 3600;
-        return auth.uploadToken(bucketname, null, expireSeconds, putPolicy);
+        return auth.uploadToken(bucketName, null, expireSeconds, putPolicy);
     }
 
     //普通上传

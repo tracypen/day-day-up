@@ -1,8 +1,7 @@
 package com.hp.up.core.Entity;
 
 /**
- * @Author haopeng
- * @Date 2017/10/13 9:52
+ * Created by haopeng on 2017/9/13  22:11.
  */
 public class MailEntity {
     /**

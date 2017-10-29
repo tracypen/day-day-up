@@ -1,9 +1,7 @@
 package com.hp.up.core.common;
 
 /**
- * 系统常量
- * @Author haopeng
- * @Date 2017/9/5 16:41
+ * Created by haopeng on 2017/9/13  22:11.
  */
 public interface Constants {
 
@@ -11,7 +9,7 @@ public interface Constants {
 
     int DEFAULT_PAGE_SIZE = 15;
 
-    String LOGPREFIX = "****************************************************** ";
+    String LOGPREFIX = "system business log information : ";
 
     String ENCODING_UTF8 = "UTF-8";
 

@@ -2,10 +2,9 @@ package com.hp.up.core.Entity;
 
 /**
  * 权限实体 t_permission
- * @Author haopeng
- * @Date 2017/9/5 16:41
+ * Created by haopeng on 2017/9/5 16:41
  */
-public class Permission extends IdEntity{
+public class Permission extends IdEntity {
 
     private static final long serialVersionUID = -7110720775556600326L;
 
