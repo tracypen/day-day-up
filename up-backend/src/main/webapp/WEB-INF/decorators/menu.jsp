@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
-
+<%@ taglib uri="http://shiro.apache.org/tags" prefix="shiro" %>
 
 <link rel="stylesheet" href="${ctx}/static/css/fileinput/file-input.min.css">
 <link rel="stylesheet" href="${ctx}/static/css/jcrop/jquery.Jcrop.min.css">
