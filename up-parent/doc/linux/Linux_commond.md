@@ -1,27 +1,35 @@
 #Linux常用命令 
 
- 关闭防火墙
+关闭防火墙
 关闭命令：
-service iptables stop
+
+    service iptables stop
+    
 永久关闭防火墙：
-chkconfig iptables off
-两个命令同时运行，运行完成后查看防火墙关闭状态 ：
-service iptables status
+
+    chkconfig iptables off
+查看防火墙关闭状态 ：
+
+    service iptables status
 
 
 注意 CentOS 7.0默认使用的是firewall作为防火墙，这里改为iptables防火墙步骤。
 
 1、关闭firewall：
-systemctl stop firewalld.service #停止firewall
-systemctl disable firewalld.service #禁止firewall开机启动
-firewall-cmd --state #查看默认防火墙状态（关闭后显示notrunning，开启后显示running）
+
+    systemctl stop firewalld.service #停止firewall
+    systemctl disable firewalld.service #禁止firewall开机启动
+    firewall-cmd --state #查看默认防火墙状态（关闭后显示notrunning，开启后显示running）
 
 编辑防火墙白名单
- vim /etc/sysconfig/iptables
+
+    vim /etc/sysconfig/iptables
 增加下面一行代码
--A INPUT -p tcp -m state -- state NEW -m tcp --dport 80 -j ACCEPT
+
+    -A INPUT -p tcp -m state -- state NEW -m tcp --dport 80 -j ACCEPT
 保存退出，重启防火墙
- service iptables restart
+
+    service iptables restart
  
 
  
@@ -33,8 +41,10 @@ firewall-cmd --state #查看默认防火墙状态（关闭后显示notrunning，
  
  
  1)统计80端口连接数
- netstat -nat|grep -i "80"|wc -l
+ 
+    netstat -nat|grep -i "80"|wc -l
  
  2)查看端口是否在监听状态
- netstat -an | grep 9300  
+ 
+    netstat -an | grep 9300  
  
