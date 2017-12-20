@@ -1,7 +1,7 @@
 package com.hp.up.entity;
 
 /**
- * Created by Administrator on 2017/7/31.
+ * Created by youBatis on 2017/7/31.
  */
 public class User {
     private  Integer id;
