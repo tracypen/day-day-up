@@ -1,7 +1,13 @@
 ### Git 学习笔记(入门级)
 
 > 版本控制我只相信[Git](http://git-scm.com/download),包括github、gitlab都是git的衍生品
-#### 1.安装
+#### 1.概念
+* 工作区：就是电脑的工作目录
+* 版本库：每一个工作区中都有一个.git的隐藏目录，这个目录不属于工作区，这是版本库。其中版本库里面存了很多东西，其中最重要的就是stage(暂存区)，还有Git为我们自动创建了第一个分支master,以及指向master的一个指针HEAD。
+* Git提交到版本库需要两部：
+1. 第一步：使用git add 把文件添加到暂存区
+2. 第二步：使用git commit提交修改
+#### 2.安装
 * Linux 平台安装很简单  $ yum install git 
 * Windows平台也比较简单下载安装包一路Next 就行 ,我这里就是windows，因为之前已经安装，这里不再赘述
 安装完成后检查下git版本 输入 ```git --version```
