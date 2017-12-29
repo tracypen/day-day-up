@@ -62,7 +62,9 @@
 	}
 
 控制台打印
+
 ![](http://upload-images.jianshu.io/upload_images/8387919-b4387e5ba7977df3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 可以看到map0 虽然是个静态变量，但是initialValue被调用了三次，通过debug发现，initialValue是从map0.get处发起的。而且每个线程都有自己的map，虽然他们同时执行。
 
 查看Theadlocal源码，可以发现get()方法：
