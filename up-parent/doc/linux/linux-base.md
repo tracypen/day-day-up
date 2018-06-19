@@ -13,20 +13,20 @@ export JAVA_HOME JRE_HOME CLASS_PATH PATH
   编辑/etc/profile 文件
   
           ##########first tomcat########### 
-CATALINA_HOME=/usr/software/tomcat/tomcat8080/apache-tomcat-8.0.39
-TOMCAT_HOME=/usr/software/tomcat/tomcat8080/apache-tomcat-8.0.39
+CATALINA_HOME=/usr/software/tomcat/18080tomcat
+TOMCAT_HOME=/usr/software/tomcat/18080tomcat
 export CATALINA_BASE CATALINA_HOME TOMCAT_HOME
  
 		##########secend tomcat###########
- CATALINA_2_BASE=/usr/software/tomcat/tomcat8081/apache-tomcat-8.0.39
-CATALINA_2_HOME=/usr/software/tomcat/tomcat8081/apache-tomcat-8.0.39
-TOMCAT_2_HOME=/usr/software/tomcat/tomcat8081/apache-tomcat-8.0.39
+ CATALINA_2_BASE=/usr/software/tomcat/28080tomcat
+CATALINA_2_HOME=/usr/software/tomcat/28080tomcat
+TOMCAT_2_HOME=/usr/software/tomcat/28080tomcat
 export CATALINA_2_BASE CATALINA_2_HOME TOMCAT_2_HOME 
  
 		##########third tomcat###########
-CATALINA_3_BASE=/usr/software/tomcat/tomcat8082/apache-tomcat-8.0.39
-CATALINA_3_HOME=/usr/software/tomcat/tomcat8082/apache-tomcat-8.0.39
-TOMCAT_3_HOME=/usr/software/tomcat/tomcat8082/apache-tomcat-8.0.39
+CATALINA_3_BASE=/usr/software/tomcat/38080tomcat
+CATALINA_3_HOME=/usr/software/tomcat/38080tomcat
+TOMCAT_3_HOME=/usr/software/tomcat/38080tomcat
 export CATALINA_3_BASE CATALINA_3_HOME TOMCAT_3_HOME
 
 - 分别修改config/server.xml,中各个端口保证与另外两个tomcat不冲突
@@ -37,6 +37,17 @@ export CATALINA_3_BASE CATALINA_3_HOME TOMCAT_3_HOME
 export CATALINA_BASE=$CATALINA_3_BASE
 export CATALINA_HOME=$CATALINA_3_HOME
 分别启动三个tomcat ok！
+
+tail -f catalina.out
+
+
+centOS 6.5关闭防火墙步骤
+
+关闭命令：  service iptables stop 
+        永久关闭防火墙：chkconfig iptables off
+
+两个命令同时运行，运行完成后查看防火墙关闭状态 
+        service iptables status
 
 ##三.Redis安装
 

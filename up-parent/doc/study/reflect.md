@@ -7,20 +7,20 @@
       每个数组属于被映射为 Class 对象的一个类，所有具有相同元素类型和维数的数组都共享该 Class 对象。
  一般某个类的Class对象被载入内存，它就用来创建这个类的所有对象。
 			
-	package com.lxqn.jiapeng.reflect;
-	import java.lang.reflect.Method;
-	public class Test {
+	        package com.lxqn.jiapeng.reflect;
+	    import java.lang.reflect.Method;
+	    public class Test {
 	    private int sum = 1;
 	    private void function(){
 	    }
-    public static void main(String[] args) throws Exception{
+        public static void main(String[] args) throws Exception{
         Class clazz = Class.forName("com.lxqn.jiapeng.reflect.Test");
         Method[] methods = clazz.getDeclaredMethods();
         for (Method method : methods){
             System.out.println(method.getName());
         }
-    }
-}
+        }
+        }
 > *  JVM在类加载后，会生成类的字节码文件，同时会生成一个同名Class类文件。这个类文件存放这在jvm的方法区。
 > *  Class类封装一个对象和接口运行时的状态，当装载类时，Class类型的对象自动创建。
 > * 虚拟机为每种类型管理一个独一无二的Class对象。也就是说，每个类都有一个Class对象。运行程序时，Java虚拟机(JVM)首先  检查是否所要加载的类对应的Class对象是否已经加载。如果没有加载，JVM就会根据类名查找.class文件，并将其Class对象载 入。

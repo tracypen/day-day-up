@@ -20,7 +20,7 @@
  缺点：稳定性！某个进程或线程出错，可能导致大量请求无法处理，甚至导致整个服务宕机。
 
  https://www.lvtao.net/config/nginx-share.html
-
+```
    server {
                  listen 80;
                  server_name ht.ilr1000.com;
@@ -33,3 +33,4 @@
                         client_max_body_size   100m;
                  }
      }
+```
